@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { decodeSaveFromFile, encodeSaveToBlob, type DecodedSave } from "@/lib/save-decoder"
 import Link from "next/link"
+import { track } from "@vercel/analytics"
 
 interface CurrencyValues {
   fairyEmbers: number
@@ -77,6 +78,11 @@ export default function SwornSaveEditor() {
       })
 
       setCurrencies(newCurrencies)
+      track("file_uploaded", {
+        game: "Sworn",
+        fileSize: file.size,
+        fileName: file.name,
+      })
     } catch (error) {
       console.error("Error processing save file:", error)
       alert("Failed to process save file. Please ensure it is a valid Sworn save file.")
@@ -139,6 +145,11 @@ export default function SwornSaveEditor() {
       a.click()
       document.body.removeChild(a)
       URL.revokeObjectURL(url)
+      track("file_downloaded", {
+        game: "Sworn",
+        fileName: originalFile.name,
+        editedFileName: `${originalFile.name.replace(/\.[^/.]+$/, "")}_edited.dat`,
+      })
     } catch (error) {
       console.error("Error encoding save file:", error)
       alert("Failed to create edited save file.")
