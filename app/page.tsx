@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { Gamepad2 } from "lucide-react"
 import gamesData from "@/data/games.json"
 
@@ -22,7 +23,7 @@ export default function HomePage() {
           {gamesData.games.map((game) => (
             <Link key={game.id} href={game.route} className="group">
               <Card className="overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg h-full">
-                <div className="aspect-video w-full overflow-hidden bg-muted">
+                <div className="aspect-video w-full overflow-hidden bg-muted relative">
                   <img
                     src={game.image || "/placeholder.svg"}
                     alt={game.name}
@@ -30,7 +31,17 @@ export default function HomePage() {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-2xl">{game.name}</CardTitle>
+                  <div className="space-y-2">
+                    <CardTitle className="text-2xl">{game.name}</CardTitle>
+                    {game.supportedVersion && (
+                      <Badge
+                        variant="secondary"
+                        className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 hover:bg-cyan-500/30 font-medium"
+                      >
+                        Supported Version: {game.supportedVersion}
+                      </Badge>
+                    )}
+                  </div>
                   <CardDescription className="text-base">{game.description}</CardDescription>
                 </CardHeader>
                 <CardContent>

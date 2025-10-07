@@ -6,7 +6,8 @@
       "description": "Edit currencies and resources for your Sworn save files",
       "image": "/images/sworn-cover.png",
       "route": "/sworn",
-      "status": "available"
+      "status": "available",
+      "supportedVersion": "v1.0.1.0.1018"
     }
   ]
 }
