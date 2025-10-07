@@ -342,7 +342,7 @@ export default function SwornSaveEditor() {
             </div>
 
             <p className="text-xs text-center text-muted-foreground">
-              All processing happens in your browser. Your save file never leaves your device.
+              All processing of save files is happening locally in your browser.
             </p>
           </div>
         )}

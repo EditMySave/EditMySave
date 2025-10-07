@@ -14,8 +14,7 @@ export default function HomePage() {
             <h1 className="text-5xl font-bold text-balance">Game Save Editor</h1>
           </div>
           <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
-            Edit your game save files safely in your browser. All processing happens locally - your saves never leave
-            your device.
+            Edit your game save files directly in your browser, nothing to download.
           </p>
         </div>
 
@@ -46,7 +45,7 @@ export default function HomePage() {
 
         <div className="text-center pt-8">
           <p className="text-sm text-muted-foreground">
-            More games coming soon. All editors work entirely in your browser for maximum privacy and security.
+            More games coming soon. All editors work entirely in your browser.
           </p>
         </div>
       </div>
