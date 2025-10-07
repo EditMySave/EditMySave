@@ -1,0 +1,55 @@
+import Link from "next/link"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Gamepad2 } from "lucide-react"
+import gamesData from "@/data/games.json"
+
+export default function HomePage() {
+  return (
+    <main className="min-h-screen p-6 md:p-12 bg-background">
+      <div className="max-w-7xl mx-auto space-y-8">
+        <div className="text-center space-y-3">
+          <div className="flex items-center justify-center gap-3">
+            <Gamepad2 className="w-10 h-10 text-primary" />
+            <h1 className="text-5xl font-bold text-balance">Game Save Editor</h1>
+          </div>
+          <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
+            Edit your game save files safely in your browser. All processing happens locally - your saves never leave
+            your device.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {gamesData.games.map((game) => (
+            <Link key={game.id} href={game.route} className="group">
+              <Card className="overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg h-full">
+                <div className="aspect-video w-full overflow-hidden bg-muted">
+                  <img
+                    src={game.image || "/placeholder.svg"}
+                    alt={game.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-2xl">{game.name}</CardTitle>
+                  <CardDescription className="text-base">{game.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button className="w-full" variant="secondary">
+                    Open Editor
+                  </Button>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
+
+        <div className="text-center pt-8">
+          <p className="text-sm text-muted-foreground">
+            More games coming soon. All editors work entirely in your browser for maximum privacy and security.
+          </p>
+        </div>
+      </div>
+    </main>
+  )
+}
