@@ -211,7 +211,7 @@ export default function SwornSaveEditor() {
                     id="file-input"
                     className="hidden"
                     onChange={handleFileInput}
-                    accept=".sav,.save"
+                    accept=".dat"
                   />
                   <Button asChild variant="secondary">
                     <label htmlFor="file-input" className="cursor-pointer">
