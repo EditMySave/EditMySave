@@ -6,15 +6,15 @@
 :root {
   /* Updated to dark gaming theme */
   --background: oklch(0.12 0 0);
-  --foreground: oklch(0.98 0 0);
+  --foreground: rgb(236, 236, 236);
   --card: oklch(0.15 0 0);
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.15 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.7 0.15 270);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.25 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
+  --primary: rgb(64, 13, 38);
+  --primary-foreground: rgb(255, 255, 255);
+  --secondary: rgb(63, 13, 37);
+  --secondary-foreground: rgb(247, 247, 247);
   --muted: oklch(0.2 0 0);
   --muted-foreground: oklch(0.65 0 0);
   --accent: oklch(0.25 0 0);
@@ -29,7 +29,7 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
+  --radius: 1rem;
   --sidebar: oklch(0.15 0 0);
   --sidebar-foreground: oklch(0.98 0 0);
   --sidebar-primary: oklch(0.7 0.15 270);

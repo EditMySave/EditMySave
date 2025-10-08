@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useCallback } from "react"
-import { Upload, Download, Sparkles, ArrowLeft } from "lucide-react"
+import { Download, Sparkles, ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -11,6 +11,9 @@ import { Label } from "@/components/ui/label"
 import { decodeSaveFromFile, encodeSaveToBlob, type DecodedSave } from "@/lib/save-decoder"
 import Link from "next/link"
 import { track } from "@vercel/analytics"
+import { SaveFileUpload } from "@/components/save-file-upload"
+import { SaveLocationHelp } from "@/components/save-location-help"
+import gamesData from "@/data/games.json"
 
 interface CurrencyValues {
   fairyEmbers: number
@@ -158,6 +161,8 @@ export default function SwornSaveEditor() {
     }
   }
 
+  const gameData = gamesData.games.find((game) => game.id === "sworn")
+
   return (
     <main className="min-h-screen flex items-center justify-center p-4 bg-background">
       <div className="w-full max-w-4xl space-y-6">
@@ -180,47 +185,9 @@ export default function SwornSaveEditor() {
 
         {!saveData ? (
           <>
-            <Card className="border-border bg-muted/50">
-              <CardContent className="pt-4 pb-4">
-                <p className="text-sm text-muted-foreground text-center">
-                  <span className="font-medium text-foreground">Windows save location:</span>{" "}
-                  <code className="text-xs bg-background px-2 py-1 rounded">
-                    C:\Users\[USERNAME]\AppData\LocalLow\Windwalk Games\SWORN\data\[STEAM_ID]
-                  </code>
-                </p>
-              </CardContent>
-            </Card>
+            {gameData && <SaveLocationHelp platforms={gameData.platforms} gameName={gameData.name} />}
 
-            <Card className="border-2 border-dashed border-border">
-              <CardContent className="pt-6">
-                <div
-                  onDragOver={handleDragOver}
-                  onDragLeave={handleDragLeave}
-                  onDrop={handleDrop}
-                  className={`flex flex-col items-center justify-center gap-4 p-12 rounded-lg transition-colors ${
-                    isDragging ? "bg-accent" : "bg-card"
-                  }`}
-                >
-                  <Upload className="w-12 h-12 text-muted-foreground" />
-                  <div className="text-center space-y-2">
-                    <p className="text-lg font-medium">Drop your save file here</p>
-                    <p className="text-sm text-muted-foreground">or click to browse</p>
-                  </div>
-                  <input
-                    type="file"
-                    id="file-input"
-                    className="hidden"
-                    onChange={handleFileInput}
-                    accept=".dat"
-                  />
-                  <Button asChild variant="secondary">
-                    <label htmlFor="file-input" className="cursor-pointer">
-                      Browse Files
-                    </label>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            <SaveFileUpload onFileSelect={processSaveFile} acceptedFileTypes=".dat" isProcessing={isProcessing} />
           </>
         ) : (
           <div className="space-y-4">

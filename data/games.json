@@ -7,7 +7,24 @@
       "image": "/images/sworn-cover.png",
       "route": "/sworn",
       "status": "available",
-      "supportedVersion": "v1.0.1.0.1018"
+      "supportedVersion": "v1.0.1.0.1018",
+      "platforms": [
+        {
+          "name": "Steam",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Windwalk Games\\SWORN\\data\\[STEAM_ID]"
+          }
+        },
+        {
+          "name": "Xbox Game Pass",
+          "supported": false
+        },
+        {
+          "name": "Epic Games Store",
+          "supported": false
+        }
+      ]
     }
   ]
 }

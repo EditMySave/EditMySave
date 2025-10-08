@@ -33,14 +33,31 @@ export default function HomePage() {
                 <CardHeader>
                   <div className="space-y-2">
                     <CardTitle className="text-2xl">{game.name}</CardTitle>
-                    {game.supportedVersion && (
-                      <Badge
-                        variant="secondary"
-                        className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 hover:bg-cyan-500/30 font-medium"
-                      >
-                        Supported Version: {game.supportedVersion}
-                      </Badge>
-                    )}
+                    <div className="flex flex-wrap gap-2">
+                      {game.supportedVersion && (
+                        <Badge
+                          variant="secondary"
+                          className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 hover:bg-cyan-500/30 font-medium"
+                        >
+                          Supported Version: {game.supportedVersion}
+                        </Badge>
+                      )}
+                      {game.platforms && game.platforms.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                          {game.platforms
+                            .filter((platform) => platform.supported)
+                            .map((platform) => (
+                              <Badge
+                                key={platform.name}
+                                variant="secondary"
+                                className="bg-amber-500/20 text-amber-400 border-amber-500/30 hover:bg-amber-500/30 font-medium"
+                              >
+                                {platform.name}
+                              </Badge>
+                            ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                   <CardDescription className="text-base">{game.description}</CardDescription>
                 </CardHeader>
