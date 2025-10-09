@@ -3,9 +3,9 @@
 import type React from "react"
 
 import { useState, useCallback } from "react"
-import { Download, Sparkles, ArrowLeft } from "lucide-react"
+import { Sparkles, ArrowLeft, Coins, Save, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { decodeSaveFromFile, encodeSaveToBlob, type DecodedSave } from "@/lib/sworn/decoder"
@@ -13,7 +13,10 @@ import Link from "next/link"
 import { track } from "@vercel/analytics"
 import { SaveFileUpload } from "@/components/save-file-upload"
 import { SaveLocationHelp } from "@/components/save-location-help"
+import { EditorSidebar } from "@/components/editor-sidebar"
 import gamesData from "@/data/games.json"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { JsonTreeEditor } from "@/components/json-tree-editor"
 
 interface CurrencyValues {
   fairyEmbers: number
@@ -26,7 +29,7 @@ interface CurrencyValues {
 const CURRENCY_IDENTIFIERS = {
   crystalShards: "medaocebbencincbicdalchabd", // index 231
   fairyEmbers: "medaocebbencinfaibiembeb", // index 234
-  grailWater: "medaocebbencingbailgadeb", // index 236
+  grailWater: "medaocebbencincingbailgadeb", // index 236
   moonstone: "medaocebbencinmooncdone", // index 238
   silk: "medaocebbencincilk", // index 240
 }
@@ -163,176 +166,292 @@ export default function SwornSaveEditor() {
 
   const gameData = gamesData.games.find((game) => game.id === "sworn")
 
+  const quickStats = []
+
+  const quickActions = saveData
+    ? [
+        {
+          label: "Max All Currencies",
+          onClick: () => {
+            setCurrencies({
+              fairyEmbers: 999999,
+              silk: 999999,
+              moonstone: 999999,
+              grailWater: 999999,
+              crystalShards: 999999,
+            })
+          },
+          icon: <Sparkles className="w-4 h-4 mr-2" />,
+        },
+      ]
+    : []
+
   return (
-    <main className="min-h-screen flex items-center justify-center p-4 bg-background">
-      <div className="w-full max-w-4xl space-y-6">
-        <div className="flex justify-start">
-          <Button asChild variant="ghost" size="sm">
+    <main className="min-h-screen bg-slate-950 pb-20">
+      <div className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm sticky top-0 z-50">
+        <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Sparkles className="w-6 h-6 text-blue-500" />
+            <h1 className="text-xl font-bold text-slate-100">Sworn</h1>
+          </div>
+          <Button asChild variant="ghost" size="sm" className="text-slate-400 hover:text-slate-100">
             <Link href="/" className="gap-2">
               <ArrowLeft className="w-4 h-4" />
               Back to Games
             </Link>
           </Button>
         </div>
+      </div>
 
-        <div className="text-center space-y-2">
-          <div className="flex items-center justify-center gap-2">
-            <Sparkles className="w-8 h-8 text-primary" />
-            <h1 className="text-4xl font-bold text-balance">Sworn Save Editor</h1>
-          </div>
-          <p className="text-muted-foreground text-pretty">Edit your game currencies safely and easily</p>
-        </div>
-
+      <div className="w-full max-w-7xl mx-auto p-6">
         {!saveData ? (
-          <>
+          <div className="space-y-6">
+            <div className="text-center space-y-2 py-8">
+              <h2 className="text-3xl font-bold text-slate-100">Sworn Save Editor</h2>
+              <p className="text-slate-400">Edit your game currencies safely and easily</p>
+            </div>
+
             {gameData && <SaveLocationHelp platforms={gameData.platforms} gameName={gameData.name} />}
 
             <SaveFileUpload onFileSelect={processSaveFile} acceptedFileTypes=".dat" isProcessing={isProcessing} />
-          </>
+          </div>
         ) : (
-          <div className="space-y-4">
-            <div className="flex flex-wrap justify-center gap-4">
-              <Card className="hover:border-primary/50 transition-colors w-full md:w-[280px]">
-                <CardContent className="pt-6 space-y-4">
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="w-20 h-20 flex items-center justify-center">
-                      <img
-                        src="/images/sworn/fairyembers.png"
-                        alt="Fairy Embers"
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <Label htmlFor="fairy-embers" className="text-lg font-semibold">
-                      Fairy Embers
-                    </Label>
-                  </div>
-                  <Input
-                    id="fairy-embers"
-                    type="number"
-                    value={currencies.fairyEmbers}
-                    onChange={(e) => handleCurrencyChange("fairyEmbers", e.target.value)}
-                    min="0"
-                    className="font-mono text-center text-lg"
-                  />
-                </CardContent>
-              </Card>
+          <div className="flex gap-6 pt-4">
+            <EditorSidebar
+              onDownload={handleDownload}
+              onLoadNew={() => {
+                setSaveData(null)
+                setOriginalFile(null)
+              }}
+              isProcessing={isProcessing}
+              hasSaveData={!!saveData}
+              fileName={originalFile?.name}
+              fileSize={originalFile?.size}
+              lastModified={originalFile ? new Date() : undefined}
+              quickStats={quickStats}
+              quickActions={quickActions}
+            />
 
-              <Card className="hover:border-primary/50 transition-colors w-full md:w-[280px]">
-                <CardContent className="pt-6 space-y-4">
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="w-20 h-20 flex items-center justify-center">
-                      <img src="/images/sworn/silk.png" alt="Silk" className="w-full h-full object-contain" />
-                    </div>
-                    <Label htmlFor="silk" className="text-lg font-semibold">
-                      Silk
-                    </Label>
-                  </div>
-                  <Input
-                    id="silk"
-                    type="number"
-                    value={currencies.silk}
-                    onChange={(e) => handleCurrencyChange("silk", e.target.value)}
-                    min="0"
-                    className="font-mono text-center text-lg"
-                  />
-                </CardContent>
-              </Card>
+            <div className="flex-1 space-y-4">
+              <Tabs defaultValue="currencies" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 bg-slate-900/50 border border-slate-800">
+                  <TabsTrigger value="currencies" className="data-[state=active]:bg-slate-800">
+                    <Coins className="w-4 h-4 mr-2" />
+                    Currencies
+                  </TabsTrigger>
+                  <TabsTrigger value="raw" className="data-[state=active]:bg-slate-800">
+                    <Code className="w-4 h-4 mr-2" />
+                    Raw JSON
+                  </TabsTrigger>
+                </TabsList>
 
-              <Card className="hover:border-primary/50 transition-colors w-full md:w-[280px]">
-                <CardContent className="pt-6 space-y-4">
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="w-20 h-20 flex items-center justify-center">
-                      <img src="/images/sworn/moonstone.png" alt="Moonstone" className="w-full h-full object-contain" />
-                    </div>
-                    <Label htmlFor="moonstone" className="text-lg font-semibold">
-                      Moonstone
-                    </Label>
-                  </div>
-                  <Input
-                    id="moonstone"
-                    type="number"
-                    value={currencies.moonstone}
-                    onChange={(e) => handleCurrencyChange("moonstone", e.target.value)}
-                    min="0"
-                    className="font-mono text-center text-lg"
-                  />
-                </CardContent>
-              </Card>
+                <TabsContent value="currencies" className="space-y-4 mt-4">
+                  <Card className="bg-slate-900/50 border-slate-800">
+                    <CardHeader className="border-b border-slate-800">
+                      <div className="flex items-center justify-between">
+                        <CardTitle className="text-slate-100">Currencies</CardTitle>
+                        <Button
+                          onClick={() => {
+                            setCurrencies({
+                              fairyEmbers: 999999,
+                              silk: 999999,
+                              moonstone: 999999,
+                              grailWater: 999999,
+                              crystalShards: 999999,
+                            })
+                          }}
+                          variant="outline"
+                          size="sm"
+                          className="text-blue-400 border-blue-400/30 hover:bg-blue-400/10"
+                        >
+                          Max All
+                        </Button>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div className="space-y-3 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-16 h-16 flex items-center justify-center">
+                              <img
+                                src="/images/sworn/fairyembers.png"
+                                alt="Fairy Embers"
+                                className="w-full h-full object-contain"
+                              />
+                            </div>
+                            <div className="text-center">
+                              <Label htmlFor="fairy-embers" className="text-sm font-medium text-slate-300">
+                                Fairy Embers
+                              </Label>
+                              <p className="text-xs text-slate-500">Max: 999,999</p>
+                            </div>
+                          </div>
+                          <Input
+                            id="fairy-embers"
+                            type="number"
+                            value={currencies.fairyEmbers}
+                            onChange={(e) => handleCurrencyChange("fairyEmbers", e.target.value)}
+                            min="0"
+                            className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                          />
+                        </div>
 
-              <Card className="hover:border-primary/50 transition-colors w-full md:w-[280px]">
-                <CardContent className="pt-6 space-y-4">
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="w-20 h-20 flex items-center justify-center">
-                      <img
-                        src="/images/sworn/grailwater.png"
-                        alt="Grail Water"
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <Label htmlFor="grail-water" className="text-lg font-semibold">
-                      Grail Water
-                    </Label>
-                  </div>
-                  <Input
-                    id="grail-water"
-                    type="number"
-                    value={currencies.grailWater}
-                    onChange={(e) => handleCurrencyChange("grailWater", e.target.value)}
-                    min="0"
-                    className="font-mono text-center text-lg"
-                  />
-                </CardContent>
-              </Card>
+                        <div className="space-y-3 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-16 h-16 flex items-center justify-center">
+                              <img src="/images/sworn/silk.png" alt="Silk" className="w-full h-full object-contain" />
+                            </div>
+                            <div className="text-center">
+                              <Label htmlFor="silk" className="text-sm font-medium text-slate-300">
+                                Silk
+                              </Label>
+                              <p className="text-xs text-slate-500">Max: 999,999</p>
+                            </div>
+                          </div>
+                          <Input
+                            id="silk"
+                            type="number"
+                            value={currencies.silk}
+                            onChange={(e) => handleCurrencyChange("silk", e.target.value)}
+                            min="0"
+                            className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                          />
+                        </div>
 
-              <Card className="hover:border-primary/50 transition-colors w-full md:w-[280px]">
-                <CardContent className="pt-6 space-y-4">
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="w-20 h-20 flex items-center justify-center">
-                      <img
-                        src="/images/sworn/crystalshards.png"
-                        alt="Crystal Shards"
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                    <Label htmlFor="crystal-shards" className="text-lg font-semibold">
-                      Crystal Shards
-                    </Label>
-                  </div>
-                  <Input
-                    id="crystal-shards"
-                    type="number"
-                    value={currencies.crystalShards}
-                    onChange={(e) => handleCurrencyChange("crystalShards", e.target.value)}
-                    min="0"
-                    className="font-mono text-center text-lg"
-                  />
-                </CardContent>
-              </Card>
+                        <div className="space-y-3 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-16 h-16 flex items-center justify-center">
+                              <img
+                                src="/images/sworn/moonstone.png"
+                                alt="Moonstone"
+                                className="w-full h-full object-contain"
+                              />
+                            </div>
+                            <div className="text-center">
+                              <Label htmlFor="moonstone" className="text-sm font-medium text-slate-300">
+                                Moonstone
+                              </Label>
+                              <p className="text-xs text-slate-500">Max: 999,999</p>
+                            </div>
+                          </div>
+                          <Input
+                            id="moonstone"
+                            type="number"
+                            value={currencies.moonstone}
+                            onChange={(e) => handleCurrencyChange("moonstone", e.target.value)}
+                            min="0"
+                            className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                          />
+                        </div>
+
+                        <div className="space-y-3 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-16 h-16 flex items-center justify-center">
+                              <img
+                                src="/images/sworn/grailwater.png"
+                                alt="Grail Water"
+                                className="w-full h-full object-contain"
+                              />
+                            </div>
+                            <div className="text-center">
+                              <Label htmlFor="grail-water" className="text-sm font-medium text-slate-300">
+                                Grail Water
+                              </Label>
+                              <p className="text-xs text-slate-500">Max: 999,999</p>
+                            </div>
+                          </div>
+                          <Input
+                            id="grail-water"
+                            type="number"
+                            value={currencies.grailWater}
+                            onChange={(e) => handleCurrencyChange("grailWater", e.target.value)}
+                            min="0"
+                            className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                          />
+                        </div>
+
+                        <div className="space-y-3 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                          <div className="flex flex-col items-center gap-2">
+                            <div className="w-16 h-16 flex items-center justify-center">
+                              <img
+                                src="/images/sworn/crystalshards.png"
+                                alt="Crystal Shards"
+                                className="w-full h-full object-contain"
+                              />
+                            </div>
+                            <div className="text-center">
+                              <Label htmlFor="crystal-shards" className="text-sm font-medium text-slate-300">
+                                Crystal Shards
+                              </Label>
+                              <p className="text-xs text-slate-500">Max: 999,999</p>
+                            </div>
+                          </div>
+                          <Input
+                            id="crystal-shards"
+                            type="number"
+                            value={currencies.crystalShards}
+                            onChange={(e) => handleCurrencyChange("crystalShards", e.target.value)}
+                            min="0"
+                            className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                          />
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+
+                <TabsContent value="raw" className="space-y-4 mt-4">
+                  <Card className="bg-slate-900/50 border-slate-800">
+                    <CardHeader className="border-b border-slate-800">
+                      <CardTitle className="text-slate-100 flex items-center gap-2">
+                        <Code className="w-5 h-5" />
+                        Raw JSON Editor
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-6">
+                      <JsonTreeEditor data={saveData} onChange={setSaveData} />
+                    </CardContent>
+                  </Card>
+                </TabsContent>
+              </Tabs>
+
+              <div className="flex items-center justify-between p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-sm">
+                <div className="flex items-center gap-2 text-green-400">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  <span>{originalFile?.name} loaded</span>
+                </div>
+                <span className="text-slate-500">Last modified: {originalFile && formatDate(new Date())}</span>
+              </div>
             </div>
-
-            <div className="flex gap-3">
-              <Button onClick={handleDownload} disabled={isProcessing} className="flex-1" size="lg">
-                <Download className="w-4 h-4 mr-2" />
-                {isProcessing ? "Processing..." : "Download Edited Save"}
-              </Button>
-              <Button
-                onClick={() => {
-                  setSaveData(null)
-                  setOriginalFile(null)
-                }}
-                variant="outline"
-                size="lg"
-              >
-                Load New File
-              </Button>
-            </div>
-
-            <p className="text-xs text-center text-muted-foreground">
-              All processing of save files is happening locally in your browser.
-            </p>
           </div>
         )}
       </div>
+
+      {saveData && (
+        <div className="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm border-t border-slate-800 z-50">
+          <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-end">
+            <Button
+              onClick={handleDownload}
+              disabled={isProcessing}
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8"
+            >
+              <Save className="w-5 h-5 mr-2" />
+              {isProcessing ? "Processing..." : "Download Edited Save"}
+            </Button>
+          </div>
+        </div>
+      )}
     </main>
   )
+}
+
+function formatDate(date: Date) {
+  const now = new Date()
+  const diff = now.getTime() - date.getTime()
+  const minutes = Math.floor(diff / 60000)
+
+  if (minutes < 1) return "just now"
+  if (minutes < 60) return `${minutes} minute${minutes > 1 ? "s" : ""} ago`
+  return date.toLocaleDateString()
 }
