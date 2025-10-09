@@ -37,7 +37,7 @@ export default function HomePage() {
                       {game.supportedVersion && (
                         <Badge
                           variant="secondary"
-                          className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30 hover:bg-cyan-500/30 font-medium"
+                          className="bg-accent/20 text-accent-foreground border-accent/30 hover:bg-accent/30 font-medium"
                         >
                           Supported Version: {game.supportedVersion}
                         </Badge>
@@ -50,7 +50,7 @@ export default function HomePage() {
                               <Badge
                                 key={platform.name}
                                 variant="secondary"
-                                className="bg-amber-500/20 text-amber-400 border-amber-500/30 hover:bg-amber-500/30 font-medium"
+                                className="bg-secondary/20 text-secondary-foreground border-secondary/30 hover:bg-secondary/30 font-medium"
                               >
                                 {platform.name}
                               </Badge>

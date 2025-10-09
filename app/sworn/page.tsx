@@ -187,14 +187,14 @@ export default function SwornSaveEditor() {
     : []
 
   return (
-    <main className="min-h-screen bg-slate-950 pb-20">
-      <div className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm sticky top-0 z-50">
+    <main className="min-h-screen bg-background pb-20">
+      <div className="border-b border-border bg-card backdrop-blur-sm sticky top-0 z-50">
         <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Sparkles className="w-6 h-6 text-blue-500" />
-            <h1 className="text-xl font-bold text-slate-100">Sworn</h1>
+            <Sparkles className="w-6 h-6 text-primary" />
+            <h1 className="text-xl font-bold text-foreground">Sworn</h1>
           </div>
-          <Button asChild variant="ghost" size="sm" className="text-slate-400 hover:text-slate-100">
+          <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
             <Link href="/" className="gap-2">
               <ArrowLeft className="w-4 h-4" />
               Back to Games
@@ -207,8 +207,8 @@ export default function SwornSaveEditor() {
         {!saveData ? (
           <div className="space-y-6">
             <div className="text-center space-y-2 py-8">
-              <h2 className="text-3xl font-bold text-slate-100">Sworn Save Editor</h2>
-              <p className="text-slate-400">Edit your game currencies safely and easily</p>
+              <h2 className="text-3xl font-bold text-foreground">Sworn Save Editor</h2>
+              <p className="text-muted-foreground">Edit your game currencies safely and easily</p>
             </div>
 
             {gameData && <SaveLocationHelp platforms={gameData.platforms} gameName={gameData.name} />}
@@ -234,22 +234,22 @@ export default function SwornSaveEditor() {
 
             <div className="flex-1 space-y-4">
               <Tabs defaultValue="currencies" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 bg-slate-900/50 border border-slate-800">
-                  <TabsTrigger value="currencies" className="data-[state=active]:bg-slate-800">
+                <TabsList className="grid w-full grid-cols-2 bg-card border border-border">
+                  <TabsTrigger value="currencies" className="data-[state=active]:bg-muted">
                     <Coins className="w-4 h-4 mr-2" />
                     Currencies
                   </TabsTrigger>
-                  <TabsTrigger value="raw" className="data-[state=active]:bg-slate-800">
+                  <TabsTrigger value="raw" className="data-[state=active]:bg-muted">
                     <Code className="w-4 h-4 mr-2" />
                     Raw JSON
                   </TabsTrigger>
                 </TabsList>
 
                 <TabsContent value="currencies" className="space-y-4 mt-4">
-                  <Card className="bg-slate-900/50 border-slate-800">
-                    <CardHeader className="border-b border-slate-800">
+                  <Card className="bg-card border-border">
+                    <CardHeader className="border-b border-border">
                       <div className="flex items-center justify-between">
-                        <CardTitle className="text-slate-100">Currencies</CardTitle>
+                        <CardTitle className="text-foreground">Currencies</CardTitle>
                         <Button
                           onClick={() => {
                             setCurrencies({
@@ -262,7 +262,7 @@ export default function SwornSaveEditor() {
                           }}
                           variant="outline"
                           size="sm"
-                          className="text-blue-400 border-blue-400/30 hover:bg-blue-400/10"
+                          className="text-primary border-primary/30 hover:bg-primary/10"
                         >
                           Max All
                         </Button>
@@ -270,20 +270,20 @@ export default function SwornSaveEditor() {
                     </CardHeader>
                     <CardContent className="pt-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div className="space-y-3 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                        <div className="space-y-3 p-4 bg-muted rounded-lg border border-border">
                           <div className="flex flex-col items-center gap-2">
                             <div className="w-16 h-16 flex items-center justify-center">
                               <img
-                                src="/images/sworn/fairyembers.png"
+                                src="/images/fairyembers.png"
                                 alt="Fairy Embers"
                                 className="w-full h-full object-contain"
                               />
                             </div>
                             <div className="text-center">
-                              <Label htmlFor="fairy-embers" className="text-sm font-medium text-slate-300">
+                              <Label htmlFor="fairy-embers" className="text-sm font-medium text-card-foreground">
                                 Fairy Embers
                               </Label>
-                              <p className="text-xs text-slate-500">Max: 999,999</p>
+                              <p className="text-xs text-muted-foreground">Max: 999,999</p>
                             </div>
                           </div>
                           <Input
@@ -292,20 +292,20 @@ export default function SwornSaveEditor() {
                             value={currencies.fairyEmbers}
                             onChange={(e) => handleCurrencyChange("fairyEmbers", e.target.value)}
                             min="0"
-                            className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                            className="font-mono text-lg bg-input border-border text-foreground"
                           />
                         </div>
 
-                        <div className="space-y-3 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                        <div className="space-y-3 p-4 bg-muted rounded-lg border border-border">
                           <div className="flex flex-col items-center gap-2">
                             <div className="w-16 h-16 flex items-center justify-center">
-                              <img src="/images/sworn/silk.png" alt="Silk" className="w-full h-full object-contain" />
+                              <img src="/images/silk.png" alt="Silk" className="w-full h-full object-contain" />
                             </div>
                             <div className="text-center">
-                              <Label htmlFor="silk" className="text-sm font-medium text-slate-300">
+                              <Label htmlFor="silk" className="text-sm font-medium text-card-foreground">
                                 Silk
                               </Label>
-                              <p className="text-xs text-slate-500">Max: 999,999</p>
+                              <p className="text-xs text-muted-foreground">Max: 999,999</p>
                             </div>
                           </div>
                           <Input
@@ -314,24 +314,24 @@ export default function SwornSaveEditor() {
                             value={currencies.silk}
                             onChange={(e) => handleCurrencyChange("silk", e.target.value)}
                             min="0"
-                            className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                            className="font-mono text-lg bg-input border-border text-foreground"
                           />
                         </div>
 
-                        <div className="space-y-3 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                        <div className="space-y-3 p-4 bg-muted rounded-lg border border-border">
                           <div className="flex flex-col items-center gap-2">
                             <div className="w-16 h-16 flex items-center justify-center">
                               <img
-                                src="/images/sworn/moonstone.png"
+                                src="/images/moonstone.png"
                                 alt="Moonstone"
                                 className="w-full h-full object-contain"
                               />
                             </div>
                             <div className="text-center">
-                              <Label htmlFor="moonstone" className="text-sm font-medium text-slate-300">
+                              <Label htmlFor="moonstone" className="text-sm font-medium text-card-foreground">
                                 Moonstone
                               </Label>
-                              <p className="text-xs text-slate-500">Max: 999,999</p>
+                              <p className="text-xs text-muted-foreground">Max: 999,999</p>
                             </div>
                           </div>
                           <Input
@@ -340,24 +340,24 @@ export default function SwornSaveEditor() {
                             value={currencies.moonstone}
                             onChange={(e) => handleCurrencyChange("moonstone", e.target.value)}
                             min="0"
-                            className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                            className="font-mono text-lg bg-input border-border text-foreground"
                           />
                         </div>
 
-                        <div className="space-y-3 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                        <div className="space-y-3 p-4 bg-muted rounded-lg border border-border">
                           <div className="flex flex-col items-center gap-2">
                             <div className="w-16 h-16 flex items-center justify-center">
                               <img
-                                src="/images/sworn/grailwater.png"
+                                src="/images/grailwater.png"
                                 alt="Grail Water"
                                 className="w-full h-full object-contain"
                               />
                             </div>
                             <div className="text-center">
-                              <Label htmlFor="grail-water" className="text-sm font-medium text-slate-300">
+                              <Label htmlFor="grail-water" className="text-sm font-medium text-card-foreground">
                                 Grail Water
                               </Label>
-                              <p className="text-xs text-slate-500">Max: 999,999</p>
+                              <p className="text-xs text-muted-foreground">Max: 999,999</p>
                             </div>
                           </div>
                           <Input
@@ -366,24 +366,24 @@ export default function SwornSaveEditor() {
                             value={currencies.grailWater}
                             onChange={(e) => handleCurrencyChange("grailWater", e.target.value)}
                             min="0"
-                            className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                            className="font-mono text-lg bg-input border-border text-foreground"
                           />
                         </div>
 
-                        <div className="space-y-3 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                        <div className="space-y-3 p-4 bg-muted rounded-lg border border-border">
                           <div className="flex flex-col items-center gap-2">
                             <div className="w-16 h-16 flex items-center justify-center">
                               <img
-                                src="/images/sworn/crystalshards.png"
+                                src="/images/crystalshards.png"
                                 alt="Crystal Shards"
                                 className="w-full h-full object-contain"
                               />
                             </div>
                             <div className="text-center">
-                              <Label htmlFor="crystal-shards" className="text-sm font-medium text-slate-300">
+                              <Label htmlFor="crystal-shards" className="text-sm font-medium text-card-foreground">
                                 Crystal Shards
                               </Label>
-                              <p className="text-xs text-slate-500">Max: 999,999</p>
+                              <p className="text-xs text-muted-foreground">Max: 999,999</p>
                             </div>
                           </div>
                           <Input
@@ -392,7 +392,7 @@ export default function SwornSaveEditor() {
                             value={currencies.crystalShards}
                             onChange={(e) => handleCurrencyChange("crystalShards", e.target.value)}
                             min="0"
-                            className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                            className="font-mono text-lg bg-input border-border text-foreground"
                           />
                         </div>
                       </div>
@@ -401,9 +401,9 @@ export default function SwornSaveEditor() {
                 </TabsContent>
 
                 <TabsContent value="raw" className="space-y-4 mt-4">
-                  <Card className="bg-slate-900/50 border-slate-800">
-                    <CardHeader className="border-b border-slate-800">
-                      <CardTitle className="text-slate-100 flex items-center gap-2">
+                  <Card className="bg-card border-border">
+                    <CardHeader className="border-b border-border">
+                      <CardTitle className="text-foreground flex items-center gap-2">
                         <Code className="w-5 h-5" />
                         Raw JSON Editor
                       </CardTitle>
@@ -415,12 +415,12 @@ export default function SwornSaveEditor() {
                 </TabsContent>
               </Tabs>
 
-              <div className="flex items-center justify-between p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-sm">
+              <div className="flex items-center justify-between p-3 bg-card border border-border rounded-lg text-sm">
                 <div className="flex items-center gap-2 text-green-400">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                   <span>{originalFile?.name} loaded</span>
                 </div>
-                <span className="text-slate-500">Last modified: {originalFile && formatDate(new Date())}</span>
+                <span className="text-muted-foreground">Last modified: {originalFile && formatDate(new Date())}</span>
               </div>
             </div>
           </div>
@@ -428,13 +428,13 @@ export default function SwornSaveEditor() {
       </div>
 
       {saveData && (
-        <div className="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm border-t border-slate-800 z-50">
+        <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border z-50">
           <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-end">
             <Button
               onClick={handleDownload}
               disabled={isProcessing}
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
             >
               <Save className="w-5 h-5 mr-2" />
               {isProcessing ? "Processing..." : "Download Edited Save"}

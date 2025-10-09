@@ -51,29 +51,29 @@ export function EditorSidebar({
     <div className="w-72 shrink-0">
       <div className="sticky top-4 space-y-2">
         {hasSaveData && fileName && (
-          <Card className="bg-slate-900/50 border-slate-800 gap-0">
+          <Card className="bg-card border-border gap-0">
             <CardHeader className="pb-0 space-y-0">
-              <CardTitle className="text-sm font-semibold text-slate-200">Save File Info</CardTitle>
+              <CardTitle className="text-sm font-semibold text-card-foreground">Save File Info</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 text-sm pt-0">
               {fileName && (
                 <div className="flex justify-between">
-                  <span className="text-slate-400">File:</span>
-                  <span className="text-slate-200 font-mono text-xs truncate max-w-[140px]" title={fileName}>
+                  <span className="text-muted-foreground">File:</span>
+                  <span className="text-card-foreground font-mono text-xs truncate max-w-[140px]" title={fileName}>
                     {fileName}
                   </span>
                 </div>
               )}
               {fileSize && (
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Size:</span>
-                  <span className="text-slate-200">{formatFileSize(fileSize)}</span>
+                  <span className="text-muted-foreground">Size:</span>
+                  <span className="text-card-foreground">{formatFileSize(fileSize)}</span>
                 </div>
               )}
               {lastModified && (
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Loaded:</span>
-                  <span className="text-slate-200">{formatDate(lastModified)}</span>
+                  <span className="text-muted-foreground">Loaded:</span>
+                  <span className="text-card-foreground">{formatDate(lastModified)}</span>
                 </div>
               )}
             </CardContent>
@@ -81,21 +81,21 @@ export function EditorSidebar({
         )}
 
         {hasSaveData && quickStats.length > 0 && (
-          <Card className="bg-slate-900/50 border-slate-800 gap-0">
+          <Card className="bg-card border-border gap-0">
             <CardHeader className="pb-0">
-              <CardTitle className="text-sm font-semibold text-slate-200">Quick Stats</CardTitle>
+              <CardTitle className="text-sm font-semibold text-card-foreground">Quick Stats</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 pt-0">
               {quickStats.map((stat, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-2 bg-slate-800/50 rounded-md hover:bg-slate-800 transition-colors"
+                  className="flex items-center justify-between p-2 bg-muted rounded-md hover:bg-muted/80 transition-colors"
                 >
                   <div className="flex items-center gap-2">
                     {stat.icon}
-                    <span className="text-sm text-slate-300">{stat.label}</span>
+                    <span className="text-sm text-muted-foreground">{stat.label}</span>
                   </div>
-                  <span className="text-sm font-mono font-semibold text-slate-100">{stat.value.toLocaleString()}</span>
+                  <span className="text-sm font-mono font-semibold text-foreground">{stat.value.toLocaleString()}</span>
                 </div>
               ))}
             </CardContent>
@@ -103,9 +103,9 @@ export function EditorSidebar({
         )}
 
         {hasSaveData && quickActions.length > 0 && (
-          <Card className="bg-slate-900/50 border-slate-800 gap-0">
+          <Card className="bg-card border-border gap-0">
             <CardHeader className="pb-0">
-              <CardTitle className="text-sm font-semibold text-slate-200">Quick Actions</CardTitle>
+              <CardTitle className="text-sm font-semibold text-card-foreground">Quick Actions</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 pt-0">
               {quickActions.map((action, index) => (
@@ -114,7 +114,7 @@ export function EditorSidebar({
                   onClick={action.onClick}
                   variant="ghost"
                   size="sm"
-                  className="w-full justify-start text-slate-300 hover:text-slate-100 hover:bg-slate-800"
+                  className="w-full justify-start text-muted-foreground hover:text-foreground hover:bg-muted"
                 >
                   {action.icon}
                   {action.label}
@@ -124,16 +124,18 @@ export function EditorSidebar({
           </Card>
         )}
 
-        <Card className="bg-slate-900/50 border-slate-800 gap-0">
+        <Card className="bg-card border-border gap-0">
           <CardHeader className="pb-0">
-            <CardTitle className="text-sm font-semibold text-slate-200">{hasSaveData ? "Backup" : "Actions"}</CardTitle>
+            <CardTitle className="text-sm font-semibold text-card-foreground">
+              {hasSaveData ? "Backup" : "Actions"}
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-2 pt-0">
             {hasSaveData && (
               <Button
                 onClick={onDownload}
                 disabled={isProcessing}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 size="sm"
               >
                 <Save className="w-4 h-4 mr-2" />
@@ -144,7 +146,7 @@ export function EditorSidebar({
               onClick={onLoadNew}
               disabled={!hasSaveData}
               variant="ghost"
-              className="w-full text-slate-300 hover:text-slate-100 hover:bg-slate-800"
+              className="w-full text-muted-foreground hover:text-foreground hover:bg-muted"
               size="sm"
             >
               <Upload className="w-4 h-4 mr-2" />

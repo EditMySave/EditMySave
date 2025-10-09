@@ -5,7 +5,7 @@
 
 :root {
   /* Updated to dark gaming theme */
-  --background: oklch(0.12 0 0);
+  --background: rgb(7, 7, 7);
   --foreground: rgb(236, 236, 236);
   --card: oklch(0.15 0 0);
   --card-foreground: oklch(0.98 0 0);
@@ -13,12 +13,12 @@
   --popover-foreground: oklch(0.98 0 0);
   --primary: rgb(64, 13, 38);
   --primary-foreground: rgb(255, 255, 255);
-  --secondary: rgb(63, 13, 37);
+  --secondary: rgb(6, 173, 214);
   --secondary-foreground: rgb(247, 247, 247);
   --muted: oklch(0.2 0 0);
   --muted-foreground: oklch(0.65 0 0);
   --accent: oklch(0.25 0 0);
-  --accent-foreground: oklch(0.98 0 0);
+  --accent-foreground: rgb(255, 69, 255);
   --destructive: oklch(0.55 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.25 0 0);
