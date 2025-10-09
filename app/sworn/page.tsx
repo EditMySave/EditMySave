@@ -34,6 +34,44 @@ const CURRENCY_IDENTIFIERS = {
   silk: "medaocebbencincilk", // index 240
 }
 
+const CURRENCIES = [
+  {
+    id: "fairy-embers",
+    name: "Fairy Embers",
+    stateKey: "fairyEmbers" as keyof CurrencyValues,
+    image: "/images/fairyembers.png",
+    max: 999999,
+  },
+  {
+    id: "silk",
+    name: "Silk",
+    stateKey: "silk" as keyof CurrencyValues,
+    image: "/images/silk.png",
+    max: 999999,
+  },
+  {
+    id: "moonstone",
+    name: "Moonstone",
+    stateKey: "moonstone" as keyof CurrencyValues,
+    image: "/images/moonstone.png",
+    max: 999999,
+  },
+  {
+    id: "grail-water",
+    name: "Grail Water",
+    stateKey: "grailWater" as keyof CurrencyValues,
+    image: "/images/grailwater.png",
+    max: 999999,
+  },
+  {
+    id: "crystal-shards",
+    name: "Crystal Shards",
+    stateKey: "crystalShards" as keyof CurrencyValues,
+    image: "/images/crystalshards.png",
+    max: 999999,
+  },
+]
+
 export default function SwornSaveEditor() {
   const [isDragging, setIsDragging] = useState(false)
   const [saveData, setSaveData] = useState<DecodedSave | null>(null)
@@ -270,131 +308,33 @@ export default function SwornSaveEditor() {
                     </CardHeader>
                     <CardContent className="pt-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div className="space-y-3 p-4 bg-muted rounded-lg border border-border">
-                          <div className="flex flex-col items-center gap-2">
-                            <div className="w-16 h-16 flex items-center justify-center">
-                              <img
-                                src="/images/fairyembers.png"
-                                alt="Fairy Embers"
-                                className="w-full h-full object-contain"
-                              />
+                        {CURRENCIES.map((currency) => (
+                          <div key={currency.id} className="space-y-3 p-4 bg-muted rounded-lg border border-border">
+                            <div className="flex flex-col items-center gap-2">
+                              <div className="w-16 h-16 flex items-center justify-center">
+                                <img
+                                  src={currency.image || "/placeholder.svg"}
+                                  alt={currency.name}
+                                  className="w-full h-full object-contain"
+                                />
+                              </div>
+                              <div className="text-center">
+                                <Label htmlFor={currency.id} className="items-center justify-center text-sm font-medium text-card-foreground">
+                                  {currency.name}
+                                </Label>
+                                <p className="text-xs text-muted-foreground">Max: {currency.max.toLocaleString()}</p>
+                              </div>
                             </div>
-                            <div className="text-center">
-                              <Label htmlFor="fairy-embers" className="text-sm font-medium text-card-foreground">
-                                Fairy Embers
-                              </Label>
-                              <p className="text-xs text-muted-foreground">Max: 999,999</p>
-                            </div>
+                            <Input
+                              id={currency.id}
+                              type="number"
+                              value={currencies[currency.stateKey]}
+                              onChange={(e) => handleCurrencyChange(currency.stateKey, e.target.value)}
+                              min="0"
+                              className="font-mono text-lg bg-input border-border text-foreground"
+                            />
                           </div>
-                          <Input
-                            id="fairy-embers"
-                            type="number"
-                            value={currencies.fairyEmbers}
-                            onChange={(e) => handleCurrencyChange("fairyEmbers", e.target.value)}
-                            min="0"
-                            className="font-mono text-lg bg-input border-border text-foreground"
-                          />
-                        </div>
-
-                        <div className="space-y-3 p-4 bg-muted rounded-lg border border-border">
-                          <div className="flex flex-col items-center gap-2">
-                            <div className="w-16 h-16 flex items-center justify-center">
-                              <img src="/images/silk.png" alt="Silk" className="w-full h-full object-contain" />
-                            </div>
-                            <div className="text-center">
-                              <Label htmlFor="silk" className="text-sm font-medium text-card-foreground">
-                                Silk
-                              </Label>
-                              <p className="text-xs text-muted-foreground">Max: 999,999</p>
-                            </div>
-                          </div>
-                          <Input
-                            id="silk"
-                            type="number"
-                            value={currencies.silk}
-                            onChange={(e) => handleCurrencyChange("silk", e.target.value)}
-                            min="0"
-                            className="font-mono text-lg bg-input border-border text-foreground"
-                          />
-                        </div>
-
-                        <div className="space-y-3 p-4 bg-muted rounded-lg border border-border">
-                          <div className="flex flex-col items-center gap-2">
-                            <div className="w-16 h-16 flex items-center justify-center">
-                              <img
-                                src="/images/moonstone.png"
-                                alt="Moonstone"
-                                className="w-full h-full object-contain"
-                              />
-                            </div>
-                            <div className="text-center">
-                              <Label htmlFor="moonstone" className="text-sm font-medium text-card-foreground">
-                                Moonstone
-                              </Label>
-                              <p className="text-xs text-muted-foreground">Max: 999,999</p>
-                            </div>
-                          </div>
-                          <Input
-                            id="moonstone"
-                            type="number"
-                            value={currencies.moonstone}
-                            onChange={(e) => handleCurrencyChange("moonstone", e.target.value)}
-                            min="0"
-                            className="font-mono text-lg bg-input border-border text-foreground"
-                          />
-                        </div>
-
-                        <div className="space-y-3 p-4 bg-muted rounded-lg border border-border">
-                          <div className="flex flex-col items-center gap-2">
-                            <div className="w-16 h-16 flex items-center justify-center">
-                              <img
-                                src="/images/grailwater.png"
-                                alt="Grail Water"
-                                className="w-full h-full object-contain"
-                              />
-                            </div>
-                            <div className="text-center">
-                              <Label htmlFor="grail-water" className="text-sm font-medium text-card-foreground">
-                                Grail Water
-                              </Label>
-                              <p className="text-xs text-muted-foreground">Max: 999,999</p>
-                            </div>
-                          </div>
-                          <Input
-                            id="grail-water"
-                            type="number"
-                            value={currencies.grailWater}
-                            onChange={(e) => handleCurrencyChange("grailWater", e.target.value)}
-                            min="0"
-                            className="font-mono text-lg bg-input border-border text-foreground"
-                          />
-                        </div>
-
-                        <div className="space-y-3 p-4 bg-muted rounded-lg border border-border">
-                          <div className="flex flex-col items-center gap-2">
-                            <div className="w-16 h-16 flex items-center justify-center">
-                              <img
-                                src="/images/crystalshards.png"
-                                alt="Crystal Shards"
-                                className="w-full h-full object-contain"
-                              />
-                            </div>
-                            <div className="text-center">
-                              <Label htmlFor="crystal-shards" className="text-sm font-medium text-card-foreground">
-                                Crystal Shards
-                              </Label>
-                              <p className="text-xs text-muted-foreground">Max: 999,999</p>
-                            </div>
-                          </div>
-                          <Input
-                            id="crystal-shards"
-                            type="number"
-                            value={currencies.crystalShards}
-                            onChange={(e) => handleCurrencyChange("crystalShards", e.target.value)}
-                            min="0"
-                            className="font-mono text-lg bg-input border-border text-foreground"
-                          />
-                        </div>
+                        ))}
                       </div>
                     </CardContent>
                   </Card>
