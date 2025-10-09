@@ -332,7 +332,7 @@ export default function MegabonkSaveEditor() {
     const mapProgress = saveData.menuMeta.mapsProgress[mapName]
 
     const newTierCompletions = { ...mapProgress.tierCompletionsWithCharacters }
-    const newNumRuns = { ...mapProgress.numRunsByTier }
+    const newNumRuns = { ...mapProgress.numRunsByTier } // Corrected variable name
     const newHighscores = { ...mapProgress.tierHighscores }
     const newFastestTimes = { ...mapProgress.tierFastestTimes }
 
@@ -479,14 +479,14 @@ export default function MegabonkSaveEditor() {
   const gameData = gamesData.games.find((game) => game.id === "megabonk")
 
   return (
-    <main className="min-h-screen bg-slate-950 pb-20">
-      <div className="border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm sticky top-0 z-50">
+    <main className="min-h-screen bg-background pb-20">
+      <div className="border-b border-border bg-card backdrop-blur-sm sticky top-0 z-50">
         <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Sparkles className="w-6 h-6 text-blue-500" />
-            <h1 className="text-xl font-bold text-slate-100">Megabonk</h1>
+            <Sparkles className="w-6 h-6 text-primary" />
+            <h1 className="text-xl font-bold text-foreground">Megabonk</h1>
           </div>
-          <Button asChild variant="ghost" size="sm" className="text-slate-400 hover:text-slate-100">
+          <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
             <Link href="/" className="gap-2">
               <ArrowLeft className="w-4 h-4" />
               Back to Games
@@ -499,8 +499,10 @@ export default function MegabonkSaveEditor() {
         {!saveData ? (
           <div className="space-y-6">
             <div className="text-center space-y-2 py-8">
-              <h2 className="text-3xl font-bold text-slate-100">Megabonk Save Editor</h2>
-              <p className="text-slate-400">Edit currencies, characters, achievements, shop items, and purchases</p>
+              <h2 className="text-3xl font-bold text-foreground">Megabonk Save Editor</h2>
+              <p className="text-muted-foreground">
+                Edit currencies, characters, achievements, shop items, and purchases
+              </p>
             </div>
 
             {gameData && <SaveLocationHelp platforms={gameData.platforms} gameName={gameData.name} />}
@@ -526,32 +528,32 @@ export default function MegabonkSaveEditor() {
 
             <div className="flex-1 space-y-4">
               <Tabs defaultValue="currencies" className="w-full">
-                <TabsList className="grid w-full grid-cols-7 bg-slate-900/50 border border-slate-800">
-                  <TabsTrigger value="currencies" className="data-[state=active]:bg-slate-800">
+                <TabsList className="grid w-full grid-cols-7 bg-card border border-border">
+                  <TabsTrigger value="currencies" className="data-[state=active]:bg-muted">
                     <Coins className="w-4 h-4 mr-2" />
                     Currencies
                   </TabsTrigger>
-                  <TabsTrigger value="shop" className="data-[state=active]:bg-slate-800">
+                  <TabsTrigger value="shop" className="data-[state=active]:bg-muted">
                     <ShoppingBag className="w-4 h-4 mr-2" />
                     Shop Items
                   </TabsTrigger>
-                  <TabsTrigger value="characters" className="data-[state=active]:bg-slate-800">
+                  <TabsTrigger value="characters" className="data-[state=active]:bg-muted">
                     <Users className="w-4 h-4 mr-2" />
                     Characters
                   </TabsTrigger>
-                  <TabsTrigger value="achievements" className="data-[state=active]:bg-slate-800">
+                  <TabsTrigger value="achievements" className="data-[state=active]:bg-muted">
                     <Trophy className="w-4 h-4 mr-2" />
                     Achievements
                   </TabsTrigger>
-                  <TabsTrigger value="purchases" className="data-[state=active]:bg-slate-800">
+                  <TabsTrigger value="purchases" className="data-[state=active]:bg-muted">
                     <Package className="w-4 h-4 mr-2" />
                     Purchases
                   </TabsTrigger>
-                  <TabsTrigger value="maps" className="data-[state=active]:bg-slate-800">
+                  <TabsTrigger value="maps" className="data-[state=active]:bg-muted">
                     <Map className="w-4 h-4 mr-2" />
                     Maps
                   </TabsTrigger>
-                  <TabsTrigger value="raw" className="data-[state=active]:bg-slate-800">
+                  <TabsTrigger value="raw" className="data-[state=active]:bg-muted">
                     <Code className="w-4 h-4 mr-2" />
                     Raw JSON
                   </TabsTrigger>
@@ -559,9 +561,9 @@ export default function MegabonkSaveEditor() {
 
                 <TabsContent value="currencies" className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <Card className="bg-slate-900/50 border-slate-800">
+                    <Card className="bg-card border-border">
                       <CardHeader className="pb-3">
-                        <CardTitle className="flex items-center gap-2 text-slate-100">
+                        <CardTitle className="flex items-center gap-2 text-foreground">
                           <Coins className="w-5 h-5 text-yellow-500" />
                           Gold
                         </CardTitle>
@@ -572,15 +574,15 @@ export default function MegabonkSaveEditor() {
                           value={saveData.gold}
                           onChange={(e) => updateCurrency("gold", e.target.value)}
                           min="0"
-                          className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                          className="font-mono text-lg bg-muted border-border text-foreground"
                         />
                       </CardContent>
                     </Card>
 
-                    <Card className="bg-slate-900/50 border-slate-800">
+                    <Card className="bg-card border-border">
                       <CardHeader className="pb-3">
-                        <CardTitle className="flex items-center gap-2 text-slate-100">
-                          <Coins className="w-5 h-5 text-slate-400" />
+                        <CardTitle className="flex items-center gap-2 text-foreground">
+                          <Coins className="w-5 h-5 text-muted-foreground" />
                           Silver
                         </CardTitle>
                       </CardHeader>
@@ -590,7 +592,7 @@ export default function MegabonkSaveEditor() {
                           value={saveData.silver}
                           onChange={(e) => updateCurrency("silver", e.target.value)}
                           min="0"
-                          className="font-mono text-lg bg-slate-900/50 border-slate-700 text-slate-100"
+                          className="font-mono text-lg bg-muted border-border text-foreground"
                         />
                       </CardContent>
                     </Card>
@@ -598,15 +600,15 @@ export default function MegabonkSaveEditor() {
                 </TabsContent>
 
                 <TabsContent value="shop" className="space-y-4">
-                  <Card className="bg-slate-900/50 border-slate-800">
-                    <CardHeader className="border-b border-slate-800">
+                  <Card className="bg-card border-border">
+                    <CardHeader className="border-b border-border">
                       <div className="flex justify-between items-center">
-                        <CardTitle className="text-slate-100">Shop Items</CardTitle>
+                        <CardTitle className="text-foreground">Shop Items</CardTitle>
                         <Button
                           onClick={maxAllShopItems}
                           variant="outline"
                           size="sm"
-                          className="text-blue-400 border-blue-400/30 hover:bg-blue-400/10 bg-transparent"
+                          className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent"
                         >
                           Max All (999)
                         </Button>
@@ -616,17 +618,14 @@ export default function MegabonkSaveEditor() {
                       <ScrollArea className="h-[500px] pr-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                           {Object.entries(saveData.shopItems).map(([item, quantity]) => (
-                            <div
-                              key={item}
-                              className="space-y-2 p-3 bg-slate-800/30 rounded-lg border border-slate-700/50"
-                            >
-                              <Label className="text-sm font-medium text-slate-300">{item}</Label>
+                            <div key={item} className="space-y-2 p-3 bg-muted rounded-lg border border-border">
+                              <Label className="text-sm font-medium text-card-foreground">{item}</Label>
                               <Input
                                 type="number"
                                 value={quantity}
                                 onChange={(e) => updateShopItem(item, e.target.value)}
                                 min="0"
-                                className="font-mono bg-slate-900/50 border-slate-700 text-slate-100"
+                                className="font-mono bg-background border-border text-foreground"
                               />
                             </div>
                           ))}
@@ -637,16 +636,16 @@ export default function MegabonkSaveEditor() {
                 </TabsContent>
 
                 <TabsContent value="characters" className="space-y-4">
-                  <Card className="bg-slate-900/50 border-slate-800">
-                    <CardHeader className="border-b border-slate-800">
+                  <Card className="bg-card border-border">
+                    <CardHeader className="border-b border-border">
                       <div className="flex justify-between items-center">
-                        <CardTitle className="text-slate-100">Characters</CardTitle>
+                        <CardTitle className="text-foreground">Characters</CardTitle>
                         <div className="flex gap-2">
                           <Button
                             onClick={unlockAllCharacters}
                             variant="outline"
                             size="sm"
-                            className="text-blue-400 border-blue-400/30 hover:bg-blue-400/10 bg-transparent"
+                            className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent"
                           >
                             Unlock All
                           </Button>
@@ -654,7 +653,7 @@ export default function MegabonkSaveEditor() {
                             onClick={maxAllCharacters}
                             variant="outline"
                             size="sm"
-                            className="text-blue-400 border-blue-400/30 hover:bg-blue-400/10 bg-transparent"
+                            className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent"
                           >
                             Max All
                           </Button>
@@ -667,12 +666,9 @@ export default function MegabonkSaveEditor() {
                           {Object.entries(saveData.characterProgression).map(([character, data]) => {
                             const isUnlocked = data.xp > 0 || data.numRuns > 0
                             return (
-                              <div
-                                key={character}
-                                className="space-y-3 p-4 bg-slate-800/30 rounded-lg border border-slate-700/50"
-                              >
+                              <div key={character} className="space-y-3 p-4 bg-muted rounded-lg border border-border">
                                 <div className="flex items-center justify-between">
-                                  <span className="font-medium text-slate-100">{character}</span>
+                                  <span className="font-medium text-foreground">{character}</span>
                                   {isUnlocked ? (
                                     <Badge
                                       variant="secondary"
@@ -686,7 +682,7 @@ export default function MegabonkSaveEditor() {
                                       onClick={() => toggleCharacterUnlock(character, true)}
                                       size="sm"
                                       variant="outline"
-                                      className="gap-1 text-blue-400 border-blue-400/30 hover:bg-blue-400/10"
+                                      className="gap-1 text-primary border-primary/30 hover:bg-primary/10"
                                     >
                                       <Lock className="w-3 h-3" />
                                       Unlock
@@ -695,7 +691,7 @@ export default function MegabonkSaveEditor() {
                                 </div>
                                 <div className="space-y-2">
                                   <div className="space-y-1.5">
-                                    <Label htmlFor={`${character}-xp`} className="text-xs text-slate-400">
+                                    <Label htmlFor={`${character}-xp`} className="text-xs text-muted-foreground">
                                       XP
                                     </Label>
                                     <Input
@@ -704,11 +700,11 @@ export default function MegabonkSaveEditor() {
                                       value={data.xp}
                                       onChange={(e) => updateCharacterXP(character, e.target.value)}
                                       min="0"
-                                      className="font-mono bg-slate-900/50 border-slate-700 text-slate-100"
+                                      className="font-mono bg-background border-border text-foreground"
                                     />
                                   </div>
                                   <div className="space-y-1.5">
-                                    <Label htmlFor={`${character}-runs`} className="text-xs text-slate-400">
+                                    <Label htmlFor={`${character}-runs`} className="text-xs text-muted-foreground">
                                       Number of Runs
                                     </Label>
                                     <Input
@@ -717,7 +713,7 @@ export default function MegabonkSaveEditor() {
                                       value={data.numRuns}
                                       onChange={(e) => updateCharacterRuns(character, e.target.value)}
                                       min="0"
-                                      className="font-mono bg-slate-900/50 border-slate-700 text-slate-100"
+                                      className="font-mono bg-background border-border text-foreground"
                                     />
                                   </div>
                                 </div>
@@ -731,27 +727,27 @@ export default function MegabonkSaveEditor() {
                 </TabsContent>
 
                 <TabsContent value="achievements" className="space-y-4">
-                  <Card className="bg-slate-900/50 border-slate-800">
-                    <CardHeader className="border-b border-slate-800">
+                  <Card className="bg-card border-border">
+                    <CardHeader className="border-b border-border">
                       <div className="flex items-center justify-between">
-                        <CardTitle className="text-slate-100">Achievement Progress</CardTitle>
+                        <CardTitle className="text-foreground">Achievement Progress</CardTitle>
                         <Button
                           onClick={unlockAllAchievements}
                           variant="outline"
                           size="sm"
-                          className="text-blue-400 border-blue-400/30 hover:bg-blue-400/10 bg-transparent"
+                          className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent"
                         >
                           Unlock All
                         </Button>
                       </div>
                     </CardHeader>
                     <CardContent className="pt-6 space-y-4">
-                      <div className="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                      <div className="flex items-center justify-between p-4 bg-muted rounded-lg border border-border">
                         <div>
-                          <p className="text-2xl font-bold text-slate-100">
+                          <p className="text-2xl font-bold text-foreground">
                             {saveData.claimedAchievements.length} / {availableAchievements.length}
                           </p>
-                          <p className="text-sm text-slate-400">Achievements Unlocked</p>
+                          <p className="text-sm text-muted-foreground">Achievements Unlocked</p>
                         </div>
                       </div>
 
@@ -764,16 +760,16 @@ export default function MegabonkSaveEditor() {
                             return (
                               <div
                                 key={achievement}
-                                className="flex items-center justify-between p-3 bg-slate-800/30 border border-slate-700/50 rounded-lg hover:bg-slate-800/50 transition-colors"
+                                className="flex items-center justify-between p-3 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors"
                               >
-                                <span className="font-mono text-sm text-slate-300">{achievement}</span>
+                                <span className="font-mono text-sm text-card-foreground">{achievement}</span>
                                 <div className="flex gap-2">
                                   {!isInSave ? (
                                     <Button
                                       onClick={() => addAchievement(achievement)}
                                       size="sm"
                                       variant="outline"
-                                      className="text-blue-400 border-blue-400/30 hover:bg-blue-400/10"
+                                      className="text-primary border-primary/30 hover:bg-primary/10"
                                     >
                                       <Plus className="w-3 h-3 mr-1" />
                                       Add
@@ -784,7 +780,7 @@ export default function MegabonkSaveEditor() {
                                         <Button
                                           onClick={() => claimAchievement(achievement)}
                                           size="sm"
-                                          className="bg-blue-600 hover:bg-blue-700"
+                                          className="bg-primary hover:bg-primary/90"
                                         >
                                           <Trophy className="w-3 h-3 mr-1" />
                                           Claim
@@ -802,7 +798,7 @@ export default function MegabonkSaveEditor() {
                                         onClick={() => removeAchievement(achievement)}
                                         size="sm"
                                         variant="ghost"
-                                        className="text-slate-400 hover:text-slate-100"
+                                        className="text-muted-foreground hover:text-foreground"
                                       >
                                         <Trash2 className="w-3 h-3" />
                                       </Button>
@@ -819,27 +815,27 @@ export default function MegabonkSaveEditor() {
                 </TabsContent>
 
                 <TabsContent value="purchases" className="space-y-4">
-                  <Card className="bg-slate-900/50 border-slate-800">
-                    <CardHeader className="border-b border-slate-800">
+                  <Card className="bg-card border-border">
+                    <CardHeader className="border-b border-border">
                       <div className="flex items-center justify-between">
-                        <CardTitle className="text-slate-100">Purchases</CardTitle>
+                        <CardTitle className="text-foreground">Purchases</CardTitle>
                         <Button
                           onClick={unlockAllPurchases}
                           variant="outline"
                           size="sm"
-                          className="text-blue-400 border-blue-400/30 hover:bg-blue-400/10 bg-transparent"
+                          className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent"
                         >
                           Unlock All
                         </Button>
                       </div>
                     </CardHeader>
                     <CardContent className="pt-6 space-y-4">
-                      <div className="flex items-center justify-between p-4 bg-slate-800/30 rounded-lg border border-slate-700/50">
+                      <div className="flex items-center justify-between p-4 bg-muted rounded-lg border border-border">
                         <div>
-                          <p className="text-2xl font-bold text-slate-100">
+                          <p className="text-2xl font-bold text-foreground">
                             {saveData.purchases.length} / {availablePurchases.length}
                           </p>
-                          <p className="text-sm text-slate-400">Items Purchased</p>
+                          <p className="text-sm text-muted-foreground">Items Purchased</p>
                         </div>
                       </div>
 
@@ -855,11 +851,11 @@ export default function MegabonkSaveEditor() {
                             return (
                               <div
                                 key={purchase}
-                                className="flex items-center justify-between p-3 bg-slate-800/30 border border-slate-700/50 rounded-lg hover:bg-slate-800/50 transition-colors"
+                                className="flex items-center justify-between p-3 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors"
                               >
                                 <div className="flex items-center gap-3">
-                                  <span className="font-mono text-sm text-slate-300">{purchase}</span>
-                                  <Badge variant="outline" className="text-xs border-slate-600 text-slate-400">
+                                  <span className="font-mono text-sm text-card-foreground">{purchase}</span>
+                                  <Badge variant="outline" className="text-xs border-border text-muted-foreground">
                                     {category}
                                   </Badge>
                                 </div>
@@ -868,7 +864,7 @@ export default function MegabonkSaveEditor() {
                                     onClick={() => togglePurchase(purchase, false)}
                                     size="sm"
                                     variant="ghost"
-                                    className="text-slate-400 hover:text-slate-100"
+                                    className="text-muted-foreground hover:text-foreground"
                                   >
                                     <Trash2 className="w-3 h-3 mr-1" />
                                     Remove
@@ -878,7 +874,7 @@ export default function MegabonkSaveEditor() {
                                     onClick={() => togglePurchase(purchase, true)}
                                     size="sm"
                                     variant="outline"
-                                    className="text-blue-400 border-blue-400/30 hover:bg-blue-400/10"
+                                    className="text-primary border-primary/30 hover:bg-primary/10"
                                   >
                                     <Plus className="w-3 h-3 mr-1" />
                                     Add
@@ -894,9 +890,9 @@ export default function MegabonkSaveEditor() {
                 </TabsContent>
 
                 <TabsContent value="maps" className="space-y-4">
-                  <Card className="bg-slate-900/50 border-slate-800">
-                    <CardHeader className="border-b border-slate-800">
-                      <CardTitle className="text-slate-100">Map Unlocks</CardTitle>
+                  <Card className="bg-card border-border">
+                    <CardHeader className="border-b border-border">
+                      <CardTitle className="text-foreground">Map Unlocks</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-6 space-y-4">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -905,13 +901,13 @@ export default function MegabonkSaveEditor() {
                           return (
                             <div
                               key={map.name}
-                              className="flex items-center justify-between p-4 bg-slate-800/30 border border-slate-700/50 rounded-lg hover:bg-slate-800/50 transition-colors"
+                              className="flex items-center justify-between p-4 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors"
                             >
                               <div className="flex items-center gap-3">
-                                <Map className="w-5 h-5 text-slate-400" />
+                                <Map className="w-5 h-5 text-muted-foreground" />
                                 <div>
-                                  <p className="font-medium text-slate-100">{map.name}</p>
-                                  <p className="text-xs text-slate-500">{isUnlocked ? "Unlocked" : "Locked"}</p>
+                                  <p className="font-medium text-foreground">{map.name}</p>
+                                  <p className="text-xs text-muted-foreground">{isUnlocked ? "Unlocked" : "Locked"}</p>
                                 </div>
                               </div>
                               {isUnlocked ? (
@@ -926,7 +922,7 @@ export default function MegabonkSaveEditor() {
                                   onClick={() => unlockMap(map.name)}
                                   size="sm"
                                   variant="outline"
-                                  className="text-blue-400 border-blue-400/30 hover:bg-blue-400/10"
+                                  className="text-primary border-primary/30 hover:bg-primary/10"
                                 >
                                   Unlock
                                 </Button>
@@ -938,20 +934,20 @@ export default function MegabonkSaveEditor() {
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-slate-900/50 border-slate-800">
-                    <CardHeader className="border-b border-slate-800">
-                      <CardTitle className="text-slate-100">Map Progression</CardTitle>
+                  <Card className="bg-card border-border">
+                    <CardHeader className="border-b border-border">
+                      <CardTitle className="text-foreground">Map Progression</CardTitle>
                     </CardHeader>
                     <CardContent className="pt-6">
                       <Tabs
                         defaultValue={Object.keys(saveData.menuMeta.mapsProgress).filter((m) => m !== "None")[0]}
                         className="w-full"
                       >
-                        <TabsList className="grid w-full grid-cols-5 bg-slate-800/50 border border-slate-700">
+                        <TabsList className="grid w-full grid-cols-5 bg-muted border border-border">
                           {Object.keys(saveData.menuMeta.mapsProgress)
                             .filter((mapName) => mapName !== "None")
                             .map((mapName) => (
-                              <TabsTrigger key={mapName} value={mapName} className="data-[state=active]:bg-slate-700">
+                              <TabsTrigger key={mapName} value={mapName} className="data-[state=active]:bg-card">
                                 {mapName}
                               </TabsTrigger>
                             ))}
@@ -976,9 +972,9 @@ export default function MegabonkSaveEditor() {
                                             <AccordionItem
                                               key={tier}
                                               value={tier}
-                                              className="border-slate-700 bg-slate-800/30 rounded-lg mb-2 px-4"
+                                              className="border-border bg-muted rounded-lg mb-2 px-4"
                                             >
-                                              <AccordionTrigger className="hover:no-underline text-slate-100">
+                                              <AccordionTrigger className="hover:no-underline text-foreground">
                                                 <div className="flex items-center justify-between w-full pr-4">
                                                   <span className="font-semibold">Tier {displayTier}</span>
                                                   <Button
@@ -988,7 +984,7 @@ export default function MegabonkSaveEditor() {
                                                     }}
                                                     size="sm"
                                                     variant="ghost"
-                                                    className="h-8 w-8 p-0 text-slate-400 hover:text-slate-100"
+                                                    className="h-8 w-8 p-0 text-muted-foreground hover:text-foreground"
                                                   >
                                                     <Trash2 className="w-4 h-4" />
                                                   </Button>
@@ -996,7 +992,7 @@ export default function MegabonkSaveEditor() {
                                               </AccordionTrigger>
                                               <AccordionContent className="space-y-3 pt-3">
                                                 <div className="space-y-2">
-                                                  <Label className="text-xs text-slate-400">
+                                                  <Label className="text-xs text-muted-foreground">
                                                     Characters Completed With:
                                                   </Label>
                                                   <div className="flex flex-wrap gap-2">
@@ -1011,8 +1007,8 @@ export default function MegabonkSaveEditor() {
                                                           variant={isCompleted ? "default" : "outline"}
                                                           className={`cursor-pointer ${
                                                             isCompleted
-                                                              ? "bg-blue-600 hover:bg-blue-700"
-                                                              : "border-slate-600 text-slate-400 hover:bg-slate-800"
+                                                              ? "bg-primary hover:bg-primary/90"
+                                                              : "border-border text-muted-foreground hover:bg-muted"
                                                           }`}
                                                           onClick={() =>
                                                             toggleCharacterInTier(mapName, tier, character)
@@ -1029,7 +1025,7 @@ export default function MegabonkSaveEditor() {
                                                   <div className="space-y-1.5">
                                                     <Label
                                                       htmlFor={`${mapName}-${tier}-runs`}
-                                                      className="text-xs text-slate-400"
+                                                      className="text-xs text-muted-foreground"
                                                     >
                                                       Number of Runs
                                                     </Label>
@@ -1045,13 +1041,13 @@ export default function MegabonkSaveEditor() {
                                                         )
                                                       }
                                                       min="0"
-                                                      className="font-mono h-9 bg-slate-900/50 border-slate-700 text-slate-100"
+                                                      className="font-mono h-9 bg-background border-border text-foreground"
                                                     />
                                                   </div>
                                                   <div className="space-y-1.5">
                                                     <Label
                                                       htmlFor={`${mapName}-${tier}-highscore`}
-                                                      className="text-xs text-slate-400"
+                                                      className="text-xs text-muted-foreground"
                                                     >
                                                       Highscore
                                                     </Label>
@@ -1067,13 +1063,13 @@ export default function MegabonkSaveEditor() {
                                                         )
                                                       }
                                                       min="0"
-                                                      className="font-mono h-9 bg-slate-900/50 border-slate-700 text-slate-100"
+                                                      className="font-mono h-9 bg-background border-border text-foreground"
                                                     />
                                                   </div>
                                                   <div className="space-y-1.5">
                                                     <Label
                                                       htmlFor={`${mapName}-${tier}-time`}
-                                                      className="text-xs text-slate-400"
+                                                      className="text-xs text-muted-foreground"
                                                     >
                                                       Fastest Time (s)
                                                     </Label>
@@ -1090,7 +1086,7 @@ export default function MegabonkSaveEditor() {
                                                         )
                                                       }
                                                       min="0"
-                                                      className="font-mono h-9 bg-slate-900/50 border-slate-700 text-slate-100"
+                                                      className="font-mono h-9 bg-background border-border text-foreground"
                                                     />
                                                   </div>
                                                 </div>
@@ -1112,7 +1108,7 @@ export default function MegabonkSaveEditor() {
                                   }}
                                   variant="outline"
                                   size="sm"
-                                  className="w-full text-blue-400 border-blue-400/30 hover:bg-blue-400/10"
+                                  className="w-full text-primary border-primary/30 hover:bg-primary/10"
                                   disabled={Object.keys(mapData.tierCompletionsWithCharacters).length >= maxTiers}
                                 >
                                   <Plus className="w-4 h-4 mr-2" />
@@ -1129,9 +1125,9 @@ export default function MegabonkSaveEditor() {
                 </TabsContent>
 
                 <TabsContent value="raw" className="space-y-4">
-                  <Card className="bg-slate-900/50 border-slate-800">
-                    <CardHeader className="border-b border-slate-800">
-                      <CardTitle className="text-slate-100 flex items-center gap-2">
+                  <Card className="bg-card border-border">
+                    <CardHeader className="border-b border-border">
+                      <CardTitle className="text-foreground flex items-center gap-2">
                         <Code className="w-5 h-5" />
                         Raw JSON Editor
                       </CardTitle>
@@ -1143,12 +1139,12 @@ export default function MegabonkSaveEditor() {
                 </TabsContent>
               </Tabs>
 
-              <div className="flex items-center justify-between p-3 bg-slate-900/50 border border-slate-800 rounded-lg text-sm">
+              <div className="flex items-center justify-between p-3 bg-card border border-border rounded-lg text-sm">
                 <div className="flex items-center gap-2 text-green-400">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                   <span>{originalFile?.name} loaded</span>
                 </div>
-                <span className="text-slate-500">Last modified: {originalFile && formatDate(new Date())}</span>
+                <span className="text-muted-foreground">Last modified: {originalFile && formatDate(new Date())}</span>
               </div>
             </div>
           </div>
@@ -1156,13 +1152,13 @@ export default function MegabonkSaveEditor() {
       </div>
 
       {saveData && (
-        <div className="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm border-t border-slate-800 z-50">
+        <div className="fixed bottom-0 left-0 right-0 bg-card backdrop-blur-sm border-t border-border z-50">
           <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-end">
             <Button
               onClick={handleDownload}
               disabled={isProcessing}
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
             >
               <Save className="w-5 h-5 mr-2" />
               {isProcessing ? "Processing..." : "Download Edited Save"}

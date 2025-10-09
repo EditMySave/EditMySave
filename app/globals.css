@@ -6,12 +6,12 @@
 :root {
   /* Updated to dark gaming theme */
   --background: rgb(7, 7, 7);
-  --foreground: rgb(236, 236, 236);
+  --foreground: rgb(214, 214, 214);
   --card: oklch(0.15 0 0);
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.15 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  --primary: rgb(64, 13, 38);
+  --primary: rgb(190, 24, 104);
   --primary-foreground: rgb(255, 255, 255);
   --secondary: rgb(6, 173, 214);
   --secondary-foreground: rgb(247, 247, 247);
