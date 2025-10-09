@@ -15,7 +15,7 @@ const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["20
 export const metadata: Metadata = {
   title: "Save Editor",
   description: "Multi-game save file editor",
-  generator: "v0.app",
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
