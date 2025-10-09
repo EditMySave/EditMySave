@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { decodeSaveFromFile, encodeSaveToBlob, type DecodedSave } from "@/lib/sworn/decoder"
+import { decodeSaveFromFile, encodeSaveToBlob, type SwornSave } from "@/lib/sworn/decoder"
 import Link from "next/link"
 import { track } from "@vercel/analytics"
 import { SaveFileUpload } from "@/components/save-file-upload"
@@ -17,6 +17,7 @@ import { EditorSidebar } from "@/components/editor-sidebar"
 import gamesData from "@/data/games.json"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
+import { maxAllCurrencies, updateCurrencies } from "./save-mutations"
 
 interface CurrencyValues {
   fairyEmbers: number
@@ -39,42 +40,42 @@ const CURRENCIES = [
     id: "fairy-embers",
     name: "Fairy Embers",
     stateKey: "fairyEmbers" as keyof CurrencyValues,
-    image: "/images/fairyembers.png",
+    image: "/images/sworn/fairyembers.png",
     max: 999999,
   },
   {
     id: "silk",
     name: "Silk",
     stateKey: "silk" as keyof CurrencyValues,
-    image: "/images/silk.png",
+    image: "/images/sworn/silk.png",
     max: 999999,
   },
   {
     id: "moonstone",
     name: "Moonstone",
     stateKey: "moonstone" as keyof CurrencyValues,
-    image: "/images/moonstone.png",
+    image: "/images/sworn/moonstone.png",
     max: 999999,
   },
   {
     id: "grail-water",
     name: "Grail Water",
     stateKey: "grailWater" as keyof CurrencyValues,
-    image: "/images/grailwater.png",
+    image: "/images/sworn/grailwater.png",
     max: 999999,
   },
   {
     id: "crystal-shards",
     name: "Crystal Shards",
     stateKey: "crystalShards" as keyof CurrencyValues,
-    image: "/images/crystalshards.png",
+    image: "/images/sworn/crystalshards.png",
     max: 999999,
   },
 ]
 
 export default function SwornSaveEditor() {
   const [isDragging, setIsDragging] = useState(false)
-  const [saveData, setSaveData] = useState<DecodedSave | null>(null)
+  const [saveData, setSaveData] = useState<SwornSave | null>(null)
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [currencies, setCurrencies] = useState<CurrencyValues>({
     fairyEmbers: 0,
@@ -162,23 +163,7 @@ export default function SwornSaveEditor() {
 
     setIsProcessing(true)
     try {
-      const updatedSave = { ...saveData }
-      updatedSave.segments = updatedSave.segments.map((segment, index) => {
-        if (segment.category === "medal") {
-          if (segment.text === CURRENCY_IDENTIFIERS.crystalShards) {
-            return { ...segment, value: currencies.crystalShards }
-          } else if (segment.text === CURRENCY_IDENTIFIERS.fairyEmbers) {
-            return { ...segment, value: currencies.fairyEmbers }
-          } else if (segment.text === CURRENCY_IDENTIFIERS.grailWater) {
-            return { ...segment, value: currencies.grailWater }
-          } else if (segment.text === CURRENCY_IDENTIFIERS.moonstone) {
-            return { ...segment, value: currencies.moonstone }
-          } else if (segment.text === CURRENCY_IDENTIFIERS.silk) {
-            return { ...segment, value: currencies.silk }
-          }
-        }
-        return segment
-      })
+      const updatedSave = updateCurrencies(saveData, currencies)
 
       const blob = await encodeSaveToBlob(updatedSave, originalFile)
       const url = URL.createObjectURL(blob)
@@ -211,6 +196,8 @@ export default function SwornSaveEditor() {
         {
           label: "Max All Currencies",
           onClick: () => {
+            const updatedSave = maxAllCurrencies(saveData)
+            setSaveData(updatedSave)
             setCurrencies({
               fairyEmbers: 999999,
               silk: 999999,
@@ -319,7 +306,10 @@ export default function SwornSaveEditor() {
                                 />
                               </div>
                               <div className="text-center">
-                                <Label htmlFor={currency.id} className="items-center justify-center text-sm font-medium text-card-foreground">
+                                <Label
+                                  htmlFor={currency.id}
+                                  className="items-center justify-center text-sm font-medium text-card-foreground"
+                                >
                                   {currency.name}
                                 </Label>
                                 <p className="text-xs text-muted-foreground">Max: {currency.max.toLocaleString()}</p>

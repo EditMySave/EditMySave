@@ -36,6 +36,22 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Badge } from "@/components/ui/badge"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
+import {
+  maxAllCurrencies as maxCurrencies,
+  maxAllShopItems as maxShopItems,
+  maxAllCharacters as maxCharacters,
+  unlockAllCharacters as unlockCharacters,
+  unlockAllAchievements as unlockAchievements,
+  unlockAllPurchases as unlockPurchases,
+  unlockMap as unlockMapMutation,
+  updateMapTierCompletions as updateTierCompletions,
+  updateMapTierRuns as updateTierRuns,
+  updateMapTierHighscore as updateTierHighscore,
+  updateMapTierFastestTime as updateTierFastestTime,
+  addTierToMap as addTier,
+  removeTierFromMap as removeTier,
+  toggleCharacterInTier as toggleCharacter,
+} from "./save-mutations"
 
 function formatDate(date: Date) {
   const now = new Date()
@@ -189,231 +205,64 @@ export default function MegabonkSaveEditor() {
 
   const unlockMap = (mapName: string) => {
     if (!saveData) return
-    if (saveData.menuMeta.mapsProgress[mapName]) return // Already unlocked
-
-    setSaveData({
-      ...saveData,
-      menuMeta: {
-        ...saveData.menuMeta,
-        mapsProgress: {
-          ...saveData.menuMeta.mapsProgress,
-          [mapName]: {
-            tierNotifications: [],
-            tierChallengeNotifications: [],
-            newMapNotification: true,
-            lastSelectTier: 0,
-            completedTiers: [],
-            tierCompletionsWithCharacters: { "0": [] },
-            numRunsByTier: {},
-            tierHighscores: {},
-            tierFastestTimes: {},
-          },
-        },
-      },
-    })
+    setSaveData(unlockMapMutation(saveData, mapName))
   }
 
   const updateMapTierCompletions = (mapName: string, tier: string, characters: string[]) => {
-    if (!saveData || !saveData.menuMeta.mapsProgress[mapName]) return
-    setSaveData({
-      ...saveData,
-      menuMeta: {
-        ...saveData.menuMeta,
-        mapsProgress: {
-          ...saveData.menuMeta.mapsProgress,
-          [mapName]: {
-            ...saveData.menuMeta.mapsProgress[mapName],
-            tierCompletionsWithCharacters: {
-              ...saveData.menuMeta.mapsProgress[mapName].tierCompletionsWithCharacters,
-              [tier]: characters,
-            },
-          },
-        },
-      },
-    })
+    if (!saveData) return
+    setSaveData(updateTierCompletions(saveData, mapName, tier, characters))
   }
 
   const updateMapTierRuns = (mapName: string, tier: string, runs: number) => {
-    if (!saveData || !saveData.menuMeta.mapsProgress[mapName]) return
-    setSaveData({
-      ...saveData,
-      menuMeta: {
-        ...saveData.menuMeta,
-        mapsProgress: {
-          ...saveData.menuMeta.mapsProgress,
-          [mapName]: {
-            ...saveData.menuMeta.mapsProgress[mapName],
-            numRunsByTier: {
-              ...saveData.menuMeta.mapsProgress[mapName].numRunsByTier,
-              [tier]: runs,
-            },
-          },
-        },
-      },
-    })
+    if (!saveData) return
+    setSaveData(updateTierRuns(saveData, mapName, tier, runs))
   }
 
   const updateMapTierHighscore = (mapName: string, tier: string, score: number) => {
-    if (!saveData || !saveData.menuMeta.mapsProgress[mapName]) return
-    setSaveData({
-      ...saveData,
-      menuMeta: {
-        ...saveData.menuMeta,
-        mapsProgress: {
-          ...saveData.menuMeta.mapsProgress,
-          [mapName]: {
-            ...saveData.menuMeta.mapsProgress[mapName],
-            tierHighscores: {
-              ...saveData.menuMeta.mapsProgress[mapName].tierHighscores,
-              [tier]: score,
-            },
-          },
-        },
-      },
-    })
+    if (!saveData) return
+    setSaveData(updateTierHighscore(saveData, mapName, tier, score))
   }
 
   const updateMapTierFastestTime = (mapName: string, tier: string, time: number) => {
-    if (!saveData || !saveData.menuMeta.mapsProgress[mapName]) return
-    setSaveData({
-      ...saveData,
-      menuMeta: {
-        ...saveData.menuMeta,
-        mapsProgress: {
-          ...saveData.menuMeta.mapsProgress,
-          [mapName]: {
-            ...saveData.menuMeta.mapsProgress[mapName],
-            tierFastestTimes: {
-              ...saveData.menuMeta.mapsProgress[mapName].tierFastestTimes,
-              [tier]: time,
-            },
-          },
-        },
-      },
-    })
+    if (!saveData) return
+    setSaveData(updateTierFastestTime(saveData, mapName, tier, time))
   }
 
   const addTierToMap = (mapName: string, tier: string) => {
-    if (!saveData || !saveData.menuMeta.mapsProgress[mapName]) return
-    const mapProgress = saveData.menuMeta.mapsProgress[mapName]
-
-    setSaveData({
-      ...saveData,
-      menuMeta: {
-        ...saveData.menuMeta,
-        mapsProgress: {
-          ...saveData.menuMeta.mapsProgress,
-          [mapName]: {
-            ...mapProgress,
-            tierCompletionsWithCharacters: {
-              ...mapProgress.tierCompletionsWithCharacters,
-              [tier]: [],
-            },
-            numRunsByTier: {
-              ...mapProgress.numRunsByTier,
-              [tier]: 0,
-            },
-            tierHighscores: {
-              ...mapProgress.tierHighscores,
-              [tier]: 0,
-            },
-            tierFastestTimes: {
-              ...mapProgress.tierFastestTimes,
-              [tier]: 0,
-            },
-          },
-        },
-      },
-    })
+    if (!saveData) return
+    setSaveData(addTier(saveData, mapName, tier))
   }
 
   const removeTierFromMap = (mapName: string, tier: string) => {
-    if (!saveData || !saveData.menuMeta.mapsProgress[mapName]) return
-    const mapProgress = saveData.menuMeta.mapsProgress[mapName]
-
-    const newTierCompletions = { ...mapProgress.tierCompletionsWithCharacters }
-    const newNumRuns = { ...mapProgress.numRunsByTier } // Corrected variable name
-    const newHighscores = { ...mapProgress.tierHighscores }
-    const newFastestTimes = { ...mapProgress.tierFastestTimes }
-
-    delete newTierCompletions[tier]
-    delete newNumRuns[tier]
-    delete newHighscores[tier]
-    delete newFastestTimes[tier]
-
-    setSaveData({
-      ...saveData,
-      menuMeta: {
-        ...saveData.menuMeta,
-        mapsProgress: {
-          ...saveData.menuMeta.mapsProgress,
-          [mapName]: {
-            ...mapProgress,
-            tierCompletionsWithCharacters: newTierCompletions,
-            numRunsByTier: newNumRuns,
-            tierHighscores: newHighscores,
-            tierFastestTimes: newFastestTimes,
-          },
-        },
-      },
-    })
+    if (!saveData) return
+    setSaveData(removeTier(saveData, mapName, tier))
   }
 
   const toggleCharacterInTier = (mapName: string, tier: string, character: string) => {
-    if (!saveData || !saveData.menuMeta.mapsProgress[mapName]) return
-    const currentCharacters = saveData.menuMeta.mapsProgress[mapName].tierCompletionsWithCharacters[tier] || []
-    const newCharacters = currentCharacters.includes(character)
-      ? currentCharacters.filter((c) => c !== character)
-      : [...currentCharacters, character]
-
-    updateMapTierCompletions(mapName, tier, newCharacters)
+    if (!saveData) return
+    setSaveData(toggleCharacter(saveData, mapName, tier, character))
   }
 
   const unlockAllAchievements = () => {
     if (!saveData) return
-    setSaveData({
-      ...saveData,
-      claimedAchievements: [...saveData.achievements],
-    })
+    setSaveData(unlockAchievements(saveData))
   }
 
   const maxAllShopItems = () => {
     if (!saveData) return
-    const maxedShopItems: Record<string, number> = {}
-    Object.keys(saveData.shopItems).forEach((item) => {
-      maxedShopItems[item] = 999
-    })
-    setSaveData({
-      ...saveData,
-      shopItems: maxedShopItems,
-    })
+    setSaveData(maxShopItems(saveData))
   }
 
   const maxAllCharacters = () => {
     if (!saveData) return
-    const maxedCharacters: Record<string, { xp: number; numRuns: number }> = {}
-    Object.keys(saveData.characterProgression).forEach((character) => {
-      maxedCharacters[character] = { xp: 999999, numRuns: 100 }
-    })
-    setSaveData({
-      ...saveData,
-      characterProgression: maxedCharacters,
-    })
+    setSaveData(maxCharacters(saveData))
   }
 
   const unlockAllCharacters = () => {
     if (!saveData) return
-    const unlockedCharacters: Record<string, { xp: number; numRuns: number }> = {}
-    Object.keys(saveData.characterProgression).forEach((character) => {
-      unlockedCharacters[character] = { xp: 100, numRuns: 1 }
-    })
-    setSaveData({
-      ...saveData,
-      characterProgression: unlockedCharacters,
-    })
+    setSaveData(unlockCharacters(saveData))
   }
 
-  // Updated Purchases tab with Add/Remove buttons
   const togglePurchase = (purchase: string, isPurchased: boolean) => {
     if (!saveData) return
     const newPurchases = isPurchased
@@ -427,10 +276,7 @@ export default function MegabonkSaveEditor() {
 
   const unlockAllPurchases = () => {
     if (!saveData) return
-    setSaveData({
-      ...saveData,
-      purchases: [...availablePurchases],
-    })
+    setSaveData(unlockPurchases(saveData, availablePurchases))
   }
 
   const quickStats = saveData
@@ -449,7 +295,7 @@ export default function MegabonkSaveEditor() {
         {
           label: "Max All Currencies",
           onClick: () => {
-            setSaveData({ ...saveData, gold: 999999, silver: 999999 })
+            setSaveData(maxCurrencies(saveData))
           },
           icon: <Coins className="w-4 h-4 mr-2" />,
         },

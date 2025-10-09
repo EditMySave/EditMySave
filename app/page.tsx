@@ -50,7 +50,7 @@ export default function HomePage() {
                               <Badge
                                 key={platform.name}
                                 variant="secondary"
-                                className="bg-secondary/20 text-secondary-foreground border-secondary/30 hover:bg-secondary/30 font-medium"
+                                className="border-secondary/30 hover:bg-secondary/30 font-medium bg-chart-3 text-secondary"
                               >
                                 {platform.name}
                               </Badge>

@@ -1,4 +1,4 @@
-export interface DecodedSave {
+export interface SwornSave {
   fileHeader: number
   segments: Array<{
     index: number
@@ -48,11 +48,11 @@ function categorizeSegment(text: string): string {
   return "other"
 }
 
-export async function decodeSaveFromFile(file: File): Promise<DecodedSave> {
+export async function decodeSaveFromFile(file: File): Promise<SwornSave> {
   const arrayBuffer = await file.arrayBuffer()
   const bytes = Array.from(new Uint8Array(arrayBuffer))
 
-  const decoded: DecodedSave = {
+  const decoded: SwornSave = {
     fileHeader: bytes[0],
     segments: [],
   }
@@ -116,7 +116,7 @@ export async function decodeSaveFromFile(file: File): Promise<DecodedSave> {
   return decoded
 }
 
-export async function encodeSaveToBlob(editedJson: DecodedSave, originalFile: File): Promise<Blob> {
+export async function encodeSaveToBlob(editedJson: SwornSave, originalFile: File): Promise<Blob> {
   const originalArrayBuffer = await originalFile.arrayBuffer()
   const bytes = Array.from(new Uint8Array(originalArrayBuffer))
 
