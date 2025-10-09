@@ -33,19 +33,19 @@
       "id": "megabonk",
       "name": "Megabonk",
       "description": "Edit currencies, characters, achievements, and shop items for your Megabonk save files",
-      "image": "/placeholder.svg?height=400&width=600",
+      "image": "/images/megabonk-cover.png",
       "route": "/megabonk",
       "status": "available",
-      "supportedVersion": "v1.0.0",
+      "supportedVersion": "v1.0.12",
       "platforms": [
         {
           "name": "Steam",
           "supported": true,
           "saveLocation": {
-            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\[STEAM_ID]\\SaveData.txt"
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\[STEAM_ID]\\progression.json"
           },
-          "fileName": "SaveData.txt",
-          "instructions": "Put the following into your file explorer to go straight to the Save Game folder, click on the folder with your Steam ID:\n%USERPROFILE%\\AppData\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\. Drag the file named: SaveData.txt into this editor to begin",
+          "fileName": "progression.json",
+          "instructions": "Put the following into your file explorer to go straight to the Save Game folder, click on the folder with your Steam ID:\n%USERPROFILE%\\AppData\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\. Drag the file named: progression.json into this editor to begin",
           "notes": "Always create a backup of your save file before editing. The save file is encrypted with AES-256-CBC encryption."
         },
         {
