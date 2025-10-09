@@ -13,8 +13,40 @@
           "name": "Steam",
           "supported": true,
           "saveLocation": {
-            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Windwalk Games\\SWORN\\data\\[STEAM_ID]"
-          }
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Windwalk Games\\SWORN\\data\\[STEAM_ID]\\savegame_12345678.dat"
+          },
+          "fileName": "savegame_*.dat",
+          "instructions": "Put the following into your file explorer to go straight to the Save Game folder, then click on the folder with your Steam ID:\n%USERPROFILE%\\AppData\\LocalLow\\Windwalk Games\\SWORN\\data\\. Drag the latest file named: savegame_12345678.dat into this editor to begin",
+          "notes": "Always create a backup of your save file before editing. The save file is named with your Steam ID followed by a number."
+        },
+        {
+          "name": "Xbox Game Pass",
+          "supported": false
+        },
+        {
+          "name": "Epic Games Store",
+          "supported": false
+        }
+      ]
+    },
+    {
+      "id": "megabonk",
+      "name": "Megabonk",
+      "description": "Edit currencies, characters, achievements, and shop items for your Megabonk save files",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "/megabonk",
+      "status": "available",
+      "supportedVersion": "v1.0.0",
+      "platforms": [
+        {
+          "name": "Steam",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\[STEAM_ID]\\SaveData.txt"
+          },
+          "fileName": "SaveData.txt",
+          "instructions": "Put the following into your file explorer to go straight to the Save Game folder, click on the folder with your Steam ID:\n%USERPROFILE%\\AppData\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\. Drag the file named: SaveData.txt into this editor to begin",
+          "notes": "Always create a backup of your save file before editing. The save file is encrypted with AES-256-CBC encryption."
         },
         {
           "name": "Xbox Game Pass",

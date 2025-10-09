@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { decodeSaveFromFile, encodeSaveToBlob, type DecodedSave } from "@/lib/save-decoder"
+import { decodeSaveFromFile, encodeSaveToBlob, type DecodedSave } from "@/lib/sworn/decoder"
 import Link from "next/link"
 import { track } from "@vercel/analytics"
 import { SaveFileUpload } from "@/components/save-file-upload"
@@ -143,7 +143,7 @@ export default function SwornSaveEditor() {
       const url = URL.createObjectURL(blob)
       const a = document.createElement("a")
       a.href = url
-      a.download = `${originalFile.name.replace(/\.[^/.]+$/, "")}_edited.dat`
+      a.download = `${originalFile.name.replace(/\.[^/.]+$/, "")}.dat`
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)
@@ -151,7 +151,7 @@ export default function SwornSaveEditor() {
       track("file_downloaded", {
         game: "Sworn",
         fileName: originalFile.name,
-        editedFileName: `${originalFile.name.replace(/\.[^/.]+$/, "")}_edited.dat`,
+        editedFileName: `${originalFile.name.replace(/\.[^/.]+$/, "")}.dat`,
       })
     } catch (error) {
       console.error("Error encoding save file:", error)
@@ -196,7 +196,11 @@ export default function SwornSaveEditor() {
                 <CardContent className="pt-6 space-y-4">
                   <div className="flex flex-col items-center gap-3">
                     <div className="w-20 h-20 flex items-center justify-center">
-                      <img src="/images/fairyembers.png" alt="Fairy Embers" className="w-full h-full object-contain" />
+                      <img
+                        src="/images/sworn/fairyembers.png"
+                        alt="Fairy Embers"
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     <Label htmlFor="fairy-embers" className="text-lg font-semibold">
                       Fairy Embers
@@ -217,7 +221,7 @@ export default function SwornSaveEditor() {
                 <CardContent className="pt-6 space-y-4">
                   <div className="flex flex-col items-center gap-3">
                     <div className="w-20 h-20 flex items-center justify-center">
-                      <img src="/images/silk.png" alt="Silk" className="w-full h-full object-contain" />
+                      <img src="/images/sworn/silk.png" alt="Silk" className="w-full h-full object-contain" />
                     </div>
                     <Label htmlFor="silk" className="text-lg font-semibold">
                       Silk
@@ -238,7 +242,7 @@ export default function SwornSaveEditor() {
                 <CardContent className="pt-6 space-y-4">
                   <div className="flex flex-col items-center gap-3">
                     <div className="w-20 h-20 flex items-center justify-center">
-                      <img src="/images/moonstone.png" alt="Moonstone" className="w-full h-full object-contain" />
+                      <img src="/images/sworn/moonstone.png" alt="Moonstone" className="w-full h-full object-contain" />
                     </div>
                     <Label htmlFor="moonstone" className="text-lg font-semibold">
                       Moonstone
@@ -259,7 +263,11 @@ export default function SwornSaveEditor() {
                 <CardContent className="pt-6 space-y-4">
                   <div className="flex flex-col items-center gap-3">
                     <div className="w-20 h-20 flex items-center justify-center">
-                      <img src="/images/grailwater.png" alt="Grail Water" className="w-full h-full object-contain" />
+                      <img
+                        src="/images/sworn/grailwater.png"
+                        alt="Grail Water"
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     <Label htmlFor="grail-water" className="text-lg font-semibold">
                       Grail Water
@@ -281,7 +289,7 @@ export default function SwornSaveEditor() {
                   <div className="flex flex-col items-center gap-3">
                     <div className="w-20 h-20 flex items-center justify-center">
                       <img
-                        src="/images/crystalshards.png"
+                        src="/images/sworn/crystalshards.png"
                         alt="Crystal Shards"
                         className="w-full h-full object-contain"
                       />

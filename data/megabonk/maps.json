@@ -1,0 +1,12 @@
+{
+  "maps": [
+    {
+      "name": "Forest",
+      "maxTiers": 3
+    },
+    {
+      "name": "Desert",
+      "maxTiers": 3
+    }
+  ]
+}
