@@ -1,7 +1,20 @@
 "use client"
 
 import { useState } from "react"
-import { Sparkles, ArrowLeft, Coins, Zap, Save, Code } from "lucide-react"
+import {
+  Sparkles,
+  ArrowLeft,
+  Coins,
+  Zap,
+  Save,
+  Code,
+  Grid3x3,
+  LayoutGrid,
+  Clover,
+  Flame,
+  Phone,
+  Sliders,
+} from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -248,38 +261,44 @@ export default function CloverpitEditor() {
 
           <div className="flex-1 space-y-4">
             <Tabs defaultValue="economy" className="w-full">
-              <TabsList className="grid w-full grid-cols-5 lg:grid-cols-10 bg-card border border-border">
-                <TabsTrigger value="economy" className="data-[state=active]:bg-muted">
+              <TabsList className="w-full grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 h-auto bg-card border border-border p-2">
+                <TabsTrigger value="economy" className="w-full data-[state=active]:bg-muted">
                   <Coins className="w-4 h-4 mr-2" />
                   Economy
                 </TabsTrigger>
-                <TabsTrigger value="spins" className="data-[state=active]:bg-muted">
+                <TabsTrigger value="spins" className="w-full data-[state=active]:bg-muted">
                   <Zap className="w-4 h-4 mr-2" />
                   Spins
                 </TabsTrigger>
-                <TabsTrigger value="symbols" className="data-[state=active]:bg-muted">
+                <TabsTrigger value="symbols" className="w-full data-[state=active]:bg-muted">
+                  <Grid3x3 className="w-4 h-4 mr-2" />
                   Symbols
                 </TabsTrigger>
-                <TabsTrigger value="patterns" className="data-[state=active]:bg-muted">
+                <TabsTrigger value="patterns" className="w-full data-[state=active]:bg-muted">
+                  <LayoutGrid className="w-4 h-4 mr-2" />
                   Patterns
                 </TabsTrigger>
-                <TabsTrigger value="powerups" className="data-[state=active]:bg-muted">
+                <TabsTrigger value="powerups" className="w-full data-[state=active]:bg-muted">
                   <Sparkles className="w-4 h-4 mr-2" />
                   Powerups
                 </TabsTrigger>
-                <TabsTrigger value="luck" className="data-[state=active]:bg-muted">
+                <TabsTrigger value="luck" className="w-full data-[state=active]:bg-muted">
+                  <Clover className="w-4 h-4 mr-2" />
                   Luck
                 </TabsTrigger>
-                <TabsTrigger value="666" className="data-[state=active]:bg-muted">
+                <TabsTrigger value="666" className="w-full data-[state=active]:bg-muted">
+                  <Flame className="w-4 h-4 mr-2" />
                   666
                 </TabsTrigger>
-                <TabsTrigger value="phone" className="data-[state=active]:bg-muted">
+                <TabsTrigger value="phone" className="w-full data-[state=active]:bg-muted">
+                  <Phone className="w-4 h-4 mr-2" />
                   Phone
                 </TabsTrigger>
-                <TabsTrigger value="modifiers" className="data-[state=active]:bg-muted">
+                <TabsTrigger value="modifiers" className="w-full data-[state=active]:bg-muted">
+                  <Sliders className="w-4 h-4 mr-2" />
                   Modifiers
                 </TabsTrigger>
-                <TabsTrigger value="advanced" className="data-[state=active]:bg-muted">
+                <TabsTrigger value="advanced" className="w-full data-[state=active]:bg-muted">
                   <Code className="w-4 h-4 mr-2" />
                   Raw JSON
                 </TabsTrigger>
@@ -1117,8 +1136,10 @@ export default function CloverpitEditor() {
                     <CardTitle>Raw JSON Editor</CardTitle>
                     <CardDescription>Advanced editing of the save file structure</CardDescription>
                   </CardHeader>
-                  <CardContent>
-                    <JsonTreeEditor data={saveData} onChange={setSaveData} />
+                  <CardContent className="overflow-x-auto max-w-full">
+                    <div className="min-w-0">
+                      <JsonTreeEditor data={saveData} onChange={setSaveData} />
+                    </div>
                   </CardContent>
                 </Card>
               </TabsContent>
