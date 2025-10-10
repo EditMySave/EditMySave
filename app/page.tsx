@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Gamepad2 } from "lucide-react"
 import gamesData from "@/data/games.json"
+import { generateHomeMetadata } from "@/lib/seo"
+
+export const metadata = generateHomeMetadata()
 
 export default function HomePage() {
   return (
@@ -12,10 +15,10 @@ export default function HomePage() {
         <div className="text-center space-y-3">
           <div className="flex items-center justify-center gap-3">
             <Gamepad2 className="w-10 h-10 text-primary" />
-            <h1 className="text-5xl font-bold text-balance">Game Save Editor</h1>
+            <h1 className="text-5xl font-bold text-balance">Free Online Game Save Editor</h1>
           </div>
           <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
-            Edit your game save files directly in your browser, nothing to download.
+            Edit your game save files directly in your browser. No downloads required, completely free and secure.
           </p>
         </div>
 

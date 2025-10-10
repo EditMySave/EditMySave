@@ -18,6 +18,7 @@ import gamesData from "@/data/games.json"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
 import { maxAllCurrencies, updateCurrencies } from "./save-mutations"
+import Head from "next/head"
 
 interface CurrencyValues {
   fairyEmbers: number
@@ -212,167 +213,176 @@ export default function SwornSaveEditor() {
     : []
 
   return (
-    <main className="min-h-screen bg-background pb-20">
-      <div className="border-b border-border bg-card backdrop-blur-sm sticky top-0 z-50">
-        <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Sparkles className="w-6 h-6 text-primary" />
-            <h1 className="text-xl font-bold text-foreground">Sworn</h1>
-          </div>
-          <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-            <Link href="/" className="gap-2">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Games
-            </Link>
-          </Button>
-        </div>
-      </div>
-
-      <div className="w-full max-w-7xl mx-auto p-6">
-        {!saveData ? (
-          <div className="space-y-6">
-            <div className="text-center space-y-2 py-8">
-              <h2 className="text-3xl font-bold text-foreground">Sworn Save Editor</h2>
-              <p className="text-muted-foreground">Edit your game currencies safely and easily</p>
+    <>
+      <Head>
+        <title>Sworn Save Editor - Edit Your Sworn Save Files | EditMySave</title>
+        <meta
+          name="description"
+          content="Free online Sworn save editor. Edit currencies and resources for your Sworn save files. Works entirely in your browser with no downloads required. Supports version v1.0.1.0.1018."
+        />
+      </Head>
+      <main className="min-h-screen bg-background pb-20">
+        <div className="border-b border-border bg-card backdrop-blur-sm sticky top-0 z-50">
+          <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Sparkles className="w-6 h-6 text-primary" />
+              <h1 className="text-xl font-bold text-foreground">Sworn</h1>
             </div>
-
-            {gameData && <SaveLocationHelp platforms={gameData.platforms} gameName={gameData.name} />}
-
-            <SaveFileUpload onFileSelect={processSaveFile} acceptedFileTypes=".dat" isProcessing={isProcessing} />
-          </div>
-        ) : (
-          <div className="flex gap-6 pt-4">
-            <EditorSidebar
-              onDownload={handleDownload}
-              onLoadNew={() => {
-                setSaveData(null)
-                setOriginalFile(null)
-              }}
-              isProcessing={isProcessing}
-              hasSaveData={!!saveData}
-              fileName={originalFile?.name}
-              fileSize={originalFile?.size}
-              lastModified={originalFile ? new Date() : undefined}
-              quickStats={quickStats}
-              quickActions={quickActions}
-            />
-
-            <div className="flex-1 space-y-4">
-              <Tabs defaultValue="currencies" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 bg-card border border-border">
-                  <TabsTrigger value="currencies" className="data-[state=active]:bg-muted">
-                    <Coins className="w-4 h-4 mr-2" />
-                    Currencies
-                  </TabsTrigger>
-                  <TabsTrigger value="raw" className="data-[state=active]:bg-muted">
-                    <Code className="w-4 h-4 mr-2" />
-                    Raw JSON
-                  </TabsTrigger>
-                </TabsList>
-
-                <TabsContent value="currencies" className="space-y-4 mt-4">
-                  <Card className="bg-card border-border">
-                    <CardHeader className="border-b border-border">
-                      <div className="flex items-center justify-between">
-                        <CardTitle className="text-foreground">Currencies</CardTitle>
-                        <Button
-                          onClick={() => {
-                            setCurrencies({
-                              fairyEmbers: 999999,
-                              silk: 999999,
-                              moonstone: 999999,
-                              grailWater: 999999,
-                              crystalShards: 999999,
-                            })
-                          }}
-                          variant="outline"
-                          size="sm"
-                          className="text-primary border-primary/30 hover:bg-primary/10"
-                        >
-                          Max All
-                        </Button>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {CURRENCIES.map((currency) => (
-                          <div key={currency.id} className="space-y-3 p-4 bg-muted rounded-lg border border-border">
-                            <div className="flex flex-col items-center gap-2">
-                              <div className="w-16 h-16 flex items-center justify-center">
-                                <img
-                                  src={currency.image || "/placeholder.svg"}
-                                  alt={currency.name}
-                                  className="w-full h-full object-contain"
-                                />
-                              </div>
-                              <div className="text-center">
-                                <Label
-                                  htmlFor={currency.id}
-                                  className="items-center justify-center text-sm font-medium text-card-foreground"
-                                >
-                                  {currency.name}
-                                </Label>
-                                <p className="text-xs text-muted-foreground">Max: {currency.max.toLocaleString()}</p>
-                              </div>
-                            </div>
-                            <Input
-                              id={currency.id}
-                              type="number"
-                              value={currencies[currency.stateKey]}
-                              onChange={(e) => handleCurrencyChange(currency.stateKey, e.target.value)}
-                              min="0"
-                              className="font-mono text-lg bg-input border-border text-foreground"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-
-                <TabsContent value="raw" className="space-y-4 mt-4">
-                  <Card className="bg-card border-border">
-                    <CardHeader className="border-b border-border">
-                      <CardTitle className="text-foreground flex items-center gap-2">
-                        <Code className="w-5 h-5" />
-                        Raw JSON Editor
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-6">
-                      <JsonTreeEditor data={saveData} onChange={setSaveData} />
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-              </Tabs>
-
-              <div className="flex items-center justify-between p-3 bg-card border border-border rounded-lg text-sm">
-                <div className="flex items-center gap-2 text-green-400">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span>{originalFile?.name} loaded</span>
-                </div>
-                <span className="text-muted-foreground">Last modified: {originalFile && formatDate(new Date())}</span>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {saveData && (
-        <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border z-50">
-          <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-end">
-            <Button
-              onClick={handleDownload}
-              disabled={isProcessing}
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
-            >
-              <Save className="w-5 h-5 mr-2" />
-              {isProcessing ? "Processing..." : "Download Edited Save"}
+            <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+              <Link href="/" className="gap-2">
+                <ArrowLeft className="w-4 h-4" />
+                Back to Games
+              </Link>
             </Button>
           </div>
         </div>
-      )}
-    </main>
+
+        <div className="w-full max-w-7xl mx-auto p-6">
+          {!saveData ? (
+            <div className="space-y-6">
+              <div className="text-center space-y-2 py-8">
+                <h2 className="text-3xl font-bold text-foreground">Sworn Save Editor</h2>
+                <p className="text-muted-foreground">Edit your game currencies safely and easily</p>
+              </div>
+
+              {gameData && <SaveLocationHelp platforms={gameData.platforms} gameName={gameData.name} />}
+
+              <SaveFileUpload onFileSelect={processSaveFile} acceptedFileTypes=".dat" isProcessing={isProcessing} />
+            </div>
+          ) : (
+            <div className="flex gap-6 pt-4">
+              <EditorSidebar
+                onDownload={handleDownload}
+                onLoadNew={() => {
+                  setSaveData(null)
+                  setOriginalFile(null)
+                }}
+                isProcessing={isProcessing}
+                hasSaveData={!!saveData}
+                fileName={originalFile?.name}
+                fileSize={originalFile?.size}
+                lastModified={originalFile ? new Date() : undefined}
+                quickStats={quickStats}
+                quickActions={quickActions}
+              />
+
+              <div className="flex-1 space-y-4">
+                <Tabs defaultValue="currencies" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2 bg-card border border-border">
+                    <TabsTrigger value="currencies" className="data-[state=active]:bg-muted">
+                      <Coins className="w-4 h-4 mr-2" />
+                      Currencies
+                    </TabsTrigger>
+                    <TabsTrigger value="raw" className="data-[state=active]:bg-muted">
+                      <Code className="w-4 h-4 mr-2" />
+                      Raw JSON
+                    </TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="currencies" className="space-y-4 mt-4">
+                    <Card className="bg-card border-border">
+                      <CardHeader className="border-b border-border">
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-foreground">Currencies</CardTitle>
+                          <Button
+                            onClick={() => {
+                              setCurrencies({
+                                fairyEmbers: 999999,
+                                silk: 999999,
+                                moonstone: 999999,
+                                grailWater: 999999,
+                                crystalShards: 999999,
+                              })
+                            }}
+                            variant="outline"
+                            size="sm"
+                            className="text-primary border-primary/30 hover:bg-primary/10"
+                          >
+                            Max All
+                          </Button>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                          {CURRENCIES.map((currency) => (
+                            <div key={currency.id} className="space-y-3 p-4 bg-muted rounded-lg border border-border">
+                              <div className="flex flex-col items-center gap-2">
+                                <div className="w-16 h-16 flex items-center justify-center">
+                                  <img
+                                    src={currency.image || "/placeholder.svg"}
+                                    alt={currency.name}
+                                    className="w-full h-full object-contain"
+                                  />
+                                </div>
+                                <div className="text-center">
+                                  <Label
+                                    htmlFor={currency.id}
+                                    className="items-center justify-center text-sm font-medium text-card-foreground"
+                                  >
+                                    {currency.name}
+                                  </Label>
+                                  <p className="text-xs text-muted-foreground">Max: {currency.max.toLocaleString()}</p>
+                                </div>
+                              </div>
+                              <Input
+                                id={currency.id}
+                                type="number"
+                                value={currencies[currency.stateKey]}
+                                onChange={(e) => handleCurrencyChange(currency.stateKey, e.target.value)}
+                                min="0"
+                                className="font-mono text-lg bg-input border-border text-foreground"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+
+                  <TabsContent value="raw" className="space-y-4 mt-4">
+                    <Card className="bg-card border-border">
+                      <CardHeader className="border-b border-border">
+                        <CardTitle className="text-foreground flex items-center gap-2">
+                          <Code className="w-5 h-5" />
+                          Raw JSON Editor
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        <JsonTreeEditor data={saveData} onChange={setSaveData} />
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                </Tabs>
+
+                <div className="flex items-center justify-between p-3 bg-card border border-border rounded-lg text-sm">
+                  <div className="flex items-center gap-2 text-green-400">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                    <span>{originalFile?.name} loaded</span>
+                  </div>
+                  <span className="text-muted-foreground">Last modified: {originalFile && formatDate(new Date())}</span>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {saveData && (
+          <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border z-50">
+            <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-end">
+              <Button
+                onClick={handleDownload}
+                disabled={isProcessing}
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+              >
+                <Save className="w-5 h-5 mr-2" />
+                {isProcessing ? "Processing..." : "Download Edited Save"}
+              </Button>
+            </div>
+          </div>
+        )}
+      </main>
+    </>
   )
 }
 
