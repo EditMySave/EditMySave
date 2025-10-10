@@ -57,6 +57,35 @@
           "supported": false
         }
       ]
+    },
+    {
+      "id": "cloverpit",
+      "name": "Cloverpit",
+      "description": "Comprehensive editor for Cloverpit GameDataFull.json with full control over economy, spins, RNG, powerups, and more",
+      "image": "/images/cloverpit/cover.jpg",
+      "route": "/cloverpit",
+      "status": "available",
+      "supportedVersion": "v1.1 (Steam)",
+      "platforms": [
+        {
+          "name": "Steam",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Panik\\CloverPit\\SaveData\\GameData\\GameDataFull.json"
+          },
+          "fileName": "GameDataFull.json",
+          "instructions": "Windows: %USERPROFILE%\\AppData\\LocalLow\\Panik\\CloverPit\\SaveData\\GameData\\\nOr Steam: <SteamLibrary>\\steamapps\\common\\CloverPit\\SaveData\\GameData\\\n\nLook for GameDataFull.json and drag it into this editor.",
+          "notes": "Always create a backup of your save file before editing. This file is encrypted with a custom XOR cipher. The editor handles encryption/decryption automatically."
+        },
+        {
+          "name": "Xbox Game Pass",
+          "supported": false
+        },
+        {
+          "name": "Epic Games Store",
+          "supported": false
+        }
+      ]
     }
   ]
 }
