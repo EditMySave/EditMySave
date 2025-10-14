@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import {
   Sparkles,
@@ -16,12 +18,22 @@ import {
   Lock,
   Save,
   Code,
+  BarChart3,
+  Download,
+  Upload,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { decodeSaveFromFile, encodeSaveToBlob, type MegabonkSave } from "@/lib/megabonk/decoder"
+import {
+  decodeSaveFromFile,
+  encodeSaveToBlob,
+  decryptSave,
+  encryptSave,
+  type MegabonkSave,
+} from "@/lib/megabonk/decoder"
+import { downloadJSON } from "@/lib/download-json"
 import Link from "next/link"
 import { track } from "@vercel/analytics"
 import { SaveFileUpload } from "@/components/save-file-upload"
@@ -68,6 +80,9 @@ export default function MegabonkSaveEditor() {
   const [saveData, setSaveData] = useState<MegabonkSave | null>(null)
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [isProcessing, setIsProcessing] = useState(false)
+  const [statsData, setStatsData] = useState<any | null>(null)
+  const [statsFileName, setStatsFileName] = useState<string | null>(null)
+  const [isDraggingStats, setIsDraggingStats] = useState(false)
   const availableAchievements = achievementsData.achievements
   const availableMaps = mapsData.maps
   const availablePurchases = purchasesData.purchases
@@ -280,6 +295,77 @@ export default function MegabonkSaveEditor() {
     setSaveData(unlockPurchases(saveData, availablePurchases))
   }
 
+  const handleStatsFileUpload = async (file: File) => {
+    try {
+      const encryptedText = await file.text()
+      const decrypted = await decryptSave(encryptedText)
+      const json = JSON.parse(decrypted)
+      setStatsData(json)
+      setStatsFileName(file.name)
+      track("stats_file_uploaded", {
+        game: "Megabonk",
+        fileSize: file.size,
+        fileName: file.name,
+      })
+    } catch (error) {
+      console.error("Error parsing stats file:", error)
+      alert("Failed to decrypt and parse stats.json file. Please ensure it is a valid encrypted Megabonk stats file.")
+    }
+  }
+
+  const handleStatsFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files
+    if (files && files.length > 0) {
+      handleStatsFileUpload(files[0])
+    }
+  }
+
+  const handleStatsDragOver = (e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDraggingStats(true)
+  }
+
+  const handleStatsDragLeave = (e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDraggingStats(false)
+  }
+
+  const handleStatsDrop = async (e: React.DragEvent) => {
+    e.preventDefault()
+    setIsDraggingStats(false)
+
+    const files = Array.from(e.dataTransfer.files)
+    if (files.length > 0) {
+      handleStatsFileUpload(files[0])
+    }
+  }
+
+  const handleDownloadStats = async () => {
+    if (!statsData || !statsFileName) return
+
+    try {
+      const jsonString = JSON.stringify(statsData)
+      const encrypted = await encryptSave(jsonString)
+      const blob = new Blob([encrypted], { type: "text/plain" })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement("a")
+      a.href = url
+      a.download = statsFileName
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+
+      track("stats_file_downloaded", {
+        game: "Megabonk",
+        fileName: statsFileName,
+      })
+    } catch (error) {
+      console.error("Error encrypting stats file:", error)
+      alert("Failed to encrypt stats file for download.")
+    }
+  }
+
   const quickStats = saveData
     ? [
         { label: "Gold", value: saveData.gold.toLocaleString(), icon: <Coins className="w-4 h-4 text-yellow-500" /> },
@@ -319,6 +405,18 @@ export default function MegabonkSaveEditor() {
           label: "Unlock All Purchases",
           onClick: unlockAllPurchases,
           icon: <Package className="w-4 h-4 mr-2" />,
+        },
+        {
+          label: "Download JSON",
+          onClick: () => {
+            const filename = originalFile?.name.replace(/\.[^/.]+$/, "") || "megabonk-save"
+            downloadJSON(saveData, filename)
+            track("json_downloaded", {
+              game: "Megabonk",
+              fileName: originalFile?.name,
+            })
+          },
+          icon: <Code className="w-4 h-4 mr-2" />,
         },
       ]
     : []
@@ -383,7 +481,7 @@ export default function MegabonkSaveEditor() {
 
               <div className="flex-1 space-y-4">
                 <Tabs defaultValue="currencies" className="w-full">
-                  <TabsList className="grid w-full grid-cols-7 bg-card border border-border">
+                  <TabsList className="grid w-full grid-cols-8 bg-card border border-border">
                     <TabsTrigger value="currencies" className="data-[state=active]:bg-muted">
                       <Coins className="w-4 h-4 mr-2" />
                       Currencies
@@ -407,6 +505,10 @@ export default function MegabonkSaveEditor() {
                     <TabsTrigger value="maps" className="data-[state=active]:bg-muted">
                       <Map className="w-4 h-4 mr-2" />
                       Maps
+                    </TabsTrigger>
+                    <TabsTrigger value="stats" className="data-[state=active]:bg-muted">
+                      <BarChart3 className="w-4 h-4 mr-2" />
+                      Stats
                     </TabsTrigger>
                     <TabsTrigger value="raw" className="data-[state=active]:bg-muted">
                       <Code className="w-4 h-4 mr-2" />
@@ -979,6 +1081,80 @@ export default function MegabonkSaveEditor() {
                               )
                             })}
                         </Tabs>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+
+                  <TabsContent value="stats" className="space-y-4">
+                    <Card className="bg-card border-border">
+                      <CardHeader className="border-b border-border">
+                        <CardTitle className="text-foreground flex items-center gap-2">
+                          <BarChart3 className="w-5 h-5" />
+                          Stats JSON Editor
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="pt-6 space-y-4">
+                        {!statsData ? (
+                          <div
+                            onDragOver={handleStatsDragOver}
+                            onDragLeave={handleStatsDragLeave}
+                            onDrop={handleStatsDrop}
+                            className={`flex flex-col items-center justify-center gap-4 p-12 rounded-lg border-2 border-dashed transition-colors ${
+                              isDraggingStats ? "bg-accent border-primary" : "bg-muted border-border"
+                            }`}
+                          >
+                            <Upload className="w-12 h-12 text-muted-foreground" />
+                            <div className="text-center space-y-2">
+                              <p className="text-lg font-medium text-foreground">Drop your stats.json file here</p>
+                              <p className="text-sm text-muted-foreground">or click to browse</p>
+                            </div>
+                            <input
+                              type="file"
+                              id="stats-file-input"
+                              className="hidden"
+                              onChange={handleStatsFileInput}
+                              accept=".json"
+                            />
+                            <Button asChild variant="secondary">
+                              <label htmlFor="stats-file-input" className="cursor-pointer">
+                                Browse Files
+                              </label>
+                            </Button>
+                          </div>
+                        ) : (
+                          <div className="space-y-4">
+                            <div className="flex items-center justify-between p-3 bg-muted rounded-lg border border-border">
+                              <div className="flex items-center gap-2 text-green-400">
+                                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                                <span className="text-sm">{statsFileName} loaded</span>
+                              </div>
+                              <div className="flex gap-2">
+                                <Button
+                                  onClick={handleDownloadStats}
+                                  variant="outline"
+                                  size="sm"
+                                  className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent"
+                                >
+                                  <Download className="w-4 h-4 mr-2" />
+                                  Download
+                                </Button>
+                                <Button
+                                  onClick={() => {
+                                    setStatsData(null)
+                                    setStatsFileName(null)
+                                  }}
+                                  variant="ghost"
+                                  size="sm"
+                                  className="text-muted-foreground hover:text-foreground"
+                                >
+                                  <Trash2 className="w-4 h-4 mr-2" />
+                                  Clear
+                                </Button>
+                              </div>
+                            </div>
+                            <JsonTreeEditor data={statsData} onChange={setStatsData} />
+                          </div>
+                        )}
                       </CardContent>
                     </Card>
                   </TabsContent>

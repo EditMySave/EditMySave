@@ -72,7 +72,6 @@
           "supported": true,
           "saveLocation": {
             "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Panik\\CloverPit\\SaveData\\GameData\\GameDataFull.json"
-            
           },
           "fileName": "GameDataFull.json",
           "instructions": "Windows: %USERPROFILE%\\AppData\\LocalLow\\Panik\\CloverPit\\SaveData\\GameData\\\nOr Steam: <SteamLibrary>\\steamapps\\common\\CloverPit\\SaveData\\GameData\\\n\nLook for GameDataFull.json and drag it into this editor.",
@@ -87,6 +86,30 @@
           "supported": false
         }
       ]
+    },
+    {
+      "id": "balatro",
+      "name": "Balatro",
+      "description": "Edit your Balatro save files including chips, money, unlocks, and more",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "hades",
+      "name": "Hades",
+      "description": "Modify resources, unlocks, and progression in your Hades save files",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "vampire-survivors",
+      "name": "Vampire Survivors",
+      "description": "Edit gold, unlocks, and character progression for Vampire Survivors",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
     }
   ]
 }
