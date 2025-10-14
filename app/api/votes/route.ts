@@ -25,6 +25,7 @@ async function saveVotes(votes: VotesData): Promise<void> {
   await put(VOTES_BLOB_PATH, JSON.stringify(votes), {
     access: "public",
     contentType: "application/json",
+    addRandomSuffix: false,
   })
 }
 
