@@ -58,6 +58,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true, votes: votes[gameId] })
   } catch (error) {
     console.error("[v0] Error saving vote:", error)
-    return NextResponse.json({ error: "Failed to save vote" }, { status: 500 })
+    return NextResponse.json({ error: "Failed to save vote" + JSON.stringify(error) }, { status: 500 })
   }
 }
