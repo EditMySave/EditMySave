@@ -246,7 +246,7 @@ export default function MegabonkSaveEditor() {
 
   const unlockAllAchievements = () => {
     if (!saveData) return
-    setSaveData(unlockAchievements(saveData))
+    setSaveData(unlockAchievements(saveData, availableAchievements))
   }
 
   const maxAllShopItems = () => {
@@ -331,7 +331,7 @@ export default function MegabonkSaveEditor() {
         <title>Megabonk Save Editor - Edit Your Megabonk Save Files | EditMySave</title>
         <meta
           name="description"
-          content="Free online Megabonk save editor. Edit currencies, characters, achievements, and shop items for your Megabonk save files. Works entirely in your browser with no downloads required. Supports version v1.0.12."
+          content="Free online Megabonk save editor. Edit currencies, characters, achievements, shop items, and purchases for your Megabonk save files. Works entirely in your browser with no downloads required. Supports version v1.0.12."
         />
       </Head>
       <main className="min-h-screen bg-background pb-20">

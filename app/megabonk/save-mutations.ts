@@ -54,12 +54,13 @@ export function unlockAllCharacters(saveData: MegabonkSave): MegabonkSave {
 }
 
 /**
- * Claims all achievements that are in the achievements array
+ * Unlocks and claims all available achievements
  */
-export function unlockAllAchievements(saveData: MegabonkSave): MegabonkSave {
+export function unlockAllAchievements(saveData: MegabonkSave, availableAchievements: string[]): MegabonkSave {
   return {
     ...saveData,
-    claimedAchievements: [...saveData.achievements],
+    achievements: [...availableAchievements],
+    claimedAchievements: [...availableAchievements],
   }
 }
 
