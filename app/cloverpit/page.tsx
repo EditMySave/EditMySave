@@ -25,6 +25,7 @@ import { SaveLocationHelp } from "@/components/save-location-help"
 import { EditorSidebar } from "@/components/editor-sidebar"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
 import { decryptSave, encryptSave, getByte, setByte, type CloverpitJsonSave } from "@/lib/cloverpit/decoder"
+import { downloadJSON } from "@/lib/download-json"
 import {
   maxAllCurrencies,
   maxSpins,
@@ -158,6 +159,18 @@ export default function CloverpitEditor() {
           label: "Max Luck",
           onClick: () => setSaveData(maxLuck(saveData)),
           icon: <Sparkles className="w-4 h-4 mr-2" />,
+        },
+        {
+          label: "Download JSON",
+          onClick: () => {
+            const filename = originalFile?.name.replace(/\.[^/.]+$/, "") || "cloverpit-save"
+            downloadJSON(saveData, filename)
+            track("json_downloaded", {
+              game: "Cloverpit",
+              fileName: originalFile?.name,
+            })
+          },
+          icon: <Code className="w-4 h-4 mr-2" />,
         },
       ]
     : []

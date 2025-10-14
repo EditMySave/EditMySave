@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { decodeSaveFromFile, encodeSaveToBlob, type SwornSave } from "@/lib/sworn/decoder"
+import { downloadJSON } from "@/lib/download-json"
 import Link from "next/link"
 import { track } from "@vercel/analytics"
 import { SaveFileUpload } from "@/components/save-file-upload"
@@ -208,6 +209,18 @@ export default function SwornSaveEditor() {
             })
           },
           icon: <Sparkles className="w-4 h-4 mr-2" />,
+        },
+        {
+          label: "Download JSON",
+          onClick: () => {
+            const filename = originalFile?.name.replace(/\.[^/.]+$/, "") || "sworn-save"
+            downloadJSON(saveData, filename)
+            track("json_downloaded", {
+              game: "Sworn",
+              fileName: originalFile?.name,
+            })
+          },
+          icon: <Code className="w-4 h-4 mr-2" />,
         },
       ]
     : []
