@@ -9,11 +9,12 @@ interface VotesData {
 
 async function getVotes(): Promise<VotesData> {
   try {
-    // Check if blob exists
-    await head(VOTES_BLOB_PATH)
+    const blob = await head(VOTES_BLOB_PATH)
 
-    // Fetch existing votes
-    const response = await fetch(`${process.env.BLOB_READ_WRITE_TOKEN}/${VOTES_BLOB_PATH}`)
+    const response = await fetch(blob.url)
+    if (!response.ok) {
+      return {}
+    }
     return await response.json()
   } catch {
     // If blob doesn't exist, return empty object
