@@ -6,21 +6,25 @@ import { Gamepad2 } from "lucide-react"
 import gamesData from "@/data/games.json"
 import { generateHomeMetadata } from "@/lib/seo"
 import { VoteButton } from "@/components/vote-button"
-import { getBaseUrl } from "@/lib/get-base-url"
-
-export const metadata = generateHomeMetadata()
+import { head } from "@vercel/blob"
 
 async function getVotes() {
   try {
-    const response = await fetch(`${getBaseUrl()}/api/votes`, {
-      cache: "no-store",
-    })
-    if (!response.ok) return {}
-    return await response.json()
-  } catch {
+    console.log("[v0] Attempting to fetch votes from blob")
+    const blob = await head("votes.json")
+    console.log("[v0] Blob found, URL:", blob.url)
+    const response = await fetch(blob.url, { cache: "no-store" })
+    console.log("[v0] Blob fetch response status:", response.status)
+    const data = await response.json()
+    console.log("[v0] Votes loaded:", data)
+    return data
+  } catch (error) {
+    console.error("[v0] Error loading votes:", error)
     return {}
   }
 }
+
+export const metadata = generateHomeMetadata()
 
 export default async function HomePage() {
   const votes = await getVotes()

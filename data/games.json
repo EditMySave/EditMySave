@@ -110,6 +110,222 @@
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
       "status": "coming-soon"
+    },
+    {
+      "id": "borderlands-4",
+      "name": "Borderlands 4",
+      "description": "Modify your Borderlands 4 save files including weapons, skills, and inventory",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "hollow-knight-silksong",
+      "name": "Hollow Knight: Silksong",
+      "description": "Edit your Hollow Knight: Silksong save files for progression and unlocks",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "no-mans-sky",
+      "name": "No Man's Sky",
+      "description": "Modify resources, units, and discoveries in your No Man's Sky save files",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "palworld",
+      "name": "Palworld",
+      "description": "Edit your Palworld save files including resources, Pals, and base progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "cyberpunk-2077",
+      "name": "Cyberpunk 2077",
+      "description": "Modify your Cyberpunk 2077 save files including eddies, items, and character stats",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "borderlands-3",
+      "name": "Borderlands 3",
+      "description": "Edit your Borderlands 3 save files including weapons, money, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "minecraft-dungeons",
+      "name": "Minecraft Dungeons",
+      "description": "Modify your Minecraft Dungeons save files including gear, emeralds, and character levels",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "dredge",
+      "name": "Dredge",
+      "description": "Edit your Dredge save files including fish, equipment, and boat upgrades",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "dave-the-diver",
+      "name": "Dave the Diver",
+      "description": "Modify your Dave the Diver save files including money, fish, and restaurant progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "risk-of-rain-2",
+      "name": "Risk of Rain 2",
+      "description": "Edit your Risk of Rain 2 save files including unlocks, lunar coins, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "sims-4",
+      "name": "The Sims 4",
+      "description": "Modify your Sims 4 save files including simoleons, household funds, and career progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "witcher-3",
+      "name": "The Witcher 3: Wild Hunt",
+      "description": "Edit your Witcher 3 save files including crowns, items, skills, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "skyrim",
+      "name": "The Elder Scrolls V: Skyrim",
+      "description": "Modify your Skyrim save files including gold, items, skills, and character stats",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "fallout-shelter",
+      "name": "Fallout Shelter",
+      "description": "Edit your Fallout Shelter save files including caps, resources, and vault progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "oxygen-not-included",
+      "name": "Oxygen Not Included",
+      "description": "Modify your Oxygen Not Included save files including resources, duplicants, and colony progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "hogwarts-legacy",
+      "name": "Hogwarts Legacy",
+      "description": "Edit your Hogwarts Legacy save files including galleons, items, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "dying-light-2",
+      "name": "Dying Light 2",
+      "description": "Modify your Dying Light 2 save files including resources, weapons, and character skills",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "slay-the-spire",
+      "name": "Slay the Spire",
+      "description": "Edit your Slay the Spire save files including unlocks, relics, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "kerbal-space-program",
+      "name": "Kerbal Space Program",
+      "description": "Modify your Kerbal Space Program save files including funds, science, and mission progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "darkest-dungeon",
+      "name": "Darkest Dungeon",
+      "description": "Edit your Darkest Dungeon save files including gold, heirlooms, and hero progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "rimworld",
+      "name": "RimWorld",
+      "description": "Modify your RimWorld save files including resources, colonists, and colony progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "baldurs-gate-3",
+      "name": "Baldur's Gate 3",
+      "description": "Edit your Baldur's Gate 3 save files including gold, items, and character stats",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "terraria",
+      "name": "Terraria",
+      "description": "Modify your Terraria save files including items, coins, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "factorio",
+      "name": "Factorio",
+      "description": "Edit your Factorio save files including resources, research, and factory progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "valheim",
+      "name": "Valheim",
+      "description": "Modify your Valheim save files including items, skills, and world progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "project-zomboid",
+      "name": "Project Zomboid",
+      "description": "Edit your Project Zomboid save files including items, skills, and character stats",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "the-long-dark",
+      "name": "The Long Dark",
+      "description": "Modify your The Long Dark save files including items, skills, and survival progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
     }
   ]
 }

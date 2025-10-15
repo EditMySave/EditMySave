@@ -4,9 +4,16 @@
  * otherwise falls back to VERCEL_URL or localhost
  */
 export function getBaseUrl(): string {
+  const ensureProtocol = (url: string): string => {
+    if (url.startsWith("http://") || url.startsWith("https://")) {
+      return url.replace(/\/$/, "") // Remove trailing slash
+    }
+    return `https://${url}`.replace(/\/$/, "") // Add https and remove trailing slash
+  }
+
   // Use custom site URL if provided (set in Vercel environment variables)
   if (process.env.NEXT_PUBLIC_SITE_URL) {
-    return process.env.NEXT_PUBLIC_SITE_URL
+    return ensureProtocol(process.env.NEXT_PUBLIC_SITE_URL)
   }
 
   // Development fallback
@@ -16,7 +23,7 @@ export function getBaseUrl(): string {
 
   // Fallback to VERCEL_URL for deployments
   if (process.env.NEXT_PUBLIC_VERCEL_URL) {
-    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+    return ensureProtocol(process.env.NEXT_PUBLIC_VERCEL_URL)
   }
 
   // Final fallback

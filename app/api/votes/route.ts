@@ -1,63 +1,43 @@
-import { put, head } from "@vercel/blob"
 import { NextResponse } from "next/server"
+import { put, head } from "@vercel/blob"
 
-const VOTES_BLOB_PATH = "votes.json"
+const VOTES_FILE = "votes.json"
 
-interface VotesData {
-  [gameId: string]: number
-}
-
-async function getVotes(): Promise<VotesData> {
+async function getVotes() {
   try {
-    // Check if blob exists
-    await head(VOTES_BLOB_PATH)
-
-    // Fetch existing votes
-    const response = await fetch(`${process.env.BLOB_READ_WRITE_TOKEN}/${VOTES_BLOB_PATH}`)
+    const blob = await head(VOTES_FILE)
+    const response = await fetch(blob.url, { cache: "no-store" })
     return await response.json()
   } catch {
-    // If blob doesn't exist, return empty object
     return {}
   }
 }
 
-async function saveVotes(votes: VotesData): Promise<void> {
-  await put(VOTES_BLOB_PATH, JSON.stringify(votes), {
+async function saveVotes(votes: Record<string, number>) {
+  await put(VOTES_FILE, JSON.stringify(votes), {
     access: "public",
     contentType: "application/json",
+    addRandomSuffix: false,
+    allowOverwrite: true,
   })
 }
 
 export async function GET() {
-  try {
-    const votes = await getVotes()
-    return NextResponse.json(votes)
-  } catch (error) {
-    console.error("[v0] Error fetching votes:", error)
-    return NextResponse.json({}, { status: 500 })
-  }
+  const votes = await getVotes()
+  return NextResponse.json(votes)
 }
 
 export async function POST(request: Request) {
   try {
     const { gameId } = await request.json()
+    if (!gameId) return NextResponse.json({ error: "Invalid game ID" }, { status: 400 })
 
-    if (!gameId || typeof gameId !== "string") {
-      return NextResponse.json({ error: "Invalid game ID" }, { status: 400 })
-    }
-
-    // Get current votes
     const votes = await getVotes()
-
-    // Increment vote count
     votes[gameId] = (votes[gameId] || 0) + 1
-
-    // Save updated votes
     await saveVotes(votes)
 
-    return NextResponse.json({ success: true, votes: votes[gameId] })
+    return NextResponse.json({ votes: votes[gameId] })
   } catch (error) {
-    console.error("[v0] Error saving vote:", error)
     return NextResponse.json({ error: "Failed to save vote" }, { status: 500 })
   }
 }
