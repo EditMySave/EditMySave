@@ -6,34 +6,9 @@ import { Gamepad2 } from "lucide-react"
 import gamesData from "@/data/games.json"
 import { generateHomeMetadata } from "@/lib/seo"
 import { VoteButton } from "@/components/vote-button"
-import { getBaseUrl } from "@/lib/get-base-url"
+import { getVotes } from "@/lib/votes"
 
 export const metadata = generateHomeMetadata()
-
-async function getVotes() {
-  try {
-    const baseUrl = getBaseUrl()
-    console.log("[v0] Fetching votes from:", `${baseUrl}/api/votes`)
-
-    const response = await fetch(`${baseUrl}/api/votes`, {
-      cache: "no-store",
-    })
-
-    console.log("[v0] Votes API response status:", response.status)
-
-    if (!response.ok) {
-      console.log("[v0] Votes API response not ok:", await response.text())
-      return {}
-    }
-
-    const data = await response.json()
-    console.log("[v0] Votes data received:", data)
-    return data
-  } catch (error) {
-    console.log("[v0] Error fetching votes:", error)
-    return {}
-  }
-}
 
 export default async function HomePage() {
   const votes = await getVotes()
