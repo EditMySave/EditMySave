@@ -1,4 +1,4 @@
-import { put, head } from "@vercel/blob"
+import { put, list } from "@vercel/blob"
 import { NextResponse } from "next/server"
 
 const VOTES_BLOB_PATH = "votes.json"
@@ -9,11 +9,17 @@ interface VotesData {
 
 async function getVotes(): Promise<VotesData> {
   try {
-    console.log("[v0] Attempting to fetch blob:", VOTES_BLOB_PATH)
-    const blob = await head(VOTES_BLOB_PATH)
-    console.log("[v0] Blob found, URL:", blob.url)
+    console.log("[v0] Attempting to list blobs to find:", VOTES_BLOB_PATH)
+    const { blobs } = await list()
+    const votesBlob = blobs.find((blob) => blob.pathname === VOTES_BLOB_PATH)
 
-    const response = await fetch(blob.url)
+    if (!votesBlob) {
+      console.log("[v0] Votes blob not found, returning empty votes")
+      return {}
+    }
+
+    console.log("[v0] Votes blob found, URL:", votesBlob.url)
+    const response = await fetch(votesBlob.url)
     console.log("[v0] Blob fetch response status:", response.status)
 
     if (!response.ok) {
@@ -25,8 +31,7 @@ async function getVotes(): Promise<VotesData> {
     console.log("[v0] Votes data from blob:", data)
     return data
   } catch (error) {
-    // If blob doesn't exist, return empty object
-    console.log("[v0] Blob doesn't exist or error fetching:", error)
+    console.log("[v0] Error fetching votes:", error)
     return {}
   }
 }
