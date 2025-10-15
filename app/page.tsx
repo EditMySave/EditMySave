@@ -10,10 +10,16 @@ import { head } from "@vercel/blob"
 
 async function getVotes() {
   try {
+    console.log("[v0] Attempting to fetch votes from blob")
     const blob = await head("votes.json")
-    const response = await fetch(blob.url)
-    return await response.json()
-  } catch {
+    console.log("[v0] Blob found, URL:", blob.url)
+    const response = await fetch(blob.url, { cache: "no-store" })
+    console.log("[v0] Blob fetch response status:", response.status)
+    const data = await response.json()
+    console.log("[v0] Votes loaded:", data)
+    return data
+  } catch (error) {
+    console.error("[v0] Error loading votes:", error)
     return {}
   }
 }
