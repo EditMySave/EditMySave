@@ -13,7 +13,12 @@ export async function getVotes(): Promise<VotesData> {
     const blobMetadata = await head(VOTES_BLOB_PATH)
 
     console.log("[v0] Votes blob found, fetching from URL:", blobMetadata.url)
-    const response = await fetch(blobMetadata.url)
+    const response = await fetch(blobMetadata.url, {
+      cache: "no-store",
+      headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+      },
+    })
 
     if (!response.ok) {
       console.log("[v0] Failed to fetch blob content, status:", response.status)
