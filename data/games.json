@@ -166,6 +166,30 @@
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
       "status": "coming-soon"
+    },
+    {
+      "id": "dredge",
+      "name": "Dredge",
+      "description": "Edit your Dredge save files including fish, equipment, and boat upgrades",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "dave-the-diver",
+      "name": "Dave the Diver",
+      "description": "Modify your Dave the Diver save files including money, fish, and restaurant progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "risk-of-rain-2",
+      "name": "Risk of Rain 2",
+      "description": "Edit your Risk of Rain 2 save files including unlocks, lunar coins, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
     }
   ]
 }
