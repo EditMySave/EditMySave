@@ -222,6 +222,78 @@
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
       "status": "coming-soon"
+    },
+    {
+      "id": "oxygen-not-included",
+      "name": "Oxygen Not Included",
+      "description": "Modify your Oxygen Not Included save files including resources, duplicants, and colony progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "hogwarts-legacy",
+      "name": "Hogwarts Legacy",
+      "description": "Edit your Hogwarts Legacy save files including galleons, items, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "dying-light-2",
+      "name": "Dying Light 2",
+      "description": "Modify your Dying Light 2 save files including resources, weapons, and character skills",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "slay-the-spire",
+      "name": "Slay the Spire",
+      "description": "Edit your Slay the Spire save files including unlocks, relics, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "kerbal-space-program",
+      "name": "Kerbal Space Program",
+      "description": "Modify your Kerbal Space Program save files including funds, science, and mission progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "darkest-dungeon",
+      "name": "Darkest Dungeon",
+      "description": "Edit your Darkest Dungeon save files including gold, heirlooms, and hero progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "rimworld",
+      "name": "RimWorld",
+      "description": "Modify your RimWorld save files including resources, colonists, and colony progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "baldurs-gate-3",
+      "name": "Baldur's Gate 3",
+      "description": "Edit your Baldur's Gate 3 save files including gold, items, and character stats",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "terraria",
+      "name": "Terraria",
+      "description": "Modify your Terraria save files including items, coins, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
     }
   ]
 }
