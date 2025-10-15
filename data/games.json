@@ -294,6 +294,38 @@
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
       "status": "coming-soon"
+    },
+    {
+      "id": "factorio",
+      "name": "Factorio",
+      "description": "Edit your Factorio save files including resources, research, and factory progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "valheim",
+      "name": "Valheim",
+      "description": "Modify your Valheim save files including items, skills, and world progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "project-zomboid",
+      "name": "Project Zomboid",
+      "description": "Edit your Project Zomboid save files including items, skills, and character stats",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "the-long-dark",
+      "name": "The Long Dark",
+      "description": "Modify your The Long Dark save files including items, skills, and survival progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
     }
   ]
 }
