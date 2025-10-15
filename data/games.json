@@ -110,6 +110,62 @@
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
       "status": "coming-soon"
+    },
+    {
+      "id": "borderlands-4",
+      "name": "Borderlands 4",
+      "description": "Modify your Borderlands 4 save files including weapons, skills, and inventory",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "hollow-knight-silksong",
+      "name": "Hollow Knight: Silksong",
+      "description": "Edit your Hollow Knight: Silksong save files for progression and unlocks",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "no-mans-sky",
+      "name": "No Man's Sky",
+      "description": "Modify resources, units, and discoveries in your No Man's Sky save files",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "palworld",
+      "name": "Palworld",
+      "description": "Edit your Palworld save files including resources, Pals, and base progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "cyberpunk-2077",
+      "name": "Cyberpunk 2077",
+      "description": "Modify your Cyberpunk 2077 save files including eddies, items, and character stats",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "borderlands-3",
+      "name": "Borderlands 3",
+      "description": "Edit your Borderlands 3 save files including weapons, money, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "minecraft-dungeons",
+      "name": "Minecraft Dungeons",
+      "description": "Modify your Minecraft Dungeons save files including gear, emeralds, and character levels",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
     }
   ]
 }
