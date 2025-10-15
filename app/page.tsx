@@ -6,7 +6,17 @@ import { Gamepad2 } from "lucide-react"
 import gamesData from "@/data/games.json"
 import { generateHomeMetadata } from "@/lib/seo"
 import { VoteButton } from "@/components/vote-button"
-import { getVotes } from "@/lib/votes"
+
+async function getVotes() {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/api/votes`, {
+      cache: "no-store",
+    })
+    return await response.json()
+  } catch {
+    return {}
+  }
+}
 
 export const metadata = generateHomeMetadata()
 
