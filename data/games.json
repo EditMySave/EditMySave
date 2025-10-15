@@ -190,6 +190,38 @@
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
       "status": "coming-soon"
+    },
+    {
+      "id": "sims-4",
+      "name": "The Sims 4",
+      "description": "Modify your Sims 4 save files including simoleons, household funds, and career progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "witcher-3",
+      "name": "The Witcher 3: Wild Hunt",
+      "description": "Edit your Witcher 3 save files including crowns, items, skills, and character progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "skyrim",
+      "name": "The Elder Scrolls V: Skyrim",
+      "description": "Modify your Skyrim save files including gold, items, skills, and character stats",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
+    },
+    {
+      "id": "fallout-shelter",
+      "name": "Fallout Shelter",
+      "description": "Edit your Fallout Shelter save files including caps, resources, and vault progression",
+      "image": "/placeholder.svg?height=400&width=600",
+      "route": "#",
+      "status": "coming-soon"
     }
   ]
 }
