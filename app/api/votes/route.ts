@@ -10,7 +10,18 @@ interface VotesData {
 async function getVotes(): Promise<VotesData> {
   try {
     console.log("[v0] Attempting to list blobs to find:", VOTES_BLOB_PATH)
-    const { blobs } = await list()
+
+    let blobs
+    try {
+      const result = await list()
+      blobs = result.blobs
+    } catch (listError: any) {
+      // If we get a 401 or any auth error, the blob probably doesn't exist yet
+      // or the token isn't configured - return empty votes
+      console.log("[v0] Error listing blobs (might not exist yet):", listError.message)
+      return {}
+    }
+
     const votesBlob = blobs.find((blob) => blob.pathname === VOTES_BLOB_PATH)
 
     if (!votesBlob) {
