@@ -9,31 +9,44 @@ interface VotesData {
 
 async function getVotes(): Promise<VotesData> {
   try {
+    console.log("[v0] Attempting to fetch blob:", VOTES_BLOB_PATH)
     const blob = await head(VOTES_BLOB_PATH)
+    console.log("[v0] Blob found, URL:", blob.url)
 
     const response = await fetch(blob.url)
+    console.log("[v0] Blob fetch response status:", response.status)
+
     if (!response.ok) {
+      console.log("[v0] Blob fetch failed")
       return {}
     }
-    return await response.json()
-  } catch {
+
+    const data = await response.json()
+    console.log("[v0] Votes data from blob:", data)
+    return data
+  } catch (error) {
     // If blob doesn't exist, return empty object
+    console.log("[v0] Blob doesn't exist or error fetching:", error)
     return {}
   }
 }
 
 async function saveVotes(votes: VotesData): Promise<void> {
+  console.log("[v0] Saving votes to blob:", votes)
   await put(VOTES_BLOB_PATH, JSON.stringify(votes), {
     access: "public",
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
   })
+  console.log("[v0] Votes saved successfully")
 }
 
 export async function GET() {
   try {
+    console.log("[v0] GET /api/votes called")
     const votes = await getVotes()
+    console.log("[v0] Returning votes:", votes)
     return NextResponse.json(votes)
   } catch (error) {
     console.error("[v0] Error fetching votes:", error)
@@ -43,6 +56,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
+    console.log("[v0] POST /api/votes called")
     const { gameId } = await request.json()
 
     if (!gameId || typeof gameId !== "string") {
@@ -54,6 +68,7 @@ export async function POST(request: Request) {
 
     // Increment vote count
     votes[gameId] = (votes[gameId] || 0) + 1
+    console.log("[v0] Incremented vote for", gameId, "to", votes[gameId])
 
     // Save updated votes
     await saveVotes(votes)

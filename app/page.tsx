@@ -12,12 +12,25 @@ export const metadata = generateHomeMetadata()
 
 async function getVotes() {
   try {
-    const response = await fetch(`${getBaseUrl()}/api/votes`, {
+    const baseUrl = getBaseUrl()
+    console.log("[v0] Fetching votes from:", `${baseUrl}/api/votes`)
+
+    const response = await fetch(`${baseUrl}/api/votes`, {
       cache: "no-store",
     })
-    if (!response.ok) return {}
-    return await response.json()
-  } catch {
+
+    console.log("[v0] Votes API response status:", response.status)
+
+    if (!response.ok) {
+      console.log("[v0] Votes API response not ok:", await response.text())
+      return {}
+    }
+
+    const data = await response.json()
+    console.log("[v0] Votes data received:", data)
+    return data
+  } catch (error) {
+    console.log("[v0] Error fetching votes:", error)
     return {}
   }
 }
