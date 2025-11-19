@@ -91,7 +91,7 @@
       "id": "balatro",
       "name": "Balatro",
       "description": "Edit money, chips, unlocks, and progression in your Balatro save files",
-      "image": "/images/balatro/cover.jpg",
+      "image": "/images/balatro/cover.png",
       "route": "/balatro",
       "status": "available",
       "supportedVersion": "v1.0.1",
