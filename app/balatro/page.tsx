@@ -639,12 +639,15 @@ export default function BalatroSaveEditor() {
                                     .sort(([, a], [, b]) => a.order - b.order)
                                     .map(([key, joker]) => {
                                       const usage = profileData.joker_usage?.[key]
+                                      const winsArray = Array.isArray(usage?.wins) ? usage.wins : []
+                                      const lossesArray = Array.isArray(usage?.losses) ? usage.losses : []
+                                      
                                       const wins = selectedStake === -1 
-                                        ? (usage?.wins?.reduce((a, b) => a + b, 0) ?? 0)
-                                        : (usage?.wins?.[selectedStake] ?? 0)
+                                        ? winsArray.reduce((a, b) => a + b, 0)
+                                        : (winsArray[selectedStake] ?? 0)
                                       const losses = selectedStake === -1
-                                        ? (usage?.losses?.reduce((a, b) => a + b, 0) ?? 0)
-                                        : (usage?.losses?.[selectedStake] ?? 0)
+                                        ? lossesArray.reduce((a, b) => a + b, 0)
+                                        : (lossesArray[selectedStake] ?? 0)
                                       
                                       return (
                                         <tr key={key} className="border-b border-border hover:bg-muted/50 transition-colors">
@@ -661,18 +664,18 @@ export default function BalatroSaveEditor() {
                                                 const newData = structuredClone(saveData) as Record<string, unknown>
                                                 const jokerUsage = (newData.joker_usage as Record<string, unknown>) || {}
                                                 const currentUsage = (jokerUsage[key] as Record<string, unknown>) || { wins: [], losses: [], count: 0, order: joker.order }
-                                                const winsArray = (currentUsage.wins as number[]) || []
+                                                const currentWinsArray = Array.isArray(currentUsage.wins) ? [...currentUsage.wins] : []
                                                 
                                                 if (selectedStake === -1) {
                                                   // Set all stakes to the same value when "All" is selected
                                                   currentUsage.wins = Array(Object.keys(Balatro.Stake).length).fill(newValue)
                                                 } else {
                                                   // Ensure array is long enough
-                                                  while (winsArray.length <= selectedStake) {
-                                                    winsArray.push(0)
+                                                  while (currentWinsArray.length <= selectedStake) {
+                                                    currentWinsArray.push(0)
                                                   }
-                                                  winsArray[selectedStake] = newValue
-                                                  currentUsage.wins = winsArray
+                                                  currentWinsArray[selectedStake] = newValue
+                                                  currentUsage.wins = currentWinsArray
                                                 }
                                                 
                                                 jokerUsage[key] = currentUsage
@@ -691,18 +694,18 @@ export default function BalatroSaveEditor() {
                                                 const newData = structuredClone(saveData) as Record<string, unknown>
                                                 const jokerUsage = (newData.joker_usage as Record<string, unknown>) || {}
                                                 const currentUsage = (jokerUsage[key] as Record<string, unknown>) || { wins: [], losses: [], count: 0, order: joker.order }
-                                                const lossesArray = (currentUsage.losses as number[]) || []
+                                                const currentLossesArray = Array.isArray(currentUsage.losses) ? [...currentUsage.losses] : []
                                                 
                                                 if (selectedStake === -1) {
                                                   // Set all stakes to the same value when "All" is selected
                                                   currentUsage.losses = Array(Object.keys(Balatro.Stake).length).fill(newValue)
                                                 } else {
                                                   // Ensure array is long enough
-                                                  while (lossesArray.length <= selectedStake) {
-                                                    lossesArray.push(0)
+                                                  while (currentLossesArray.length <= selectedStake) {
+                                                    currentLossesArray.push(0)
                                                   }
-                                                  lossesArray[selectedStake] = newValue
-                                                  currentUsage.losses = lossesArray
+                                                  currentLossesArray[selectedStake] = newValue
+                                                  currentUsage.losses = currentLossesArray
                                                 }
                                                 
                                                 jokerUsage[key] = currentUsage
