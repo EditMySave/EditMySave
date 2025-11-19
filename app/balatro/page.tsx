@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Sparkles, ArrowLeft, Code, Save } from 'lucide-react'
+import { Sparkles, ArrowLeft, Code, Save, Search } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -18,8 +18,9 @@ import gamesData from "@/data/games.json"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Badge } from "@/components/ui/badge"
-import { Balatro, AllItems } from "@/lib/balatro/game-data"
+import { AllItems, Balatro } from "@/lib/balatro/game-data"
+import type { MetaFileData, ProfileFileData } from "@/lib/balatro/types"
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 function getNestedValue(obj: unknown, path: string): unknown {
   const keys = path.split('.')
@@ -57,6 +58,7 @@ export default function BalatroSaveEditor() {
   const [saveData, setSaveData] = useState<DecodedSave | null>(null)
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [isProcessing, setIsProcessing] = useState(false)
+  const [metaSearch, setMetaSearch] = useState("")
 
   const processSaveFile = async (file: File) => {
     setIsProcessing(true)
@@ -113,76 +115,30 @@ export default function BalatroSaveEditor() {
     setSaveData(setNestedValue(saveData as Record<string, unknown>, path, numValue) as DecodedSave)
   }
 
+  const updateStringValue = (path: string, value: string) => {
+    if (!saveData) return
+    setSaveData(setNestedValue(saveData as Record<string, unknown>, path, value) as DecodedSave)
+  }
+
   const gameData = gamesData.games.find((game) => game.id === "balatro")
 
   const isProfileFile = originalFile?.name.toLowerCase().includes('profile') ?? false
   const isMetaFile = originalFile?.name.toLowerCase().includes('meta') ?? false
 
-  const profileName = getNestedValue(saveData, 'name') as string | undefined
-  const highScores = getNestedValue(saveData, 'high_scores') as Record<string, unknown> | undefined
-  const careerStats = getNestedValue(saveData, 'career_stats') as Record<string, unknown> | undefined
-  const progress = getNestedValue(saveData, 'progress') as Record<string, unknown> | undefined
-
-  const discovered = getNestedValue(saveData, 'discovered') as Record<string, boolean> | undefined
-  const unlocked = getNestedValue(saveData, 'unlocked') as Record<string, boolean> | undefined
-
-  const categorizeItems = () => {
-    if (!discovered || !unlocked) return {}
-    
-    const categories: Record<string, { locked: string[], unlocked: string[] }> = {
-      jokers: { locked: [], unlocked: [] },
-      decks: { locked: [], unlocked: [] },
-      vouchers: { locked: [], unlocked: [] },
-      tarots: { locked: [], unlocked: [] },
-      planets: { locked: [], unlocked: [] },
-      spectrals: { locked: [], unlocked: [] },
-      enhancements: { locked: [], unlocked: [] },
-      stakes: { locked: [], unlocked: [] },
-      blinds: { locked: [], unlocked: [] },
-      tags: { locked: [], unlocked: [] },
-    }
-
-    Object.keys(discovered).forEach(key => {
-      const isUnlocked = discovered[key] === true
-      const item = AllItems[key]
-      
-      if (key.startsWith('j_') && Balatro.Joker[key]) {
-        categories.jokers[isUnlocked ? 'unlocked' : 'locked'].push(key)
-      } else if (key.startsWith('b_') && Balatro.Deck[key]) {
-        categories.decks[isUnlocked ? 'unlocked' : 'locked'].push(key)
-      } else if (key.startsWith('v_') && Balatro.Voucher[key]) {
-        categories.vouchers[isUnlocked ? 'unlocked' : 'locked'].push(key)
-      } else if (key.startsWith('c_') && Balatro.Tarot[key]) {
-        categories.tarots[isUnlocked ? 'unlocked' : 'locked'].push(key)
-      } else if (key.startsWith('c_') && Balatro.Planet[key]) {
-        categories.planets[isUnlocked ? 'unlocked' : 'locked'].push(key)
-      } else if (key.startsWith('c_') && Balatro.Spectral[key]) {
-        categories.spectrals[isUnlocked ? 'unlocked' : 'locked'].push(key)
-      } else if (key.startsWith('m_') && Balatro.Enhanced[key]) {
-        categories.enhancements[isUnlocked ? 'unlocked' : 'locked'].push(key)
-      } else if (key.startsWith('stake_') && Balatro.Stake[key]) {
-        categories.stakes[isUnlocked ? 'unlocked' : 'locked'].push(key)
-      } else if (key.startsWith('bl_') && Balatro.Blind[key]) {
-        categories.blinds[isUnlocked ? 'unlocked' : 'locked'].push(key)
-      } else if (key.startsWith('tag_') && Balatro.Tag[key]) {
-        categories.tags[isUnlocked ? 'unlocked' : 'locked'].push(key)
-      }
-    })
-
-    return categories
-  }
+  const profileData = saveData as unknown as ProfileFileData
+  const metaData = saveData as unknown as MetaFileData
 
   const quickStats = saveData
     ? isProfileFile
       ? [
           {
             label: "Profile Name",
-            value: profileName || "Unknown",
+            value: profileData?.name || "Unknown",
             icon: <Sparkles className="w-4 h-4 text-primary" />,
           },
           {
             label: "Total Wins",
-            value: (careerStats?.c_wins as number) || 0,
+            value: profileData?.career_stats?.c_wins || 0,
             icon: <Sparkles className="w-4 h-4 text-primary" />,
           },
         ]
@@ -190,29 +146,27 @@ export default function BalatroSaveEditor() {
       ? [
           {
             label: "Discovered Items",
-            value: discovered ? Object.values(discovered).filter(v => v === true).length : 0,
+            value: metaData?.discovered ? Object.values(metaData.discovered).filter(v => v === true).length : 0,
             icon: <Sparkles className="w-4 h-4 text-primary" />,
           },
           {
             label: "Total Items",
-            value: discovered ? Object.keys(discovered).length : 0,
+            value: metaData?.discovered ? Object.keys(metaData.discovered).length : 0,
             icon: <Sparkles className="w-4 h-4 text-primary" />,
           },
         ]
       : []
     : []
 
-  const unlockCategory = (prefix: string) => {
-    if (!discovered || !unlocked) return
+  const unlockAllItems = () => {
+    if (!metaData?.discovered || !metaData?.unlocked) return
     const newData = structuredClone(saveData) as Record<string, unknown>
-    const newDiscovered = { ...discovered }
-    const newUnlocked = { ...unlocked }
+    const newDiscovered: Record<string, boolean> = {}
+    const newUnlocked: Record<string, boolean> = {}
     
-    Object.keys(newDiscovered).forEach(key => {
-      if (key.startsWith(prefix)) {
-        newDiscovered[key] = true
-        newUnlocked[key] = true
-      }
+    Object.keys(metaData.discovered).forEach(key => {
+      newDiscovered[key] = true
+      newUnlocked[key] = true
     })
     
     newData.discovered = newDiscovered
@@ -237,37 +191,8 @@ export default function BalatroSaveEditor() {
         ...(isMetaFile
           ? [
               {
-                label: "Unlock All Jokers",
-                onClick: () => unlockCategory('j_'),
-                icon: <Sparkles className="w-4 h-4 mr-2" />,
-              },
-              {
-                label: "Unlock All Decks",
-                onClick: () => unlockCategory('b_'),
-                icon: <Sparkles className="w-4 h-4 mr-2" />,
-              },
-              {
-                label: "Unlock All Vouchers",
-                onClick: () => unlockCategory('v_'),
-                icon: <Sparkles className="w-4 h-4 mr-2" />,
-              },
-              {
                 label: "Unlock Everything",
-                onClick: () => {
-                  if (!discovered || !unlocked) return
-                  const newData = structuredClone(saveData) as Record<string, unknown>
-                  const newDiscovered = { ...discovered }
-                  const newUnlocked = { ...unlocked }
-                  
-                  Object.keys(newDiscovered).forEach(key => {
-                    newDiscovered[key] = true
-                    newUnlocked[key] = true
-                  })
-                  
-                  newData.discovered = newDiscovered
-                  newData.unlocked = newUnlocked
-                  setSaveData(newData as DecodedSave)
-                },
+                onClick: unlockAllItems,
                 icon: <Sparkles className="w-4 h-4 mr-2" />,
               },
             ]
@@ -334,7 +259,7 @@ export default function BalatroSaveEditor() {
                   {isMetaFile && (
                     <TabsTrigger value="meta" className="data-[state=active]:bg-muted">
                       <Sparkles className="w-4 h-4 mr-2" />
-                      Unlocks
+                      Meta
                     </TabsTrigger>
                   )}
                   <TabsTrigger value="raw" className="data-[state=active]:bg-muted">
@@ -343,11 +268,12 @@ export default function BalatroSaveEditor() {
                   </TabsTrigger>
                 </TabsList>
 
-                {isProfileFile && (
+                {isProfileFile && profileData && (
                   <TabsContent value="profile" className="space-y-4 mt-4">
+                    {/* Profile Name */}
                     <Card className="bg-card border-border">
                       <CardHeader className="border-b border-border">
-                        <CardTitle className="text-foreground">Profile Info</CardTitle>
+                        <CardTitle className="text-foreground">Profile</CardTitle>
                       </CardHeader>
                       <CardContent className="pt-6 space-y-4">
                         <div className="space-y-2">
@@ -357,52 +283,44 @@ export default function BalatroSaveEditor() {
                           <Input
                             id="profile-name"
                             type="text"
-                            value={profileName || ''}
-                            onChange={(e) => {
-                              if (!saveData) return
-                              const newData = structuredClone(saveData) as Record<string, unknown>
-                              newData.name = e.target.value
-                              setSaveData(newData as DecodedSave)
-                            }}
+                            value={profileData?.name || ''}
+                            onChange={(e) => updateStringValue('name', e.target.value)}
                             className="font-mono bg-muted border-border text-foreground"
                           />
                         </div>
                       </CardContent>
                     </Card>
 
-                    {highScores && (
+                    {/* High Scores */}
+                    {profileData.high_scores && (
                       <Card className="bg-card border-border">
                         <CardHeader className="border-b border-border">
                           <CardTitle className="text-foreground">High Scores</CardTitle>
                         </CardHeader>
                         <CardContent className="pt-6">
-                          <ScrollArea className="h-[300px] pr-4">
-                            <div className="space-y-3">
-                              {Object.entries(highScores)
-                                .filter(([key]) => key !== 'collection' && key !== 'current_streak')
-                                .map(([key, value]) => {
-                                  const scoreData = value as Record<string, unknown>
-                                  return (
-                                    <div key={key} className="space-y-2">
-                                      <Label className="text-sm font-medium text-card-foreground">
-                                        {(scoreData.label as string) || key}
-                                      </Label>
-                                      <Input
-                                        type="number"
-                                        value={(scoreData.amt as number) || 0}
-                                        onChange={(e) => updateValue(`high_scores.${key}.amt`, e.target.value)}
-                                        className="font-mono bg-muted border-border text-foreground"
-                                      />
-                                    </div>
-                                  )
-                                })}
-                            </div>
-                          </ScrollArea>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {Object.entries(profileData.high_scores)
+                              .filter(([key]) => key !== 'collection' && key !== 'current_streak')
+                              .map(([key, value]) => (
+                                <div key={key} className="space-y-2">
+                                  <Label className="text-sm font-medium text-card-foreground">
+                                    {value.label || key}
+                                  </Label>
+                                  <Input
+                                    type="number"
+                                    value={value.amt || 0}
+                                    onChange={(e) => updateValue(`high_scores.${key}.amt`, e.target.value)}
+                                    className="font-mono bg-muted border-border text-foreground"
+                                  />
+                                </div>
+                              ))}
+                          </div>
                         </CardContent>
                       </Card>
                     )}
 
-                    {careerStats && (
+                    {/* Career Stats */}
+                    {profileData.career_stats && (
                       <Card className="bg-card border-border">
                         <CardHeader className="border-b border-border">
                           <CardTitle className="text-foreground">Career Stats</CardTitle>
@@ -414,7 +332,7 @@ export default function BalatroSaveEditor() {
                                 <Label className="text-sm font-medium text-card-foreground">Cards Discarded</Label>
                                 <Input
                                   type="number"
-                                  value={(careerStats.c_cards_discarded as number) || 0}
+                                  value={profileData.career_stats.c_cards_discarded || 0}
                                   onChange={(e) => updateValue('career_stats.c_cards_discarded', e.target.value)}
                                   className="font-mono bg-muted border-border text-foreground"
                                 />
@@ -423,7 +341,7 @@ export default function BalatroSaveEditor() {
                                 <Label className="text-sm font-medium text-card-foreground">Hands Played</Label>
                                 <Input
                                   type="number"
-                                  value={(careerStats.c_hands_played as number) || 0}
+                                  value={profileData.career_stats.c_hands_played || 0}
                                   onChange={(e) => updateValue('career_stats.c_hands_played', e.target.value)}
                                   className="font-mono bg-muted border-border text-foreground"
                                 />
@@ -432,8 +350,26 @@ export default function BalatroSaveEditor() {
                                 <Label className="text-sm font-medium text-card-foreground">Dollars Earned</Label>
                                 <Input
                                   type="number"
-                                  value={(careerStats.c_dollars_earned as number) || 0}
+                                  value={profileData.career_stats.c_dollars_earned || 0}
                                   onChange={(e) => updateValue('career_stats.c_dollars_earned', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Cards Played</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_cards_played || 0}
+                                  onChange={(e) => updateValue('career_stats.c_cards_played', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Planetarium Used</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_planetarium_used || 0}
+                                  onChange={(e) => updateValue('career_stats.c_planetarium_used', e.target.value)}
                                   className="font-mono bg-muted border-border text-foreground"
                                 />
                               </div>
@@ -441,8 +377,26 @@ export default function BalatroSaveEditor() {
                                 <Label className="text-sm font-medium text-card-foreground">Wins</Label>
                                 <Input
                                   type="number"
-                                  value={(careerStats.c_wins as number) || 0}
+                                  value={profileData.career_stats.c_wins || 0}
                                   onChange={(e) => updateValue('career_stats.c_wins', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Shop Rerolls</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_shop_rerolls || 0}
+                                  onChange={(e) => updateValue('career_stats.c_shop_rerolls', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Interest Cap Streak</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_round_interest_cap_streak || 0}
+                                  onChange={(e) => updateValue('career_stats.c_round_interest_cap_streak', e.target.value)}
                                   className="font-mono bg-muted border-border text-foreground"
                                 />
                               </div>
@@ -450,8 +404,62 @@ export default function BalatroSaveEditor() {
                                 <Label className="text-sm font-medium text-card-foreground">Losses</Label>
                                 <Input
                                   type="number"
-                                  value={(careerStats.c_losses as number) || 0}
+                                  value={profileData.career_stats.c_losses || 0}
                                   onChange={(e) => updateValue('career_stats.c_losses', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Tarots Bought</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_tarots_bought || 0}
+                                  onChange={(e) => updateValue('career_stats.c_tarots_bought', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Shop Dollars Spent</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_shop_dollars_spent || 0}
+                                  onChange={(e) => updateValue('career_stats.c_shop_dollars_spent', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Single Hand Streak</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_single_hand_round_streak || 0}
+                                  onChange={(e) => updateValue('career_stats.c_single_hand_round_streak', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Planet Cards Bought</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_planets_bought || 0}
+                                  onChange={(e) => updateValue('career_stats.c_planets_bought', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Vouchers Bought</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_vouchers_bought || 0}
+                                  onChange={(e) => updateValue('career_stats.c_vouchers_bought', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Tarot Reading Used</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_tarot_reading_used || 0}
+                                  onChange={(e) => updateValue('career_stats.c_tarot_reading_used', e.target.value)}
                                   className="font-mono bg-muted border-border text-foreground"
                                 />
                               </div>
@@ -459,8 +467,44 @@ export default function BalatroSaveEditor() {
                                 <Label className="text-sm font-medium text-card-foreground">Rounds</Label>
                                 <Input
                                   type="number"
-                                  value={(careerStats.c_rounds as number) || 0}
+                                  value={profileData.career_stats.c_rounds || 0}
                                   onChange={(e) => updateValue('career_stats.c_rounds', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Jokers Sold</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_jokers_sold || 0}
+                                  onChange={(e) => updateValue('career_stats.c_jokers_sold', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Face Cards Played</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_face_cards_played || 0}
+                                  onChange={(e) => updateValue('career_stats.c_face_cards_played', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Playing Cards Bought</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_playing_cards_bought || 0}
+                                  onChange={(e) => updateValue('career_stats.c_playing_cards_bought', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Cards Sold</Label>
+                                <Input
+                                  type="number"
+                                  value={profileData.career_stats.c_cards_sold || 0}
+                                  onChange={(e) => updateValue('career_stats.c_cards_sold', e.target.value)}
                                   className="font-mono bg-muted border-border text-foreground"
                                 />
                               </div>
@@ -470,7 +514,8 @@ export default function BalatroSaveEditor() {
                       </Card>
                     )}
 
-                    {progress && (
+                    {/* Progress */}
+                    {profileData.progress && (
                       <Card className="bg-card border-border">
                         <CardHeader className="border-b border-border">
                           <CardTitle className="text-foreground">Progress</CardTitle>
@@ -481,55 +526,47 @@ export default function BalatroSaveEditor() {
                               <Label className="text-sm font-medium text-card-foreground">Overall Tally</Label>
                               <Input
                                 type="number"
-                                value={(progress.overall_tally as number) || 0}
+                                value={profileData.progress.overall_tally || 0}
                                 onChange={(e) => updateValue('progress.overall_tally', e.target.value)}
                                 className="font-mono bg-muted border-border text-foreground"
                               />
                             </div>
-                            {progress.challenges && typeof progress.challenges === 'object' && (
-                              <div className="space-y-2">
-                                <Label className="text-sm font-medium text-card-foreground">Challenges</Label>
-                                <Input
-                                  type="number"
-                                  value={((progress.challenges as Record<string, unknown>).tally as number) || 0}
-                                  onChange={(e) => updateValue('progress.challenges.tally', e.target.value)}
-                                  className="font-mono bg-muted border-border text-foreground"
-                                />
-                              </div>
-                            )}
-                            {progress.deck_stakes && typeof progress.deck_stakes === 'object' && (
-                              <div className="space-y-2">
-                                <Label className="text-sm font-medium text-card-foreground">Deck Stakes</Label>
-                                <Input
-                                  type="number"
-                                  value={((progress.deck_stakes as Record<string, unknown>).tally as number) || 0}
-                                  onChange={(e) => updateValue('progress.deck_stakes.tally', e.target.value)}
-                                  className="font-mono bg-muted border-border text-foreground"
-                                />
-                              </div>
-                            )}
-                            {progress.discovered && typeof progress.discovered === 'object' && (
-                              <div className="space-y-2">
-                                <Label className="text-sm font-medium text-card-foreground">Discovered</Label>
-                                <Input
-                                  type="number"
-                                  value={((progress.discovered as Record<string, unknown>).tally as number) || 0}
-                                  onChange={(e) => updateValue('progress.discovered.tally', e.target.value)}
-                                  className="font-mono bg-muted border-border text-foreground"
-                                />
-                              </div>
-                            )}
-                            {progress.joker_stickers && typeof progress.joker_stickers === 'object' && (
-                              <div className="space-y-2">
-                                <Label className="text-sm font-medium text-card-foreground">Joker Stickers</Label>
-                                <Input
-                                  type="number"
-                                  value={((progress.joker_stickers as Record<string, unknown>).tally as number) || 0}
-                                  onChange={(e) => updateValue('progress.joker_stickers.tally', e.target.value)}
-                                  className="font-mono bg-muted border-border text-foreground"
-                                />
-                              </div>
-                            )}
+                            <div className="space-y-2">
+                              <Label className="text-sm font-medium text-card-foreground">Challenges</Label>
+                              <Input
+                                type="number"
+                                value={profileData.progress.challenges?.tally || 0}
+                                onChange={(e) => updateValue('progress.challenges.tally', e.target.value)}
+                                className="font-mono bg-muted border-border text-foreground"
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label className="text-sm font-medium text-card-foreground">Deck Stakes</Label>
+                              <Input
+                                type="number"
+                                value={profileData.progress.deck_stakes?.tally || 0}
+                                onChange={(e) => updateValue('progress.deck_stakes.tally', e.target.value)}
+                                className="font-mono bg-muted border-border text-foreground"
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label className="text-sm font-medium text-card-foreground">Discovered</Label>
+                              <Input
+                                type="number"
+                                value={profileData.progress.discovered?.tally || 0}
+                                onChange={(e) => updateValue('progress.discovered.tally', e.target.value)}
+                                className="font-mono bg-muted border-border text-foreground"
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label className="text-sm font-medium text-card-foreground">Joker Stickers</Label>
+                              <Input
+                                type="number"
+                                value={profileData.progress.joker_stickers?.tally || 0}
+                                onChange={(e) => updateValue('progress.joker_stickers.tally', e.target.value)}
+                                className="font-mono bg-muted border-border text-foreground"
+                              />
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
@@ -537,144 +574,110 @@ export default function BalatroSaveEditor() {
                   </TabsContent>
                 )}
 
-                {isMetaFile && discovered && unlocked && (
+                {isMetaFile && metaData?.discovered && metaData?.unlocked && (
                   <TabsContent value="meta" className="space-y-4 mt-4">
-                    {Object.entries(categorizeItems()).map(([category, items]) => {
-                      const categoryName = category.charAt(0).toUpperCase() + category.slice(1)
-                      const totalInCategory = items.locked.length + items.unlocked.length
-                      
-                      if (totalInCategory === 0) return null
-                      
-                      return (
-                        <Card key={category} className="bg-card border-border">
-                          <CardHeader className="border-b border-border">
-                            <div className="flex items-center justify-between">
-                              <CardTitle className="text-foreground">
-                                {categoryName} ({items.unlocked.length}/{totalInCategory})
-                              </CardTitle>
-                              <Button
-                                onClick={() => {
-                                  const prefix = category === 'jokers' ? 'j_' 
-                                    : category === 'decks' ? 'b_'
-                                    : category === 'vouchers' ? 'v_'
-                                    : category === 'tarots' ? 'c_'
-                                    : category === 'planets' ? 'c_'
-                                    : category === 'spectrals' ? 'c_'
-                                    : category === 'enhancements' ? 'm_'
-                                    : category === 'stakes' ? 'stake_'
-                                    : category === 'blinds' ? 'bl_'
-                                    : 'tag_'
-                                  unlockCategory(prefix)
-                                }}
-                                size="sm"
-                                variant="outline"
-                                className="border-primary/50 hover:bg-primary/10"
-                              >
-                                <Sparkles className="w-4 h-4 mr-2" />
-                                Unlock All {categoryName}
-                              </Button>
-                            </div>
-                          </CardHeader>
-                          <CardContent className="pt-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <div>
-                                <h3 className="text-sm font-semibold mb-3 text-card-foreground">
-                                  Locked ({items.locked.length})
-                                </h3>
-                                <ScrollArea className="h-[300px] pr-4">
-                                  <div className="space-y-2">
-                                    {items.locked
-                                      .sort((a, b) => {
-                                        const itemA = AllItems[a]
-                                        const itemB = AllItems[b]
-                                        return (itemA?.name || a).localeCompare(itemB?.name || b)
-                                      })
-                                      .map((key) => {
-                                        const item = AllItems[key]
-                                        return (
-                                          <button
-                                            key={key}
-                                            onClick={() => {
-                                              const newData = structuredClone(saveData) as Record<string, unknown>
-                                              const newDiscovered = { ...discovered, [key]: true }
-                                              const newUnlocked = { ...unlocked, [key]: true }
-                                              newData.discovered = newDiscovered
-                                              newData.unlocked = newUnlocked
-                                              setSaveData(newData as DecodedSave)
-                                            }}
-                                            className="w-full flex items-center justify-between p-3 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors text-left"
-                                          >
-                                            <div className="flex flex-col gap-1">
-                                              <span className="font-medium text-sm text-card-foreground">
-                                                {item?.name || key}
-                                              </span>
-                                              {item?.rarity && (
-                                                <span className="text-xs text-muted-foreground capitalize">
-                                                  {item.rarity}
-                                                </span>
-                                              )}
-                                            </div>
-                                            <Badge variant="outline" className="border-border text-muted-foreground">
-                                              Locked
-                                            </Badge>
-                                          </button>
-                                        )
-                                      })}
-                                  </div>
-                                </ScrollArea>
+                    <Card className="bg-card border-border">
+                      <CardHeader className="border-b border-border">
+                        <CardTitle className="text-foreground">Meta - Unlocked/Discovered Items</CardTitle>
+                      </CardHeader>
+                      <CardContent className="pt-6 space-y-4">
+                        <div className="flex items-center gap-2">
+                          <Search className="w-4 h-4 text-muted-foreground" />
+                          <Input
+                            placeholder="Search items..."
+                            value={metaSearch}
+                            onChange={(e) => setMetaSearch(e.target.value)}
+                            className="bg-muted border-border"
+                          />
+                        </div>
+                        
+                        <div className="grid grid-cols-2 gap-4">
+                          {/* Left column: Undiscovered/Locked */}
+                          <div className="bg-muted/50 p-4 rounded-lg border border-border">
+                            <h3 className="text-sm font-semibold mb-3 text-card-foreground">
+                              Undiscovered/Locked ({Object.keys(AllItems).filter(key => 
+                                (!metaData.discovered[key] || !metaData.unlocked[key]) && 
+                                key.toLowerCase().includes(metaSearch.toLowerCase())
+                              ).length})
+                            </h3>
+                            <ScrollArea className="h-[600px] pr-4">
+                              <div className="space-y-2">
+                                {Object.keys(AllItems)
+                                  .filter(key => key.toLowerCase().includes(metaSearch.toLowerCase()))
+                                  .filter(key => !metaData.discovered[key] || !metaData.unlocked[key])
+                                  .sort((a, b) => {
+                                    const itemA = AllItems[a]
+                                    const itemB = AllItems[b]
+                                    return (itemA?.name || a).localeCompare(itemB?.name || b)
+                                  })
+                                  .map((key) => {
+                                    const item = AllItems[key]
+                                    return (
+                                      <button
+                                        key={key}
+                                        onClick={() => {
+                                          const newData = structuredClone(saveData) as Record<string, unknown>
+                                          const newDiscovered = { ...(metaData.discovered || {}), [key]: true }
+                                          const newUnlocked = { ...(metaData.unlocked || {}), [key]: true }
+                                          newData.discovered = newDiscovered
+                                          newData.unlocked = newUnlocked
+                                          setSaveData(newData as DecodedSave)
+                                        }}
+                                        className="w-full flex items-center justify-between p-2 bg-card hover:bg-muted border border-border rounded transition-colors text-left group"
+                                      >
+                                        <span className="text-sm text-card-foreground">{item?.name || key}</span>
+                                        <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                                      </button>
+                                    )
+                                  })}
                               </div>
+                            </ScrollArea>
+                          </div>
 
-                              <div>
-                                <h3 className="text-sm font-semibold mb-3 text-card-foreground">
-                                  Unlocked ({items.unlocked.length})
-                                </h3>
-                                <ScrollArea className="h-[300px] pr-4">
-                                  <div className="space-y-2">
-                                    {items.unlocked
-                                      .sort((a, b) => {
-                                        const itemA = AllItems[a]
-                                        const itemB = AllItems[b]
-                                        return (itemA?.name || a).localeCompare(itemB?.name || b)
-                                      })
-                                      .map((key) => {
-                                        const item = AllItems[key]
-                                        return (
-                                          <button
-                                            key={key}
-                                            onClick={() => {
-                                              const newData = structuredClone(saveData) as Record<string, unknown>
-                                              const newDiscovered = { ...discovered, [key]: false }
-                                              const newUnlocked = { ...unlocked, [key]: false }
-                                              newData.discovered = newDiscovered
-                                              newData.unlocked = newUnlocked
-                                              setSaveData(newData as DecodedSave)
-                                            }}
-                                            className="w-full flex items-center justify-between p-3 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors text-left"
-                                          >
-                                            <div className="flex flex-col gap-1">
-                                              <span className="font-medium text-sm text-card-foreground">
-                                                {item?.name || key}
-                                              </span>
-                                              {item?.rarity && (
-                                                <span className="text-xs text-muted-foreground capitalize">
-                                                  {item.rarity}
-                                                </span>
-                                              )}
-                                            </div>
-                                            <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
-                                              Unlocked
-                                            </Badge>
-                                          </button>
-                                        )
-                                      })}
-                                  </div>
-                                </ScrollArea>
+                          {/* Right column: Discovered/Unlocked */}
+                          <div className="bg-muted/50 p-4 rounded-lg border border-border">
+                            <h3 className="text-sm font-semibold mb-3 text-card-foreground">
+                              Discovered/Unlocked ({Object.keys(AllItems).filter(key => 
+                                (metaData.discovered[key] === true) && 
+                                key.toLowerCase().includes(metaSearch.toLowerCase())
+                              ).length})
+                            </h3>
+                            <ScrollArea className="h-[600px] pr-4">
+                              <div className="space-y-2">
+                                {Object.keys(AllItems)
+                                  .filter(key => key.toLowerCase().includes(metaSearch.toLowerCase()))
+                                  .filter(key => metaData.discovered[key] === true)
+                                  .sort((a, b) => {
+                                    const itemA = AllItems[a]
+                                    const itemB = AllItems[b]
+                                    return (itemA?.name || a).localeCompare(itemB?.name || b)
+                                  })
+                                  .map((key) => {
+                                    const item = AllItems[key]
+                                    return (
+                                      <button
+                                        key={key}
+                                        onClick={() => {
+                                          const newData = structuredClone(saveData) as Record<string, unknown>
+                                          const newDiscovered = { ...(metaData.discovered || {}), [key]: false }
+                                          const newUnlocked = { ...(metaData.unlocked || {}), [key]: false }
+                                          newData.discovered = newDiscovered
+                                          newData.unlocked = newUnlocked
+                                          setSaveData(newData as DecodedSave)
+                                        }}
+                                        className="w-full flex items-center justify-between p-2 bg-card hover:bg-muted border border-border rounded transition-colors text-left group"
+                                      >
+                                        <ChevronLeft className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                                        <span className="text-sm text-card-foreground">{item?.name || key}</span>
+                                      </button>
+                                    )
+                                  })}
                               </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      )
-                    })}
+                            </ScrollArea>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </TabsContent>
                 )}
 
