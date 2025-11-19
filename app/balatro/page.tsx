@@ -19,6 +19,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Badge } from "@/components/ui/badge"
+import { Balatro, AllItems } from "@/lib/balatro/game-data"
 
 function getNestedValue(obj: unknown, path: string): unknown {
   const keys = path.split('.')
@@ -125,6 +126,52 @@ export default function BalatroSaveEditor() {
   const discovered = getNestedValue(saveData, 'discovered') as Record<string, boolean> | undefined
   const unlocked = getNestedValue(saveData, 'unlocked') as Record<string, boolean> | undefined
 
+  const categorizeItems = () => {
+    if (!discovered || !unlocked) return {}
+    
+    const categories: Record<string, { locked: string[], unlocked: string[] }> = {
+      jokers: { locked: [], unlocked: [] },
+      decks: { locked: [], unlocked: [] },
+      vouchers: { locked: [], unlocked: [] },
+      tarots: { locked: [], unlocked: [] },
+      planets: { locked: [], unlocked: [] },
+      spectrals: { locked: [], unlocked: [] },
+      enhancements: { locked: [], unlocked: [] },
+      stakes: { locked: [], unlocked: [] },
+      blinds: { locked: [], unlocked: [] },
+      tags: { locked: [], unlocked: [] },
+    }
+
+    Object.keys(discovered).forEach(key => {
+      const isUnlocked = discovered[key] === true
+      const item = AllItems[key]
+      
+      if (key.startsWith('j_') && Balatro.Joker[key]) {
+        categories.jokers[isUnlocked ? 'unlocked' : 'locked'].push(key)
+      } else if (key.startsWith('b_') && Balatro.Deck[key]) {
+        categories.decks[isUnlocked ? 'unlocked' : 'locked'].push(key)
+      } else if (key.startsWith('v_') && Balatro.Voucher[key]) {
+        categories.vouchers[isUnlocked ? 'unlocked' : 'locked'].push(key)
+      } else if (key.startsWith('c_') && Balatro.Tarot[key]) {
+        categories.tarots[isUnlocked ? 'unlocked' : 'locked'].push(key)
+      } else if (key.startsWith('c_') && Balatro.Planet[key]) {
+        categories.planets[isUnlocked ? 'unlocked' : 'locked'].push(key)
+      } else if (key.startsWith('c_') && Balatro.Spectral[key]) {
+        categories.spectrals[isUnlocked ? 'unlocked' : 'locked'].push(key)
+      } else if (key.startsWith('m_') && Balatro.Enhanced[key]) {
+        categories.enhancements[isUnlocked ? 'unlocked' : 'locked'].push(key)
+      } else if (key.startsWith('stake_') && Balatro.Stake[key]) {
+        categories.stakes[isUnlocked ? 'unlocked' : 'locked'].push(key)
+      } else if (key.startsWith('bl_') && Balatro.Blind[key]) {
+        categories.blinds[isUnlocked ? 'unlocked' : 'locked'].push(key)
+      } else if (key.startsWith('tag_') && Balatro.Tag[key]) {
+        categories.tags[isUnlocked ? 'unlocked' : 'locked'].push(key)
+      }
+    })
+
+    return categories
+  }
+
   const quickStats = saveData
     ? isProfileFile
       ? [
@@ -146,9 +193,32 @@ export default function BalatroSaveEditor() {
             value: discovered ? Object.values(discovered).filter(v => v === true).length : 0,
             icon: <Sparkles className="w-4 h-4 text-primary" />,
           },
+          {
+            label: "Total Items",
+            value: discovered ? Object.keys(discovered).length : 0,
+            icon: <Sparkles className="w-4 h-4 text-primary" />,
+          },
         ]
       : []
     : []
+
+  const unlockCategory = (prefix: string) => {
+    if (!discovered || !unlocked) return
+    const newData = structuredClone(saveData) as Record<string, unknown>
+    const newDiscovered = { ...discovered }
+    const newUnlocked = { ...unlocked }
+    
+    Object.keys(newDiscovered).forEach(key => {
+      if (key.startsWith(prefix)) {
+        newDiscovered[key] = true
+        newUnlocked[key] = true
+      }
+    })
+    
+    newData.discovered = newDiscovered
+    newData.unlocked = newUnlocked
+    setSaveData(newData as DecodedSave)
+  }
 
   const quickActions = saveData
     ? [
@@ -166,6 +236,21 @@ export default function BalatroSaveEditor() {
         },
         ...(isMetaFile
           ? [
+              {
+                label: "Unlock All Jokers",
+                onClick: () => unlockCategory('j_'),
+                icon: <Sparkles className="w-4 h-4 mr-2" />,
+              },
+              {
+                label: "Unlock All Decks",
+                onClick: () => unlockCategory('b_'),
+                icon: <Sparkles className="w-4 h-4 mr-2" />,
+              },
+              {
+                label: "Unlock All Vouchers",
+                onClick: () => unlockCategory('v_'),
+                icon: <Sparkles className="w-4 h-4 mr-2" />,
+              },
               {
                 label: "Unlock Everything",
                 onClick: () => {
@@ -454,101 +539,142 @@ export default function BalatroSaveEditor() {
 
                 {isMetaFile && discovered && unlocked && (
                   <TabsContent value="meta" className="space-y-4 mt-4">
-                    <Card className="bg-card border-border">
-                      <CardHeader className="border-b border-border">
-                        <div className="flex items-center justify-between">
-                          <CardTitle className="text-foreground">Discovered/Unlocked Items</CardTitle>
-                          <Button
-                            onClick={() => {
-                              const newData = structuredClone(saveData) as Record<string, unknown>
-                              const newDiscovered = { ...discovered }
-                              const newUnlocked = { ...unlocked }
-                              
-                              Object.keys(newDiscovered).forEach(key => {
-                                newDiscovered[key] = true
-                                newUnlocked[key] = true
-                              })
-                              
-                              newData.discovered = newDiscovered
-                              newData.unlocked = newUnlocked
-                              setSaveData(newData as DecodedSave)
-                            }}
-                            size="sm"
-                            className="bg-primary hover:bg-primary/90"
-                          >
-                            <Sparkles className="w-4 h-4 mr-2" />
-                            Unlock Everything
-                          </Button>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="pt-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div>
-                            <h3 className="text-sm font-semibold mb-3 text-card-foreground">
-                              Locked/Undiscovered ({Object.entries(discovered).filter(([_, v]) => !v).length})
-                            </h3>
-                            <ScrollArea className="h-[600px] pr-4">
-                              <div className="space-y-2">
-                                {Object.entries(discovered)
-                                  .filter(([_, value]) => !value)
-                                  .sort(([a], [b]) => a.localeCompare(b))
-                                  .map(([key]) => (
-                                    <button
-                                      key={key}
-                                      onClick={() => {
-                                        const newData = structuredClone(saveData) as Record<string, unknown>
-                                        const newDiscovered = { ...discovered, [key]: true }
-                                        const newUnlocked = { ...unlocked, [key]: true }
-                                        newData.discovered = newDiscovered
-                                        newData.unlocked = newUnlocked
-                                        setSaveData(newData as DecodedSave)
-                                      }}
-                                      className="w-full flex items-center justify-between p-3 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors text-left"
-                                    >
-                                      <span className="font-mono text-sm text-card-foreground">{key}</span>
-                                      <Badge variant="outline" className="border-border text-muted-foreground">
-                                        Locked
-                                      </Badge>
-                                    </button>
-                                  ))}
+                    {Object.entries(categorizeItems()).map(([category, items]) => {
+                      const categoryName = category.charAt(0).toUpperCase() + category.slice(1)
+                      const totalInCategory = items.locked.length + items.unlocked.length
+                      
+                      if (totalInCategory === 0) return null
+                      
+                      return (
+                        <Card key={category} className="bg-card border-border">
+                          <CardHeader className="border-b border-border">
+                            <div className="flex items-center justify-between">
+                              <CardTitle className="text-foreground">
+                                {categoryName} ({items.unlocked.length}/{totalInCategory})
+                              </CardTitle>
+                              <Button
+                                onClick={() => {
+                                  const prefix = category === 'jokers' ? 'j_' 
+                                    : category === 'decks' ? 'b_'
+                                    : category === 'vouchers' ? 'v_'
+                                    : category === 'tarots' ? 'c_'
+                                    : category === 'planets' ? 'c_'
+                                    : category === 'spectrals' ? 'c_'
+                                    : category === 'enhancements' ? 'm_'
+                                    : category === 'stakes' ? 'stake_'
+                                    : category === 'blinds' ? 'bl_'
+                                    : 'tag_'
+                                  unlockCategory(prefix)
+                                }}
+                                size="sm"
+                                variant="outline"
+                                className="border-primary/50 hover:bg-primary/10"
+                              >
+                                <Sparkles className="w-4 h-4 mr-2" />
+                                Unlock All {categoryName}
+                              </Button>
+                            </div>
+                          </CardHeader>
+                          <CardContent className="pt-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <div>
+                                <h3 className="text-sm font-semibold mb-3 text-card-foreground">
+                                  Locked ({items.locked.length})
+                                </h3>
+                                <ScrollArea className="h-[300px] pr-4">
+                                  <div className="space-y-2">
+                                    {items.locked
+                                      .sort((a, b) => {
+                                        const itemA = AllItems[a]
+                                        const itemB = AllItems[b]
+                                        return (itemA?.name || a).localeCompare(itemB?.name || b)
+                                      })
+                                      .map((key) => {
+                                        const item = AllItems[key]
+                                        return (
+                                          <button
+                                            key={key}
+                                            onClick={() => {
+                                              const newData = structuredClone(saveData) as Record<string, unknown>
+                                              const newDiscovered = { ...discovered, [key]: true }
+                                              const newUnlocked = { ...unlocked, [key]: true }
+                                              newData.discovered = newDiscovered
+                                              newData.unlocked = newUnlocked
+                                              setSaveData(newData as DecodedSave)
+                                            }}
+                                            className="w-full flex items-center justify-between p-3 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors text-left"
+                                          >
+                                            <div className="flex flex-col gap-1">
+                                              <span className="font-medium text-sm text-card-foreground">
+                                                {item?.name || key}
+                                              </span>
+                                              {item?.rarity && (
+                                                <span className="text-xs text-muted-foreground capitalize">
+                                                  {item.rarity}
+                                                </span>
+                                              )}
+                                            </div>
+                                            <Badge variant="outline" className="border-border text-muted-foreground">
+                                              Locked
+                                            </Badge>
+                                          </button>
+                                        )
+                                      })}
+                                  </div>
+                                </ScrollArea>
                               </div>
-                            </ScrollArea>
-                          </div>
 
-                          <div>
-                            <h3 className="text-sm font-semibold mb-3 text-card-foreground">
-                              Unlocked/Discovered ({Object.entries(discovered).filter(([_, v]) => v).length})
-                            </h3>
-                            <ScrollArea className="h-[600px] pr-4">
-                              <div className="space-y-2">
-                                {Object.entries(discovered)
-                                  .filter(([_, value]) => value === true)
-                                  .sort(([a], [b]) => a.localeCompare(b))
-                                  .map(([key]) => (
-                                    <button
-                                      key={key}
-                                      onClick={() => {
-                                        const newData = structuredClone(saveData) as Record<string, unknown>
-                                        const newDiscovered = { ...discovered, [key]: false }
-                                        const newUnlocked = { ...unlocked, [key]: false }
-                                        newData.discovered = newDiscovered
-                                        newData.unlocked = newUnlocked
-                                        setSaveData(newData as DecodedSave)
-                                      }}
-                                      className="w-full flex items-center justify-between p-3 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors text-left"
-                                    >
-                                      <span className="font-mono text-sm text-card-foreground">{key}</span>
-                                      <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
-                                        Unlocked
-                                      </Badge>
-                                    </button>
-                                  ))}
+                              <div>
+                                <h3 className="text-sm font-semibold mb-3 text-card-foreground">
+                                  Unlocked ({items.unlocked.length})
+                                </h3>
+                                <ScrollArea className="h-[300px] pr-4">
+                                  <div className="space-y-2">
+                                    {items.unlocked
+                                      .sort((a, b) => {
+                                        const itemA = AllItems[a]
+                                        const itemB = AllItems[b]
+                                        return (itemA?.name || a).localeCompare(itemB?.name || b)
+                                      })
+                                      .map((key) => {
+                                        const item = AllItems[key]
+                                        return (
+                                          <button
+                                            key={key}
+                                            onClick={() => {
+                                              const newData = structuredClone(saveData) as Record<string, unknown>
+                                              const newDiscovered = { ...discovered, [key]: false }
+                                              const newUnlocked = { ...unlocked, [key]: false }
+                                              newData.discovered = newDiscovered
+                                              newData.unlocked = newUnlocked
+                                              setSaveData(newData as DecodedSave)
+                                            }}
+                                            className="w-full flex items-center justify-between p-3 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors text-left"
+                                          >
+                                            <div className="flex flex-col gap-1">
+                                              <span className="font-medium text-sm text-card-foreground">
+                                                {item?.name || key}
+                                              </span>
+                                              {item?.rarity && (
+                                                <span className="text-xs text-muted-foreground capitalize">
+                                                  {item.rarity}
+                                                </span>
+                                              )}
+                                            </div>
+                                            <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
+                                              Unlocked
+                                            </Badge>
+                                          </button>
+                                        )
+                                      })}
+                                  </div>
+                                </ScrollArea>
                               </div>
-                            </ScrollArea>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      )
+                    })}
                   </TabsContent>
                 )}
 
