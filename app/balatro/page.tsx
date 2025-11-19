@@ -159,12 +159,13 @@ export default function BalatroSaveEditor() {
     : []
 
   const unlockAllItems = () => {
-    if (!metaData?.discovered || !metaData?.unlocked) return
+    if (!metaData) return
     const newData = structuredClone(saveData) as Record<string, unknown>
-    const newDiscovered: Record<string, boolean> = {}
-    const newUnlocked: Record<string, boolean> = {}
+    const newDiscovered: Record<string, boolean> = { ...metaData.discovered }
+    const newUnlocked: Record<string, boolean> = { ...metaData.unlocked }
     
-    Object.keys(metaData.discovered).forEach(key => {
+    // Unlock all items from the game data
+    Object.keys(AllItems).forEach(key => {
       newDiscovered[key] = true
       newUnlocked[key] = true
     })
