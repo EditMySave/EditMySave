@@ -2,7 +2,6 @@
 // Format: DEFLATE-compressed Lua table serialization
 // Code adapted from https://github.com/WilsontheWolf/balatro-save-loader/
 
-import Pako from "npm:pako@2.1.0";
 import pako from "pako";
 
 /**
@@ -25,14 +24,14 @@ const stringKey = /"([^"]*?)":/g;
  * Decompress raw DEFLATE data to string
  */
 function decompress(data: Uint8Array): string {
-  return Pako.inflateRaw(data, { to: "string" });
+  return pako.inflateRaw(data, { to: "string" });
 }
 
 /**
  * Compress string to raw DEFLATE data
  */
 function compress(data: string): Uint8Array {
-  return Pako.deflateRaw(data);
+  return pako.deflateRaw(data);
 }
 
 /**
