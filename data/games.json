@@ -90,10 +90,33 @@
     {
       "id": "balatro",
       "name": "Balatro",
-      "description": "Edit your Balatro save files including chips, money, unlocks, and more",
-      "image": "/placeholder.svg?height=400&width=600",
-      "route": "#",
-      "status": "coming-soon"
+      "description": "Edit money, chips, unlocks, and progression in your Balatro save files",
+      "image": "/images/balatro/cover.jpg",
+      "route": "/balatro",
+      "status": "available",
+      "supportedVersion": "v1.0.1",
+      "platforms": [
+        {
+          "name": "Steam",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\Roaming\\Balatro\\1\\profile.jkr",
+            "mac": "~/Library/Application Support/Balatro/1/profile.jkr",
+            "linux": "~/.local/share/Balatro/1/profile.jkr"
+          },
+          "fileName": "profile.jkr",
+          "instructions": "Windows: %APPDATA%\\Balatro\\1\\\nMac: ~/Library/Application Support/Balatro/1/\nLinux: ~/.local/share/Balatro/1/\n\nLook for profile.jkr (or meta.jkr for meta progression) and drag it into this editor.",
+          "notes": "Always create a backup of your save file before editing. The save file is compressed with DEFLATE and uses Lua table serialization."
+        },
+        {
+          "name": "Xbox Game Pass",
+          "supported": false
+        },
+        {
+          "name": "Epic Games Store",
+          "supported": false
+        }
+      ]
     },
     {
       "id": "hades",
