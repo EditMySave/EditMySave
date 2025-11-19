@@ -653,7 +653,21 @@ export default function BalatroSaveEditor() {
                                         <tr key={key} className="border-b border-border hover:bg-muted/50 transition-colors">
                                           <td className="p-3 text-sm text-card-foreground">{joker.name}</td>
                                           <td className="p-3 text-sm text-center text-muted-foreground">
-                                            {usage?.count ?? 0}
+                                            <Input
+                                              type="number"
+                                              value={usage?.count ?? 0}
+                                              onChange={(e) => {
+                                                const newValue = Number.parseInt(e.target.value) || 0
+                                                const newData = structuredClone(saveData) as Record<string, unknown>
+                                                const jokerUsage = (newData.joker_usage as Record<string, unknown>) || {}
+                                                const currentUsage = (jokerUsage[key] as Record<string, unknown>) || { wins: [], losses: [], count: 0, order: joker.order }
+                                                currentUsage.count = newValue
+                                                jokerUsage[key] = currentUsage
+                                                newData.joker_usage = jokerUsage
+                                                setSaveData(newData as DecodedSave)
+                                              }}
+                                              className="w-20 h-8 text-center bg-muted border-border text-foreground"
+                                            />
                                           </td>
                                           <td className="p-3 text-sm text-center">
                                             <Input
