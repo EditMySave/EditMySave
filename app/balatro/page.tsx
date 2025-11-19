@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Sparkles, ArrowLeft, Coins, Save, Code, Layers, Unlock, Trophy, Target, Zap } from 'lucide-react'
+import { Sparkles, ArrowLeft, Code, Save } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -17,26 +17,39 @@ import { EditorSidebar } from "@/components/editor-sidebar"
 import gamesData from "@/data/games.json"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
-import {
-  maxCurrency,
-  unlockAll,
-  unlockAllJokers,
-  unlockAllCards,
-  unlockAllDecks,
-  unlockAllVouchers,
-  completeAllChallenges,
-} from "./save-mutations"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Badge } from "@/components/ui/badge"
 
-function formatDate(date: Date) {
-  const now = new Date()
-  const diff = now.getTime() - date.getTime()
-  const minutes = Math.floor(diff / 60000)
+function getNestedValue(obj: unknown, path: string): unknown {
+  const keys = path.split('.')
+  let current: unknown = obj
+  
+  for (const key of keys) {
+    if (current && typeof current === 'object' && key in current) {
+      current = (current as Record<string, unknown>)[key]
+    } else {
+      return undefined
+    }
+  }
+  
+  return current
+}
 
-  if (minutes < 1) return "just now"
-  if (minutes < 60) return `${minutes} minute${minutes > 1 ? "s" : ""} ago`
-  return date.toLocaleDateString()
+function setNestedValue(obj: Record<string, unknown>, path: string, value: unknown): Record<string, unknown> {
+  const keys = path.split('.')
+  const newObj = structuredClone(obj)
+  let current: Record<string, unknown> = newObj
+  
+  for (let i = 0; i < keys.length - 1; i++) {
+    const key = keys[i]
+    if (!(key in current) || typeof current[key] !== 'object' || current[key] === null) {
+      current[key] = {}
+    }
+    current = current[key] as Record<string, unknown>
+  }
+  
+  current[keys[keys.length - 1]] = value
+  return newObj
 }
 
 export default function BalatroSaveEditor() {
@@ -48,6 +61,7 @@ export default function BalatroSaveEditor() {
     setIsProcessing(true)
     try {
       const decoded = await decodeSaveFromFile(file)
+      console.log("[v0] Decoded save data:", decoded)
       setSaveData(decoded)
       setOriginalFile(file)
 
@@ -92,99 +106,52 @@ export default function BalatroSaveEditor() {
     }
   }
 
-  const updateGameValue = (field: string, value: string | number) => {
+  const updateValue = (path: string, value: string | number) => {
     if (!saveData) return
     const numValue = typeof value === "string" ? Number.parseInt(value) || 0 : value
-    setSaveData({
-      ...saveData,
-      GAME: {
-        ...(saveData.GAME as Record<string, unknown>),
-        [field]: numValue,
-      },
-    })
+    setSaveData(setNestedValue(saveData as Record<string, unknown>, path, numValue) as DecodedSave)
   }
 
   const gameData = gamesData.games.find((game) => game.id === "balatro")
 
-  // Extract game stats
-  const game = saveData?.GAME as Record<string, unknown> | undefined
-  const discovered = saveData?.DISCOVERED as Record<string, unknown> | undefined
+  const isProfileFile = originalFile?.name.toLowerCase().includes('profile') ?? false
+  const isMetaFile = originalFile?.name.toLowerCase().includes('meta') ?? false
 
-  // Count unlocks
-  const jokersUnlocked = discovered
-    ? Object.keys(discovered).filter((k) => k.startsWith("j_") && discovered[k] === true).length
-    : 0
-  const decksUnlocked = discovered
-    ? Object.keys(discovered).filter((k) => k.startsWith("b_") && discovered[k] === true).length
-    : 0
-  const vouchersUnlocked = discovered
-    ? Object.keys(discovered).filter((k) => k.startsWith("v_") && discovered[k] === true).length
-    : 0
+  const profileName = getNestedValue(saveData, 'name') as string | undefined
+  const highScores = getNestedValue(saveData, 'high_scores') as Record<string, unknown> | undefined
+  const careerStats = getNestedValue(saveData, 'career_stats') as Record<string, unknown> | undefined
+  const progress = getNestedValue(saveData, 'progress') as Record<string, unknown> | undefined
+
+  const discovered = getNestedValue(saveData, 'discovered') as Record<string, boolean> | undefined
+  const unlocked = getNestedValue(saveData, 'unlocked') as Record<string, boolean> | undefined
 
   const quickStats = saveData
-    ? [
-        {
-          label: "Money",
-          value: (game?.dollars as number) || 0,
-          icon: <Coins className="w-4 h-4 text-yellow-500" />,
-        },
-        {
-          label: "Jokers Unlocked",
-          value: jokersUnlocked,
-          icon: <Sparkles className="w-4 h-4 text-primary" />,
-        },
-        {
-          label: "Decks Unlocked",
-          value: decksUnlocked,
-          icon: <Layers className="w-4 h-4 text-chart-2" />,
-        },
-      ]
+    ? isProfileFile
+      ? [
+          {
+            label: "Profile Name",
+            value: profileName || "Unknown",
+            icon: <Sparkles className="w-4 h-4 text-primary" />,
+          },
+          {
+            label: "Total Wins",
+            value: (careerStats?.c_wins as number) || 0,
+            icon: <Sparkles className="w-4 h-4 text-primary" />,
+          },
+        ]
+      : isMetaFile
+      ? [
+          {
+            label: "Discovered Items",
+            value: discovered ? Object.values(discovered).filter(v => v === true).length : 0,
+            icon: <Sparkles className="w-4 h-4 text-primary" />,
+          },
+        ]
+      : []
     : []
 
   const quickActions = saveData
     ? [
-        {
-          label: "Max Money & Chips",
-          onClick: () => {
-            setSaveData(maxCurrency(saveData))
-          },
-          icon: <Coins className="w-4 h-4 mr-2" />,
-        },
-        {
-          label: "Unlock All Jokers",
-          onClick: () => {
-            setSaveData(unlockAllJokers(saveData))
-          },
-          icon: <Sparkles className="w-4 h-4 mr-2" />,
-        },
-        {
-          label: "Unlock All Decks",
-          onClick: () => {
-            setSaveData(unlockAllDecks(saveData))
-          },
-          icon: <Layers className="w-4 h-4 mr-2" />,
-        },
-        {
-          label: "Unlock All Cards",
-          onClick: () => {
-            setSaveData(unlockAllCards(saveData))
-          },
-          icon: <Unlock className="w-4 h-4 mr-2" />,
-        },
-        {
-          label: "Unlock All Vouchers",
-          onClick: () => {
-            setSaveData(unlockAllVouchers(saveData))
-          },
-          icon: <Trophy className="w-4 h-4 mr-2" />,
-        },
-        {
-          label: "Unlock Everything",
-          onClick: () => {
-            setSaveData(unlockAll(saveData))
-          },
-          icon: <Unlock className="w-4 h-4 mr-2" />,
-        },
         {
           label: "Download JSON",
           onClick: () => {
@@ -197,6 +164,29 @@ export default function BalatroSaveEditor() {
           },
           icon: <Code className="w-4 h-4 mr-2" />,
         },
+        ...(isMetaFile
+          ? [
+              {
+                label: "Unlock Everything",
+                onClick: () => {
+                  if (!discovered || !unlocked) return
+                  const newData = structuredClone(saveData) as Record<string, unknown>
+                  const newDiscovered = { ...discovered }
+                  const newUnlocked = { ...unlocked }
+                  
+                  Object.keys(newDiscovered).forEach(key => {
+                    newDiscovered[key] = true
+                    newUnlocked[key] = true
+                  })
+                  
+                  newData.discovered = newDiscovered
+                  newData.unlocked = newUnlocked
+                  setSaveData(newData as DecodedSave)
+                },
+                icon: <Sparkles className="w-4 h-4 mr-2" />,
+              },
+            ]
+          : []),
       ]
     : []
 
@@ -222,7 +212,8 @@ export default function BalatroSaveEditor() {
           <div className="space-y-6">
             <div className="text-center space-y-2 py-8">
               <h2 className="text-3xl font-bold text-foreground">Balatro Save Editor</h2>
-              <p className="text-muted-foreground">Edit money, chips, unlocks, and more in your Balatro save files</p>
+              <p className="text-muted-foreground">Edit your Balatro profile and meta save files</p>
+              <p className="text-sm text-muted-foreground">Supports both profile.jkr and meta.jkr files</p>
             </div>
 
             {gameData && <SaveLocationHelp platforms={gameData.platforms} gameName={gameData.name} />}
@@ -247,289 +238,319 @@ export default function BalatroSaveEditor() {
             />
 
             <div className="flex-1 space-y-4">
-              <Tabs defaultValue="gameplay" className="w-full">
-                <TabsList className="grid w-full grid-cols-4 bg-card border border-border">
-                  <TabsTrigger value="gameplay" className="data-[state=active]:bg-muted">
-                    <Target className="w-4 h-4 mr-2" />
-                    Gameplay
-                  </TabsTrigger>
-                  <TabsTrigger value="currency" className="data-[state=active]:bg-muted">
-                    <Coins className="w-4 h-4 mr-2" />
-                    Currency
-                  </TabsTrigger>
-                  <TabsTrigger value="unlocks" className="data-[state=active]:bg-muted">
-                    <Unlock className="w-4 h-4 mr-2" />
-                    Unlocks
-                  </TabsTrigger>
+              <Tabs defaultValue={isProfileFile ? "profile" : isMetaFile ? "meta" : "raw"} className="w-full">
+                <TabsList className="grid w-full grid-cols-2 bg-card border border-border">
+                  {isProfileFile && (
+                    <TabsTrigger value="profile" className="data-[state=active]:bg-muted">
+                      <Sparkles className="w-4 h-4 mr-2" />
+                      Profile
+                    </TabsTrigger>
+                  )}
+                  {isMetaFile && (
+                    <TabsTrigger value="meta" className="data-[state=active]:bg-muted">
+                      <Sparkles className="w-4 h-4 mr-2" />
+                      Unlocks
+                    </TabsTrigger>
+                  )}
                   <TabsTrigger value="raw" className="data-[state=active]:bg-muted">
                     <Code className="w-4 h-4 mr-2" />
                     Raw JSON
                   </TabsTrigger>
                 </TabsList>
 
-                <TabsContent value="gameplay" className="space-y-4 mt-4">
-                  <Card className="bg-card border-border">
-                    <CardHeader className="border-b border-border">
-                      <CardTitle className="text-foreground">Game Stats</CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="hand-size" className="text-sm font-medium text-card-foreground">
-                            Hand Size
-                          </Label>
-                          <Input
-                            id="hand-size"
-                            type="number"
-                            value={(game?.hand_size as number) || 8}
-                            onChange={(e) => updateGameValue("hand_size", e.target.value)}
-                            min="1"
-                            max="20"
-                            className="font-mono text-lg bg-muted border-border text-foreground"
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="joker-slots" className="text-sm font-medium text-card-foreground">
-                            Joker Slots
-                          </Label>
-                          <Input
-                            id="joker-slots"
-                            type="number"
-                            value={(game?.joker_slots as number) || 5}
-                            onChange={(e) => updateGameValue("joker_slots", e.target.value)}
-                            min="1"
-                            max="20"
-                            className="font-mono text-lg bg-muted border-border text-foreground"
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="hands" className="text-sm font-medium text-card-foreground">
-                            Hands Remaining
-                          </Label>
-                          <Input
-                            id="hands"
-                            type="number"
-                            value={(game?.hands as number) || 4}
-                            onChange={(e) => updateGameValue("hands", e.target.value)}
-                            min="0"
-                            max="99"
-                            className="font-mono text-lg bg-muted border-border text-foreground"
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="discards" className="text-sm font-medium text-card-foreground">
-                            Discards Remaining
-                          </Label>
-                          <Input
-                            id="discards"
-                            type="number"
-                            value={(game?.discards as number) || 3}
-                            onChange={(e) => updateGameValue("discards", e.target.value)}
-                            min="0"
-                            max="99"
-                            className="font-mono text-lg bg-muted border-border text-foreground"
-                          />
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
-
-                <TabsContent value="currency" className="space-y-4 mt-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {isProfileFile && (
+                  <TabsContent value="profile" className="space-y-4 mt-4">
                     <Card className="bg-card border-border">
-                      <CardHeader className="pb-3 border-b border-border">
-                        <CardTitle className="flex items-center gap-2 text-foreground">
-                          <Coins className="w-5 h-5 text-yellow-500" />
-                          Money
-                        </CardTitle>
+                      <CardHeader className="border-b border-border">
+                        <CardTitle className="text-foreground">Profile Info</CardTitle>
                       </CardHeader>
-                      <CardContent className="pt-6">
-                        <Input
-                          type="number"
-                          value={(game?.dollars as number) || 0}
-                          onChange={(e) => updateGameValue("dollars", e.target.value)}
-                          min="0"
-                          className="font-mono text-2xl bg-muted border-border text-foreground"
-                        />
+                      <CardContent className="pt-6 space-y-4">
+                        <div className="space-y-2">
+                          <Label htmlFor="profile-name" className="text-sm font-medium text-card-foreground">
+                            Profile Name
+                          </Label>
+                          <Input
+                            id="profile-name"
+                            type="text"
+                            value={profileName || ''}
+                            onChange={(e) => {
+                              if (!saveData) return
+                              const newData = structuredClone(saveData) as Record<string, unknown>
+                              newData.name = e.target.value
+                              setSaveData(newData as DecodedSave)
+                            }}
+                            className="font-mono bg-muted border-border text-foreground"
+                          />
+                        </div>
                       </CardContent>
                     </Card>
 
-                    <Card className="bg-card border-border">
-                      <CardHeader className="pb-3 border-b border-border">
-                        <CardTitle className="flex items-center gap-2 text-foreground">
-                          <Zap className="w-5 h-5 text-chart-1" />
-                          Chips
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="pt-6">
-                        <Input
-                          type="number"
-                          value={(game?.chips as number) || 0}
-                          onChange={(e) => updateGameValue("chips", e.target.value)}
-                          min="0"
-                          className="font-mono text-2xl bg-muted border-border text-foreground"
-                        />
-                      </CardContent>
-                    </Card>
-                  </div>
+                    {highScores && (
+                      <Card className="bg-card border-border">
+                        <CardHeader className="border-b border-border">
+                          <CardTitle className="text-foreground">High Scores</CardTitle>
+                        </CardHeader>
+                        <CardContent className="pt-6">
+                          <ScrollArea className="h-[300px] pr-4">
+                            <div className="space-y-3">
+                              {Object.entries(highScores)
+                                .filter(([key]) => key !== 'collection' && key !== 'current_streak')
+                                .map(([key, value]) => {
+                                  const scoreData = value as Record<string, unknown>
+                                  return (
+                                    <div key={key} className="space-y-2">
+                                      <Label className="text-sm font-medium text-card-foreground">
+                                        {(scoreData.label as string) || key}
+                                      </Label>
+                                      <Input
+                                        type="number"
+                                        value={(scoreData.amt as number) || 0}
+                                        onChange={(e) => updateValue(`high_scores.${key}.amt`, e.target.value)}
+                                        className="font-mono bg-muted border-border text-foreground"
+                                      />
+                                    </div>
+                                  )
+                                })}
+                            </div>
+                          </ScrollArea>
+                        </CardContent>
+                      </Card>
+                    )}
 
-                  <Card className="bg-card border-border">
-                    <CardHeader className="border-b border-border">
-                      <div className="flex items-center justify-between">
-                        <CardTitle className="text-foreground">Quick Actions</CardTitle>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-6">
-                      <Button
-                        onClick={() => {
-                          setSaveData(maxCurrency(saveData))
-                        }}
-                        className="w-full bg-primary hover:bg-primary/90"
-                      >
-                        <Coins className="w-4 h-4 mr-2" />
-                        Max Money & Chips (999,999,999)
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
+                    {careerStats && (
+                      <Card className="bg-card border-border">
+                        <CardHeader className="border-b border-border">
+                          <CardTitle className="text-foreground">Career Stats</CardTitle>
+                        </CardHeader>
+                        <CardContent className="pt-6">
+                          <ScrollArea className="h-[400px] pr-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Cards Discarded</Label>
+                                <Input
+                                  type="number"
+                                  value={(careerStats.c_cards_discarded as number) || 0}
+                                  onChange={(e) => updateValue('career_stats.c_cards_discarded', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Hands Played</Label>
+                                <Input
+                                  type="number"
+                                  value={(careerStats.c_hands_played as number) || 0}
+                                  onChange={(e) => updateValue('career_stats.c_hands_played', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Dollars Earned</Label>
+                                <Input
+                                  type="number"
+                                  value={(careerStats.c_dollars_earned as number) || 0}
+                                  onChange={(e) => updateValue('career_stats.c_dollars_earned', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Wins</Label>
+                                <Input
+                                  type="number"
+                                  value={(careerStats.c_wins as number) || 0}
+                                  onChange={(e) => updateValue('career_stats.c_wins', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Losses</Label>
+                                <Input
+                                  type="number"
+                                  value={(careerStats.c_losses as number) || 0}
+                                  onChange={(e) => updateValue('career_stats.c_losses', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Rounds</Label>
+                                <Input
+                                  type="number"
+                                  value={(careerStats.c_rounds as number) || 0}
+                                  onChange={(e) => updateValue('career_stats.c_rounds', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                            </div>
+                          </ScrollArea>
+                        </CardContent>
+                      </Card>
+                    )}
 
-                <TabsContent value="unlocks" className="space-y-4 mt-4">
-                  <Card className="bg-card border-border">
-                    <CardHeader className="border-b border-border">
-                      <CardTitle className="text-foreground">Unlock Progress</CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-6 space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="p-4 bg-muted rounded-lg border border-border space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-card-foreground">Jokers</span>
-                            <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/30">
-                              {jokersUnlocked} / {Object.keys(discovered || {}).filter((k) => k.startsWith("j_")).length}
-                            </Badge>
+                    {progress && (
+                      <Card className="bg-card border-border">
+                        <CardHeader className="border-b border-border">
+                          <CardTitle className="text-foreground">Progress</CardTitle>
+                        </CardHeader>
+                        <CardContent className="pt-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                              <Label className="text-sm font-medium text-card-foreground">Overall Tally</Label>
+                              <Input
+                                type="number"
+                                value={(progress.overall_tally as number) || 0}
+                                onChange={(e) => updateValue('progress.overall_tally', e.target.value)}
+                                className="font-mono bg-muted border-border text-foreground"
+                              />
+                            </div>
+                            {progress.challenges && typeof progress.challenges === 'object' && (
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Challenges</Label>
+                                <Input
+                                  type="number"
+                                  value={((progress.challenges as Record<string, unknown>).tally as number) || 0}
+                                  onChange={(e) => updateValue('progress.challenges.tally', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                            )}
+                            {progress.deck_stakes && typeof progress.deck_stakes === 'object' && (
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Deck Stakes</Label>
+                                <Input
+                                  type="number"
+                                  value={((progress.deck_stakes as Record<string, unknown>).tally as number) || 0}
+                                  onChange={(e) => updateValue('progress.deck_stakes.tally', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                            )}
+                            {progress.discovered && typeof progress.discovered === 'object' && (
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Discovered</Label>
+                                <Input
+                                  type="number"
+                                  value={((progress.discovered as Record<string, unknown>).tally as number) || 0}
+                                  onChange={(e) => updateValue('progress.discovered.tally', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                            )}
+                            {progress.joker_stickers && typeof progress.joker_stickers === 'object' && (
+                              <div className="space-y-2">
+                                <Label className="text-sm font-medium text-card-foreground">Joker Stickers</Label>
+                                <Input
+                                  type="number"
+                                  value={((progress.joker_stickers as Record<string, unknown>).tally as number) || 0}
+                                  onChange={(e) => updateValue('progress.joker_stickers.tally', e.target.value)}
+                                  className="font-mono bg-muted border-border text-foreground"
+                                />
+                              </div>
+                            )}
                           </div>
+                        </CardContent>
+                      </Card>
+                    )}
+                  </TabsContent>
+                )}
+
+                {isMetaFile && discovered && unlocked && (
+                  <TabsContent value="meta" className="space-y-4 mt-4">
+                    <Card className="bg-card border-border">
+                      <CardHeader className="border-b border-border">
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-foreground">Discovered/Unlocked Items</CardTitle>
                           <Button
-                            onClick={() => setSaveData(unlockAllJokers(saveData))}
-                            variant="outline"
+                            onClick={() => {
+                              const newData = structuredClone(saveData) as Record<string, unknown>
+                              const newDiscovered = { ...discovered }
+                              const newUnlocked = { ...unlocked }
+                              
+                              Object.keys(newDiscovered).forEach(key => {
+                                newDiscovered[key] = true
+                                newUnlocked[key] = true
+                              })
+                              
+                              newData.discovered = newDiscovered
+                              newData.unlocked = newUnlocked
+                              setSaveData(newData as DecodedSave)
+                            }}
                             size="sm"
-                            className="w-full text-primary border-primary/30 hover:bg-primary/10"
+                            className="bg-primary hover:bg-primary/90"
                           >
                             <Sparkles className="w-4 h-4 mr-2" />
-                            Unlock All Jokers
+                            Unlock Everything
                           </Button>
                         </div>
-
-                        <div className="p-4 bg-muted rounded-lg border border-border space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-card-foreground">Decks</span>
-                            <Badge variant="secondary" className="bg-chart-2/20 text-chart-2 border-chart-2/30">
-                              {decksUnlocked} / {Object.keys(discovered || {}).filter((k) => k.startsWith("b_")).length}
-                            </Badge>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <h3 className="text-sm font-semibold mb-3 text-card-foreground">
+                              Locked/Undiscovered ({Object.entries(discovered).filter(([_, v]) => !v).length})
+                            </h3>
+                            <ScrollArea className="h-[600px] pr-4">
+                              <div className="space-y-2">
+                                {Object.entries(discovered)
+                                  .filter(([_, value]) => !value)
+                                  .sort(([a], [b]) => a.localeCompare(b))
+                                  .map(([key]) => (
+                                    <button
+                                      key={key}
+                                      onClick={() => {
+                                        const newData = structuredClone(saveData) as Record<string, unknown>
+                                        const newDiscovered = { ...discovered, [key]: true }
+                                        const newUnlocked = { ...unlocked, [key]: true }
+                                        newData.discovered = newDiscovered
+                                        newData.unlocked = newUnlocked
+                                        setSaveData(newData as DecodedSave)
+                                      }}
+                                      className="w-full flex items-center justify-between p-3 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors text-left"
+                                    >
+                                      <span className="font-mono text-sm text-card-foreground">{key}</span>
+                                      <Badge variant="outline" className="border-border text-muted-foreground">
+                                        Locked
+                                      </Badge>
+                                    </button>
+                                  ))}
+                              </div>
+                            </ScrollArea>
                           </div>
-                          <Button
-                            onClick={() => setSaveData(unlockAllDecks(saveData))}
-                            variant="outline"
-                            size="sm"
-                            className="w-full text-primary border-primary/30 hover:bg-primary/10"
-                          >
-                            <Layers className="w-4 h-4 mr-2" />
-                            Unlock All Decks
-                          </Button>
-                        </div>
 
-                        <div className="p-4 bg-muted rounded-lg border border-border space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-card-foreground">Vouchers</span>
-                            <Badge variant="secondary" className="bg-chart-3/20 text-chart-3 border-chart-3/30">
-                              {vouchersUnlocked} / {Object.keys(discovered || {}).filter((k) => k.startsWith("v_")).length}
-                            </Badge>
+                          <div>
+                            <h3 className="text-sm font-semibold mb-3 text-card-foreground">
+                              Unlocked/Discovered ({Object.entries(discovered).filter(([_, v]) => v).length})
+                            </h3>
+                            <ScrollArea className="h-[600px] pr-4">
+                              <div className="space-y-2">
+                                {Object.entries(discovered)
+                                  .filter(([_, value]) => value === true)
+                                  .sort(([a], [b]) => a.localeCompare(b))
+                                  .map(([key]) => (
+                                    <button
+                                      key={key}
+                                      onClick={() => {
+                                        const newData = structuredClone(saveData) as Record<string, unknown>
+                                        const newDiscovered = { ...discovered, [key]: false }
+                                        const newUnlocked = { ...unlocked, [key]: false }
+                                        newData.discovered = newDiscovered
+                                        newData.unlocked = newUnlocked
+                                        setSaveData(newData as DecodedSave)
+                                      }}
+                                      className="w-full flex items-center justify-between p-3 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors text-left"
+                                    >
+                                      <span className="font-mono text-sm text-card-foreground">{key}</span>
+                                      <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
+                                        Unlocked
+                                      </Badge>
+                                    </button>
+                                  ))}
+                              </div>
+                            </ScrollArea>
                           </div>
-                          <Button
-                            onClick={() => setSaveData(unlockAllVouchers(saveData))}
-                            variant="outline"
-                            size="sm"
-                            className="w-full text-primary border-primary/30 hover:bg-primary/10"
-                          >
-                            <Trophy className="w-4 h-4 mr-2" />
-                            Unlock All Vouchers
-                          </Button>
                         </div>
-
-                        <div className="p-4 bg-muted rounded-lg border border-border space-y-3">
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm font-medium text-card-foreground">Card Types</span>
-                            <Badge variant="secondary" className="bg-chart-4/20 text-chart-4 border-chart-4/30">
-                              {
-                                Object.keys(discovered || {}).filter(
-                                  (k) => (k.startsWith("c_") || k.startsWith("e_") || k.startsWith("m_")) && discovered?.[k] === true,
-                                ).length
-                              }{" "}
-                              /{" "}
-                              {
-                                Object.keys(discovered || {}).filter(
-                                  (k) => k.startsWith("c_") || k.startsWith("e_") || k.startsWith("m_"),
-                                ).length
-                              }
-                            </Badge>
-                          </div>
-                          <Button
-                            onClick={() => setSaveData(unlockAllCards(saveData))}
-                            variant="outline"
-                            size="sm"
-                            className="w-full text-primary border-primary/30 hover:bg-primary/10"
-                          >
-                            <Unlock className="w-4 h-4 mr-2" />
-                            Unlock All Cards
-                          </Button>
-                        </div>
-                      </div>
-
-                      <div className="pt-4 border-t border-border">
-                        <Button
-                          onClick={() => setSaveData(unlockAll(saveData))}
-                          className="w-full bg-primary hover:bg-primary/90"
-                          size="lg"
-                        >
-                          <Unlock className="w-5 h-5 mr-2" />
-                          Unlock Everything
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="bg-card border-border">
-                    <CardHeader className="border-b border-border">
-                      <CardTitle className="text-foreground">Discovered Items</CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-6">
-                      <ScrollArea className="h-[400px] pr-4">
-                        <div className="space-y-2">
-                          {discovered &&
-                            Object.entries(discovered)
-                              .sort(([a], [b]) => a.localeCompare(b))
-                              .map(([key, value]) => (
-                                <div
-                                  key={key}
-                                  className="flex items-center justify-between p-3 bg-muted border border-border rounded-lg hover:bg-muted/80 transition-colors"
-                                >
-                                  <span className="font-mono text-sm text-card-foreground">{key}</span>
-                                  <Badge
-                                    variant={value ? "default" : "outline"}
-                                    className={
-                                      value
-                                        ? "bg-green-500/20 text-green-400 border-green-500/30"
-                                        : "border-border text-muted-foreground"
-                                    }
-                                  >
-                                    {value ? "Unlocked" : "Locked"}
-                                  </Badge>
-                                </div>
-                              ))}
-                        </div>
-                      </ScrollArea>
-                    </CardContent>
-                  </Card>
-                </TabsContent>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                )}
 
                 <TabsContent value="raw" className="space-y-4 mt-4">
                   <Card className="bg-card border-border">
@@ -551,7 +572,6 @@ export default function BalatroSaveEditor() {
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                   <span>{originalFile?.name} loaded</span>
                 </div>
-                <span className="text-muted-foreground">Last modified: {originalFile && formatDate(new Date())}</span>
               </div>
             </div>
           </div>

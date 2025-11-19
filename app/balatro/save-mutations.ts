@@ -212,3 +212,5 @@ export function updateJokerSlots(save: DecodedSave, slots: number): DecodedSave 
     },
   }
 }
+
+// Additional updates can be added here if needed
