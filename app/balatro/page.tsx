@@ -59,6 +59,8 @@ export default function BalatroSaveEditor() {
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [isProcessing, setIsProcessing] = useState(false)
   const [metaSearch, setMetaSearch] = useState("")
+  const [selectedStake, setSelectedStake] = useState<number>(-1)
+  const [jokerSearch, setJokerSearch] = useState("")
 
   const processSaveFile = async (file: File) => {
     setIsProcessing(true)
@@ -568,6 +570,154 @@ export default function BalatroSaveEditor() {
                                 className="font-mono bg-muted border-border text-foreground"
                               />
                             </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
+                    
+                    {profileData.joker_usage && (
+                      <Card className="bg-card border-border">
+                        <CardHeader className="border-b border-border">
+                          <CardTitle className="text-foreground">Joker Usage</CardTitle>
+                          <p className="text-sm text-muted-foreground">View joker stats by stake level</p>
+                        </CardHeader>
+                        <CardContent className="pt-6 space-y-4">
+                          {/* Stake selector */}
+                          <div className="space-y-3">
+                            <Label className="text-sm font-medium text-card-foreground">Filter by Stake</Label>
+                            <div className="flex flex-wrap gap-2">
+                              <Button
+                                variant={selectedStake === -1 ? "default" : "outline"}
+                                size="sm"
+                                onClick={() => setSelectedStake(-1)}
+                              >
+                                All Stakes
+                              </Button>
+                              {Object.entries(Balatro.Stake).map(([key, stake], index) => (
+                                <Button
+                                  key={key}
+                                  variant={selectedStake === index ? "default" : "outline"}
+                                  size="sm"
+                                  onClick={() => setSelectedStake(index)}
+                                  className="flex items-center gap-2"
+                                >
+                                  {stake.name.replace(' Stake', '')}
+                                </Button>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Search */}
+                          <div className="flex items-center gap-2">
+                            <Search className="w-4 h-4 text-muted-foreground" />
+                            <Input
+                              placeholder="Search jokers..."
+                              value={jokerSearch}
+                              onChange={(e) => setJokerSearch(e.target.value)}
+                              className="bg-muted border-border"
+                            />
+                          </div>
+
+                          {/* Table */}
+                          <div className="border border-border rounded-lg overflow-hidden">
+                            <ScrollArea className="h-[500px]">
+                              <table className="w-full">
+                                <thead className="bg-muted sticky top-0">
+                                  <tr>
+                                    <th className="text-left p-3 text-sm font-semibold text-card-foreground border-b border-border">Joker</th>
+                                    <th className="text-center p-3 text-sm font-semibold text-card-foreground border-b border-border">Rounds</th>
+                                    <th className="text-center p-3 text-sm font-semibold text-card-foreground border-b border-border">Wins</th>
+                                    <th className="text-center p-3 text-sm font-semibold text-card-foreground border-b border-border">Losses</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {Object.entries(Balatro.Joker)
+                                    .filter(([key, joker]) => 
+                                      joker.name.toLowerCase().includes(jokerSearch.toLowerCase()) ||
+                                      key.toLowerCase().includes(jokerSearch.toLowerCase())
+                                    )
+                                    .sort(([, a], [, b]) => a.order - b.order)
+                                    .map(([key, joker]) => {
+                                      const usage = profileData.joker_usage?.[key]
+                                      const wins = selectedStake === -1 
+                                        ? (usage?.wins?.reduce((a, b) => a + b, 0) ?? 0)
+                                        : (usage?.wins?.[selectedStake] ?? 0)
+                                      const losses = selectedStake === -1
+                                        ? (usage?.losses?.reduce((a, b) => a + b, 0) ?? 0)
+                                        : (usage?.losses?.[selectedStake] ?? 0)
+                                      
+                                      return (
+                                        <tr key={key} className="border-b border-border hover:bg-muted/50 transition-colors">
+                                          <td className="p-3 text-sm text-card-foreground">{joker.name}</td>
+                                          <td className="p-3 text-sm text-center text-muted-foreground">
+                                            {usage?.count ?? 0}
+                                          </td>
+                                          <td className="p-3 text-sm text-center">
+                                            <Input
+                                              type="number"
+                                              value={wins}
+                                              onChange={(e) => {
+                                                const newValue = Number.parseInt(e.target.value) || 0
+                                                const newData = structuredClone(saveData) as Record<string, unknown>
+                                                const jokerUsage = (newData.joker_usage as Record<string, unknown>) || {}
+                                                const currentUsage = (jokerUsage[key] as Record<string, unknown>) || { wins: [], losses: [], count: 0, order: joker.order }
+                                                const winsArray = (currentUsage.wins as number[]) || []
+                                                
+                                                if (selectedStake === -1) {
+                                                  // Set all stakes to the same value when "All" is selected
+                                                  currentUsage.wins = Array(Object.keys(Balatro.Stake).length).fill(newValue)
+                                                } else {
+                                                  // Ensure array is long enough
+                                                  while (winsArray.length <= selectedStake) {
+                                                    winsArray.push(0)
+                                                  }
+                                                  winsArray[selectedStake] = newValue
+                                                  currentUsage.wins = winsArray
+                                                }
+                                                
+                                                jokerUsage[key] = currentUsage
+                                                newData.joker_usage = jokerUsage
+                                                setSaveData(newData as DecodedSave)
+                                              }}
+                                              className="w-20 h-8 text-center bg-muted border-border text-foreground"
+                                            />
+                                          </td>
+                                          <td className="p-3 text-sm text-center">
+                                            <Input
+                                              type="number"
+                                              value={losses}
+                                              onChange={(e) => {
+                                                const newValue = Number.parseInt(e.target.value) || 0
+                                                const newData = structuredClone(saveData) as Record<string, unknown>
+                                                const jokerUsage = (newData.joker_usage as Record<string, unknown>) || {}
+                                                const currentUsage = (jokerUsage[key] as Record<string, unknown>) || { wins: [], losses: [], count: 0, order: joker.order }
+                                                const lossesArray = (currentUsage.losses as number[]) || []
+                                                
+                                                if (selectedStake === -1) {
+                                                  // Set all stakes to the same value when "All" is selected
+                                                  currentUsage.losses = Array(Object.keys(Balatro.Stake).length).fill(newValue)
+                                                } else {
+                                                  // Ensure array is long enough
+                                                  while (lossesArray.length <= selectedStake) {
+                                                    lossesArray.push(0)
+                                                  }
+                                                  lossesArray[selectedStake] = newValue
+                                                  currentUsage.losses = lossesArray
+                                                }
+                                                
+                                                jokerUsage[key] = currentUsage
+                                                newData.joker_usage = jokerUsage
+                                                setSaveData(newData as DecodedSave)
+                                              }}
+                                              className="w-20 h-8 text-center bg-muted border-border text-foreground"
+                                            />
+                                          </td>
+                                        </tr>
+                                      )
+                                    })}
+                                </tbody>
+                              </table>
+                            </ScrollArea>
                           </div>
                         </CardContent>
                       </Card>
