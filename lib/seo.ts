@@ -15,10 +15,25 @@ interface GameSEOData {
 }
 
 export function generateGameMetadata(gameId: string): Metadata {
-  const game = gamesData.games.find((g) => g.id === gameId)
+  // Defensive check to ensure gameId is a string
+  if (typeof gameId !== "string") {
+    console.error("[SEO] Invalid gameId type:", typeof gameId, gameId)
+    throw new Error(`Game ID must be a string, received ${typeof gameId}`)
+  }
 
-  if (!game || !game.seo) {
-    throw new Error(`Game with id "${gameId}" not found or missing SEO data`)
+  const game = gamesData.games.find((g) => g.id === gameId) as GameSEOData | undefined
+
+  if (!game) {
+    console.error(
+      "[SEO] Available game IDs:",
+      gamesData.games.map((g) => g.id),
+    )
+    throw new Error(`Game with id "${gameId}" not found in games.json`)
+  }
+
+  if (!game.seo) {
+    console.error("[SEO] Game found but missing SEO data:", game.name)
+    throw new Error(`Game "${game.name}" (id: ${gameId}) is missing SEO data in games.json`)
   }
 
   const url = `https://editmysave.app${game.route}`
@@ -93,10 +108,19 @@ export function generateHomeMetadata(): Metadata {
 }
 
 export function generateStructuredData(gameId: string) {
-  const game = gamesData.games.find((g) => g.id === gameId)
+  if (typeof gameId !== "string") {
+    console.error("[SEO] Invalid gameId type for structured data:", typeof gameId, gameId)
+    throw new Error(`Game ID must be a string, received ${typeof gameId}`)
+  }
+
+  const game = gamesData.games.find((g) => g.id === gameId) as GameSEOData | undefined
 
   if (!game) {
-    throw new Error(`Game with id "${gameId}" not found`)
+    console.error(
+      "[SEO] Available game IDs:",
+      gamesData.games.map((g) => g.id),
+    )
+    throw new Error(`Game with id "${gameId}" not found in games.json`)
   }
 
   return {
