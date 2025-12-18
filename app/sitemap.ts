@@ -1,7 +1,17 @@
 import type { MetadataRoute } from "next"
+import gamesData from "@/data/games.json"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://editmysave.app"
+
+  const gamePages = gamesData.games
+    .filter((game) => game.status === "available")
+    .map((game) => ({
+      url: `${baseUrl}${game.route}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    }))
 
   return [
     {
@@ -10,23 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
-    {
-      url: `${baseUrl}/sworn`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/megabonk`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/cloverpit`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    ...gamePages,
   ]
 }

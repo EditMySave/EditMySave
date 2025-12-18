@@ -36,18 +36,40 @@ export default async function HomePage() {
 
   return (
     <main className="min-h-screen p-6 md:p-12 bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "EditMySave",
+            applicationCategory: "UtilitiesApplication",
+            operatingSystem: "Web Browser",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+            },
+            description:
+              "Edit your game save files directly in your browser. Free online save editor for multiple games. No downloads required, works entirely client-side.",
+            url: "https://editmysave.app",
+            browserRequirements: "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
+          }),
+        }}
+      />
+
       <div className="max-w-7xl mx-auto space-y-8">
-        <div className="text-center space-y-3">
+        <header className="text-center space-y-3">
           <div className="flex items-center justify-center gap-3">
-            <Gamepad2 className="w-10 h-10 text-primary" />
+            <Gamepad2 className="w-10 h-10 text-primary" aria-hidden="true" />
             <h1 className="text-5xl font-bold text-balance">Free Online Game Save Editor</h1>
           </div>
           <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
             Edit your game save files directly in your browser. No downloads required, completely free and secure.
           </p>
-        </div>
+        </header>
 
-        <div className="space-y-4">
+        <section className="space-y-4">
           <h2 className="text-2xl font-semibold">Available Editors</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {availableGames.map((game) => (
@@ -56,7 +78,7 @@ export default async function HomePage() {
                   <div className="aspect-video w-full overflow-hidden bg-muted relative">
                     <img
                       src={game.image || "/placeholder.svg"}
-                      alt={game.name}
+                      alt={`${game.name} game cover art`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -100,10 +122,10 @@ export default async function HomePage() {
               </Link>
             ))}
           </div>
-        </div>
+        </section>
 
         {comingSoonGames.length > 0 && (
-          <div className="space-y-4">
+          <section className="space-y-4">
             <h2 className="text-2xl font-semibold">Coming Soon</h2>
             <p className="text-sm text-muted-foreground">
               Vote for the games you want to see next! You can vote once per day.
@@ -114,7 +136,7 @@ export default async function HomePage() {
                   <div className="aspect-video w-full overflow-hidden bg-muted relative">
                     <img
                       src={game.image || "/placeholder.svg"}
-                      alt={game.name}
+                      alt={`${game.name} game cover art - coming soon`}
                       className="w-full h-full object-cover grayscale"
                     />
                     <div className="absolute inset-0 bg-background/40 flex items-center justify-center">
@@ -135,14 +157,14 @@ export default async function HomePage() {
                 </Card>
               ))}
             </div>
-          </div>
+          </section>
         )}
 
-        <div className="text-center pt-8">
+        <footer className="text-center pt-8">
           <p className="text-sm text-muted-foreground">
             All editors work entirely in your browser. Your save files never leave your device.
           </p>
-        </div>
+        </footer>
       </div>
     </main>
   )

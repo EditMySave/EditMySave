@@ -1,39 +1,41 @@
 import type { Metadata } from "next"
+import gamesData from "@/data/games.json"
 
 interface GameSEOData {
   name: string
   description: string
   route: string
   supportedVersion?: string
+  seo?: {
+    title: string
+    description: string
+    keywords: string[]
+    ogImage: string
+  }
 }
 
-export function generateGameMetadata(game: GameSEOData): Metadata {
-  const title = `${game.name} Save Editor - Edit Your ${game.name} Save Files`
-  const description = `Free online ${game.name} save editor. ${game.description} Works entirely in your browser with no downloads required. ${game.supportedVersion ? `Supports version ${game.supportedVersion}.` : ""}`
+export function generateGameMetadata(gameId: string): Metadata {
+  const game = gamesData.games.find((g) => g.id === gameId)
+
+  if (!game || !game.seo) {
+    throw new Error(`Game with id "${gameId}" not found or missing SEO data`)
+  }
+
   const url = `https://editmysave.app${game.route}`
 
   return {
-    title,
-    description,
-    keywords: [
-      `${game.name.toLowerCase()} save editor`,
-      `${game.name.toLowerCase()} save file editor`,
-      `edit ${game.name.toLowerCase()} save`,
-      `${game.name.toLowerCase()} save modifier`,
-      `${game.name.toLowerCase()} save game editor`,
-      "save editor",
-      "game save editor",
-      "online save editor",
-    ],
+    title: game.seo.title,
+    description: game.seo.description,
+    keywords: game.seo.keywords,
     openGraph: {
-      title,
-      description,
+      title: game.seo.title,
+      description: game.seo.description,
       url,
       siteName: "EditMySave",
       type: "website",
       images: [
         {
-          url: `https://editmysave.app/images/${game.name.toLowerCase()}/cover.png`,
+          url: `https://editmysave.app${game.seo.ogImage}`,
           width: 1200,
           height: 630,
           alt: `${game.name} Save Editor`,
@@ -42,9 +44,9 @@ export function generateGameMetadata(game: GameSEOData): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
-      images: [`https://editmysave.app/images/${game.name.toLowerCase()}/cover.png`],
+      title: game.seo.title,
+      description: game.seo.description,
+      images: [`https://editmysave.app${game.seo.ogImage}`],
     },
     alternates: {
       canonical: url,
@@ -90,7 +92,13 @@ export function generateHomeMetadata(): Metadata {
   }
 }
 
-export function generateStructuredData(game: GameSEOData) {
+export function generateStructuredData(gameId: string) {
+  const game = gamesData.games.find((g) => g.id === gameId)
+
+  if (!game) {
+    throw new Error(`Game with id "${gameId}" not found`)
+  }
+
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
