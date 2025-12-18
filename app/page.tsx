@@ -9,17 +9,20 @@ import { VoteButton } from "@/components/vote-button"
 import { head } from "@vercel/blob"
 
 async function getVotes() {
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    console.log("[v0] Blob token not configured, skipping votes")
+    return {}
+  }
+
   try {
-    console.log("[v0] Attempting to fetch votes from blob")
-    const blob = await head("votes.json")
-    console.log("[v0] Blob found, URL:", blob.url)
+    const blob = await head("votes.json", {
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    })
     const response = await fetch(blob.url, { cache: "no-store" })
-    console.log("[v0] Blob fetch response status:", response.status)
     const data = await response.json()
-    console.log("[v0] Votes loaded:", data)
     return data
   } catch (error) {
-    console.error("[v0] Error loading votes:", error)
+    console.log("[v0] Could not load votes (blob may not exist yet):", error)
     return {}
   }
 }

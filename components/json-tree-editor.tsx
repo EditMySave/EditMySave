@@ -20,7 +20,7 @@ interface JsonNodeProps {
 }
 
 function JsonNode({ keyName, value, path, onUpdate, level }: JsonNodeProps) {
-  const [isExpanded, setIsExpanded] = useState(level < 2)
+  const [isExpanded, setIsExpanded] = useState(level < 1)
   const [isEditing, setIsEditing] = useState(false)
   const [editValue, setEditValue] = useState("")
 

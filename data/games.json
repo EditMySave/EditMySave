@@ -119,6 +119,35 @@
       ]
     },
     {
+      "id": "ballxpit",
+      "name": "BALL x PIT",
+      "description": "Edit resources, progression, and buildings in your BALL x PIT save files",
+      "image": "/images/ballxpit/cover.jpg",
+      "route": "/ballxpit",
+      "status": "available",
+      "supportedVersion": "v3073+",
+      "platforms": [
+        {
+          "name": "Steam",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Panik\\BALLXPIT\\SaveData\\save.dat"
+          },
+          "fileName": "save.dat",
+          "instructions": "Windows: %USERPROFILE%\\AppData\\LocalLow\\Panik\\BALLXPIT\\SaveData\\\n\nLook for save.dat and drag it into this editor.",
+          "notes": "Always create a backup of your save file before editing. The save file uses custom .NET serialization (Unity BinaryFormatter)."
+        },
+        {
+          "name": "Xbox Game Pass",
+          "supported": false
+        },
+        {
+          "name": "Epic Games Store",
+          "supported": false
+        }
+      ]
+    },
+    {
       "id": "hades",
       "name": "Hades",
       "description": "Modify resources, unlocks, and progression in your Hades save files",
