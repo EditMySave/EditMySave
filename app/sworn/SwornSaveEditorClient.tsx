@@ -229,14 +229,7 @@ export default function SwornSaveEditorClient() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            generateStructuredData({
-              name: "Sworn",
-              description: "Edit currencies and resources for your Sworn save files",
-              route: "/sworn",
-              supportedVersion: "v1.0.1.0.1018",
-            }),
-          ),
+          __html: JSON.stringify(generateStructuredData("sworn")),
         }}
       />
       <main className="min-h-screen bg-background pb-20">
