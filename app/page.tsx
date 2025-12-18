@@ -54,6 +54,10 @@ export default async function HomePage() {
               "Edit your game save files directly in your browser. Free online save editor for multiple games. No downloads required, works entirely client-side.",
             url: "https://editmysave.app",
             browserRequirements: "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
+            potentialAction: {
+              "@type": "UseAction",
+              target: "https://editmysave.app",
+            },
           }),
         }}
       />
@@ -71,6 +75,10 @@ export default async function HomePage() {
 
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold">Available Editors</h2>
+          <p className="text-muted-foreground">
+            Choose from our collection of free online save editors. Each editor is specifically designed for its game,
+            supporting the latest versions and all major platforms.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {availableGames.map((game) => (
               <Link key={game.id} href={game.route} className="group">
@@ -160,9 +168,14 @@ export default async function HomePage() {
           </section>
         )}
 
-        <footer className="text-center pt-8">
+        <footer className="text-center pt-8 space-y-2">
           <p className="text-sm text-muted-foreground">
             All editors work entirely in your browser. Your save files never leave your device.
+          </p>
+          <p className="text-xs text-muted-foreground max-w-3xl mx-auto">
+            EditMySave provides free online save file editors for popular games including Sworn, Balatro, Megabonk,
+            Cloverpit, and BALL x PIT. Modify currencies, resources, unlocks, and progression without downloading any
+            software. Compatible with Steam, and other platforms.
           </p>
         </footer>
       </div>

@@ -11,6 +11,9 @@ interface GameSEOData {
     description: string
     keywords: string[]
     ogImage: string
+    longDescription?: string
+    features?: string[]
+    faq?: { question: string; answer: string }[]
   }
 }
 
@@ -143,5 +146,20 @@ export function generateStructuredData(gameId: string) {
       ratingValue: "5",
       ratingCount: "1",
     },
+  }
+}
+
+export function getGameSEOData(gameId: string) {
+  const game = gamesData.games.find((g) => g.id === gameId)
+
+  if (!game || !game.seo) {
+    return null
+  }
+
+  return {
+    name: game.name,
+    longDescription: game.seo.longDescription,
+    features: game.seo.features,
+    faq: game.seo.faq,
   }
 }

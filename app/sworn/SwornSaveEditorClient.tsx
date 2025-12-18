@@ -19,6 +19,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
 import { maxAllCurrencies, updateCurrencies } from "./save-mutations"
 import { generateStructuredData } from "@/lib/seo"
+import { getGameSEOData } from "@/lib/seo"
+import { GameSEOContent } from "@/components/game-seo-content"
+import { Breadcrumbs } from "@/components/breadcrumbs"
 
 interface CurrencyValues {
   fairyEmbers: number
@@ -189,6 +192,7 @@ export default function SwornSaveEditorClient() {
   }
 
   const gameData = gamesData.games.find((game) => game.id === "sworn")
+  const seoData = getGameSEOData("sworn")
 
   const quickStats = []
 
@@ -249,6 +253,8 @@ export default function SwornSaveEditorClient() {
         </div>
 
         <div className="w-full max-w-7xl mx-auto p-6">
+          <Breadcrumbs items={[{ label: "Sworn Save Editor", href: "/sworn" }]} />
+
           {!saveData ? (
             <div className="space-y-6">
               <div className="text-center space-y-2 py-8">
@@ -259,6 +265,15 @@ export default function SwornSaveEditorClient() {
               {gameData && <SaveLocationHelp platforms={gameData.platforms} gameName={gameData.name} />}
 
               <SaveFileUpload onFileSelect={processSaveFile} acceptedFileTypes=".dat" isProcessing={isProcessing} />
+
+              {seoData && (
+                <GameSEOContent
+                  gameName={seoData.name}
+                  longDescription={seoData.longDescription}
+                  features={seoData.features}
+                  faq={seoData.faq}
+                />
+              )}
             </div>
           ) : (
             <div className="flex gap-6 pt-4">

@@ -9,8 +9,8 @@
       "status": "available",
       "supportedVersion": "v1.0.1.0.1018",
       "seo": {
-        "title": "Sworn Save Editor - Edit Your Sworn Save Files",
-        "description": "Free online Sworn save editor. Edit currencies and resources for your Sworn save files. Works entirely in your browser with no downloads required. Supports version v1.0.1.0.1018.",
+        "title": "Sworn Save Editor - Edit Your Sworn Save Files Online Free",
+        "description": "Free online Sworn save editor. Edit currencies, resources, and progression in your Sworn save files. Supports Steam version v1.0.1.0.1018. Works entirely in your browser with no downloads required.",
         "keywords": [
           "sworn save editor",
           "sworn save file editor",
@@ -18,9 +18,39 @@
           "sworn save modifier",
           "sworn save game editor",
           "sworn currency editor",
-          "sworn resource editor"
+          "sworn resource editor",
+          "sworn save file modifier",
+          "sworn game save editor online"
         ],
-        "ogImage": "/images/sworn/cover.png"
+        "ogImage": "/images/sworn/cover.png",
+        "longDescription": "The Sworn Save Editor is a powerful, free online tool that allows you to modify your Sworn save files directly in your web browser. Edit currencies, resources, and game progression without downloading any software. Your save files never leave your device - all editing happens locally for maximum security and privacy.",
+        "features": [
+          "Edit all currencies and resources",
+          "Modify game progression",
+          "100% browser-based - no downloads required",
+          "Your files never leave your device",
+          "Supports Steam version v1.0.1.0.1018",
+          "Automatic backup creation",
+          "JSON tree editor for advanced users"
+        ],
+        "faq": [
+          {
+            "question": "How do I use the Sworn save editor?",
+            "answer": "Simply drag and drop your Sworn save file (savegame_*.dat) into the editor. Make your desired changes, then download the modified file and place it back in your game's save directory."
+          },
+          {
+            "question": "Is the Sworn save editor safe to use?",
+            "answer": "Yes! All editing happens locally in your browser. Your save files are never uploaded to any server. We recommend backing up your original save file before editing."
+          },
+          {
+            "question": "Where can I find my Sworn save file?",
+            "answer": "On Windows, your Sworn save files are located at: %USERPROFILE%\\AppData\\LocalLow\\Windwalk Games\\SWORN\\data\\[STEAM_ID]\\. Look for files named savegame_*.dat."
+          },
+          {
+            "question": "What version of Sworn is supported?",
+            "answer": "The editor currently supports Sworn version v1.0.1.0.1018. Using it with other versions may cause compatibility issues."
+          }
+        ]
       },
       "platforms": [
         {
