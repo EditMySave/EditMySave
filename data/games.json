@@ -8,50 +8,6 @@
       "route": "/sworn",
       "status": "available",
       "supportedVersion": "v1.0.1.0.1018",
-      "seo": {
-        "title": "Sworn Save Editor - Edit Your Sworn Save Files Online Free",
-        "description": "Free online Sworn save editor. Edit currencies, resources, and progression in your Sworn save files. Supports Steam version v1.0.1.0.1018. Works entirely in your browser with no downloads required.",
-        "keywords": [
-          "sworn save editor",
-          "sworn save file editor",
-          "edit sworn save",
-          "sworn save modifier",
-          "sworn save game editor",
-          "sworn currency editor",
-          "sworn resource editor",
-          "sworn save file modifier",
-          "sworn game save editor online"
-        ],
-        "ogImage": "/images/sworn/cover.png",
-        "longDescription": "The Sworn Save Editor is a powerful, free online tool that allows you to modify your Sworn save files directly in your web browser. Edit currencies, resources, and game progression without downloading any software. Your save files never leave your device - all editing happens locally for maximum security and privacy.",
-        "features": [
-          "Edit all currencies and resources",
-          "Modify game progression",
-          "100% browser-based - no downloads required",
-          "Your files never leave your device",
-          "Supports Steam version v1.0.1.0.1018",
-          "Automatic backup creation",
-          "JSON tree editor for advanced users"
-        ],
-        "faq": [
-          {
-            "question": "How do I use the Sworn save editor?",
-            "answer": "Simply drag and drop your Sworn save file (savegame_*.dat) into the editor. Make your desired changes, then download the modified file and place it back in your game's save directory."
-          },
-          {
-            "question": "Is the Sworn save editor safe to use?",
-            "answer": "Yes! All editing happens locally in your browser. Your save files are never uploaded to any server. We recommend backing up your original save file before editing."
-          },
-          {
-            "question": "Where can I find my Sworn save file?",
-            "answer": "On Windows, your Sworn save files are located at: %USERPROFILE%\\AppData\\LocalLow\\Windwalk Games\\SWORN\\data\\[STEAM_ID]\\. Look for files named savegame_*.dat."
-          },
-          {
-            "question": "What version of Sworn is supported?",
-            "answer": "The editor currently supports Sworn version v1.0.1.0.1018. Using it with other versions may cause compatibility issues."
-          }
-        ]
-      },
       "platforms": [
         {
           "name": "Steam",
@@ -81,19 +37,6 @@
       "route": "/megabonk",
       "status": "available",
       "supportedVersion": "v1.0.12",
-      "seo": {
-        "title": "Megabonk Save Editor - Edit Your Megabonk Save Files",
-        "description": "Free online Megabonk save editor. Edit currencies, characters, achievements, and shop items for your Megabonk save files. Works entirely in your browser with no downloads required. Supports version v1.0.12.",
-        "keywords": [
-          "megabonk save editor",
-          "megabonk save file editor",
-          "edit megabonk save",
-          "megabonk save modifier",
-          "megabonk currency editor",
-          "megabonk character editor"
-        ],
-        "ogImage": "/images/megabonk/cover.png"
-      },
       "platforms": [
         {
           "name": "Steam",
@@ -123,19 +66,6 @@
       "route": "/cloverpit",
       "status": "available",
       "supportedVersion": "v1.1",
-      "seo": {
-        "title": "Cloverpit Save Editor - Edit Your Cloverpit Save Files",
-        "description": "Free online Cloverpit save editor. Comprehensive editor for GameDataFull.json with full control over economy, spins, RNG, powerups, and more. Works entirely in your browser. Supports version v1.1.",
-        "keywords": [
-          "cloverpit save editor",
-          "cloverpit save file editor",
-          "edit cloverpit save",
-          "cloverpit save modifier",
-          "cloverpit economy editor",
-          "cloverpit spin editor"
-        ],
-        "ogImage": "/images/cloverpit/cover.png"
-      },
       "platforms": [
         {
           "name": "Steam",
@@ -165,21 +95,6 @@
       "route": "/balatro",
       "status": "available",
       "supportedVersion": "v1.0.1",
-      "seo": {
-        "title": "Balatro Save Editor - Edit Your Balatro Save Files",
-        "description": "Free online Balatro save editor. Edit money, chips, unlocks, jokers, decks, vouchers, and progression in your Balatro save files. Works entirely in your browser. Supports version v1.0.1.",
-        "keywords": [
-          "balatro save editor",
-          "balatro save file editor",
-          "edit balatro save",
-          "balatro save modifier",
-          "balatro money editor",
-          "balatro chips editor",
-          "balatro unlock editor",
-          "balatro joker editor"
-        ],
-        "ogImage": "/images/balatro/cover.png"
-      },
       "platforms": [
         {
           "name": "Steam",
@@ -211,27 +126,14 @@
       "route": "/ballxpit",
       "status": "available",
       "supportedVersion": "v3073+",
-      "seo": {
-        "title": "BALL x PIT Save Editor - Edit Your BALL x PIT Save Files",
-        "description": "Free online BALL x PIT save editor. Edit resources, progression, and buildings in your BALL x PIT save files. Works entirely in your browser. Supports version v3073+.",
-        "keywords": [
-          "ball x pit save editor",
-          "ballxpit save editor",
-          "ball x pit save file editor",
-          "edit ball x pit save",
-          "ball x pit save modifier",
-          "ball x pit resource editor"
-        ],
-        "ogImage": "/images/ballxpit/cover.jpg"
-      },
       "platforms": [
         {
           "name": "Steam",
           "supported": true,
           "saveLocation": {
-            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Panik\\BALLXPIT\\SaveData\\meta1.yankai"
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Panik\\BALLXPIT\\SaveData\\save.dat"
           },
-          "fileName": "meta1.yankai",
+          "fileName": "save.dat",
           "instructions": "Windows: %USERPROFILE%\\AppData\\LocalLow\\Panik\\BALLXPIT\\SaveData\\\n\nLook for save.dat and drag it into this editor.",
           "notes": "Always create a backup of your save file before editing. The save file uses custom .NET serialization (Unity BinaryFormatter)."
         },

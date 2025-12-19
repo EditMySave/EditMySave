@@ -36,49 +36,19 @@ export default async function HomePage() {
 
   return (
     <main className="min-h-screen p-6 md:p-12 bg-background">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            name: "EditMySave",
-            applicationCategory: "UtilitiesApplication",
-            operatingSystem: "Web Browser",
-            offers: {
-              "@type": "Offer",
-              price: "0",
-              priceCurrency: "USD",
-            },
-            description:
-              "Edit your game save files directly in your browser. Free online save editor for multiple games. No downloads required, works entirely client-side.",
-            url: "https://editmysave.app",
-            browserRequirements: "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
-            potentialAction: {
-              "@type": "UseAction",
-              target: "https://editmysave.app",
-            },
-          }),
-        }}
-      />
-
       <div className="max-w-7xl mx-auto space-y-8">
-        <header className="text-center space-y-3">
+        <div className="text-center space-y-3">
           <div className="flex items-center justify-center gap-3">
-            <Gamepad2 className="w-10 h-10 text-primary" aria-hidden="true" />
+            <Gamepad2 className="w-10 h-10 text-primary" />
             <h1 className="text-5xl font-bold text-balance">Free Online Game Save Editor</h1>
           </div>
           <p className="text-lg text-muted-foreground text-pretty max-w-2xl mx-auto">
             Edit your game save files directly in your browser. No downloads required, completely free and secure.
           </p>
-        </header>
+        </div>
 
-        <section className="space-y-4">
+        <div className="space-y-4">
           <h2 className="text-2xl font-semibold">Available Editors</h2>
-          <p className="text-muted-foreground">
-            Choose from our collection of free online save editors. Each editor is specifically designed for its game,
-            supporting the latest versions and all major platforms.
-          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {availableGames.map((game) => (
               <Link key={game.id} href={game.route} className="group">
@@ -86,7 +56,7 @@ export default async function HomePage() {
                   <div className="aspect-video w-full overflow-hidden bg-muted relative">
                     <img
                       src={game.image || "/placeholder.svg"}
-                      alt={`${game.name} game cover art`}
+                      alt={game.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -130,10 +100,10 @@ export default async function HomePage() {
               </Link>
             ))}
           </div>
-        </section>
+        </div>
 
         {comingSoonGames.length > 0 && (
-          <section className="space-y-4">
+          <div className="space-y-4">
             <h2 className="text-2xl font-semibold">Coming Soon</h2>
             <p className="text-sm text-muted-foreground">
               Vote for the games you want to see next! You can vote once per day.
@@ -144,7 +114,7 @@ export default async function HomePage() {
                   <div className="aspect-video w-full overflow-hidden bg-muted relative">
                     <img
                       src={game.image || "/placeholder.svg"}
-                      alt={`${game.name} game cover art - coming soon`}
+                      alt={game.name}
                       className="w-full h-full object-cover grayscale"
                     />
                     <div className="absolute inset-0 bg-background/40 flex items-center justify-center">
@@ -165,19 +135,14 @@ export default async function HomePage() {
                 </Card>
               ))}
             </div>
-          </section>
+          </div>
         )}
 
-        <footer className="text-center pt-8 space-y-2">
+        <div className="text-center pt-8">
           <p className="text-sm text-muted-foreground">
             All editors work entirely in your browser. Your save files never leave your device.
           </p>
-          <p className="text-xs text-muted-foreground max-w-3xl mx-auto">
-            EditMySave provides free online save file editors for popular games including Sworn, Balatro, Megabonk,
-            Cloverpit, and BALL x PIT. Modify currencies, resources, unlocks, and progression without downloading any
-            software. Compatible with Steam, and other platforms.
-          </p>
-        </footer>
+        </div>
       </div>
     </main>
   )

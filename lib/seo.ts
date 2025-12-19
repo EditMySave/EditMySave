@@ -1,59 +1,39 @@
 import type { Metadata } from "next"
-import gamesData from "@/data/games.json"
 
 interface GameSEOData {
   name: string
   description: string
   route: string
   supportedVersion?: string
-  seo?: {
-    title: string
-    description: string
-    keywords: string[]
-    ogImage: string
-    longDescription?: string
-    features?: string[]
-    faq?: { question: string; answer: string }[]
-  }
 }
 
-export function generateGameMetadata(gameId: string): Metadata {
-  // Defensive check to ensure gameId is a string
-  if (typeof gameId !== "string") {
-    console.error("[SEO] Invalid gameId type:", typeof gameId, gameId)
-    throw new Error(`Game ID must be a string, received ${typeof gameId}`)
-  }
-
-  const game = gamesData.games.find((g) => g.id === gameId) as GameSEOData | undefined
-
-  if (!game) {
-    console.error(
-      "[SEO] Available game IDs:",
-      gamesData.games.map((g) => g.id),
-    )
-    throw new Error(`Game with id "${gameId}" not found in games.json`)
-  }
-
-  if (!game.seo) {
-    console.error("[SEO] Game found but missing SEO data:", game.name)
-    throw new Error(`Game "${game.name}" (id: ${gameId}) is missing SEO data in games.json`)
-  }
-
+export function generateGameMetadata(game: GameSEOData): Metadata {
+  const title = `${game.name} Save Editor - Edit Your ${game.name} Save Files`
+  const description = `Free online ${game.name} save editor. ${game.description} Works entirely in your browser with no downloads required. ${game.supportedVersion ? `Supports version ${game.supportedVersion}.` : ""}`
   const url = `https://editmysave.app${game.route}`
 
   return {
-    title: game.seo.title,
-    description: game.seo.description,
-    keywords: game.seo.keywords,
+    title,
+    description,
+    keywords: [
+      `${game.name.toLowerCase()} save editor`,
+      `${game.name.toLowerCase()} save file editor`,
+      `edit ${game.name.toLowerCase()} save`,
+      `${game.name.toLowerCase()} save modifier`,
+      `${game.name.toLowerCase()} save game editor`,
+      "save editor",
+      "game save editor",
+      "online save editor",
+    ],
     openGraph: {
-      title: game.seo.title,
-      description: game.seo.description,
+      title,
+      description,
       url,
       siteName: "EditMySave",
       type: "website",
       images: [
         {
-          url: `https://editmysave.app${game.seo.ogImage}`,
+          url: `https://editmysave.app/images/${game.name.toLowerCase()}/cover.png`,
           width: 1200,
           height: 630,
           alt: `${game.name} Save Editor`,
@@ -62,9 +42,9 @@ export function generateGameMetadata(gameId: string): Metadata {
     },
     twitter: {
       card: "summary_large_image",
-      title: game.seo.title,
-      description: game.seo.description,
-      images: [`https://editmysave.app${game.seo.ogImage}`],
+      title,
+      description,
+      images: [`https://editmysave.app/images/${game.name.toLowerCase()}/cover.png`],
     },
     alternates: {
       canonical: url,
@@ -110,22 +90,7 @@ export function generateHomeMetadata(): Metadata {
   }
 }
 
-export function generateStructuredData(gameId: string) {
-  if (typeof gameId !== "string") {
-    console.error("[SEO] Invalid gameId type for structured data:", typeof gameId, gameId)
-    throw new Error(`Game ID must be a string, received ${typeof gameId}`)
-  }
-
-  const game = gamesData.games.find((g) => g.id === gameId) as GameSEOData | undefined
-
-  if (!game) {
-    console.error(
-      "[SEO] Available game IDs:",
-      gamesData.games.map((g) => g.id),
-    )
-    throw new Error(`Game with id "${gameId}" not found in games.json`)
-  }
-
+export function generateStructuredData(game: GameSEOData) {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -146,20 +111,5 @@ export function generateStructuredData(gameId: string) {
       ratingValue: "5",
       ratingCount: "1",
     },
-  }
-}
-
-export function getGameSEOData(gameId: string) {
-  const game = gamesData.games.find((g) => g.id === gameId)
-
-  if (!game || !game.seo) {
-    return null
-  }
-
-  return {
-    name: game.name,
-    longDescription: game.seo.longDescription,
-    features: game.seo.features,
-    faq: game.seo.faq,
   }
 }
