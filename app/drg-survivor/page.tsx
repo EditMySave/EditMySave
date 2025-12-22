@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Pickaxe, ArrowLeft, Coins, Save, Code, TrendingUp, Users, Zap, Target } from "lucide-react"
+import { Pickaxe, ArrowLeft, Coins, Code, TrendingUp, Users, Target, Sword, Gem, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -17,11 +17,19 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
 import { Badge } from "@/components/ui/badge"
 import { Slider } from "@/components/ui/slider"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
   type DRGSurvivorSave,
   META_STAT_UPGRADES,
   CLASS_TYPES,
   CLASS_IDS,
+  ALL_WEAPON_IDS,
+  ALL_ARTIFACT_IDS,
+  ALL_CLASS_ARTIFACT_IDS,
+  ALL_OVERCLOCK_WEAPON_IDS,
+  WEAPON_NAMES,
+  ARTIFACT_NAMES,
+  CLASS_ARTIFACT_NAMES,
   updateResource,
   maxAllResources,
   updateMetaStatLevel,
@@ -32,6 +40,15 @@ import {
   updatePlayerRank,
   updateMaxHazIndex,
   updateNumDives,
+  toggleWeaponUnlock,
+  unlockAllWeapons,
+  toggleOverclockUnlock,
+  unlockAllOverclocks,
+  toggleArtifactUnlock,
+  unlockAllArtifacts,
+  toggleClassArtifactUnlock,
+  unlockAllClassArtifacts,
+  unlockEverything,
 } from "./save-mutations"
 import Head from "next/head"
 
@@ -155,6 +172,26 @@ export default function DRGSurvivorSaveEditor() {
     return saveData.UnlockedClassIds.includes(classId)
   }
 
+  const isWeaponUnlocked = (weaponId: string) => {
+    if (!saveData) return false
+    return saveData.UnlockedWeaponIds.includes(weaponId)
+  }
+
+  const isOverclockUnlocked = (weaponId: string) => {
+    if (!saveData) return false
+    return saveData.OverclockUnlockedWeaponIds.includes(weaponId)
+  }
+
+  const isArtifactUnlocked = (artifactId: string) => {
+    if (!saveData) return false
+    return saveData.UnlockedArtifactIds.includes(artifactId)
+  }
+
+  const isClassArtifactUnlocked = (artifactId: string) => {
+    if (!saveData) return false
+    return saveData.UnlockedClassArtifactIds.includes(artifactId)
+  }
+
   const quickStats = saveData
     ? [
         { label: "Credits", value: saveData.Credits, icon: <Coins className="w-4 h-4 text-yellow-500" /> },
@@ -165,6 +202,11 @@ export default function DRGSurvivorSaveEditor() {
 
   const quickActions = saveData
     ? [
+        {
+          label: "Unlock Everything",
+          onClick: () => setSaveData(unlockEverything(saveData)),
+          icon: <Sparkles className="w-4 h-4 mr-2" />,
+        },
         {
           label: "Max All Resources",
           onClick: () => setSaveData(maxAllResources(saveData)),
@@ -179,11 +221,6 @@ export default function DRGSurvivorSaveEditor() {
           label: "Max All Class Ranks",
           onClick: () => setSaveData(maxAllClassRanks(saveData)),
           icon: <Users className="w-4 h-4 mr-2" />,
-        },
-        {
-          label: "Unlock All Classes",
-          onClick: () => setSaveData(unlockAllClasses(saveData)),
-          icon: <Zap className="w-4 h-4 mr-2" />,
         },
         {
           label: "Download JSON",
@@ -256,18 +293,26 @@ export default function DRGSurvivorSaveEditor() {
 
               <div className="flex-1 space-y-4">
                 <Tabs defaultValue="resources" className="w-full">
-                  <TabsList className="grid w-full grid-cols-4 bg-card border border-border">
+                  <TabsList className="grid w-full grid-cols-6 bg-card border border-border">
                     <TabsTrigger value="resources" className="data-[state=active]:bg-muted">
                       <Coins className="w-4 h-4 mr-2" />
                       Resources
                     </TabsTrigger>
                     <TabsTrigger value="meta" className="data-[state=active]:bg-muted">
                       <TrendingUp className="w-4 h-4 mr-2" />
-                      Meta Upgrades
+                      Meta
                     </TabsTrigger>
                     <TabsTrigger value="classes" className="data-[state=active]:bg-muted">
                       <Users className="w-4 h-4 mr-2" />
                       Classes
+                    </TabsTrigger>
+                    <TabsTrigger value="weapons" className="data-[state=active]:bg-muted">
+                      <Sword className="w-4 h-4 mr-2" />
+                      Weapons
+                    </TabsTrigger>
+                    <TabsTrigger value="artifacts" className="data-[state=active]:bg-muted">
+                      <Gem className="w-4 h-4 mr-2" />
+                      Artifacts
                     </TabsTrigger>
                     <TabsTrigger value="raw" className="data-[state=active]:bg-muted">
                       <Code className="w-4 h-4 mr-2" />
@@ -448,20 +493,17 @@ export default function DRGSurvivorSaveEditor() {
                               <div key={classType} className="p-4 bg-muted rounded-lg border border-border space-y-4">
                                 <div className="flex items-center justify-between">
                                   <div className="flex items-center gap-2">
-                                    <h3 className="text-lg font-semibold text-foreground">{className}</h3>
-                                    {unlocked ? (
-                                      <Badge variant="default" className="bg-green-600">
-                                        Unlocked
-                                      </Badge>
-                                    ) : (
-                                      <Badge variant="secondary">Locked</Badge>
-                                    )}
+                                    <Users className="w-5 h-5 text-primary" />
+                                    <span className="font-medium text-foreground">{className}</span>
                                   </div>
+                                  <Badge variant={unlocked ? "default" : "secondary"}>
+                                    {unlocked ? "Unlocked" : "Locked"}
+                                  </Badge>
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-4">
+                                <div className="grid grid-cols-2 gap-3">
                                   <div className="space-y-2">
-                                    <Label className="text-sm text-muted-foreground">Rank</Label>
+                                    <Label className="text-xs text-muted-foreground">Rank</Label>
                                     <Input
                                       type="number"
                                       value={classRank.Rank}
@@ -473,11 +515,12 @@ export default function DRGSurvivorSaveEditor() {
                                         )
                                       }
                                       min="1"
+                                      max="50"
                                       className="font-mono bg-input border-border text-foreground"
                                     />
                                   </div>
                                   <div className="space-y-2">
-                                    <Label className="text-sm text-muted-foreground">XP</Label>
+                                    <Label className="text-xs text-muted-foreground">XP</Label>
                                     <Input
                                       type="number"
                                       value={classRank.Xp}
@@ -499,22 +542,191 @@ export default function DRGSurvivorSaveEditor() {
                         </div>
                       </CardContent>
                     </Card>
+                  </TabsContent>
+
+                  <TabsContent value="weapons" className="space-y-4 mt-4">
+                    <Card className="bg-card border-border">
+                      <CardHeader className="border-b border-border">
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-foreground">Weapons</CardTitle>
+                          <div className="flex gap-2">
+                            <Button
+                              onClick={() => setSaveData(unlockAllWeapons(saveData))}
+                              variant="outline"
+                              size="sm"
+                              className="text-primary border-primary/30 hover:bg-primary/10"
+                            >
+                              Unlock All Weapons
+                            </Button>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                          {ALL_WEAPON_IDS.map((weaponId) => {
+                            const unlocked = isWeaponUnlocked(weaponId)
+                            return (
+                              <div
+                                key={weaponId}
+                                className="flex items-center gap-3 p-3 bg-muted rounded-lg border border-border"
+                              >
+                                <Checkbox
+                                  id={`weapon-${weaponId}`}
+                                  checked={unlocked}
+                                  onCheckedChange={() => setSaveData(toggleWeaponUnlock(saveData, weaponId))}
+                                />
+                                <Label
+                                  htmlFor={`weapon-${weaponId}`}
+                                  className="text-sm text-foreground cursor-pointer flex-1"
+                                >
+                                  {WEAPON_NAMES[weaponId] || weaponId}
+                                </Label>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </CardContent>
+                    </Card>
 
                     <Card className="bg-card border-border">
                       <CardHeader className="border-b border-border">
-                        <CardTitle className="text-foreground">Unlocked Classes</CardTitle>
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-foreground">Weapon Overclocks</CardTitle>
+                          <div className="flex gap-2">
+                            <Button
+                              onClick={() => setSaveData(unlockAllOverclocks(saveData))}
+                              variant="outline"
+                              size="sm"
+                              className="text-primary border-primary/30 hover:bg-primary/10"
+                            >
+                              Unlock All Overclocks
+                            </Button>
+                          </div>
+                        </div>
                       </CardHeader>
                       <CardContent className="pt-6">
-                        <div className="flex flex-wrap gap-2">
-                          {saveData.UnlockedClassIds.map((classId) => (
-                            <Badge key={classId} variant="secondary" className="text-sm">
-                              {CLASS_IDS[classId] || classId}
-                            </Badge>
-                          ))}
-                          {saveData.UnlockedClassIds.length === 0 && (
-                            <p className="text-muted-foreground text-sm">No classes unlocked yet</p>
-                          )}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                          {ALL_OVERCLOCK_WEAPON_IDS.map((weaponId) => {
+                            const unlocked = isOverclockUnlocked(weaponId)
+                            return (
+                              <div
+                                key={`overclock-${weaponId}`}
+                                className="flex items-center gap-3 p-3 bg-muted rounded-lg border border-border"
+                              >
+                                <Checkbox
+                                  id={`overclock-${weaponId}`}
+                                  checked={unlocked}
+                                  onCheckedChange={() => setSaveData(toggleOverclockUnlock(saveData, weaponId))}
+                                />
+                                <Label
+                                  htmlFor={`overclock-${weaponId}`}
+                                  className="text-sm text-foreground cursor-pointer flex-1"
+                                >
+                                  {WEAPON_NAMES[weaponId] || weaponId} Overclock
+                                </Label>
+                              </div>
+                            )
+                          })}
                         </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+
+                  <TabsContent value="artifacts" className="space-y-4 mt-4">
+                    <Card className="bg-card border-border">
+                      <CardHeader className="border-b border-border">
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-foreground">Artifacts</CardTitle>
+                          <div className="flex gap-2">
+                            <Button
+                              onClick={() => setSaveData(unlockAllArtifacts(saveData))}
+                              variant="outline"
+                              size="sm"
+                              className="text-primary border-primary/30 hover:bg-primary/10"
+                            >
+                              Unlock All
+                            </Button>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                          {ALL_ARTIFACT_IDS.map((artifactId) => {
+                            const unlocked = isArtifactUnlocked(artifactId)
+                            return (
+                              <div
+                                key={artifactId}
+                                className="flex items-center gap-3 p-3 bg-muted rounded-lg border border-border"
+                              >
+                                <Checkbox
+                                  id={`artifact-${artifactId}`}
+                                  checked={unlocked}
+                                  onCheckedChange={() => setSaveData(toggleArtifactUnlock(saveData, artifactId))}
+                                />
+                                <Label
+                                  htmlFor={`artifact-${artifactId}`}
+                                  className="text-sm text-foreground cursor-pointer flex-1"
+                                >
+                                  {ARTIFACT_NAMES[artifactId] || artifactId}
+                                </Label>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="bg-card border-border">
+                      <CardHeader className="border-b border-border">
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-foreground">Class Artifacts</CardTitle>
+                          <div className="flex gap-2">
+                            <Button
+                              onClick={() => setSaveData(unlockAllClassArtifacts(saveData))}
+                              variant="outline"
+                              size="sm"
+                              className="text-primary border-primary/30 hover:bg-primary/10"
+                            >
+                              Unlock All
+                            </Button>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        {/* Group class artifacts by class */}
+                        {["Scout", "Driller", "Engineer", "Gunner"].map((className) => {
+                          const classArtifacts = ALL_CLASS_ARTIFACT_IDS.filter((id) => id.startsWith(className + "_"))
+                          return (
+                            <div key={className} className="mb-6 last:mb-0">
+                              <h4 className="text-sm font-medium text-muted-foreground mb-3">{className}</h4>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                {classArtifacts.map((artifactId) => {
+                                  const unlocked = isClassArtifactUnlocked(artifactId)
+                                  return (
+                                    <div
+                                      key={artifactId}
+                                      className="flex items-center gap-3 p-3 bg-muted rounded-lg border border-border"
+                                    >
+                                      <Checkbox
+                                        id={`class-artifact-${artifactId}`}
+                                        checked={unlocked}
+                                        onCheckedChange={() =>
+                                          setSaveData(toggleClassArtifactUnlock(saveData, artifactId))
+                                        }
+                                      />
+                                      <Label
+                                        htmlFor={`class-artifact-${artifactId}`}
+                                        className="text-sm text-foreground cursor-pointer flex-1"
+                                      >
+                                        {CLASS_ARTIFACT_NAMES[artifactId]?.replace(`${className}: `, "") || artifactId}
+                                      </Label>
+                                    </div>
+                                  )
+                                })}
+                              </div>
+                            </div>
+                          )
+                        })}
                       </CardContent>
                     </Card>
                   </TabsContent>
@@ -522,45 +734,21 @@ export default function DRGSurvivorSaveEditor() {
                   <TabsContent value="raw" className="space-y-4 mt-4">
                     <Card className="bg-card border-border">
                       <CardHeader className="border-b border-border">
-                        <CardTitle className="text-foreground flex items-center gap-2">
-                          <Code className="w-5 h-5" />
-                          Raw JSON Editor
-                        </CardTitle>
+                        <CardTitle className="text-foreground">Raw JSON Editor</CardTitle>
                       </CardHeader>
-                      <CardContent className="pt-6">
-                        <JsonTreeEditor data={saveData} onChange={setSaveData} />
+                      <CardContent className="pt-4">
+                        <JsonTreeEditor
+                          data={saveData}
+                          onChange={(newData) => setSaveData(newData as DRGSurvivorSave)}
+                        />
                       </CardContent>
                     </Card>
                   </TabsContent>
                 </Tabs>
-
-                <div className="flex items-center justify-between p-3 bg-card border border-border rounded-lg text-sm">
-                  <div className="flex items-center gap-2 text-green-400">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                    <span>{originalFile?.name} loaded</span>
-                  </div>
-                  <span className="text-muted-foreground">Last modified: {formatDate(new Date())}</span>
-                </div>
               </div>
             </div>
           )}
         </div>
-
-        {saveData && (
-          <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t border-border z-50">
-            <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-end">
-              <Button
-                onClick={handleDownload}
-                disabled={isProcessing}
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
-              >
-                <Save className="w-5 h-5 mr-2" />
-                {isProcessing ? "Processing..." : "Download Edited Save"}
-              </Button>
-            </div>
-          </div>
-        )}
       </main>
     </>
   )

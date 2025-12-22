@@ -160,11 +160,11 @@
           "name": "Steam",
           "supported": true,
           "saveLocation": {
-            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Funday Games\\Deep Rock Galactic Survivor\\SaveData.dat"
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Funday Games\\Deep Rock Galactic Survivor\\steam\\[STEAM_ID]\\drg_save_slot1_0.dat"
           },
-          "fileName": "SaveData.dat",
-          "instructions": "Windows: %USERPROFILE%\\AppData\\LocalLow\\Funday Games\\Deep Rock Galactic Survivor\\\n\nLook for SaveData.dat and drag it into this editor.",
-          "notes": "Always create a backup of your save file before editing. The save file is formatted as JSON."
+          "fileName": "drg_save_slot*.dat",
+          "instructions": "Windows: %USERPROFILE%\\AppData\\LocalLow\\Funday Games\\Deep Rock Galactic Survivor\\steam\\[STEAM_ID]\\\n\nLook for drg_save_slot1_0.dat (or other slot numbers) and drag it into this editor.",
+          "notes": "Always create a backup of your save file before editing. The save file is formatted as plain JSON."
         },
         {
           "name": "Xbox Game Pass",
