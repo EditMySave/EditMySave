@@ -148,6 +148,35 @@
       ]
     },
     {
+      "id": "drg-survivor",
+      "name": "Deep Rock Galactic: Survivor",
+      "description": "Edit resources, meta upgrades, class progression, and unlocks in your DRG Survivor save files",
+      "image": "/images/drg-survivor/cover.jpg",
+      "route": "/drg-survivor",
+      "status": "available",
+      "supportedVersion": "v1.0+",
+      "platforms": [
+        {
+          "name": "Steam",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Funday Games\\Deep Rock Galactic Survivor\\SaveData.dat"
+          },
+          "fileName": "SaveData.dat",
+          "instructions": "Windows: %USERPROFILE%\\AppData\\LocalLow\\Funday Games\\Deep Rock Galactic Survivor\\\n\nLook for SaveData.dat and drag it into this editor.",
+          "notes": "Always create a backup of your save file before editing. The save file is formatted as JSON."
+        },
+        {
+          "name": "Xbox Game Pass",
+          "supported": false
+        },
+        {
+          "name": "Epic Games Store",
+          "supported": false
+        }
+      ]
+    },
+    {
       "id": "hades",
       "name": "Hades",
       "description": "Modify resources, unlocks, and progression in your Hades save files",
