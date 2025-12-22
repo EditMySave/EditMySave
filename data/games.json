@@ -131,10 +131,10 @@
           "name": "Steam",
           "supported": true,
           "saveLocation": {
-            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Panik\\BALLXPIT\\SaveData\\save.dat"
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Kenny Sun\\BALL x PIT\\meta1.yankai"
           },
           "fileName": "save.dat",
-          "instructions": "Windows: %USERPROFILE%\\AppData\\LocalLow\\Panik\\BALLXPIT\\SaveData\\\n\nLook for save.dat and drag it into this editor.",
+          "instructions": "Windows: %USERPROFILE%\\AppData\\LocalLow\\Kenny Sun\\BALL x PIT\\\n\nLook for save.dat and drag it into this editor.",
           "notes": "Always create a backup of your save file before editing. The save file uses custom .NET serialization (Unity BinaryFormatter)."
         },
         {
