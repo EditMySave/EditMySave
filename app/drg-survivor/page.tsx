@@ -1,7 +1,22 @@
 "use client"
 
-import { useState } from "react"
-import { Pickaxe, ArrowLeft, Coins, Code, TrendingUp, Users, Target, Sword, Gem, Sparkles } from "lucide-react"
+import { useState, useCallback } from "react"
+import {
+  Pickaxe,
+  ArrowLeft,
+  Coins,
+  Code,
+  TrendingUp,
+  Users,
+  Target,
+  Sword,
+  Gem,
+  Sparkles,
+  Shield,
+  Star,
+  Trash2,
+  Plus,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -18,8 +33,10 @@ import { JsonTreeEditor } from "@/components/json-tree-editor"
 import { Badge } from "@/components/ui/badge"
 import { Slider } from "@/components/ui/slider"
 import { Checkbox } from "@/components/ui/checkbox"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import {
   type DRGSurvivorSave,
+  type GearItem,
   META_STAT_UPGRADES,
   CLASS_TYPES,
   CLASS_IDS,
@@ -30,6 +47,9 @@ import {
   WEAPON_NAMES,
   ARTIFACT_NAMES,
   CLASS_ARTIFACT_NAMES,
+  GEAR_TYPES,
+  GEAR_STATS,
+  GEAR_RARITIES,
   updateResource,
   maxAllResources,
   updateMetaStatLevel,
@@ -49,6 +69,10 @@ import {
   toggleClassArtifactUnlock,
   unlockAllClassArtifacts,
   unlockEverything,
+  updateGearItem,
+  deleteGearItem,
+  createPerfectGear,
+  maxAllGear,
 } from "./save-mutations"
 import Head from "next/head"
 
@@ -78,6 +102,9 @@ export default function DRGSurvivorSaveEditor() {
   const [saveData, setSaveData] = useState<DRGSurvivorSave | null>(null)
   const [originalFile, setOriginalFile] = useState<File | null>(null)
   const [isProcessing, setIsProcessing] = useState(false)
+
+  const [selectedGearIndex, setSelectedGearIndex] = useState<number | null>(null)
+  const [newGearType, setNewGearType] = useState<string>("")
 
   const processSaveFile = async (file: File) => {
     setIsProcessing(true)
@@ -192,6 +219,24 @@ export default function DRGSurvivorSaveEditor() {
     return saveData.UnlockedClassArtifactIds.includes(artifactId)
   }
 
+  const getGearName = useCallback((gearId: string) => {
+    return GEAR_TYPES[gearId]?.name || gearId
+  }, [])
+
+  const getGearCategory = useCallback((gearId: string) => {
+    return GEAR_TYPES[gearId]?.category || "Unknown"
+  }, [])
+
+  const gearByCategory = saveData?.GearSaveData?.reduce(
+    (acc: Record<string, { gear: GearItem; index: number }[]>, gear: GearItem, index: number) => {
+      const category = getGearCategory(gear.ID)
+      if (!acc[category]) acc[category] = []
+      acc[category].push({ gear, index })
+      return acc
+    },
+    {},
+  )
+
   const quickStats = saveData
     ? [
         { label: "Credits", value: saveData.Credits, icon: <Coins className="w-4 h-4 text-yellow-500" /> },
@@ -221,6 +266,13 @@ export default function DRGSurvivorSaveEditor() {
           label: "Max All Class Ranks",
           onClick: () => setSaveData(maxAllClassRanks(saveData)),
           icon: <Users className="w-4 h-4 mr-2" />,
+        },
+        // Add gear action
+        {
+          label: "Max All Gear",
+          icon: <Shield className="w-4 h-4 mr-2" />,
+          onClick: () => setSaveData(maxAllGear(saveData)),
+          variant: "outline" as const,
         },
         {
           label: "Download JSON",
@@ -293,7 +345,7 @@ export default function DRGSurvivorSaveEditor() {
 
               <div className="flex-1 space-y-4">
                 <Tabs defaultValue="resources" className="w-full">
-                  <TabsList className="grid w-full grid-cols-6 bg-card border border-border">
+                  <TabsList className="grid w-full grid-cols-7 bg-card border border-border">
                     <TabsTrigger value="resources" className="data-[state=active]:bg-muted">
                       <Coins className="w-4 h-4 mr-2" />
                       Resources
@@ -305,6 +357,10 @@ export default function DRGSurvivorSaveEditor() {
                     <TabsTrigger value="classes" className="data-[state=active]:bg-muted">
                       <Users className="w-4 h-4 mr-2" />
                       Classes
+                    </TabsTrigger>
+                    <TabsTrigger value="gear" className="data-[state=active]:bg-muted">
+                      <Shield className="w-4 h-4 mr-2" />
+                      Gear
                     </TabsTrigger>
                     <TabsTrigger value="weapons" className="data-[state=active]:bg-muted">
                       <Sword className="w-4 h-4 mr-2" />
@@ -539,6 +595,310 @@ export default function DRGSurvivorSaveEditor() {
                               </div>
                             )
                           })}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+
+                  <TabsContent value="gear" className="space-y-4 mt-4">
+                    <Card className="bg-card border-border">
+                      <CardHeader className="border-b border-border">
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-foreground">Gear Inventory</CardTitle>
+                          <div className="flex gap-2">
+                            <Button
+                              onClick={() => setSaveData(maxAllGear(saveData))}
+                              variant="outline"
+                              size="sm"
+                              className="text-primary border-primary/30 hover:bg-primary/10"
+                            >
+                              <Star className="w-4 h-4 mr-2" />
+                              Max All Gear
+                            </Button>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Total gear items: {saveData.GearSaveData?.length || 0}
+                        </p>
+
+                        {/* Gear by category */}
+                        {gearByCategory &&
+                          Object.entries(gearByCategory).map(([category, items]) => (
+                            <div key={category} className="mb-6 last:mb-0">
+                              <h4 className="text-sm font-medium text-muted-foreground mb-3 flex items-center gap-2">
+                                <Shield className="w-4 h-4" />
+                                {category} ({(items as { gear: GearItem; index: number }[]).length})
+                              </h4>
+                              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                {(items as { gear: GearItem; index: number }[]).map(({ gear, index }) => (
+                                  <div
+                                    key={index}
+                                    className={`p-3 bg-muted rounded-lg border border-border cursor-pointer transition-colors hover:border-primary/50 ${
+                                      selectedGearIndex === index ? "border-primary" : ""
+                                    }`}
+                                    onClick={() => setSelectedGearIndex(selectedGearIndex === index ? null : index)}
+                                  >
+                                    <div className="flex items-center justify-between mb-2">
+                                      <span className={`font-medium ${GEAR_RARITIES[gear.R]?.color || ""}`}>
+                                        {getGearName(gear.ID)}
+                                      </span>
+                                      <Badge variant="outline" className={GEAR_RARITIES[gear.R]?.color}>
+                                        {GEAR_RARITIES[gear.R]?.name || "Unknown"}
+                                      </Badge>
+                                    </div>
+                                    <div className="text-xs text-muted-foreground space-y-1">
+                                      <div className="flex justify-between">
+                                        <span>Level: {gear.L}</span>
+                                        <span>Upgrade: +{gear.U}</span>
+                                      </div>
+                                      <div className="flex flex-wrap gap-1 mt-2">
+                                        {gear.S?.map((statId, i) => (
+                                          <Badge
+                                            key={i}
+                                            variant="secondary"
+                                            className={`text-xs ${gear.SG?.[i] === 1 ? "bg-amber-500/20 text-amber-400" : "bg-blue-500/20 text-blue-400"}`}
+                                          >
+                                            {GEAR_STATS[statId] || `Stat ${statId}`}
+                                          </Badge>
+                                        ))}
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          ))}
+
+                        {(!saveData.GearSaveData || saveData.GearSaveData.length === 0) && (
+                          <p className="text-muted-foreground text-center py-8">No gear items found in save file.</p>
+                        )}
+                      </CardContent>
+                    </Card>
+
+                    {/* Gear Editor Panel */}
+                    {selectedGearIndex !== null && saveData.GearSaveData?.[selectedGearIndex] && (
+                      <Card className="bg-card border-border">
+                        <CardHeader className="border-b border-border">
+                          <div className="flex items-center justify-between">
+                            <CardTitle className="text-foreground">
+                              Edit: {getGearName(saveData.GearSaveData[selectedGearIndex].ID)}
+                            </CardTitle>
+                            <Button
+                              onClick={() => {
+                                setSaveData(deleteGearItem(saveData, selectedGearIndex))
+                                setSelectedGearIndex(null)
+                              }}
+                              variant="destructive"
+                              size="sm"
+                            >
+                              <Trash2 className="w-4 h-4 mr-2" />
+                              Delete
+                            </Button>
+                          </div>
+                        </CardHeader>
+                        <CardContent className="pt-6 space-y-4">
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            {/* Rarity */}
+                            <div className="space-y-2">
+                              <Label>Rarity</Label>
+                              <Select
+                                value={saveData.GearSaveData[selectedGearIndex].R.toString()}
+                                onValueChange={(v) =>
+                                  setSaveData(updateGearItem(saveData, selectedGearIndex, { R: Number.parseInt(v) }))
+                                }
+                              >
+                                <SelectTrigger>
+                                  <SelectValue />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  {Object.entries(GEAR_RARITIES).map(([value, { name }]) => (
+                                    <SelectItem key={value} value={value}>
+                                      {name}
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                            </div>
+
+                            {/* Level */}
+                            <div className="space-y-2">
+                              <Label>Level</Label>
+                              <Input
+                                type="number"
+                                min={1}
+                                max={100}
+                                value={saveData.GearSaveData[selectedGearIndex].L}
+                                onChange={(e) =>
+                                  setSaveData(
+                                    updateGearItem(saveData, selectedGearIndex, {
+                                      L: Number.parseInt(e.target.value) || 1,
+                                    }),
+                                  )
+                                }
+                              />
+                            </div>
+
+                            {/* Upgrade */}
+                            <div className="space-y-2">
+                              <Label>Upgrade Level</Label>
+                              <Select
+                                value={saveData.GearSaveData[selectedGearIndex].U.toString()}
+                                onValueChange={(v) =>
+                                  setSaveData(updateGearItem(saveData, selectedGearIndex, { U: Number.parseInt(v) }))
+                                }
+                              >
+                                <SelectTrigger>
+                                  <SelectValue />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="0">+0</SelectItem>
+                                  <SelectItem value="1">+1</SelectItem>
+                                  <SelectItem value="2">+2</SelectItem>
+                                  <SelectItem value="3">+3</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+
+                            {/* Favorite */}
+                            <div className="space-y-2">
+                              <Label>Favorite</Label>
+                              <div className="flex items-center gap-2 h-10">
+                                <Checkbox
+                                  checked={saveData.GearSaveData[selectedGearIndex].F === 1}
+                                  onCheckedChange={(checked) =>
+                                    setSaveData(updateGearItem(saveData, selectedGearIndex, { F: checked ? 1 : 0 }))
+                                  }
+                                />
+                                <span className="text-sm text-muted-foreground">Mark as favorite</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Stats Editor */}
+                          <div className="space-y-2">
+                            <Label>Stats</Label>
+                            <div className="space-y-2">
+                              {saveData.GearSaveData[selectedGearIndex].S?.map((statId: number, i: number) => (
+                                <div key={i} className="flex items-center gap-3 p-2 bg-muted/50 rounded-lg">
+                                  <Select
+                                    value={statId.toString()}
+                                    onValueChange={(v) => {
+                                      const newStats = [...saveData.GearSaveData[selectedGearIndex].S]
+                                      newStats[i] = Number.parseInt(v)
+                                      setSaveData(updateGearItem(saveData, selectedGearIndex, { S: newStats }))
+                                    }}
+                                  >
+                                    <SelectTrigger className="flex-1">
+                                      <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      {Object.entries(GEAR_STATS).map(([id, name]) => (
+                                        <SelectItem key={id} value={id}>
+                                          {name}
+                                        </SelectItem>
+                                      ))}
+                                    </SelectContent>
+                                  </Select>
+
+                                  <Select
+                                    value={saveData.GearSaveData[selectedGearIndex].SG?.[i]?.toString() || "1"}
+                                    onValueChange={(v) => {
+                                      const newSG = [...(saveData.GearSaveData[selectedGearIndex].SG || [])]
+                                      newSG[i] = Number.parseInt(v)
+                                      setSaveData(updateGearItem(saveData, selectedGearIndex, { SG: newSG }))
+                                    }}
+                                  >
+                                    <SelectTrigger className="w-24">
+                                      <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      <SelectItem value="1">Gold</SelectItem>
+                                      <SelectItem value="-1">Blue</SelectItem>
+                                    </SelectContent>
+                                  </Select>
+
+                                  <Select
+                                    value={saveData.GearSaveData[selectedGearIndex].ST?.[i]?.toString() || "0"}
+                                    onValueChange={(v) => {
+                                      const newST = [...(saveData.GearSaveData[selectedGearIndex].ST || [])]
+                                      newST[i] = Number.parseInt(v)
+                                      setSaveData(updateGearItem(saveData, selectedGearIndex, { ST: newST }))
+                                    }}
+                                  >
+                                    <SelectTrigger className="w-24">
+                                      <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      <SelectItem value="0">Best</SelectItem>
+                                      <SelectItem value="1">Mid</SelectItem>
+                                      <SelectItem value="2">Low</SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Quick Actions for this gear */}
+                          <div className="flex gap-2 pt-2">
+                            <Button
+                              onClick={() => {
+                                const gear = saveData.GearSaveData[selectedGearIndex]
+                                setSaveData(
+                                  updateGearItem(saveData, selectedGearIndex, {
+                                    R: 4,
+                                    L: 100,
+                                    U: 3,
+                                    SG: gear.S.map(() => 1),
+                                    ST: gear.S.map((_: number, i: number) => Math.min(i, 2)),
+                                  }),
+                                )
+                              }}
+                              variant="outline"
+                              size="sm"
+                              className="text-amber-500 border-amber-500/30 hover:bg-amber-500/10"
+                            >
+                              <Star className="w-4 h-4 mr-2" />
+                              Make Perfect
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )}
+
+                    {/* Add New Gear */}
+                    <Card className="bg-card border-border">
+                      <CardHeader className="border-b border-border">
+                        <CardTitle className="text-foreground">Add New Gear</CardTitle>
+                      </CardHeader>
+                      <CardContent className="pt-6">
+                        <div className="flex gap-3">
+                          <Select value={newGearType} onValueChange={setNewGearType}>
+                            <SelectTrigger className="flex-1">
+                              <SelectValue placeholder="Select gear type..." />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {Object.entries(GEAR_TYPES).map(([id, { name, category }]) => (
+                                <SelectItem key={id} value={id}>
+                                  [{category}] {name}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <Button
+                            onClick={() => {
+                              if (newGearType) {
+                                setSaveData(createPerfectGear(saveData, newGearType))
+                                setNewGearType("")
+                              }
+                            }}
+                            disabled={!newGearType}
+                          >
+                            <Plus className="w-4 h-4 mr-2" />
+                            Add Legendary
+                          </Button>
                         </div>
                       </CardContent>
                     </Card>

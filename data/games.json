@@ -160,10 +160,10 @@
           "name": "Steam",
           "supported": true,
           "saveLocation": {
-            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Funday Games\\Deep Rock Galactic Survivor\\steam\\[STEAM_ID]\\drg_save_slot1_0.dat"
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Funday Games\\DRG Survivor\\steam\\[STEAM_ID]\\drg_save_slot1_0.dat"
           },
           "fileName": "drg_save_slot*.dat",
-          "instructions": "Windows: %USERPROFILE%\\AppData\\LocalLow\\Funday Games\\Deep Rock Galactic Survivor\\steam\\\n\nLook for drg_save_slot1_0.dat (or other slot numbers) and drag it into this editor.",
+          "instructions": "Windows: %USERPROFILE%\\AppData\\LocalLow\\Funday Games\\DRG Survivor\\steam\\\n\nLook for drg_save_slot1_0.dat (or other slot numbers) and drag it into this editor.",
           "notes": "Always create a backup of your save file before editing. The save file is formatted as plain JSON."
         },
         {
