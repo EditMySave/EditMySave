@@ -49,7 +49,7 @@ export default function BallxpitSaveEditor() {
       const url = URL.createObjectURL(blob)
       const a = document.createElement("a")
       a.href = url
-      a.download = originalFile?.name || "save.dat"
+      a.download = originalFile?.name || "save.yankai"
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)
@@ -157,7 +157,7 @@ export default function BallxpitSaveEditor() {
 
             {gameData && <SaveLocationHelp platforms={gameData.platforms} gameName={gameData.name} />}
 
-            <SaveFileUpload onFileSelect={handleFileUpload} acceptedFileTypes=".dat" isProcessing={isProcessing} />
+            <SaveFileUpload onFileSelect={handleFileUpload} acceptedFileTypes=".yankai" isProcessing={isProcessing} />
           </div>
         </div>
       </main>
