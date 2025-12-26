@@ -81,22 +81,22 @@ export interface ClassRank {
 // Meta stat upgrade IDs and their display names
 export const META_STAT_UPGRADES: Record<string, { name: string; maxLevel: number }> = {
   msu_damageMod: { name: "Damage", maxLevel: 12 },
-  msu_armor: { name: "Armor", maxLevel: 12 },
+  msu_armor: { name: "Armor", maxLevel: 24 },
   msu_xpGain: { name: "XP Gain", maxLevel: 12 },
   msu_critChance: { name: "Critical Chance", maxLevel: 12 },
   msu_stausEffectDamage: { name: "Status Effect Damage", maxLevel: 12 },
   msu_moveSpeed: { name: "Movement Speed", maxLevel: 12 },
   msu_reloadSpeed: { name: "Reload Speed", maxLevel: 12 },
   msu_miningSpeed: { name: "Mining Speed", maxLevel: 12 },
-  msu_pickupRadius: { name: "Pickup Radius", maxLevel: 12 },
+  msu_pickupRadius: { name: "Pickup Radius", maxLevel: 21 },
   msu_critDamage: { name: "Critical Damage", maxLevel: 12 },
   msu_lifeRegen: { name: "Life Regeneration", maxLevel: 12 },
-  msu_luck: { name: "Luck", maxLevel: 12 },
+  msu_luck: { name: "Luck", maxLevel: 19 },
   msu_fireRate: { name: "Fire Rate", maxLevel: 12 },
-  msu_maxHp: { name: "Max HP", maxLevel: 12 },
+  msu_maxHp: { name: "Max HP", maxLevel: 24 },
   msu_potency: { name: "Potency", maxLevel: 12 },
-  msu_startingNitra: { name: "Starting Nitra", maxLevel: 12 },
-  msu_startingGold: { name: "Starting Gold", maxLevel: 12 },
+  msu_startingNitra: { name: "Starting Nitra", maxLevel: 24 },
+  msu_startingGold: { name: "Starting Gold", maxLevel: 24 },
   msu_artifactReroll: { name: "Artifact Reroll", maxLevel: 12 },
 }
 
