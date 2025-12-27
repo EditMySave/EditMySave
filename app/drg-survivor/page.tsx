@@ -115,7 +115,7 @@ export default function DRGSurvivorSaveEditor() {
       setOriginalFile(file)
 
       track("file_uploaded", {
-        game: "DRG-Survivor",
+        game: "drg-survivor",
         fileSize: file.size,
         fileName: file.name,
       })
@@ -146,7 +146,7 @@ export default function DRGSurvivorSaveEditor() {
       URL.revokeObjectURL(url)
 
       track("file_downloaded", {
-        game: "DRG-Survivor",
+        game: "drg-survivor",
         fileName: originalFile.name,
         editedFileName: originalFile.name,
       })
@@ -280,7 +280,7 @@ export default function DRGSurvivorSaveEditor() {
             const filename = originalFile?.name.replace(/\.[^/.]+$/, "") || "drg-survivor-save"
             downloadJSON(saveData, filename)
             track("json_downloaded", {
-              game: "DRG-Survivor",
+              game: "drg-survivor",
               fileName: originalFile?.name,
             })
           },
