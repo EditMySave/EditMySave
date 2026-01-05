@@ -74,7 +74,6 @@ import {
   createPerfectGear,
   maxAllGear,
 } from "./save-mutations"
-import Head from "next/head"
 
 // Resource definitions with icons and colors
 const RESOURCES = [
@@ -291,13 +290,13 @@ export default function DRGSurvivorSaveEditor() {
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>Deep Rock Galactic: Survivor Save Editor | EditMySave</title>
         <meta
           name="description"
           content="Free online Deep Rock Galactic: Survivor save editor. Edit resources, meta upgrades, class progression, and unlocks. Works entirely in your browser with no downloads required."
         />
-      </Head>
+      </Head> */}
       <main className="min-h-screen bg-background pb-20">
         <div className="border-b border-border bg-card backdrop-blur-sm sticky top-0 z-50">
           <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
