@@ -1,98 +1,75 @@
 import type { Metadata } from "next"
 import gamesData from "@/data/games.json"
 
-const BASE_URL = "https://editmysave.app"
+const BASE_URL = gamesData.site.url
 
-interface GameSEOData {
+// Type definitions for games.json structure
+interface GameSEO {
+  title: string
+  description: string
+  keywords: string[]
+}
+
+interface Game {
+  id: string
   name: string
   description: string
+  image: string
   route: string
+  status: "available" | "coming-soon"
   supportedVersion?: string
-  image?: string
-  id?: string
+  seo: GameSEO
 }
 
-export function getGameById(id: string): GameSEOData | undefined {
-  const game = gamesData.games.find((g) => g.id === id)
-  if (!game) return undefined
-  return {
-    name: game.name,
-    description: game.description,
-    route: game.route,
-    supportedVersion: "supportedVersion" in game ? game.supportedVersion : undefined,
-    image: game.image,
-    id: game.id,
+// Helper functions to get game data
+export function getGameById(id: string): Game | undefined {
+  return gamesData.games.find((g) => g.id === id) as Game | undefined
+}
+
+export function getAvailableGames(): Game[] {
+  return gamesData.games.filter((g) => g.status === "available") as Game[]
+}
+
+export function getAllGames(): Game[] {
+  return gamesData.games as Game[]
+}
+
+// Generate metadata for a game page - reads directly from games.json
+export function generateGameMetadata(gameId: string): Metadata {
+  const game = getGameById(gameId)
+  if (!game) {
+    return {
+      title: "Game Not Found",
+      description: "The requested game editor was not found.",
+    }
   }
-}
 
-export function getAvailableGames(): GameSEOData[] {
-  return gamesData.games
-    .filter((g) => g.status === "available")
-    .map((g) => ({
-      name: g.name,
-      description: g.description,
-      route: g.route,
-      supportedVersion: "supportedVersion" in g ? g.supportedVersion : undefined,
-      image: g.image,
-      id: g.id,
-    }))
-}
-
-export function generateGameMetadata(game: GameSEOData): Metadata {
-  const title = `${game.name} Save Editor - Edit Your ${game.name} Save Files`
-  const description = `Free online ${game.name} save editor. ${game.description} Works entirely in your browser with no downloads required.${game.supportedVersion ? ` Supports version ${game.supportedVersion}.` : ""}`
   const url = `${BASE_URL}${game.route}`
-
-  // Generate image URL based on game ID or fallback
-  const imageUrl = game.image
-    ? `${BASE_URL}${game.image}`
-    : `${BASE_URL}/images/${game.id || game.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}/cover.png`
-
-  // Generate comprehensive keywords
-  const gameLower = game.name.toLowerCase()
-  const gameSlug = gameLower.replace(/[^a-z0-9]/g, " ").trim()
+  const imageUrl = game.image.startsWith("/placeholder") ? `${BASE_URL}/og-image.png` : `${BASE_URL}${game.image}`
 
   return {
-    title,
-    description,
-    keywords: [
-      `${gameSlug} save editor`,
-      `${gameSlug} save file editor`,
-      `edit ${gameSlug} save`,
-      `${gameSlug} save modifier`,
-      `${gameSlug} save game editor`,
-      `${gameSlug} save file modifier`,
-      `${gameSlug} cheat`,
-      `${gameSlug} editor`,
-      `modify ${gameSlug} save`,
-      `${gameSlug} save hack`,
-      `free ${gameSlug} save editor`,
-      `online ${gameSlug} save editor`,
-      "save editor",
-      "game save editor",
-      "online save editor",
-      "free save editor",
-      "browser save editor",
-    ],
+    title: game.seo.title,
+    description: game.seo.description,
+    keywords: [...game.seo.keywords, ...gamesData.site.keywords.slice(0, 5)],
     openGraph: {
-      title,
-      description,
+      title: game.seo.title,
+      description: game.seo.description,
       url,
-      siteName: "EditMySave",
+      siteName: gamesData.site.name,
       type: "website",
       images: [
         {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: `${game.name} Save Editor - EditMySave`,
+          alt: `${game.name} Save Editor - ${gamesData.site.name}`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: game.seo.title,
+      description: game.seo.description,
       images: [imageUrl],
     },
     alternates: {
@@ -112,52 +89,34 @@ export function generateGameMetadata(game: GameSEOData): Metadata {
   }
 }
 
+// Generate metadata for the home page
 export function generateHomeMetadata(): Metadata {
   const availableGames = getAvailableGames()
   const gameNames = availableGames.map((g) => g.name).join(", ")
-  const gameKeywords = availableGames.flatMap((g) => [
-    `${g.name.toLowerCase()} save editor`,
-    `edit ${g.name.toLowerCase()} save`,
-  ])
-
-  const title = "EditMySave - Free Online Game Save Editor"
-  const description = `Edit your game save files directly in your browser. Free online save editor for ${gameNames}, and more. No downloads required, works entirely client-side.`
 
   return {
-    title,
-    description,
-    keywords: [
-      "save editor",
-      "game save editor",
-      "online save editor",
-      "save file editor",
-      "free save editor",
-      "browser save editor",
-      "game save modifier",
-      "save file modifier",
-      "edit game save",
-      "modify save file",
-      ...gameKeywords,
-    ],
+    title: `${gamesData.site.name} - ${gamesData.site.tagline}`,
+    description: `${gamesData.site.description} Currently supporting: ${gameNames}.`,
+    keywords: gamesData.site.keywords,
     openGraph: {
-      title,
-      description,
+      title: `${gamesData.site.name} - ${gamesData.site.tagline}`,
+      description: gamesData.site.description,
       url: BASE_URL,
-      siteName: "EditMySave",
+      siteName: gamesData.site.name,
       type: "website",
       images: [
         {
           url: `${BASE_URL}/og-image.png`,
           width: 1200,
           height: 630,
-          alt: "EditMySave - Free Online Game Save Editor",
+          alt: `${gamesData.site.name} - ${gamesData.site.tagline}`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: `${gamesData.site.name} - ${gamesData.site.tagline}`,
+      description: gamesData.site.description,
       images: [`${BASE_URL}/og-image.png`],
     },
     alternates: {
@@ -177,10 +136,12 @@ export function generateHomeMetadata(): Metadata {
   }
 }
 
-export function generateGameStructuredData(game: GameSEOData) {
-  const imageUrl = game.image
-    ? `${BASE_URL}${game.image}`
-    : `${BASE_URL}/images/${game.id || game.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}/cover.png`
+// Structured data generators - return objects for JSON-LD
+export function generateGameStructuredData(gameId: string) {
+  const game = getGameById(gameId)
+  if (!game) return null
+
+  const imageUrl = game.image.startsWith("/placeholder") ? `${BASE_URL}/og-image.png` : `${BASE_URL}${game.image}`
 
   return {
     "@context": "https://schema.org",
@@ -194,7 +155,7 @@ export function generateGameStructuredData(game: GameSEOData) {
       price: "0",
       priceCurrency: "USD",
     },
-    description: `Free online ${game.name} save editor. ${game.description}`,
+    description: game.seo.description,
     url: `${BASE_URL}${game.route}`,
     browserRequirements: "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
     softwareVersion: game.supportedVersion || "1.0",
@@ -214,11 +175,10 @@ export function generateOrganizationStructuredData() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "EditMySave",
+    name: gamesData.site.name,
     url: BASE_URL,
     logo: `${BASE_URL}/logo.png`,
-    description: "Free online game save editor platform. Edit your game save files directly in your browser.",
-    sameAs: [],
+    description: gamesData.site.description,
   }
 }
 
@@ -228,9 +188,9 @@ export function generateWebsiteStructuredData() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "EditMySave",
+    name: gamesData.site.name,
     url: BASE_URL,
-    description: "Free online game save editor platform",
+    description: gamesData.site.description,
     potentialAction: {
       "@type": "SearchAction",
       target: {

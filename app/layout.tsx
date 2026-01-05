@@ -1,10 +1,12 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
+import Script from "next/script"
 import { Suspense } from "react"
 import "./globals.css"
 import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google"
 import { generateOrganizationStructuredData, generateWebsiteStructuredData, getAvailableGames } from "@/lib/seo"
+import gamesData from "@/data/games.json"
 
 // Initialize fonts
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" })
@@ -19,47 +21,35 @@ const gameKeywords = availableGames.flatMap((g) => [
 
 export const metadata: Metadata = {
   title: {
-    default: "EditMySave - Free Online Game Save Editor",
-    template: "%s | EditMySave",
+    default: `${gamesData.site.name} - ${gamesData.site.tagline}`,
+    template: `%s | ${gamesData.site.name}`,
   },
-  description:
-    "Edit your game save files directly in your browser. Free online save editor for Sworn, Megabonk, Cloverpit, Balatro, BALL x PIT, DRG Survivor, and more. No downloads required, works entirely client-side.",
-  keywords: [
-    "save editor",
-    "game save editor",
-    "online save editor",
-    "save file editor",
-    "free save editor",
-    "browser save editor",
-    "game save modifier",
-    "edit game save",
-    ...gameKeywords,
-  ],
-  authors: [{ name: "EditMySave" }],
-  creator: "EditMySave",
-  publisher: "EditMySave",
-  metadataBase: new URL("https://editmysave.app"),
+  description: gamesData.site.description,
+  keywords: [...gamesData.site.keywords, ...gameKeywords],
+  authors: [{ name: gamesData.site.name }],
+  creator: gamesData.site.name,
+  publisher: gamesData.site.name,
+  metadataBase: new URL(gamesData.site.url),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://editmysave.app",
-    siteName: "EditMySave",
-    title: "EditMySave - Free Online Game Save Editor",
-    description:
-      "Edit your game save files directly in your browser. Free online save editor for multiple games. No downloads required.",
+    url: gamesData.site.url,
+    siteName: gamesData.site.name,
+    title: `${gamesData.site.name} - ${gamesData.site.tagline}`,
+    description: gamesData.site.description,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "EditMySave - Free Online Game Save Editor",
+        alt: `${gamesData.site.name} - ${gamesData.site.tagline}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "EditMySave - Free Online Game Save Editor",
-    description: "Edit your game save files directly in your browser. Free, secure, and easy to use.",
+    title: `${gamesData.site.name} - ${gamesData.site.tagline}`,
+    description: gamesData.site.description,
     images: ["/og-image.png"],
   },
   robots: {
@@ -90,8 +80,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+        <Script id="organization-schema" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(organizationSchema)}
+        </Script>
+        <Script id="website-schema" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(websiteSchema)}
+        </Script>
       </head>
       <body className={`font-sans ${geistSans.variable} ${geistMono.variable} ${sourceSerif4.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>

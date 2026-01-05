@@ -1,23 +1,21 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { generateGameMetadata, generateGameStructuredData, getGameById } from "@/lib/seo"
+import Script from "next/script"
+import { generateGameMetadata, generateGameStructuredData } from "@/lib/seo"
 
-const game = getGameById("sworn")
+const GAME_ID = "sworn"
 
-export const metadata: Metadata = game
-  ? generateGameMetadata(game)
-  : {
-      title: "Sworn Save Editor",
-      description: "Edit your Sworn save files",
-    }
+export const metadata: Metadata = generateGameMetadata(GAME_ID)
 
 export default function SwornLayout({ children }: { children: React.ReactNode }) {
-  const structuredData = game ? generateGameStructuredData(game) : null
+  const structuredData = generateGameStructuredData(GAME_ID)
 
   return (
     <>
       {structuredData && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+        <Script id={`${GAME_ID}-schema`} type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify(structuredData)}
+        </Script>
       )}
       {children}
     </>
