@@ -24,6 +24,24 @@
           "sworn achievement unlocker"
         ]
       },
+      "faq": [
+        {
+          "question": "How do I find my Sworn save file?",
+          "answer": "On Windows, your Sworn save file is located at %USERPROFILE%\\AppData\\LocalLow\\Windwalk Games\\SWORN\\data\\[STEAM_ID]\\. Look for files named savegame_*.dat"
+        },
+        {
+          "question": "Is this Sworn save editor safe to use?",
+          "answer": "Yes, the editor runs entirely in your browser. Your save file never leaves your computer - all processing happens locally."
+        },
+        {
+          "question": "Can I edit Sworn currencies like gold and crystals?",
+          "answer": "Yes, you can edit all currencies including gold, crystal shards, fairy embers, grailwater, moonstone, and silk."
+        },
+        {
+          "question": "Will editing my Sworn save file get me banned?",
+          "answer": "Sworn is a single-player/co-op game. Save editing is for personal use and does not affect other players."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -69,6 +87,24 @@
           "megabonk free characters"
         ]
       },
+      "faq": [
+        {
+          "question": "How do I find my Megabonk save file?",
+          "answer": "On Windows, your Megabonk save file is at %USERPROFILE%\\AppData\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\[STEAM_ID]\\progression.json"
+        },
+        {
+          "question": "Is the Megabonk save file encrypted?",
+          "answer": "Yes, Megabonk uses AES-256-CBC encryption. This editor automatically handles decryption and re-encryption."
+        },
+        {
+          "question": "Can I unlock all characters in Megabonk?",
+          "answer": "Yes, use the Characters tab to unlock any character instantly without grinding."
+        },
+        {
+          "question": "Will my Megabonk achievements sync after editing?",
+          "answer": "In-game achievements will reflect your edited save. Steam achievements may require meeting the actual conditions."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -114,6 +150,20 @@
           "cloverpit economy editor"
         ]
       },
+      "faq": [
+        {
+          "question": "Where is my Cloverpit save file located?",
+          "answer": "On Windows: %USERPROFILE%\\AppData\\LocalLow\\Panik\\CloverPit\\SaveData\\GameData\\GameDataFull.json"
+        },
+        {
+          "question": "How does Cloverpit encryption work?",
+          "answer": "Cloverpit uses a custom XOR cipher. This editor automatically decrypts and re-encrypts your save file."
+        },
+        {
+          "question": "Can I edit the RNG seed in Cloverpit?",
+          "answer": "Yes, the RNG tab lets you modify random number generation seeds to influence game outcomes."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -159,6 +209,20 @@
           "balatro meta progression"
         ]
       },
+      "faq": [
+        {
+          "question": "Where are Balatro save files stored?",
+          "answer": "Windows: %APPDATA%\\Balatro\\1\\profile.jkr. Mac: ~/Library/Application Support/Balatro/1/. Linux: ~/.local/share/Balatro/1/"
+        },
+        {
+          "question": "What is a .jkr file?",
+          "answer": "The .jkr format is Balatro's compressed save format using DEFLATE compression with Lua table serialization."
+        },
+        {
+          "question": "Can I unlock all jokers in Balatro?",
+          "answer": "Yes, you can edit meta progression to unlock jokers, decks, and other content."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -206,6 +270,16 @@
           "ballxpit editor"
         ]
       },
+      "faq": [
+        {
+          "question": "Where is my BALL x PIT save file?",
+          "answer": "On Windows: %USERPROFILE%\\AppData\\LocalLow\\Kenny Sun\\BALL x PIT\\save.dat"
+        },
+        {
+          "question": "What format does BALL x PIT use?",
+          "answer": "BALL x PIT uses Unity's BinaryFormatter (.NET serialization). This editor handles the binary format automatically."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -251,6 +325,20 @@
           "deep rock survivor editor"
         ]
       },
+      "faq": [
+        {
+          "question": "Where is my DRG Survivor save file?",
+          "answer": "On Windows: %USERPROFILE%\\AppData\\LocalLow\\Funday Games\\DRG Survivor\\steam\\[STEAM_ID]\\drg_save_slot1_0.dat"
+        },
+        {
+          "question": "What format does DRG Survivor use?",
+          "answer": "DRG Survivor uses plain JSON format, making it easy to edit directly."
+        },
+        {
+          "question": "Can I unlock all classes in DRG Survivor?",
+          "answer": "Yes, you can edit class progression and unlock all classes and upgrades."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -671,6 +759,32 @@
       "modify save file",
       "save game cheat",
       "save file hack"
+    ],
+    "faq": [
+      {
+        "question": "Is EditMySave free to use?",
+        "answer": "Yes, EditMySave is completely free. There are no hidden fees, subscriptions, or premium features."
+      },
+      {
+        "question": "Is EditMySave safe?",
+        "answer": "Yes, all save file processing happens locally in your browser. Your files never leave your computer and are never uploaded to any server."
+      },
+      {
+        "question": "Do I need to download anything?",
+        "answer": "No, EditMySave works entirely in your web browser. No downloads, installations, or plugins required."
+      },
+      {
+        "question": "Will editing my save files get me banned?",
+        "answer": "EditMySave only supports single-player and co-op games. Editing saves for personal use in these games does not affect other players."
+      },
+      {
+        "question": "What games does EditMySave support?",
+        "answer": "We currently support Sworn, Megabonk, Cloverpit, Balatro, BALL x PIT, and Deep Rock Galactic: Survivor, with more games coming soon."
+      },
+      {
+        "question": "How do I find my save file?",
+        "answer": "Each game editor includes instructions for locating your save file. Generally, save files are in %USERPROFILE%\\AppData\\LocalLow\\ or %APPDATA% on Windows."
+      }
     ]
   }
 }

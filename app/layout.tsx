@@ -6,13 +6,7 @@ import Script from "next/script"
 import { Suspense } from "react"
 import "./globals.css"
 import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google"
-import {
-  generateMetadataForRoute,
-  generateOrganizationStructuredData,
-  generateWebsiteStructuredData,
-  generateStructuredDataForRoute,
-  getAvailableGames,
-} from "@/lib/seo"
+import { generateMetadataForRoute, getAllStructuredDataForRoute, getAvailableGames } from "@/lib/seo"
 import gamesData from "@/data/games.json"
 
 // Initialize fonts
@@ -39,13 +33,18 @@ export async function generateMetadata(): Promise<Metadata> {
   // Merge with base site metadata
   return {
     ...gameMetadata,
-    // Ensure site-wide defaults are applied
     metadataBase: new URL(gamesData.site.url),
     authors: [{ name: gamesData.site.name }],
     creator: gamesData.site.name,
     publisher: gamesData.site.name,
-    generator: "v0.app",
-    // Merge keywords with site keywords
+    generator: "Next.js",
+    applicationName: gamesData.site.name,
+    referrer: "origin-when-cross-origin",
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
     keywords: [...(Array.isArray(gameMetadata.keywords) ? gameMetadata.keywords : []), ...gameKeywords],
   }
 }
@@ -59,24 +58,21 @@ export default async function RootLayout({
   const pathname = headersList.get("x-pathname") || headersList.get("x-invoke-path") || "/"
   const routeSegment = "/" + (pathname.split("/")[1] || "")
 
-  const organizationSchema = generateOrganizationStructuredData()
-  const websiteSchema = generateWebsiteStructuredData()
-  const gameSchema = generateStructuredDataForRoute(routeSegment)
+  const schemas = getAllStructuredDataForRoute(routeSegment)
 
   return (
     <html lang="en" className="dark">
       <head>
-        <Script id="organization-schema" type="application/ld+json" strategy="beforeInteractive">
-          {JSON.stringify(organizationSchema)}
-        </Script>
-        <Script id="website-schema" type="application/ld+json" strategy="beforeInteractive">
-          {JSON.stringify(websiteSchema)}
-        </Script>
-        {gameSchema && (
-          <Script id="game-schema" type="application/ld+json" strategy="beforeInteractive">
-            {JSON.stringify(gameSchema)}
+        {schemas.map((schema, index) => (
+          <Script
+            key={`schema-${index}`}
+            id={`schema-${index}`}
+            type="application/ld+json"
+            strategy="beforeInteractive"
+          >
+            {JSON.stringify(schema)}
           </Script>
-        )}
+        ))}
       </head>
       <body className={`font-sans ${geistSans.variable} ${geistMono.variable} ${sourceSerif4.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
