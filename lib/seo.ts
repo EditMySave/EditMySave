@@ -26,6 +26,12 @@ export function getGameById(id: string): Game | undefined {
   return gamesData.games.find((g) => g.id === id) as Game | undefined
 }
 
+export function getGameByRoute(routePath: string): Game | undefined {
+  // Normalize the route (handle both "/sworn" and "sworn")
+  const normalizedRoute = routePath.startsWith("/") ? routePath : `/${routePath}`
+  return gamesData.games.find((g) => g.route === normalizedRoute) as Game | undefined
+}
+
 export function getAvailableGames(): Game[] {
   return gamesData.games.filter((g) => g.status === "available") as Game[]
 }
@@ -34,14 +40,12 @@ export function getAllGames(): Game[] {
   return gamesData.games as Game[]
 }
 
-// Generate metadata for a game page - reads directly from games.json
-export function generateGameMetadata(gameId: string): Metadata {
-  const game = getGameById(gameId)
+export function generateMetadataForRoute(routePath: string): Metadata {
+  const game = getGameByRoute(routePath)
+
+  // If no game found for route, return site defaults
   if (!game) {
-    return {
-      title: "Game Not Found",
-      description: "The requested game editor was not found.",
-    }
+    return generateHomeMetadata()
   }
 
   const url = `${BASE_URL}${game.route}`
@@ -136,6 +140,17 @@ export function generateHomeMetadata(): Metadata {
   }
 }
 
+export function generateGameMetadata(gameId: string): Metadata {
+  const game = getGameById(gameId)
+  if (!game) {
+    return {
+      title: "Game Not Found",
+      description: "The requested game editor was not found.",
+    }
+  }
+  return generateMetadataForRoute(game.route)
+}
+
 // Structured data generators - return objects for JSON-LD
 export function generateGameStructuredData(gameId: string) {
   const game = getGameById(gameId)
@@ -169,6 +184,12 @@ export function generateGameStructuredData(gameId: string) {
       game.supportedVersion ? `Supports ${game.supportedVersion}` : null,
     ].filter(Boolean),
   }
+}
+
+export function generateStructuredDataForRoute(routePath: string) {
+  const game = getGameByRoute(routePath)
+  if (!game) return null
+  return generateGameStructuredData(game.id)
 }
 
 export function generateOrganizationStructuredData() {

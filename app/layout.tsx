@@ -1,11 +1,18 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { headers } from "next/headers"
 import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 import { Suspense } from "react"
 import "./globals.css"
 import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google"
-import { generateOrganizationStructuredData, generateWebsiteStructuredData, getAvailableGames } from "@/lib/seo"
+import {
+  generateMetadataForRoute,
+  generateOrganizationStructuredData,
+  generateWebsiteStructuredData,
+  generateStructuredDataForRoute,
+  getAvailableGames,
+} from "@/lib/seo"
 import gamesData from "@/data/games.json"
 
 // Initialize fonts
@@ -19,63 +26,42 @@ const gameKeywords = availableGames.flatMap((g) => [
   `edit ${g.name.toLowerCase()} save`,
 ])
 
-export const metadata: Metadata = {
-  title: {
-    default: `${gamesData.site.name} - ${gamesData.site.tagline}`,
-    template: `%s | ${gamesData.site.name}`,
-  },
-  description: gamesData.site.description,
-  keywords: [...gamesData.site.keywords, ...gameKeywords],
-  authors: [{ name: gamesData.site.name }],
-  creator: gamesData.site.name,
-  publisher: gamesData.site.name,
-  metadataBase: new URL(gamesData.site.url),
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: gamesData.site.url,
-    siteName: gamesData.site.name,
-    title: `${gamesData.site.name} - ${gamesData.site.tagline}`,
-    description: gamesData.site.description,
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: `${gamesData.site.name} - ${gamesData.site.tagline}`,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${gamesData.site.name} - ${gamesData.site.tagline}`,
-    description: gamesData.site.description,
-    images: ["/og-image.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  generator: "v0.app",
-  verification: {
-    google: "", // Add your Google Search Console verification code here
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const headersList = await headers()
+  const pathname = headersList.get("x-pathname") || headersList.get("x-invoke-path") || "/"
+
+  // Extract first route segment (e.g., "/sworn/foo" -> "/sworn")
+  const routeSegment = "/" + (pathname.split("/")[1] || "")
+
+  // Try to get game-specific metadata, falls back to home metadata
+  const gameMetadata = generateMetadataForRoute(routeSegment)
+
+  // Merge with base site metadata
+  return {
+    ...gameMetadata,
+    // Ensure site-wide defaults are applied
+    metadataBase: new URL(gamesData.site.url),
+    authors: [{ name: gamesData.site.name }],
+    creator: gamesData.site.name,
+    publisher: gamesData.site.name,
+    generator: "v0.app",
+    // Merge keywords with site keywords
+    keywords: [...(Array.isArray(gameMetadata.keywords) ? gameMetadata.keywords : []), ...gameKeywords],
+  }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const headersList = await headers()
+  const pathname = headersList.get("x-pathname") || headersList.get("x-invoke-path") || "/"
+  const routeSegment = "/" + (pathname.split("/")[1] || "")
+
   const organizationSchema = generateOrganizationStructuredData()
   const websiteSchema = generateWebsiteStructuredData()
+  const gameSchema = generateStructuredDataForRoute(routeSegment)
 
   return (
     <html lang="en" className="dark">
@@ -86,6 +72,11 @@ export default function RootLayout({
         <Script id="website-schema" type="application/ld+json" strategy="beforeInteractive">
           {JSON.stringify(websiteSchema)}
         </Script>
+        {gameSchema && (
+          <Script id="game-schema" type="application/ld+json" strategy="beforeInteractive">
+            {JSON.stringify(gameSchema)}
+          </Script>
+        )}
       </head>
       <body className={`font-sans ${geistSans.variable} ${geistMono.variable} ${sourceSerif4.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
