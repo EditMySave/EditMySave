@@ -56,7 +56,7 @@ export function generateHomeMetadata(): Metadata {
   const title = "EditMySave - Free Online Game Save Editor"
   const description =
     "Edit your game save files directly in your browser. Free online save editor for Sworn, Megabonk, Cloverpit, and more. No downloads required, works entirely client-side."
-  const url = "https://editmysave.com"
+  const url = "https://editmysave.app"
 
   return {
     title,
@@ -78,11 +78,20 @@ export function generateHomeMetadata(): Metadata {
       url,
       siteName: "EditMySave",
       type: "website",
+      images: [
+        {
+          url: "https://editmysave.app/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "EditMySave - Free Online Game Save Editor",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: ["https://editmysave.app/og-image.png"],
     },
     alternates: {
       canonical: url,
@@ -111,5 +120,50 @@ export function generateStructuredData(game: GameSEOData) {
       ratingValue: "5",
       ratingCount: "1",
     },
+  }
+}
+
+export function generateOrganizationStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "EditMySave",
+    url: "https://editmysave.app",
+    logo: "https://editmysave.app/icon.svg",
+    description:
+      "Free online game save editor platform. Edit your game save files directly in your browser with no downloads required.",
+    sameAs: [],
+  }
+}
+
+export function generateWebsiteStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "EditMySave",
+    url: "https://editmysave.app",
+    description:
+      "Free online game save editor for multiple games. Edit save files directly in your browser with no downloads required.",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://editmysave.app/?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
+  }
+}
+
+export function generateBreadcrumbStructuredData(items: Array<{ name: string; url: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   }
 }

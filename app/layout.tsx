@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google"
+import { generateOrganizationStructuredData, generateWebsiteStructuredData } from "@/lib/seo"
 
 // Initialize fonts
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" })
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | EditMySave",
   },
   description:
-    "Edit your game save files directly in your browser. Free online save editor for Sworn, Megabonk, Cloverpit, and more. No downloads required, works entirely client-side.",
+    "Edit your game save files directly in your browser. Free online save editor for Sworn, Megabonk, Cloverpit, Balatro, and more. No downloads required, works entirely client-side.",
   keywords: [
     "save editor",
     "game save editor",
@@ -25,8 +26,12 @@ export const metadata: Metadata = {
     "sworn save editor",
     "megabonk save editor",
     "cloverpit save editor",
+    "balatro save editor",
+    "drg survivor save editor",
     "free save editor",
     "browser save editor",
+    "client-side save editor",
+    "secure save editor",
   ],
   authors: [{ name: "EditMySave" }],
   creator: "EditMySave",
@@ -40,11 +45,20 @@ export const metadata: Metadata = {
     title: "EditMySave - Free Online Game Save Editor",
     description:
       "Edit your game save files directly in your browser. Free online save editor for multiple games. No downloads required.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "EditMySave - Free Online Game Save Editor",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "EditMySave - Free Online Game Save Editor",
     description: "Edit your game save files directly in your browser. Free, secure, and easy to use.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -57,7 +71,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  generator: "v0.app",
+  verification: {
+    google: "",
+    yandex: "",
+    other: {
+      "msvalidate.01": "",
+    },
+  },
+  category: "technology",
 }
 
 export default function RootLayout({
@@ -65,8 +86,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const organizationData = generateOrganizationStructuredData()
+  const websiteData = generateWebsiteStructuredData()
+
   return (
     <html lang="en" className="dark">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
+        />
+      </head>
       <body className={`font-sans ${geistSans.variable} ${geistMono.variable} ${sourceSerif4.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
