@@ -5,6 +5,7 @@ import { Suspense } from "react"
 import "./globals.css"
 import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google"
 import { generateOrganizationStructuredData, generateWebsiteStructuredData } from "@/lib/seo"
+import { Footer } from "@/components/footer"
 
 // Initialize fonts
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" })
@@ -101,8 +102,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
         />
       </head>
-      <body className={`font-sans ${geistSans.variable} ${geistMono.variable} ${sourceSerif4.variable}`}>
+      <body className={`font-sans ${geistSans.variable} ${geistMono.variable} ${sourceSerif4.variable} flex flex-col min-h-screen`}>
         <Suspense fallback={null}>{children}</Suspense>
+        <Footer />
         <Analytics />
       </body>
     </html>

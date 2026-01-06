@@ -20,6 +20,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
 import { maxAllCurrencies, updateCurrencies } from "./save-mutations"
 import Head from "next/head"
+import { Breadcrumb } from "@/components/breadcrumb"
 
 interface CurrencyValues {
   fairyEmbers: number
@@ -251,6 +252,8 @@ export default function SwornSaveEditor() {
         </div>
 
         <div className="w-full max-w-7xl mx-auto p-6">
+          <Breadcrumb items={[{ name: "Sworn", href: "/sworn" }]} />
+          
           {!saveData ? (
             <div className="space-y-6">
               <div className="text-center space-y-2 py-8">
