@@ -144,14 +144,6 @@ export function generateWebsiteStructuredData() {
     url: "https://editmysave.app",
     description:
       "Free online game save editor for multiple games. Edit save files directly in your browser with no downloads required.",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: "https://editmysave.app/?q={search_term_string}",
-      },
-      "query-input": "required name=search_term_string",
-    },
   }
 }
 

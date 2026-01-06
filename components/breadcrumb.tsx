@@ -14,7 +14,7 @@ interface BreadcrumbProps {
 
 export function Breadcrumb({ items }: BreadcrumbProps) {
   return (
-    <nav aria-label="Breadcrumb" className="mb-4">
+    <nav aria-label="breadcrumb" className="mb-4">
       <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
         <li>
           <Link

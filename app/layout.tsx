@@ -92,7 +92,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="dark">
-      <head>
+      <body className={`font-sans ${geistSans.variable} ${geistMono.variable} ${sourceSerif4.variable} flex flex-col min-h-screen`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
@@ -101,8 +101,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
         />
-      </head>
-      <body className={`font-sans ${geistSans.variable} ${geistMono.variable} ${sourceSerif4.variable} flex flex-col min-h-screen`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Footer />
         <Analytics />
