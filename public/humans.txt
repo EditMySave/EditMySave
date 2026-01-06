@@ -1,0 +1,14 @@
+/* TEAM */
+Creator: EditMySave Team
+Site: https://editmysave.app
+Location: Online
+
+/* THANKS */
+Community contributors and game developers
+
+/* SITE */
+Last update: 2026/01/06
+Language: English
+Standards: HTML5, CSS3, JavaScript, TypeScript
+Components: Next.js, React
+Software: Visual Studio Code, GitHub

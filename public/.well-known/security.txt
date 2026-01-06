@@ -1,0 +1,4 @@
+Contact: https://github.com/EditMySave/EditMySave/issues
+Preferred-Languages: en
+Canonical: https://editmysave.app/.well-known/security.txt
+Policy: https://github.com/EditMySave/EditMySave/security/policy
