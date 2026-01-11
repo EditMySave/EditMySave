@@ -8,6 +8,40 @@
       "route": "/sworn",
       "status": "available",
       "supportedVersion": "v1.0.1.0.1018",
+      "seo": {
+        "title": "Sworn Save Editor - Edit Currencies, Achievements & Resources",
+        "description": "Free online Sworn save editor. Modify your gold, crystals, achievements, and progression. Works in your browser with no downloads. Supports v1.0.1.0.1018.",
+        "keywords": [
+          "sworn save editor",
+          "sworn cheat",
+          "sworn gold editor",
+          "sworn currency editor",
+          "sworn save modifier",
+          "edit sworn save",
+          "sworn save hack",
+          "sworn game editor",
+          "sworn progression editor",
+          "sworn achievement unlocker"
+        ]
+      },
+      "faq": [
+        {
+          "question": "How do I find my Sworn save file?",
+          "answer": "On Windows, your Sworn save file is located at %USERPROFILE%\\AppData\\LocalLow\\Windwalk Games\\SWORN\\data\\[STEAM_ID]\\. Look for files named savegame_*.dat"
+        },
+        {
+          "question": "Is this Sworn save editor safe to use?",
+          "answer": "Yes, the editor runs entirely in your browser. Your save file never leaves your computer - all processing happens locally."
+        },
+        {
+          "question": "Can I edit Sworn currencies like gold and crystals?",
+          "answer": "Yes, you can edit all currencies including gold, crystal shards, fairy embers, grailwater, moonstone, and silk."
+        },
+        {
+          "question": "Will editing my Sworn save file get me banned?",
+          "answer": "Sworn is a single-player/co-op game. Save editing is for personal use and does not affect other players."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -37,6 +71,40 @@
       "route": "/megabonk",
       "status": "available",
       "supportedVersion": "v1.0.12",
+      "seo": {
+        "title": "Megabonk Save Editor - Edit Currencies, Characters & Unlocks",
+        "description": "Free online Megabonk save editor. Modify currencies, unlock all characters, achievements, and shop items. Works in your browser with encrypted save support. Supports v1.0.12.",
+        "keywords": [
+          "megabonk save editor",
+          "megabonk cheat",
+          "megabonk character unlock",
+          "megabonk currency editor",
+          "megabonk save modifier",
+          "edit megabonk save",
+          "megabonk save hack",
+          "megabonk achievement unlocker",
+          "megabonk shop editor",
+          "megabonk free characters"
+        ]
+      },
+      "faq": [
+        {
+          "question": "How do I find my Megabonk save file?",
+          "answer": "On Windows, your Megabonk save file is at %USERPROFILE%\\AppData\\LocalLow\\Ved\\Megabonk\\Saves\\CloudDir\\[STEAM_ID]\\progression.json"
+        },
+        {
+          "question": "Is the Megabonk save file encrypted?",
+          "answer": "Yes, Megabonk uses AES-256-CBC encryption. This editor automatically handles decryption and re-encryption."
+        },
+        {
+          "question": "Can I unlock all characters in Megabonk?",
+          "answer": "Yes, use the Characters tab to unlock any character instantly without grinding."
+        },
+        {
+          "question": "Will my Megabonk achievements sync after editing?",
+          "answer": "In-game achievements will reflect your edited save. Steam achievements may require meeting the actual conditions."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -66,6 +134,36 @@
       "route": "/cloverpit",
       "status": "available",
       "supportedVersion": "v1.1",
+      "seo": {
+        "title": "Cloverpit Save Editor - Edit Economy, Spins, RNG & Powerups",
+        "description": "Free online Cloverpit save editor. Modify economy, spins, RNG seeds, powerups, and more. Handles encrypted GameDataFull.json automatically. Supports v1.1.",
+        "keywords": [
+          "cloverpit save editor",
+          "cloverpit cheat",
+          "cloverpit money editor",
+          "cloverpit spin editor",
+          "cloverpit save modifier",
+          "edit cloverpit save",
+          "cloverpit save hack",
+          "cloverpit rng editor",
+          "cloverpit powerup editor",
+          "cloverpit economy editor"
+        ]
+      },
+      "faq": [
+        {
+          "question": "Where is my Cloverpit save file located?",
+          "answer": "On Windows: %USERPROFILE%\\AppData\\LocalLow\\Panik\\CloverPit\\SaveData\\GameData\\GameDataFull.json"
+        },
+        {
+          "question": "How does Cloverpit encryption work?",
+          "answer": "Cloverpit uses a custom XOR cipher. This editor automatically decrypts and re-encrypts your save file."
+        },
+        {
+          "question": "Can I edit the RNG seed in Cloverpit?",
+          "answer": "Yes, the RNG tab lets you modify random number generation seeds to influence game outcomes."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -95,6 +193,36 @@
       "route": "/balatro",
       "status": "available",
       "supportedVersion": "v1.0.1",
+      "seo": {
+        "title": "Balatro Save Editor - Edit Money, Chips & Unlocks",
+        "description": "Free online Balatro save editor. Modify money, chips, joker unlocks, and meta progression. Handles profile.jkr compression automatically. Supports v1.0.1.",
+        "keywords": [
+          "balatro save editor",
+          "balatro cheat",
+          "balatro money editor",
+          "balatro chips editor",
+          "balatro save modifier",
+          "edit balatro save",
+          "balatro save hack",
+          "balatro joker unlocker",
+          "balatro profile editor",
+          "balatro meta progression"
+        ]
+      },
+      "faq": [
+        {
+          "question": "Where are Balatro save files stored?",
+          "answer": "Windows: %APPDATA%\\Balatro\\1\\profile.jkr. Mac: ~/Library/Application Support/Balatro/1/. Linux: ~/.local/share/Balatro/1/"
+        },
+        {
+          "question": "What is a .jkr file?",
+          "answer": "The .jkr format is Balatro's compressed save format using DEFLATE compression with Lua table serialization."
+        },
+        {
+          "question": "Can I unlock all jokers in Balatro?",
+          "answer": "Yes, you can edit meta progression to unlock jokers, decks, and other content."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -126,6 +254,32 @@
       "route": "/ballxpit",
       "status": "available",
       "supportedVersion": "v3073+",
+      "seo": {
+        "title": "BALL x PIT Save Editor - Edit Resources, Progression & Buildings",
+        "description": "Free online BALL x PIT save editor. Modify resources, progression, buildings, and upgrades. Handles Unity binary format automatically. Supports v3073+.",
+        "keywords": [
+          "ball x pit save editor",
+          "ballxpit cheat",
+          "ball x pit money editor",
+          "ball x pit resource editor",
+          "ball x pit save modifier",
+          "edit ball x pit save",
+          "ball x pit save hack",
+          "ball x pit building editor",
+          "ball x pit progression editor",
+          "ballxpit editor"
+        ]
+      },
+      "faq": [
+        {
+          "question": "Where is my BALL x PIT save file?",
+          "answer": "On Windows: %USERPROFILE%\\AppData\\LocalLow\\Kenny Sun\\BALL x PIT\\save.dat"
+        },
+        {
+          "question": "What format does BALL x PIT use?",
+          "answer": "BALL x PIT uses Unity's BinaryFormatter (.NET serialization). This editor handles the binary format automatically."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -155,6 +309,36 @@
       "route": "/drg-survivor",
       "status": "available",
       "supportedVersion": "v1.0+",
+      "seo": {
+        "title": "DRG Survivor Save Editor - Edit Resources, Upgrades & Classes",
+        "description": "Free online Deep Rock Galactic: Survivor save editor. Modify resources, meta upgrades, class progression, and unlocks. Plain JSON format. Supports v1.0+.",
+        "keywords": [
+          "drg survivor save editor",
+          "deep rock galactic survivor cheat",
+          "drg survivor resource editor",
+          "drg survivor upgrade editor",
+          "drg survivor save modifier",
+          "edit drg survivor save",
+          "drg survivor save hack",
+          "drg survivor class editor",
+          "drg survivor progression editor",
+          "deep rock survivor editor"
+        ]
+      },
+      "faq": [
+        {
+          "question": "Where is my DRG Survivor save file?",
+          "answer": "On Windows: %USERPROFILE%\\AppData\\LocalLow\\Funday Games\\DRG Survivor\\steam\\[STEAM_ID]\\drg_save_slot1_0.dat"
+        },
+        {
+          "question": "What format does DRG Survivor use?",
+          "answer": "DRG Survivor uses plain JSON format, making it easy to edit directly."
+        },
+        {
+          "question": "Can I unlock all classes in DRG Survivor?",
+          "answer": "Yes, you can edit class progression and unlock all classes and upgrades."
+        }
+      ],
       "platforms": [
         {
           "name": "Steam",
@@ -182,7 +366,12 @@
       "description": "Modify resources, unlocks, and progression in your Hades save files",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Hades Save Editor - Coming Soon",
+        "description": "Hades save editor coming soon to EditMySave. Edit resources, unlocks, and progression.",
+        "keywords": ["hades save editor", "hades cheat", "hades save modifier"]
+      }
     },
     {
       "id": "vampire-survivors",
@@ -190,7 +379,12 @@
       "description": "Edit gold, unlocks, and character progression for Vampire Survivors",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Vampire Survivors Save Editor - Coming Soon",
+        "description": "Vampire Survivors save editor coming soon to EditMySave. Edit gold, unlocks, and character progression.",
+        "keywords": ["vampire survivors save editor", "vampire survivors cheat", "vampire survivors save modifier"]
+      }
     },
     {
       "id": "borderlands-4",
@@ -198,7 +392,12 @@
       "description": "Modify your Borderlands 4 save files including weapons, skills, and inventory",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Borderlands 4 Save Editor - Coming Soon",
+        "description": "Borderlands 4 save editor coming soon to EditMySave. Edit weapons, skills, and inventory.",
+        "keywords": ["borderlands 4 save editor", "borderlands 4 cheat", "borderlands 4 save modifier"]
+      }
     },
     {
       "id": "hollow-knight-silksong",
@@ -206,7 +405,12 @@
       "description": "Edit your Hollow Knight: Silksong save files for progression and unlocks",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Hollow Knight: Silksong Save Editor - Coming Soon",
+        "description": "Hollow Knight: Silksong save editor coming soon to EditMySave. Edit progression and unlocks.",
+        "keywords": ["hollow knight silksong save editor", "silksong cheat", "silksong save modifier"]
+      }
     },
     {
       "id": "no-mans-sky",
@@ -214,7 +418,12 @@
       "description": "Modify resources, units, and discoveries in your No Man's Sky save files",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "No Man's Sky Save Editor - Coming Soon",
+        "description": "No Man's Sky save editor coming soon to EditMySave. Edit resources, units, and discoveries.",
+        "keywords": ["no mans sky save editor", "no mans sky cheat", "no mans sky save modifier"]
+      }
     },
     {
       "id": "palworld",
@@ -222,7 +431,12 @@
       "description": "Edit your Palworld save files including resources, Pals, and base progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Palworld Save Editor - Coming Soon",
+        "description": "Palworld save editor coming soon to EditMySave. Edit resources, Pals, and base progression.",
+        "keywords": ["palworld save editor", "palworld cheat", "palworld save modifier"]
+      }
     },
     {
       "id": "cyberpunk-2077",
@@ -230,7 +444,12 @@
       "description": "Modify your Cyberpunk 2077 save files including eddies, items, and character stats",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Cyberpunk 2077 Save Editor - Coming Soon",
+        "description": "Cyberpunk 2077 save editor coming soon to EditMySave. Edit eddies, items, and character stats.",
+        "keywords": ["cyberpunk 2077 save editor", "cyberpunk 2077 cheat", "cyberpunk 2077 save modifier"]
+      }
     },
     {
       "id": "borderlands-3",
@@ -238,7 +457,12 @@
       "description": "Edit your Borderlands 3 save files including weapons, money, and character progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Borderlands 3 Save Editor - Coming Soon",
+        "description": "Borderlands 3 save editor coming soon to EditMySave. Edit weapons, money, and character progression.",
+        "keywords": ["borderlands 3 save editor", "borderlands 3 cheat", "borderlands 3 save modifier"]
+      }
     },
     {
       "id": "minecraft-dungeons",
@@ -246,7 +470,12 @@
       "description": "Modify your Minecraft Dungeons save files including gear, emeralds, and character levels",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Minecraft Dungeons Save Editor - Coming Soon",
+        "description": "Minecraft Dungeons save editor coming soon to EditMySave. Edit gear, emeralds, and character levels.",
+        "keywords": ["minecraft dungeons save editor", "minecraft dungeons cheat", "minecraft dungeons save modifier"]
+      }
     },
     {
       "id": "dredge",
@@ -254,7 +483,12 @@
       "description": "Edit your Dredge save files including fish, equipment, and boat upgrades",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Dredge Save Editor - Coming Soon",
+        "description": "Dredge save editor coming soon to EditMySave. Edit fish, equipment, and boat upgrades.",
+        "keywords": ["dredge save editor", "dredge cheat", "dredge save modifier"]
+      }
     },
     {
       "id": "dave-the-diver",
@@ -262,7 +496,12 @@
       "description": "Modify your Dave the Diver save files including money, fish, and restaurant progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Dave the Diver Save Editor - Coming Soon",
+        "description": "Dave the Diver save editor coming soon to EditMySave. Edit money, fish, and restaurant progression.",
+        "keywords": ["dave the diver save editor", "dave the diver cheat", "dave the diver save modifier"]
+      }
     },
     {
       "id": "risk-of-rain-2",
@@ -270,7 +509,12 @@
       "description": "Edit your Risk of Rain 2 save files including unlocks, lunar coins, and character progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Risk of Rain 2 Save Editor - Coming Soon",
+        "description": "Risk of Rain 2 save editor coming soon to EditMySave. Edit unlocks, lunar coins, and character progression.",
+        "keywords": ["risk of rain 2 save editor", "risk of rain 2 cheat", "risk of rain 2 save modifier"]
+      }
     },
     {
       "id": "sims-4",
@@ -278,7 +522,12 @@
       "description": "Modify your Sims 4 save files including simoleons, household funds, and career progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "The Sims 4 Save Editor - Coming Soon",
+        "description": "The Sims 4 save editor coming soon to EditMySave. Edit simoleons, household funds, and career progression.",
+        "keywords": ["sims 4 save editor", "sims 4 cheat", "sims 4 save modifier"]
+      }
     },
     {
       "id": "witcher-3",
@@ -286,7 +535,12 @@
       "description": "Edit your Witcher 3 save files including crowns, items, skills, and character progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "The Witcher 3 Save Editor - Coming Soon",
+        "description": "The Witcher 3 save editor coming soon to EditMySave. Edit crowns, items, skills, and character progression.",
+        "keywords": ["witcher 3 save editor", "witcher 3 cheat", "witcher 3 save modifier"]
+      }
     },
     {
       "id": "skyrim",
@@ -294,7 +548,12 @@
       "description": "Modify your Skyrim save files including gold, items, skills, and character stats",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Skyrim Save Editor - Coming Soon",
+        "description": "Skyrim save editor coming soon to EditMySave. Edit gold, items, skills, and character stats.",
+        "keywords": ["skyrim save editor", "skyrim cheat", "skyrim save modifier"]
+      }
     },
     {
       "id": "fallout-shelter",
@@ -302,7 +561,12 @@
       "description": "Edit your Fallout Shelter save files including caps, resources, and vault progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Fallout Shelter Save Editor - Coming Soon",
+        "description": "Fallout Shelter save editor coming soon to EditMySave. Edit caps, resources, and vault progression.",
+        "keywords": ["fallout shelter save editor", "fallout shelter cheat", "fallout shelter save modifier"]
+      }
     },
     {
       "id": "oxygen-not-included",
@@ -310,7 +574,16 @@
       "description": "Modify your Oxygen Not Included save files including resources, duplicants, and colony progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Oxygen Not Included Save Editor - Coming Soon",
+        "description": "Oxygen Not Included save editor coming soon to EditMySave. Edit resources, duplicants, and colony progression.",
+        "keywords": [
+          "oxygen not included save editor",
+          "oxygen not included cheat",
+          "oxygen not included save modifier"
+        ]
+      }
     },
     {
       "id": "hogwarts-legacy",
@@ -318,7 +591,12 @@
       "description": "Edit your Hogwarts Legacy save files including galleons, items, and character progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Hogwarts Legacy Save Editor - Coming Soon",
+        "description": "Hogwarts Legacy save editor coming soon to EditMySave. Edit galleons, items, and character progression.",
+        "keywords": ["hogwarts legacy save editor", "hogwarts legacy cheat", "hogwarts legacy save modifier"]
+      }
     },
     {
       "id": "dying-light-2",
@@ -326,7 +604,12 @@
       "description": "Modify your Dying Light 2 save files including resources, weapons, and character skills",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Dying Light 2 Save Editor - Coming Soon",
+        "description": "Dying Light 2 save editor coming soon to EditMySave. Edit resources, weapons, and character skills.",
+        "keywords": ["dying light 2 save editor", "dying light 2 cheat", "dying light 2 save modifier"]
+      }
     },
     {
       "id": "slay-the-spire",
@@ -334,7 +617,12 @@
       "description": "Edit your Slay the Spire save files including unlocks, relics, and character progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Slay the Spire Save Editor - Coming Soon",
+        "description": "Slay the Spire save editor coming soon to EditMySave. Edit unlocks, relics, and character progression.",
+        "keywords": ["slay the spire save editor", "slay the spire cheat", "slay the spire save modifier"]
+      }
     },
     {
       "id": "kerbal-space-program",
@@ -342,7 +630,12 @@
       "description": "Modify your Kerbal Space Program save files including funds, science, and mission progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Kerbal Space Program Save Editor - Coming Soon",
+        "description": "Kerbal Space Program save editor coming soon to EditMySave. Edit funds, science, and mission progression.",
+        "keywords": ["kerbal space program save editor", "ksp cheat", "ksp save modifier"]
+      }
     },
     {
       "id": "darkest-dungeon",
@@ -350,7 +643,12 @@
       "description": "Edit your Darkest Dungeon save files including gold, heirlooms, and hero progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Darkest Dungeon Save Editor - Coming Soon",
+        "description": "Darkest Dungeon save editor coming soon to EditMySave. Edit gold, heirlooms, and hero progression.",
+        "keywords": ["darkest dungeon save editor", "darkest dungeon cheat", "darkest dungeon save modifier"]
+      }
     },
     {
       "id": "rimworld",
@@ -358,7 +656,12 @@
       "description": "Modify your RimWorld save files including resources, colonists, and colony progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "RimWorld Save Editor - Coming Soon",
+        "description": "RimWorld save editor coming soon to EditMySave. Edit resources, colonists, and colony progression.",
+        "keywords": ["rimworld save editor", "rimworld cheat", "rimworld save modifier"]
+      }
     },
     {
       "id": "baldurs-gate-3",
@@ -366,7 +669,12 @@
       "description": "Edit your Baldur's Gate 3 save files including gold, items, and character stats",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Baldur's Gate 3 Save Editor - Coming Soon",
+        "description": "Baldur's Gate 3 save editor coming soon to EditMySave. Edit gold, items, and character stats.",
+        "keywords": ["baldurs gate 3 save editor", "bg3 cheat", "bg3 save modifier"]
+      }
     },
     {
       "id": "terraria",
@@ -374,7 +682,12 @@
       "description": "Modify your Terraria save files including items, coins, and character progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Terraria Save Editor - Coming Soon",
+        "description": "Terraria save editor coming soon to EditMySave. Edit items, coins, and character progression.",
+        "keywords": ["terraria save editor", "terraria cheat", "terraria save modifier"]
+      }
     },
     {
       "id": "factorio",
@@ -382,7 +695,12 @@
       "description": "Edit your Factorio save files including resources, research, and factory progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Factorio Save Editor - Coming Soon",
+        "description": "Factorio save editor coming soon to EditMySave. Edit resources, research, and factory progression.",
+        "keywords": ["factorio save editor", "factorio cheat", "factorio save modifier"]
+      }
     },
     {
       "id": "valheim",
@@ -390,7 +708,12 @@
       "description": "Modify your Valheim save files including items, skills, and world progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Valheim Save Editor - Coming Soon",
+        "description": "Valheim save editor coming soon to EditMySave. Edit items, skills, and world progression.",
+        "keywords": ["valheim save editor", "valheim cheat", "valheim save modifier"]
+      }
     },
     {
       "id": "project-zomboid",
@@ -398,7 +721,12 @@
       "description": "Edit your Project Zomboid save files including items, skills, and character stats",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "Project Zomboid Save Editor - Coming Soon",
+        "description": "Project Zomboid save editor coming soon to EditMySave. Edit items, skills, and character stats.",
+        "keywords": ["project zomboid save editor", "project zomboid cheat", "project zomboid save modifier"]
+      }
     },
     {
       "id": "the-long-dark",
@@ -406,7 +734,57 @@
       "description": "Modify your The Long Dark save files including items, skills, and survival progression",
       "image": "/placeholder.svg?height=400&width=600",
       "route": "#",
-      "status": "coming-soon"
+      "status": "coming-soon",
+      "seo": {
+        "title": "The Long Dark Save Editor - Coming Soon",
+        "description": "The Long Dark save editor coming soon to EditMySave. Edit items, skills, and survival progression.",
+        "keywords": ["the long dark save editor", "the long dark cheat", "the long dark save modifier"]
+      }
     }
-  ]
+  ],
+  "site": {
+    "name": "EditMySave",
+    "tagline": "Free Online Game Save Editor",
+    "description": "Edit your game save files directly in your browser. Free, secure, and easy to use. No downloads required.",
+    "url": "https://editmysave.app",
+    "keywords": [
+      "save editor",
+      "game save editor",
+      "online save editor",
+      "save file editor",
+      "free save editor",
+      "browser save editor",
+      "game save modifier",
+      "edit game save",
+      "modify save file",
+      "save game cheat",
+      "save file hack"
+    ],
+    "faq": [
+      {
+        "question": "Is EditMySave free to use?",
+        "answer": "Yes, EditMySave is completely free. There are no hidden fees, subscriptions, or premium features."
+      },
+      {
+        "question": "Is EditMySave safe?",
+        "answer": "Yes, all save file processing happens locally in your browser. Your files never leave your computer and are never uploaded to any server."
+      },
+      {
+        "question": "Do I need to download anything?",
+        "answer": "No, EditMySave works entirely in your web browser. No downloads, installations, or plugins required."
+      },
+      {
+        "question": "Will editing my save files get me banned?",
+        "answer": "EditMySave only supports single-player and co-op games. Editing saves for personal use in these games does not affect other players."
+      },
+      {
+        "question": "What games does EditMySave support?",
+        "answer": "We currently support Sworn, Megabonk, Cloverpit, Balatro, BALL x PIT, and Deep Rock Galactic: Survivor, with more games coming soon."
+      },
+      {
+        "question": "How do I find my save file?",
+        "answer": "Each game editor includes instructions for locating your save file. Generally, save files are in %USERPROFILE%\\AppData\\LocalLow\\ or %APPDATA% on Windows."
+      }
+    ]
+  }
 }
