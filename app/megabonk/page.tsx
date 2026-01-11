@@ -306,32 +306,32 @@ export default function MegabonkSaveEditor() {
     ? [
         {
           label: "Max All Currencies",
-          onClick: () => setSaveData(maxAllCurrencies(saveData)),
+          onClick: () => setSaveData(maxCurrencies(saveData)),
           icon: <Coins className="w-4 h-4 mr-2" />,
         },
         {
           label: "Max All Shop Items",
-          onClick: () => setSaveData(maxAllShopItems(saveData)),
+          onClick: () => maxAllShopItems(),
           icon: <ShoppingCart className="w-4 h-4 mr-2" />,
         },
         {
           label: "Max All Characters",
-          onClick: () => setSaveData(maxAllCharacters(saveData)),
+          onClick: () => maxAllCharacters(),
           icon: <Users className="w-4 h-4 mr-2" />,
         },
         {
           label: "Unlock All Characters",
-          onClick: () => setSaveData(unlockAllCharacters(saveData)),
+          onClick: () => unlockAllCharacters(),
           icon: <Sparkles className="w-4 h-4 mr-2" />,
         },
         {
           label: "Unlock All Achievements",
-          onClick: () => setSaveData(unlockAllAchievements(saveData, achievementsData.achievements)),
+          onClick: () => unlockAllAchievements(),
           icon: <Trophy className="w-4 h-4 mr-2" />,
         },
         {
           label: "Unlock All Purchases",
-          onClick: () => setSaveData(unlockAllPurchases(saveData, purchasesData.purchases)),
+          onClick: () => unlockAllPurchases(),
           icon: <Sparkles className="w-4 h-4 mr-2" />,
         },
         {
