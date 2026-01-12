@@ -31,7 +31,20 @@ export const metadata: Metadata = {
   authors: [{ name: "EditMySave" }],
   creator: "EditMySave",
   publisher: "EditMySave",
+  applicationName: "EditMySave",
+  category: "Utilities",
   metadataBase: new URL("https://editmysave.app"),
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [
+      { url: "/icon-light-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-dark-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-icon.png" }],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -40,11 +53,13 @@ export const metadata: Metadata = {
     title: "EditMySave - Free Online Game Save Editor",
     description:
       "Edit your game save files directly in your browser. Free online save editor for multiple games. No downloads required.",
+    images: [{ url: "/placeholder.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "EditMySave - Free Online Game Save Editor",
     description: "Edit your game save files directly in your browser. Free, secure, and easy to use.",
+    images: ["/placeholder.jpg"],
   },
   robots: {
     index: true,

@@ -5,12 +5,16 @@ interface GameSEOData {
   description: string
   route: string
   supportedVersion?: string
+  image?: string
 }
+
+const SITE_URL = "https://editmysave.app"
 
 export function generateGameMetadata(game: GameSEOData): Metadata {
   const title = `${game.name} Save Editor - Edit Your ${game.name} Save Files`
   const description = `Free online ${game.name} save editor. ${game.description} Works entirely in your browser with no downloads required. ${game.supportedVersion ? `Supports version ${game.supportedVersion}.` : ""}`
-  const url = `https://editmysave.app${game.route}`
+  const url = new URL(game.route, SITE_URL).toString()
+  const imageUrl = game.image ? new URL(game.image, SITE_URL).toString() : new URL("/placeholder.jpg", SITE_URL).toString()
 
   return {
     title,
@@ -33,9 +37,7 @@ export function generateGameMetadata(game: GameSEOData): Metadata {
       type: "website",
       images: [
         {
-          url: `https://editmysave.app/images/${game.name.toLowerCase()}/cover.png`,
-          width: 1200,
-          height: 630,
+          url: imageUrl,
           alt: `${game.name} Save Editor`,
         },
       ],
@@ -44,7 +46,7 @@ export function generateGameMetadata(game: GameSEOData): Metadata {
       card: "summary_large_image",
       title,
       description,
-      images: [`https://editmysave.app/images/${game.name.toLowerCase()}/cover.png`],
+      images: [imageUrl],
     },
     alternates: {
       canonical: url,
@@ -56,7 +58,8 @@ export function generateHomeMetadata(): Metadata {
   const title = "EditMySave - Free Online Game Save Editor"
   const description =
     "Edit your game save files directly in your browser. Free online save editor for Sworn, Megabonk, Cloverpit, and more. No downloads required, works entirely client-side."
-  const url = "https://editmysave.com"
+  const url = SITE_URL
+  const imageUrl = new URL("/placeholder.jpg", SITE_URL).toString()
 
   return {
     title,
@@ -78,11 +81,13 @@ export function generateHomeMetadata(): Metadata {
       url,
       siteName: "EditMySave",
       type: "website",
+      images: [{ url: imageUrl }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [imageUrl],
     },
     alternates: {
       canonical: url,
@@ -93,23 +98,20 @@ export function generateHomeMetadata(): Metadata {
 export function generateStructuredData(game: GameSEOData) {
   return {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    "@type": "WebApplication",
     name: `${game.name} Save Editor`,
     applicationCategory: "UtilitiesApplication",
     operatingSystem: "Web Browser",
+    isAccessibleForFree: true,
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
     },
     description: game.description,
-    url: `https://editmysave.app${game.route}`,
+    url: new URL(game.route, SITE_URL).toString(),
     browserRequirements: "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
     softwareVersion: game.supportedVersion || "1.0",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5",
-      ratingCount: "1",
-    },
+    ...(game.image ? { image: new URL(game.image, SITE_URL).toString() } : {}),
   }
 }
