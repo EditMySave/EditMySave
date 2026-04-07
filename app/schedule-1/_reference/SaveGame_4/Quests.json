@@ -1,0 +1,1289 @@
+{
+    "DataType": "QuestManagerData",
+    "DataVersion": 0,
+    "GameVersion": "0.4.0f8",
+    "Quests": [
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "004e1462-b447-4c46-a8b8-74a4f48ff6a9",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Money Management",
+            "Description": "Deposit some cash at an ATM.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Deposit cash at an ATM",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "c7c962c4-e486-4161-95e2-49ba01f49e49",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Botanists",
+            "Description": "Learn how to manage botanists.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Use the management clipboard to assign the botanist to a locker",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Assign a supplies source to the botanist",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Assign a pot or grow tent to the botanist",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Set the pot/grow tent destination",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Place cash in the botanist's locker",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "1aec12d5-4d6d-46b5-bab8-c12bafe91390",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Welcome to Hyland Point",
+            "Description": "You're in a new town with no cash and no product. Get in contact with a distant relative and get some advice.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Open your phone and read your messages",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to 'U.N.' at a payphone",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Collect the stash near the fountain",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Collect the stash near the canal",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Collect the stash behind the supermarket",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Head back to the RV",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Investigate the explosion",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Read the note",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Uncle Nelson at a payphone",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "8e9bf6c1-9c89-4abe-9ac2-f01602e03404",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Handlers",
+            "Description": "Learn how to manage packagers.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Use the management clipboard to assign the handler to a locker",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Assign a packaging station to the handler",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Place cash in the handler's locker",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "e5314966-09b3-42a0-9757-cb1a09acf999",
+            "State": 2,
+            "IsTracked": false,
+            "Title": "Needin' the Green",
+            "Description": "Time to make some MONEY!!!!!",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Earn $10,000 ($1,238,680 / $10,000)",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "9ada39cf-8ad7-48b7-ad56-b81847650e4d",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Moving Up",
+            "Description": "You'll need more space if you're looking to get serious. Time to save for and purchase a new property.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Save $800 for a new property",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Mrs. Ming at the Chinese restaurant",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Purchase the room above the Chinese Restaurant",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Move the grow tents and packaging station to the new room",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Unlock 10 customers (0/10)",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "1a5e1096-bf76-4f61-8564-8217665dc943",
+            "State": 0,
+            "IsTracked": false,
+            "Title": "Unfavourable Agreements",
+            "Description": "You've received a message from someone offering you a 'deal'. Suspicious, but worth investigating. ",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Read the message from the unknown contact",
+                    "State": 0
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Meet the stranger at the parking lot next to Taco Ticklers",
+                    "State": 0
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "04b6e82d-fb51-4caa-baf1-4724e16cf155",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Dodgy Dealing",
+            "Description": "Recruit and manage your first dealer to handle distribution for you.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Uncle Nelson at a payphone",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Unlock Chloe, Ludwig, or Beth as customers",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Reach 'friendly' relationship status with Chloe, Ludwig, or Beth",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Benji Coleman in Motel Room #2",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Recruit Benji Coleman as a dealer",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Provide Benji with at least 10x Weed",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Assign at least 3 customers to Benji",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Wait for Benji to complete a deal",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Collect the cash from Benji",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "a63d0e02-84fa-4922-96a3-18cad4c05fc9",
+            "State": 2,
+            "IsTracked": false,
+            "Title": "We Need To Cook",
+            "Description": "You're not going to get too far if you're only pushing weed. Time to move onto something a bit harder.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Uncle Nelson at a payphone",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Unlock the pseudo supplier in Westville (see contacts app for more info)",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Purchase a chemistry station from Oscar",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Purchase a lab oven from Oscar",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Purchase acid from Oscar",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Purchase phosphorus from Oscar",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Message Shirley about buying some pseudo",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Cook liquid meth at the chemistry station",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Bake the liquid meth with the lab oven",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "0de99478-27ef-4cc5-83a0-d6c62cb7001d",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Chemists",
+            "Description": "Learn how to manage chemists.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Use the management clipboard to assign the chemist to a locker",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Assign a station to the chemist",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Place cash in the chemist's locker",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "7187a66d-0359-4caa-93bc-8dcae901e679",
+            "State": 2,
+            "IsTracked": false,
+            "Title": "Mixing Mania",
+            "Description": "Purchase a mixing station and make your first custom mix.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Uncle Nelson at a payphone",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Purchase a mixing station from the hardware store",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Place the mixing station",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Go to Gas-Mart",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Purchase at least one mixing ingredient",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Start a new mix at the mixing station",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Wait for the mix to complete",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Collect the new product",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Uncle Nelson at a payphone",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Mix a strain worth at least $60",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "9b192cde-b87f-4ee7-8f43-b8e3775a04c7",
+            "State": 2,
+            "IsTracked": false,
+            "Title": "Wretched Hive of Scum and Villainy",
+            "Description": "Acquaint yourself with the inhabitants of the warehouse, the local place of business for people in your line of work.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Uncle Nelson at a payphone",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Gain access to the warehouse",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to the merchant",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to the arms dealer",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to the fixer",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "85bc22f9-c4c9-438c-b38d-e046e84330b6",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Cleaners",
+            "Description": "Learn how to manage cleaners.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Use the management clipboard to assign the cleaner to a locker",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Assign a trash can to the cleaner",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Place cash in the cleaner's locker",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "a1c3b3d6-e9ec-4153-9ee4-da7e93349f3b",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "On the Grind",
+            "Description": "Get some deals done, and start expanding your network.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Wait for a message from a customer",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Schedule your first deal",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Complete your first deal",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Buy and place another grow tent",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Complete 3 deals (0/3)",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Uncle Nelson at a payphone",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Open the contacts app",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Select a friend of an unlocked customer in your contacts app",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Open the map app to see your potential customers",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Offer a free sample to a potential customer",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "62bc41c0-a130-4b48-b7c9-08574b6dc331",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Getting Started",
+            "Description": "You're in a new town with no cash and no product. Get in contact with a distant relative and ask for some help.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to the manager in the motel office",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Rent a motel room",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Check out your motel room",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "4c3a4a78-5697-4b68-a8fd-8bfbe7ee57e0",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Keeping it Fresh",
+            "Description": "Time to clean some shit up.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Place the soil bag and seed vial in the motel room trash can",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Buy a trash bag from the hardware store",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Bag the contents of the trash can",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Dispose of the trash bag",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "57540e44-dcb9-49d1-99e1-8c35783bbdc0",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Finishing the Job",
+            "Description": "You've severely weakened the Benzies, but they'll continue to pester you until they're defeated. Time to take out the trash.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Uncle Nelson at a payphone",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Billy at the chemical plant about buying explosives",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Trade Billy 20x cocaine in return for RDX",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Get Sam to dig access to the tunnel under Hyland Manor",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Wait for Sam to dig access to the tunnel",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Stan about turning the RDX into a bomb",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Kill the thief who keeps stealing Stan's supplies. He is often seen at the docks at night.",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Get Stan to turn the RDX into a bomb",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Plant the bomb under Hyland Manor",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Wait for the bomb to detonate",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "a3f6ef26-47eb-462a-ad58-8767d45a1737",
+            "State": 2,
+            "IsTracked": false,
+            "Title": "Clean Cash",
+            "Description": "You've reached your ATM daily deposit limit. If you want to convert more cash to online balance, you'll need to start laundering cash through a business.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Uncle Nelson at a payphone",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Purchase a business at Ray's Realty",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Go to your new business",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Use the laundering station to start a new laundering operation",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Wait for the laundering operation to complete",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "830e2efe-b98f-495d-a44e-c17c7c94f517",
+            "State": 2,
+            "IsTracked": false,
+            "Title": "Making the Rounds",
+            "Description": "Explore Hyland Point and talk to some people of interest.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to the real estate agent",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to the dealership manager",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to the mechanic",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "948de7e1-6b87-49ba-bf84-4e56217817e3",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Packin'",
+            "Description": "Learn the basics of growing and selling weed.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Buy 1x plant trimmers",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Buy 1x packaging station",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Buy 10x baggies",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Place the packaging station in the motel room",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "8c44ad67-83a8-45c5-aeb1-8fed14cf3d71",
+            "State": 2,
+            "IsTracked": true,
+            "Title": "Gearing Up",
+            "Description": "",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Go to the hardware store",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Buy 1x grow tent",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Buy 1x soil",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Buy 1x watering can",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Head back to the motel room",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Place the grow tent and fill it with soil",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Talk to Uncle Nelson at a payphone",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Order 1x OG Kush Seed from Albert Hoover",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Wait for the dead drop",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Collect the dead drop",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Sow a weed seed",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Water the weed plant",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Harvest the weed plant once fully grown",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Package at least 3x weed",
+                    "State": 2
+                },
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "List OG Kush for sale in the product manager app",
+                    "State": 2
+                }
+            ]
+        },
+        {
+            "DataType": "QuestData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "GUID": "329acb06-4c99-49f6-a209-4577d7edcc43",
+            "State": 0,
+            "IsTracked": false,
+            "Title": "Deal for the Benzies Family",
+            "Description": "Fulfill your ongoing obligation to the Benzies Cartel.",
+            "Expires": false,
+            "ExpiryDate": {
+                "DataType": "GameDateTimeData",
+                "DataVersion": 0,
+                "GameVersion": "0.4.0f8",
+                "ElapsedDays": 0,
+                "Time": 0
+            },
+            "Entries": [
+                {
+                    "DataType": "QuestEntryData",
+                    "DataVersion": 0,
+                    "GameVersion": "0.4.0f8",
+                    "Name": "Deliver X to Hyland Manor",
+                    "State": 0
+                }
+            ]
+        }
+    ],
+    "Contracts": [],
+    "DeaddropQuests": []
+}

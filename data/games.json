@@ -210,7 +210,7 @@
           "name": "Steam",
           "supported": true,
           "saveLocation": {
-            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\TVGS\\Schedule I\\Saves\\[STEAM_ID]"
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\TVGS\\Schedule I\\Saves\\[STEAM_ID]\\[SAVE_GAME_X]"
           },
           "fileName": "SaveGame_* (folder)",
           "instructions": "Put the following into your file explorer:\n%USERPROFILE%\\AppData\\LocalLow\\TVGS\\Schedule I\\Saves\\\n\nOpen the folder with your Steam ID, then select your SaveGame folder (e.g. SaveGame_1) using the folder picker.",

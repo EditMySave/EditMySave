@@ -460,7 +460,7 @@ export default function MegabonkSaveEditor() {
 
               {gameData && <SaveLocationHelp platforms={gameData.platforms} gameName={gameData.name} />}
 
-              <SaveFileUpload onFileSelect={processSaveFile} acceptedFileTypes=".txt" isProcessing={isProcessing} />
+              <SaveFileUpload onFileSelect={processSaveFile} acceptedFileTypes=".json,.txt,.dat" isProcessing={isProcessing} />
             </div>
           ) : (
             <div className="flex gap-6 pt-4">

@@ -1,0 +1,47 @@
+{
+    "DataType": "ShopManagerData",
+    "DataVersion": 0,
+    "GameVersion": "0.4.0f8",
+    "Shops": [
+        {
+            "DataType": "ShopData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "ShopCode": "gas_mart_west",
+            "ItemStockQuantities": [
+                {
+                    "String": "spraypaint",
+                    "Int": 8022
+                }
+            ]
+        },
+        {
+            "DataType": "ShopData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "ShopCode": "gas_mart_central",
+            "ItemStockQuantities": [
+                {
+                    "String": "spraypaint",
+                    "Int": 8022
+                }
+            ]
+        },
+        {
+            "DataType": "ShopData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.0f8",
+            "ShopCode": "boutique",
+            "ItemStockQuantities": [
+                {
+                    "String": "artworkrapscallion",
+                    "Int": 0
+                },
+                {
+                    "String": "goldentoilet",
+                    "Int": 0
+                }
+            ]
+        }
+    ]
+}
