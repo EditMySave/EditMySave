@@ -1,0 +1,30 @@
+{
+    "DataType": "PropertyData",
+    "DataVersion": 0,
+    "GameVersion": "0.4.5f1",
+    "PropertyCode": "motelroom",
+    "IsOwned": true,
+    "SwitchStates": [
+        true
+    ],
+    "ToggleableStates": [
+        true
+    ],
+    "Employees": [],
+    "Objects": [
+        {
+            "DataType": "PlaceableStorageData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"PlaceableStorageData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"03045418-8674-4368-95c9-e9cfd0b47095\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"bed\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"efc3aaed-d40e-4075-8fc5-79664c851628\",\"OriginCoordinate\":{\"x\":0.0,\"y\":11.0},\"Rotation\":90,\"Contents\":{\"Items\":[\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\"],\"SlotFilters\":[{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]}]}}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "SurfaceItemData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"SurfaceItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"69731087-74bd-45d9-859e-e1890136024e\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"wallclock\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":25,\"ParentSurfaceGUID\":\"628640ef-390a-4694-8ce2-6136e703ce11\",\"RelativePosition\":{\"x\":-0.23851507902145387,\"y\":0.5000171661376953,\"z\":0.27612030506134035},\"RelativeRotation\":{\"x\":0.0,\"y\":0.7071065306663513,\"z\":0.7071070075035095,\"w\":0.0}}",
+            "AdditionalDatas": []
+        }
+    ]
+}

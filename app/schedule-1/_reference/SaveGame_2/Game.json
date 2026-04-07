@@ -1,0 +1,11 @@
+{
+    "DataType": "GameData",
+    "DataVersion": 0,
+    "GameVersion": "0.4.5f1",
+    "OrganisationName": "Epstein Cookie Co.",
+    "Seed": 2016051243,
+    "Settings": {
+        "ConsoleEnabled": false,
+        "UseRandomizedMixMaps": false
+    }
+}

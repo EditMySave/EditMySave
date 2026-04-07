@@ -177,6 +177,48 @@
       ]
     },
     {
+      "id": "windblown",
+      "name": "Windblown",
+      "description": "Edit currencies, unlocks, and meta progression for your Windblown save files",
+      "image": "/images/windblown/cover.png",
+      "route": "/windblown",
+      "status": "available",
+      "supportedVersion": "Early Access",
+      "platforms": [
+        {
+          "name": "Steam",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\Motion Twin\\Windblown"
+          },
+          "fileName": "*.sav",
+          "instructions": "Put the following into your file explorer to go straight to the Save Game folder:\n%USERPROFILE%\\AppData\\LocalLow\\Motion Twin\\Windblown\\\n\nLook for a .sav file (named with your player ID) and drag it into this editor to begin.",
+          "notes": "Always create a backup of your save file before editing. The save file uses MTWB binary format with GZIP compression and SHA-1 integrity hashes."
+        }
+      ]
+    },
+    {
+      "id": "schedule-1",
+      "name": "Schedule I",
+      "description": "Edit money, rank, properties, businesses, NPCs, and products for your Schedule I save files",
+      "image": "/images/schedule-1/cover.jpg",
+      "route": "/schedule-1",
+      "status": "available",
+      "supportedVersion": "v0.4.5+",
+      "platforms": [
+        {
+          "name": "Steam",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\LocalLow\\TVGS\\Schedule I\\Saves\\[STEAM_ID]"
+          },
+          "fileName": "SaveGame_* (folder)",
+          "instructions": "Put the following into your file explorer:\n%USERPROFILE%\\AppData\\LocalLow\\TVGS\\Schedule I\\Saves\\\n\nOpen the folder with your Steam ID, then select your SaveGame folder (e.g. SaveGame_1) using the folder picker.",
+          "notes": "Always create a backup of your save folder before editing. This editor reads the entire save folder and exports a ZIP file. Extract the ZIP to replace your save folder."
+        }
+      ]
+    },
+    {
       "id": "hades",
       "name": "Hades",
       "description": "Modify resources, unlocks, and progression in your Hades save files",

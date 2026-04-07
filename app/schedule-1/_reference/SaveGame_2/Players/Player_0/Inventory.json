@@ -1,0 +1,114 @@
+{
+    "Items": [
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"baseballbat\",\"Quantity\":1}",
+        "{\"DataType\":\"IntegerItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"m1911mag\",\"Quantity\":1,\"Value\":1}",
+        "{\"DataType\":\"WeedData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"sourdiesel\",\"Quantity\":3,\"Quality\":\"Standard\",\"PackagingID\":\"baggie\"}",
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"\",\"Quantity\":0}",
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"\",\"Quantity\":0}",
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"\",\"Quantity\":0}",
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"\",\"Quantity\":0}",
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"\",\"Quantity\":0}",
+        "{\"DataType\":\"CashData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"cash\",\"Quantity\":1,\"CashBalance\":0.0}"
+    ],
+    "SlotFilters": [
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+{
+    "DataType": "PropertyData",
+    "DataVersion": 0,
+    "GameVersion": "0.4.5f1",
+    "PropertyCode": "seweroffice",
+    "IsOwned": false,
+    "SwitchStates": [
+        true
+    ],
+    "ToggleableStates": [],
+    "Employees": [],
+    "Objects": [
+        {
+            "DataType": "GridItemData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"GridItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"c9b75d9e-5be5-480a-b710-5cfd4d1b2c20\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"garbagethrone\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"c3530910-7a32-48ad-8ae8-86a40b185233\",\"OriginCoordinate\":{\"x\":15.0,\"y\":8.0},\"Rotation\":-90}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "PlaceableStorageData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"PlaceableStorageData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"cd517780-415a-4b40-b941-604ae074e095\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"bed\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"c3530910-7a32-48ad-8ae8-86a40b185233\",\"OriginCoordinate\":{\"x\":0.0,\"y\":15.0},\"Rotation\":90,\"Contents\":{\"Items\":[\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\"],\"SlotFilters\":[{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]}]}}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "PlaceableStorageData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"PlaceableStorageData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"038da8a0-b416-492a-a90f-555e1d7f7c88\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"plastictable\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"c3530910-7a32-48ad-8ae8-86a40b185233\",\"OriginCoordinate\":{\"x\":8.0,\"y\":14.0},\"Rotation\":0,\"Contents\":{\"Items\":[\"{\\\"DataType\\\":\\\"MethData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"meth\\\",\\\"Quantity\\\":18,\\\"Quality\\\":\\\"Standard\\\",\\\"PackagingID\\\":\\\"\\\"}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"acid\\\",\\\"Quantity\\\":5}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"phosphorus\\\",\\\"Quantity\\\":4}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\"],\"SlotFilters\":[{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]}]}}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "TrashContainerData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"TrashContainerData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"a8d2ddfd-2a2a-4da5-9401-9cda5deb73d6\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"trashcan\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"c3530910-7a32-48ad-8ae8-86a40b185233\",\"OriginCoordinate\":{\"x\":7.0,\"y\":15.0},\"Rotation\":180,\"ContentData\":{\"TrashIDs\":[\"waterbottle\",\"coffeecup\",\"crushedcuke\"],\"TrashQuantities\":[1,2,2]}}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "PlaceableStorageData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"PlaceableStorageData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"9f0482c0-8ff1-46a0-98a2-29f93478d3a9\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"mediumstoragerack\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"c3530910-7a32-48ad-8ae8-86a40b185233\",\"OriginCoordinate\":{\"x\":8.0,\"y\":4.0},\"Rotation\":0,\"Contents\":{\"Items\":[\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"gasoline\\\",\\\"Quantity\\\":5}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\"],\"SlotFilters\":[{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]}]}}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "ToggleableItemData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"ToggleableItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"73bb90f1-3ff5-4580-8e32-af992830e5bd\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"floorlamp\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"c3530910-7a32-48ad-8ae8-86a40b185233\",\"OriginCoordinate\":{\"x\":15.0,\"y\":12.0},\"Rotation\":-90,\"IsOn\":true}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "ToggleableItemData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"ToggleableItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"4848ce0b-5d14-4e06-bcb9-7758e8e4ea54\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"floorlamp\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"c3530910-7a32-48ad-8ae8-86a40b185233\",\"OriginCoordinate\":{\"x\":15.0,\"y\":7.0},\"Rotation\":-90,\"IsOn\":true}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "GridItemData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"GridItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"1d8d4258-7c87-4538-8b3e-317a8c6fbc6f\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"toilet\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"c3530910-7a32-48ad-8ae8-86a40b185233\",\"OriginCoordinate\":{\"x\":5.0,\"y\":4.0},\"Rotation\":0}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "SurfaceItemData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"SurfaceItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"424f3d8d-8c33-4bed-8618-d3cb9cead1a0\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"wallclock\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":25,\"ParentSurfaceGUID\":\"b957bed2-830e-448c-baa5-b48e92df3c83\",\"RelativePosition\":{\"x\":0.49999725818634035,\"y\":0.056134387850761417,\"z\":0.2564016878604889},\"RelativeRotation\":{\"x\":0.4995410144329071,\"y\":0.4995410144329071,\"z\":0.4995410144329071,\"w\":0.5013744235038757}}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "PlaceableStorageData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"PlaceableStorageData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"6afd51c8-2f59-4eb2-802e-ce305853cc84\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"filingcabinet\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"c3530910-7a32-48ad-8ae8-86a40b185233\",\"OriginCoordinate\":{\"x\":13.0,\"y\":15.0},\"Rotation\":180,\"Contents\":{\"Items\":[\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\"],\"SlotFilters\":[{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]}]}}",
+            "AdditionalDatas": []
+        }
+    ]
+}

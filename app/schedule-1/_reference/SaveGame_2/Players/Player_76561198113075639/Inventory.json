@@ -1,0 +1,114 @@
+{
+    "Items": [
+        "{\"DataType\":\"TrashGrabberData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"trashgrabber\",\"Quantity\":1,\"Content\":{\"TrashIDs\":[\"cuke\",\"usedcigarette\",\"coffeecup\",\"bong\"],\"TrashQuantities\":[1,2,1,1]}}",
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"\",\"Quantity\":0}",
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"baggie\",\"Quantity\":9}",
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"\",\"Quantity\":0}",
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"trashbag\",\"Quantity\":2}",
+        "{\"DataType\":\"WeedData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"sourdiesel\",\"Quantity\":3,\"Quality\":\"Standard\",\"PackagingID\":\"baggie\"}",
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"\",\"Quantity\":0}",
+        "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"\",\"Quantity\":0}",
+        "{\"DataType\":\"CashData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"ID\":\"cash\",\"Quantity\":1,\"CashBalance\":619.0}"
+    ],
+    "SlotFilters": [
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "Type": 0,
+            "ItemIDs": [],
+            "AllowedQualities": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    ]
+}

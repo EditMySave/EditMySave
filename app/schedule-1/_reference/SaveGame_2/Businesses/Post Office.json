@@ -1,0 +1,27 @@
+{
+    "DataType": "BusinessData",
+    "DataVersion": 0,
+    "GameVersion": "0.4.5f1",
+    "PropertyCode": "postoffice",
+    "IsOwned": false,
+    "SwitchStates": [],
+    "ToggleableStates": [],
+    "Employees": [],
+    "Objects": [
+        {
+            "DataType": "GridItemData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"GridItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"ad5374de-cb99-4550-ba59-e9f628dfcd51\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"launderingstation\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"a35fca1e-7be4-4065-8032-8016a73eeb25\",\"OriginCoordinate\":{\"x\":4.0,\"y\":4.0},\"Rotation\":180}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "PlaceableStorageData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"PlaceableStorageData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"c5e2fc33-7eac-4461-936b-75afddbd6275\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"mediumstoragerack\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"f6decd6f-db53-4337-b318-b9edb1ec2e38\",\"OriginCoordinate\":{\"x\":0.0,\"y\":3.0},\"Rotation\":90,\"Contents\":{\"Items\":[\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\"],\"SlotFilters\":[{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]}]}}",
+            "AdditionalDatas": []
+        }
+    ],
+    "LaunderingOperations": []
+}

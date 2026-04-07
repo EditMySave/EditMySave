@@ -1,0 +1,27 @@
+{
+    "DataType": "BusinessData",
+    "DataVersion": 0,
+    "GameVersion": "0.4.5f1",
+    "PropertyCode": "carwash",
+    "IsOwned": false,
+    "SwitchStates": [],
+    "ToggleableStates": [],
+    "Employees": [],
+    "Objects": [
+        {
+            "DataType": "GridItemData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"GridItemData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"9e5c5409-6164-4be3-8ee2-1a9863a1c6b6\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"launderingstation\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"6dd99f24-c61c-447c-84bc-aff87fedd4a5\",\"OriginCoordinate\":{\"x\":3.0,\"y\":4.0},\"Rotation\":180}",
+            "AdditionalDatas": []
+        },
+        {
+            "DataType": "PlaceableStorageData",
+            "DataVersion": 0,
+            "GameVersion": "0.4.5f1",
+            "BaseData": "{\"DataType\":\"PlaceableStorageData\",\"DataVersion\":0,\"GameVersion\":\"0.4.5f1\",\"GUID\":\"2cd9f956-ea18-4301-8051-abf546727be7\",\"ItemString\":\"{\\n    \\\"DataType\\\": \\\"ItemData\\\",\\n    \\\"DataVersion\\\": 0,\\n    \\\"GameVersion\\\": \\\"0.4.5f1\\\",\\n    \\\"ID\\\": \\\"smallstoragerack\\\",\\n    \\\"Quantity\\\": 1\\n}\",\"LoadOrder\":0,\"GridGUID\":\"a94f4d7e-de6e-4f6e-8c60-aa0b2c5ab190\",\"OriginCoordinate\":{\"x\":1.0,\"y\":5.0},\"Rotation\":180,\"Contents\":{\"Items\":[\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\",\"{\\\"DataType\\\":\\\"ItemData\\\",\\\"DataVersion\\\":0,\\\"GameVersion\\\":\\\"0.4.5f1\\\",\\\"ID\\\":\\\"\\\",\\\"Quantity\\\":0}\"],\"SlotFilters\":[{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]},{\"Type\":0,\"ItemIDs\":[],\"AllowedQualities\":[0,1,2,3,4]}]}}",
+            "AdditionalDatas": []
+        }
+    ],
+    "LaunderingOperations": []
+}
