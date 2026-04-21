@@ -219,6 +219,27 @@
       ]
     },
     {
+      "id": "windrose",
+      "name": "Windrose",
+      "description": "Edit player stats, inventory, ships, recipes, and world data for Windrose saves",
+      "image": "/images/windrose/cover.jpg",
+      "route": "/windrose",
+      "status": "available",
+      "supportedVersion": "v0.10.0",
+      "platforms": [
+        {
+          "name": "Steam",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\Local\\R5\\Saved\\SaveGames\\[ACCOUNT_ID]"
+          },
+          "fileName": "Save folder (contains RocksDB directory)",
+          "instructions": "Navigate to %LOCALAPPDATA%\\R5\\Saved\\SaveGames\\ and open your account folder. Drag the save folder into this editor.",
+          "notes": "Always backup your save folder before editing. The editor exports a ZIP - extract it to replace your save folder."
+        }
+      ]
+    },
+    {
       "id": "hades",
       "name": "Hades",
       "description": "Modify resources, unlocks, and progression in your Hades save files",
