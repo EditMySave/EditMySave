@@ -1875,14 +1875,14 @@
     "description": "A scarred, storied mark from a true sea-dog of Blackbeard’s crews.\r\n\r\nTurn it in on Tortuga to any archipelago faction to gain reputation."
   },
   {
-    "id": "DID_Reputation_BlacksmithFlux_01",
-    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_Reputation_BlacksmithFlux_01.DA_DID_Reputation_BlacksmithFlux_01",
+    "id": "DID_TradeCraft_BlacksmithFlux_01",
+    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_TradeCraft_BlacksmithFlux_01.DA_DID_TradeCraft_BlacksmithFlux_01",
     "name": "Smithing Flux",
     "description": "Required for crafting quality metal weapons and armor.\r\n\r\nPurchased from Smugglers of Port Royal."
   },
   {
-    "id": "DID_Reputation_BlacksmithFlux_02",
-    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_Reputation_BlacksmithFlux_02.DA_DID_Reputation_BlacksmithFlux_02",
+    "id": "DID_TradeCraft_BlacksmithFlux_02",
+    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_TradeCraft_BlacksmithFlux_02.DA_DID_TradeCraft_BlacksmithFlux_02",
     "name": "Improved Smithing Flux",
     "description": "Required for crafting high-quality metal weapons and armor.\r\n\r\nPurchased from Smugglers of Port Royal."
   },
@@ -1911,26 +1911,26 @@
     "description": "Whom it may concern: the bearer of this letter has earned their standing through deed and loyalty. Treat them as a captain of proven worth, one who can be trusted with coin, cargo, and sensitive work.\r\n\r\nTurn it in on Tortuga to any archipelago faction to gain reputation."
   },
   {
-    "id": "DID_Reputation_FineTools_01",
-    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_Reputation_FineTools_01.DA_DID_Reputation_FineTools_01",
+    "id": "DID_TradeCraft_FineTools_01",
+    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_TradeCraft_FineTools_01.DA_DID_TradeCraft_FineTools_01",
     "name": "Master’s Tools",
     "description": "Required for crafting quality firearms and leather armor.\r\n\r\nPurchased from Buccaneers."
   },
   {
-    "id": "DID_Reputation_FineTools_02",
-    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_Reputation_FineTools_02.DA_DID_Reputation_FineTools_02",
+    "id": "DID_TradeCraft_FineTools_02",
+    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_TradeCraft_FineTools_02.DA_DID_TradeCraft_FineTools_02",
     "name": "Improved Master’s Tools",
     "description": "Required for crafting high-quality firearms and leather armor.\r\n\r\nPurchased from Buccaneers."
   },
   {
-    "id": "DID_Reputation_ShipTools_01",
-    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_Reputation_ShipTools_01.DA_DID_Reputation_ShipTools_01",
+    "id": "DID_TradeCraft_ShipTools_01",
+    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_TradeCraft_ShipTools_01.DA_DID_TradeCraft_ShipTools_01",
     "name": "Shipwright’s Tools",
     "description": "Required for crafting quality cannons and ship equipment.\r\n\r\nPurchased from Brethren of the Coast."
   },
   {
-    "id": "DID_Reputation_ShipTools_02",
-    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_Reputation_ShipTools_02.DA_DID_Reputation_ShipTools_02",
+    "id": "DID_TradeCraft_ShipTools_02",
+    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_TradeCraft_ShipTools_02.DA_DID_TradeCraft_ShipTools_02",
     "name": "Improved Shipwright’s Tools",
     "description": "Required for crafting high-quality cannons and ship equipment\r\n\r\nPurchased from Brethren of The Coast."
   },
@@ -1941,14 +1941,14 @@
     "description": "They’ll find anything you want—and sell it at an outrageous price, slipping past both law and tax along the way. Turn in Blackbeard insignia to increase your reputation with them."
   },
   {
-    "id": "DID_Reputation_ThreadsNeedles_01",
-    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_Reputation_ThreadsNeedles_01.DA_DID_Reputation_ThreadsNeedles_01",
+    "id": "DID_TradeCraft_ThreadsNeedles_01",
+    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_TradeCraft_ThreadsNeedles_01.DA_DID_TradeCraft_ThreadsNeedles_01",
     "name": "Sewing Tools",
     "description": "Required for crafting quality clothing made of fabric\r\n\r\nPurchased from the People of Tortuga."
   },
   {
-    "id": "DID_Reputation_ThreadsNeedles_02",
-    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_Reputation_ThreadsNeedles_02.DA_DID_Reputation_ThreadsNeedles_02",
+    "id": "DID_TradeCraft_ThreadsNeedles_02",
+    "itemParams": "/R5BusinessRules/InventoryItems/DefaultItems/Trading/DA_DID_TradeCraft_ThreadsNeedles_02.DA_DID_TradeCraft_ThreadsNeedles_02",
     "name": "Improved Sewing Tools",
     "description": "Required for crafting high quality clothing made of fabric\r\n\r\nPurchased from the People of Tortuga."
   },
