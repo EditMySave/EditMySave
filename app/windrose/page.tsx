@@ -88,7 +88,7 @@ const MODULE_NAMES: Record<number, string> = {
   4: "Accessories",
   5: "Documents",
   6: "Documents 2",
-  7: "Quest Items",
+  7: "Quest Items / Unredeemed Plans",
   8: "Ship Customizations",
   9: "NPC",
 }
@@ -701,10 +701,22 @@ export default function WindroseSaveEditor() {
                           }
                         })
                         if (mappedSlots.length === 0) return null
+                        let displayName = MODULE_NAMES[moduleIdx] ?? `Module ${moduleIdx}`
+                        if (moduleIdx === 7) {
+                          const planCount = mappedSlots.reduce(
+                            (n, s) =>
+                              s.itemId &&
+                              (s.itemParams.includes("RecipePaperUnlock") || s.itemParams.includes("Misc_Recipe_"))
+                                ? n + 1
+                                : n,
+                            0,
+                          )
+                          if (planCount > 0) displayName += ` (${planCount} unredeemed)`
+                        }
                         return (
                           <InventoryModule
                             key={moduleIdx}
-                            moduleName={MODULE_NAMES[moduleIdx] ?? `Module ${moduleIdx}`}
+                            moduleName={displayName}
                             slots={mappedSlots}
                             onChangeCount={(slotId, count) =>
                               setSaveData(setInventoryItemCount(saveData, "player", 0, moduleIdx, slotId, count))

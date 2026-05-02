@@ -299,13 +299,15 @@ interface FinishedRecipeEntry {
 }
 
 function getAllKnownRecipes(): string[] {
-  const all = new Set<string>();
-  for (const recipes of Object.values(recipeListsData)) {
-    for (const r of recipes as string[]) {
-      all.add(r);
-    }
-  }
-  return [...all];
+  const data = recipeListsData as {
+    stations?: Record<string, string[]>;
+    buildings?: Record<string, string[]>;
+    all?: string[];
+  };
+  const set = new Set<string>(data.all ?? []);
+  for (const list of Object.values(data.stations ?? {})) for (const r of list) set.add(r);
+  for (const list of Object.values(data.buildings ?? {})) for (const r of list) set.add(r);
+  return [...set];
 }
 
 export function setRecipeState(
@@ -464,7 +466,15 @@ export function teleportDeathBagsToPlayer(save: WindroseSave): WindroseSave {
 // --- Recipe list data for UI ---
 
 export function getRecipeCategories(): Record<string, string[]> {
-  return recipeListsData as Record<string, string[]>;
+  const data = recipeListsData as {
+    stations?: Record<string, string[]>;
+    buildings?: Record<string, string[]>;
+    all?: string[];
+  };
+  const out: Record<string, string[]> = {};
+  for (const [k, v] of Object.entries(data.stations ?? {})) out[k] = v;
+  for (const [k, v] of Object.entries(data.buildings ?? {})) out[`Building_${k}`] = v;
+  return out;
 }
 
 /** Extract a readable name from a recipe path */
