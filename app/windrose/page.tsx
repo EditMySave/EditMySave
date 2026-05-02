@@ -60,6 +60,7 @@ import {
   getStorageBlocks,
   clearAllDroppedItems,
   teleportDropsToPlayer,
+  teleportDeathBagsToPlayer,
   getRecipeCategories,
   getRecipeDisplayName,
   getCategoryDisplayName,
@@ -442,6 +443,9 @@ export default function WindroseSaveEditor() {
   const unlockedSet = new Set(unlockedRecipes.map((r) => r.Recipe.RecipeData))
   const finishedSet = new Set(finishedRecipes.map((r) => r.Recipe.RecipeData))
   const drops = saveData?.databases.worlds["R5BLActor_Drop"] ?? []
+  const deathBags = (saveData?.databases.worlds["R5BLIslandChest"] ?? []).filter(
+    (c) => (c.value.ChestClass as string | undefined)?.includes("PosthumousContainer"),
+  )
   const storageBlocks = saveData ? getStorageBlocks(saveData) : []
 
   const totalItems = playerModules.length > 0 ? countFilledSlots(playerModules) : 0
@@ -481,6 +485,11 @@ export default function WindroseSaveEditor() {
           label: "Teleport Drops to Player",
           onClick: () => setSaveData(teleportDropsToPlayer(saveData)),
           icon: <MapPin className="w-4 h-4 text-blue-400" />,
+        },
+        {
+          label: "Teleport Death Bag to Player",
+          onClick: () => setSaveData(teleportDeathBagsToPlayer(saveData)),
+          icon: <MapPin className="w-4 h-4 text-rose-400" />,
         },
         {
           label: "Clear All Drops",
@@ -855,6 +864,56 @@ export default function WindroseSaveEditor() {
                           {drops.length > 100 && (
                             <p className="text-xs text-zinc-600 pt-2">...and {drops.length - 100} more</p>
                           )}
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+
+                  {/* Death Bags */}
+                  <Card>
+                    <CardHeader className="flex flex-row items-center justify-between">
+                      <CardTitle className="text-base">Death Bags ({deathBags.length})</CardTitle>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        disabled={deathBags.length === 0}
+                        onClick={() => setSaveData(teleportDeathBagsToPlayer(saveData))}
+                      >
+                        <MapPin className="w-3 h-3 mr-1" /> Teleport to Player
+                      </Button>
+                    </CardHeader>
+                    <CardContent>
+                      {deathBags.length === 0 ? (
+                        <p className="text-sm text-zinc-500">No death bags in the world.</p>
+                      ) : (
+                        <div className="max-h-60 overflow-y-auto space-y-1">
+                          {deathBags.map((bag, i) => {
+                            const loc = bag.value.WorldLocation as { X: number; Y: number; Z: number } | undefined
+                            const inv = bag.value.Inventory as Record<string, unknown> | undefined
+                            const modules = (inv?.Modules ?? []) as Array<Record<string, unknown>>
+                            const filledCount = modules.reduce((sum, m) => {
+                              const slots = (m.Slots ?? []) as Array<Record<string, unknown>>
+                              return sum + slots.filter((s) => {
+                                const stack = s.ItemsStack as Record<string, unknown> | undefined
+                                const item = stack?.Item as Record<string, unknown> | undefined
+                                return Boolean(item?.ItemId)
+                              }).length
+                            }, 0)
+                            return (
+                              <div
+                                key={i}
+                                className="flex items-center gap-2 py-1.5 px-2 rounded bg-zinc-900/50 text-xs"
+                              >
+                                <span className="flex-1 truncate text-zinc-300">Death Bag #{i + 1}</span>
+                                <span className="text-zinc-500">{filledCount} item{filledCount === 1 ? "" : "s"}</span>
+                                {loc && (
+                                  <span className="text-zinc-600 text-[10px]">
+                                    ({loc.X.toFixed(0)}, {loc.Y.toFixed(0)})
+                                  </span>
+                                )}
+                              </div>
+                            )
+                          })}
                         </div>
                       )}
                     </CardContent>

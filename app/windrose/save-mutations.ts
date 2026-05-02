@@ -432,6 +432,35 @@ export function teleportDropsToPlayer(save: WindroseSave): WindroseSave {
   return s;
 }
 
+export function teleportDeathBagsToPlayer(save: WindroseSave): WindroseSave {
+  const s = cloneSave(save, "worlds");
+  const chests = s.databases.worlds["R5BLIslandChest"];
+  if (!chests || chests.length === 0) return s;
+
+  const piw = s.databases.worlds["R5BLPlayerInWorld"];
+  if (!piw || piw.length === 0) return s;
+
+  const spawnLocs = piw[0].value.SpawnLocations as Record<string, unknown> | undefined;
+  const lastPos = spawnLocs?.LastPositionData as Record<string, unknown> | undefined;
+  const worldLoc = lastPos?.WorldLocation as { X: number; Y: number; Z: number } | undefined;
+  if (!worldLoc) return s;
+
+  for (const chest of chests) {
+    const chestClass = chest.value.ChestClass as string | undefined;
+    if (!chestClass?.includes("PosthumousContainer")) continue;
+
+    const offsetX = (Math.random() - 0.5) * 200;
+    const offsetY = (Math.random() - 0.5) * 200;
+    chest.value.WorldLocation = {
+      X: worldLoc.X + offsetX,
+      Y: worldLoc.Y + offsetY,
+      Z: worldLoc.Z + 50,
+    };
+  }
+
+  return s;
+}
+
 // --- Recipe list data for UI ---
 
 export function getRecipeCategories(): Record<string, string[]> {
