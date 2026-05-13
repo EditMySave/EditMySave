@@ -39,6 +39,7 @@
     "@radix-ui/react-tooltip": "1.1.6",
     "@vercel/analytics": "latest",
     "@vercel/blob": "latest",
+    "aes-js": "^3.1.2",
     "autoprefixer": "^10.4.20",
     "bson": "^7.2.0",
     "class-variance-authority": "^0.7.1",
@@ -68,6 +69,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
+    "@types/aes-js": "^3.1.4",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",

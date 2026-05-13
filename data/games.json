@@ -240,6 +240,29 @@
       ]
     },
     {
+      "id": "far-far-west",
+      "name": "Far Far West",
+      "description": "Edit currencies, inventory, loadout, weapon upgrades, and progression in your Far Far West save files",
+      "image": "/images/far-far-west/cover.jpeg",
+      "route": "/far-far-west",
+      "status": "available",
+      "supportedVersion": "Early Access",
+      "platforms": [
+        {
+          "name": "Steam",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\Local\\FarFarWest\\Saved\\SaveGames\\[STEAM_ID].save"
+          },
+          "fileName": "[STEAM_ID].save",
+          "instructions": "Open %LOCALAPPDATA%\\FarFarWest\\Saved\\SaveGames\\ in File Explorer. Drag the file named with your Steam ID (e.g. 76561198034513767.save) into this editor.",
+          "notes": "Always create a backup of your save file before editing. The save is encrypted with AES-256-CBC keyed off your Steam ID, so the filename must start with your Steam ID for the editor to decrypt it. The editor handles encryption automatically."
+        },
+        { "name": "Xbox Game Pass", "supported": false },
+        { "name": "Epic Games Store", "supported": false }
+      ]
+    },
+    {
       "id": "hades",
       "name": "Hades",
       "description": "Modify resources, unlocks, and progression in your Hades save files",
