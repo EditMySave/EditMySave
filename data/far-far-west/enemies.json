@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-05-14T00:36:05.880Z",
+  "source": "FarFarWest/Content/Progress/DT_Bestiary.uasset + Localization/Game/en-US",
+  "labels": {
+    "killAssassin": "Kill Assassin",
+    "killBuffalo": "Kill Buffalo",
+    "killDeadEye": "Kill Dead Eye",
+    "killGrenadier": "Kill Grenadier",
+    "killGrunt": "Kill Grunt",
+    "killGunner": "Kill Gunner",
+    "killHorseman": "Kill Horseman",
+    "killKamikaze": "Kill Kamikaze",
+    "killLich": "Kill Lich",
+    "killNuker": "Kill Nuker",
+    "killPistolero": "Kill Pistolero",
+    "killRaven": "Kill Raven",
+    "killShielder": "Kill Shielder",
+    "killSnake": "Kill Snake"
+  }
+}

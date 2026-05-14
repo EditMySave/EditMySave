@@ -1,0 +1,52 @@
+{
+  "_comment": "Per-weapon tweak ceilings. Ported verbatim from the Python reference editor (far-far-west-editor/ffw_editor/presets.py:117-134). For weapons/tweaks not listed here, fall back to max(currentValue, 16). 'Hero' is intentionally lower (10) — its tweaks affect base movement / heals and the game rejects higher values.",
+  "caps": {
+    "itemHero": {
+      "jokerUpgradeJumpHeight": 10,
+      "jokerUpgradeHeroSpeed": 10,
+      "jokerUpgradeSpellCooldownReduction": 10,
+      "jokerUpgradeHeal": 10
+    },
+    "itemBoomerang": {
+      "jokerUpgradeBoomerangRange": 10,
+      "jokerUpgradeBoomerangLingeringTime": 10,
+      "jokerUpgradeDrawSpeed": 10,
+      "jokerUpgradeLifesteal_Lower": 10
+    },
+    "itemQuadCylinder": {
+      "jokerUpgradeFireRate": 10,
+      "jokerUpgradeClipSize": 10
+    },
+    "itemBow": {
+      "jokerUpgradeBendSpeed": 16,
+      "jokerUpgradeDrawSpeed": 16,
+      "jokerUpgradeTotalAmmoBagB": 16,
+      "jokerUpgradeDamage": 16
+    },
+    "itemDualRevolver": {
+      "jokerUpgradeDrawSpeed": 16,
+      "jokerUpgradeAccuracy": 16,
+      "jokerUpgradeDamage": 16,
+      "jokerUpgradeReloadSpeed": 16
+    },
+    "itemShotgun": {
+      "jokerUpgradeFireRate": 16,
+      "jokerUpgradeAccuracy": 16,
+      "jokerUpgradeDrawSpeed": 16,
+      "jokerUpgradeReloadSpeed": 16,
+      "jokerUpgradeClipSize": 16,
+      "jokerUpgradeDamage": 16
+    },
+    "itemMinigun": {
+      "jokerUpgradeAccuracy": 16,
+      "jokerUpgradeFirerateB": 16,
+      "jokerUpgradeDamage": 16,
+      "jokerUpgradeTotalAmmoBagC": 16,
+      "jokerUpgradeDrawSpeed": 16
+    },
+    "itemLongRanger": {
+      "jokerUpgradeFireRate": 16,
+      "jokerUpgradeClipSize": 16
+    }
+  }
+}

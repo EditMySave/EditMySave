@@ -10,6 +10,12 @@ import {
   Trophy,
   Code,
   FlaskConical,
+  Layers,
+  Wrench,
+  Crown,
+  Smile,
+  Mountain,
+  Map as MapIcon,
 } from "lucide-react"
 import Link from "next/link"
 import Head from "next/head"
@@ -44,8 +50,19 @@ import {
   setWeaponTweak,
   setEquippedJoker,
   setChallengeStat,
+  setLoadoutField,
   unlockOwnedSkins,
   unlockOwnedJokers,
+  unlockOwnedMounts,
+  unlockOwnedEmotes,
+  unlockOwnedMaps,
+  unlockOwnedTitles,
+  maxItemLevels,
+  maxWeaponUpgrades,
+  stackAllItems,
+  upgradeCapFor,
+  INT32_MAX,
+  KNOWN_LOADOUT_FIELDS,
 } from "./save-mutations"
 
 import gamesData from "@/data/games.json"
@@ -69,11 +86,20 @@ function labelFor(id: string, overrides: Record<string, string> = ITEM_LABELS): 
 
 type Progress = {
   selectedPlayerSkin?: string
+  selectedMountSkin?: string
+  selectedEmoteA?: string
   selectedEmoteB?: string
+  selectedEmoteC?: string
+  selectedEmoteD?: string
+  selectedItemA?: string
+  selectedItemB?: string
   selectedItemUtility?: string
+  selectedSpellA?: string
   spellB?: string
   spellC?: string
+  specialWeaponElement?: string
   fragmentTrackedWeaponName?: string
+  title?: string
   unlockedDifficulties?: number
   runtimeInventory?: Record<string, number>
   challenges?: Record<string, number>
@@ -199,6 +225,21 @@ export default function FarFarWestSaveEditor() {
           icon: <FlaskConical className="w-4 h-4 mr-2" />,
         },
         {
+          label: "Max Item Levels",
+          onClick: () => setSaveData(maxItemLevels(saveData)),
+          icon: <Layers className="w-4 h-4 mr-2" />,
+        },
+        {
+          label: "Max Weapon Upgrades",
+          onClick: () => setSaveData(maxWeaponUpgrades(saveData)),
+          icon: <Wrench className="w-4 h-4 mr-2" />,
+        },
+        {
+          label: "Stack All Items",
+          onClick: () => setSaveData(stackAllItems(saveData)),
+          icon: <Package className="w-4 h-4 mr-2" />,
+        },
+        {
           label: "Unlock All Difficulties",
           onClick: () => setSaveData(unlockAllDifficulties(saveData)),
           icon: <Trophy className="w-4 h-4 mr-2" />,
@@ -207,6 +248,26 @@ export default function FarFarWestSaveEditor() {
           label: "Unlock Owned Skins",
           onClick: () => setSaveData(unlockOwnedSkins(saveData)),
           icon: <Package className="w-4 h-4 mr-2" />,
+        },
+        {
+          label: "Unlock Owned Mounts",
+          onClick: () => setSaveData(unlockOwnedMounts(saveData)),
+          icon: <Mountain className="w-4 h-4 mr-2" />,
+        },
+        {
+          label: "Unlock Owned Emotes",
+          onClick: () => setSaveData(unlockOwnedEmotes(saveData)),
+          icon: <Smile className="w-4 h-4 mr-2" />,
+        },
+        {
+          label: "Unlock Owned Maps",
+          onClick: () => setSaveData(unlockOwnedMaps(saveData)),
+          icon: <MapIcon className="w-4 h-4 mr-2" />,
+        },
+        {
+          label: "Unlock Owned Titles",
+          onClick: () => setSaveData(unlockOwnedTitles(saveData)),
+          icon: <Crown className="w-4 h-4 mr-2" />,
         },
         {
           label: "Unlock Owned Jokers",
@@ -377,6 +438,7 @@ export default function FarFarWestSaveEditor() {
                               value={inventory[k]}
                               onChange={(e) => updateInventory(k, e.target.value)}
                               min={0}
+                              max={INT32_MAX}
                               className="font-mono text-lg bg-muted border-border text-foreground"
                             />
                           </CardContent>
@@ -411,6 +473,7 @@ export default function FarFarWestSaveEditor() {
                                 value={inventory[k]}
                                 onChange={(e) => updateInventory(k, e.target.value)}
                                 min={0}
+                                max={INT32_MAX}
                                 className="font-mono bg-background border-border text-foreground"
                               />
                             </div>
@@ -446,18 +509,27 @@ export default function FarFarWestSaveEditor() {
                                 </AccordionTrigger>
                                 <AccordionContent>
                                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
-                                    {inventoryGroups[g].sort().map((k) => (
-                                      <div key={k} className="space-y-2 p-3 bg-muted rounded-lg border border-border">
-                                        <Label className="text-sm font-medium text-card-foreground">{labelFor(k)}</Label>
-                                        <Input
-                                          type="number"
-                                          value={inventory[k]}
-                                          onChange={(e) => updateInventory(k, e.target.value)}
-                                          min={0}
-                                          className="font-mono bg-background border-border text-foreground"
-                                        />
-                                      </div>
-                                    ))}
+                                    {inventoryGroups[g].sort().map((k) => {
+                                      const hasLvl = Object.prototype.hasOwnProperty.call(challenges, `${k}Lvl`)
+                                      return (
+                                        <div key={k} className="space-y-2 p-3 bg-muted rounded-lg border border-border">
+                                          <Label className="text-sm font-medium text-card-foreground">{labelFor(k)}</Label>
+                                          <Input
+                                            type="number"
+                                            value={inventory[k]}
+                                            onChange={(e) => updateInventory(k, e.target.value)}
+                                            min={0}
+                                            max={INT32_MAX}
+                                            className="font-mono bg-background border-border text-foreground"
+                                          />
+                                          {hasLvl && (
+                                            <p className="text-[10px] text-muted-foreground">
+                                              synced to <code>challenges.{k}Lvl</code>
+                                            </p>
+                                          )}
+                                        </div>
+                                      )
+                                    })}
                                   </div>
                                 </AccordionContent>
                               </AccordionItem>
@@ -472,41 +544,119 @@ export default function FarFarWestSaveEditor() {
                     <Card className="bg-card border-border">
                       <CardHeader className="border-b border-border">
                         <CardTitle className="text-foreground">Equipped Loadout</CardTitle>
+                        <p className="text-xs text-muted-foreground pt-1">
+                          Fields only render when present in your save.
+                        </p>
                       </CardHeader>
                       <CardContent className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <LoadoutSelect
-                          label="Selected Skin"
-                          value={progress.selectedPlayerSkin ?? ""}
-                          options={ownedSkins.length ? ownedSkins : [progress.selectedPlayerSkin ?? ""]}
-                          onChange={(v) => setSaveData(setSelectedSkin(saveData, v))}
-                        />
-                        <LoadoutSelect
-                          label="Selected Emote"
-                          value={progress.selectedEmoteB ?? ""}
-                          options={ownedEmotes.length ? ownedEmotes : [progress.selectedEmoteB ?? ""]}
-                          onChange={(v) => setSaveData(setSelectedEmote(saveData, v))}
-                        />
-                        <LoadoutSelect
-                          label="Selected Utility"
-                          value={progress.selectedItemUtility ?? ""}
-                          options={ownedUtilities.length ? ownedUtilities : [progress.selectedItemUtility ?? ""]}
-                          onChange={(v) => setSaveData(setSelectedUtility(saveData, v))}
-                        />
-                        <LoadoutInput
-                          label="Fragment-Tracked Weapon"
-                          value={progress.fragmentTrackedWeaponName ?? ""}
-                          onChange={(v) => setSaveData(setFragmentTrackedWeapon(saveData, v))}
-                        />
-                        <LoadoutInput
-                          label="Spell B"
-                          value={progress.spellB ?? ""}
-                          onChange={(v) => setSaveData(setSpell(saveData, "B", v))}
-                        />
-                        <LoadoutInput
-                          label="Spell C"
-                          value={progress.spellC ?? ""}
-                          onChange={(v) => setSaveData(setSpell(saveData, "C", v))}
-                        />
+                        {"selectedPlayerSkin" in progress && (
+                          <LoadoutSelect
+                            label="Selected Skin"
+                            value={progress.selectedPlayerSkin ?? ""}
+                            options={ownedSkins.length ? ownedSkins : [progress.selectedPlayerSkin ?? ""]}
+                            onChange={(v) => setSaveData(setSelectedSkin(saveData, v))}
+                          />
+                        )}
+                        {"selectedMountSkin" in progress && (
+                          <LoadoutInput
+                            label="Selected Mount"
+                            value={progress.selectedMountSkin ?? ""}
+                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedMountSkin", v))}
+                          />
+                        )}
+                        {"selectedEmoteA" in progress && (
+                          <LoadoutInput
+                            label="Emote A"
+                            value={progress.selectedEmoteA ?? ""}
+                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedEmoteA", v))}
+                          />
+                        )}
+                        {"selectedEmoteB" in progress && (
+                          <LoadoutSelect
+                            label="Emote B"
+                            value={progress.selectedEmoteB ?? ""}
+                            options={ownedEmotes.length ? ownedEmotes : [progress.selectedEmoteB ?? ""]}
+                            onChange={(v) => setSaveData(setSelectedEmote(saveData, v))}
+                          />
+                        )}
+                        {"selectedEmoteC" in progress && (
+                          <LoadoutInput
+                            label="Emote C"
+                            value={progress.selectedEmoteC ?? ""}
+                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedEmoteC", v))}
+                          />
+                        )}
+                        {"selectedEmoteD" in progress && (
+                          <LoadoutInput
+                            label="Emote D"
+                            value={progress.selectedEmoteD ?? ""}
+                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedEmoteD", v))}
+                          />
+                        )}
+                        {"selectedItemA" in progress && (
+                          <LoadoutInput
+                            label="Item A"
+                            value={progress.selectedItemA ?? ""}
+                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedItemA", v))}
+                          />
+                        )}
+                        {"selectedItemB" in progress && (
+                          <LoadoutInput
+                            label="Item B"
+                            value={progress.selectedItemB ?? ""}
+                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedItemB", v))}
+                          />
+                        )}
+                        {"selectedItemUtility" in progress && (
+                          <LoadoutSelect
+                            label="Selected Utility"
+                            value={progress.selectedItemUtility ?? ""}
+                            options={ownedUtilities.length ? ownedUtilities : [progress.selectedItemUtility ?? ""]}
+                            onChange={(v) => setSaveData(setSelectedUtility(saveData, v))}
+                          />
+                        )}
+                        {"selectedSpellA" in progress && (
+                          <LoadoutInput
+                            label="Spell A"
+                            value={progress.selectedSpellA ?? ""}
+                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedSpellA", v))}
+                          />
+                        )}
+                        {"spellB" in progress && (
+                          <LoadoutInput
+                            label="Spell B"
+                            value={progress.spellB ?? ""}
+                            onChange={(v) => setSaveData(setSpell(saveData, "B", v))}
+                          />
+                        )}
+                        {"spellC" in progress && (
+                          <LoadoutInput
+                            label="Spell C"
+                            value={progress.spellC ?? ""}
+                            onChange={(v) => setSaveData(setSpell(saveData, "C", v))}
+                          />
+                        )}
+                        {"specialWeaponElement" in progress && (
+                          <LoadoutInput
+                            label="Special Weapon Element"
+                            value={progress.specialWeaponElement ?? ""}
+                            onChange={(v) => setSaveData(setLoadoutField(saveData, "specialWeaponElement", v))}
+                          />
+                        )}
+                        {"fragmentTrackedWeaponName" in progress && (
+                          <LoadoutInput
+                            label="Fragment-Tracked Weapon"
+                            value={progress.fragmentTrackedWeaponName ?? ""}
+                            onChange={(v) => setSaveData(setFragmentTrackedWeapon(saveData, v))}
+                          />
+                        )}
+                        {"title" in progress && (
+                          <LoadoutInput
+                            label="Title"
+                            value={progress.title ?? ""}
+                            onChange={(v) => setSaveData(setLoadoutField(saveData, "title", v))}
+                          />
+                        )}
                       </CardContent>
                     </Card>
 
@@ -525,18 +675,25 @@ export default function FarFarWestSaveEditor() {
                                   <span className="font-medium text-foreground">{labelFor(weapon)}</span>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                  {Object.entries(tweaks).map(([tweak, value]) => (
-                                    <div key={tweak} className="space-y-1.5">
-                                      <Label className="text-xs text-muted-foreground">{splitCamel(tweak)}</Label>
-                                      <Input
-                                        type="number"
-                                        value={value}
-                                        onChange={(e) => updateTweak(weapon, tweak, e.target.value)}
-                                        min={0}
-                                        className="font-mono bg-background border-border text-foreground"
-                                      />
-                                    </div>
-                                  ))}
+                                  {Object.entries(tweaks).map(([tweak, value]) => {
+                                    const cap = upgradeCapFor(weapon, tweak, value)
+                                    return (
+                                      <div key={tweak} className="space-y-1.5">
+                                        <Label className="text-xs text-muted-foreground flex items-center justify-between">
+                                          <span>{splitCamel(tweak)}</span>
+                                          <span className="text-[10px] opacity-70">max {cap}</span>
+                                        </Label>
+                                        <Input
+                                          type="number"
+                                          value={value}
+                                          onChange={(e) => updateTweak(weapon, tweak, e.target.value)}
+                                          min={0}
+                                          max={cap}
+                                          className="font-mono bg-background border-border text-foreground"
+                                        />
+                                      </div>
+                                    )
+                                  })}
                                 </div>
                               </div>
                             )
@@ -757,18 +914,27 @@ function ChallengeGroup({
       <CardContent className="pt-6">
         <ScrollArea className="h-[420px] pr-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {keys.sort().map((k) => (
-              <div key={k} className="space-y-1.5 p-3 bg-muted rounded-lg border border-border">
-                <Label className="text-xs text-muted-foreground">{CHALLENGE_LABELS[k] ?? splitCamel(k)}</Label>
-                <Input
-                  type="number"
-                  value={data[k] ?? 0}
-                  onChange={(e) => onChange(k, e.target.value)}
-                  min={0}
-                  className="font-mono bg-background border-border text-foreground"
-                />
-              </div>
-            ))}
+            {keys.sort().map((k) => {
+              const isSynced = k.startsWith("item") && k.endsWith("Lvl")
+              return (
+                <div key={k} className="space-y-1.5 p-3 bg-muted rounded-lg border border-border">
+                  <Label className="text-xs text-muted-foreground">{CHALLENGE_LABELS[k] ?? splitCamel(k)}</Label>
+                  <Input
+                    type="number"
+                    value={data[k] ?? 0}
+                    onChange={(e) => onChange(k, e.target.value)}
+                    min={0}
+                    max={INT32_MAX}
+                    className="font-mono bg-background border-border text-foreground"
+                  />
+                  {isSynced && (
+                    <p className="text-[10px] text-muted-foreground">
+                      syncs <code>runtimeInventory.{k.slice(0, -3)}</code>
+                    </p>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </ScrollArea>
       </CardContent>
