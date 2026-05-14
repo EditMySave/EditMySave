@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-14T00:36:05.880Z",
+  "generatedAt": "2026-05-14T01:11:38.496Z",
   "source": "FarFarWest/Content/Progress/DT_Bestiary.uasset + Localization/Game/en-US",
   "labels": {
     "killAssassin": "Kill Assassin",
@@ -16,5 +16,134 @@
     "killRaven": "Kill Raven",
     "killShielder": "Kill Shielder",
     "killSnake": "Kill Snake"
+  },
+  "descriptions": {},
+  "attributes": {
+    "killAssassin": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Assassin",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Assassin"
+    },
+    "killBuffalo": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Buffalo",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Buffalo"
+    },
+    "killDeadEye": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_DeadEye",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "DeadEye"
+    },
+    "killGrenadier": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Grenadier",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Grenadier"
+    },
+    "killGrunt": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Grunt",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Grunt"
+    },
+    "killGunner": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Gunner",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Gunner"
+    },
+    "killHorseman": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Horseman",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Horseman"
+    },
+    "killKamikaze": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Kamikaze",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Kamikaze"
+    },
+    "killLich": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Lich",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Lich"
+    },
+    "killNuker": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Nuker",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Nuker"
+    },
+    "killPistolero": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "type": null,
+      "class": "Pistolero"
+    },
+    "killRaven": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Raven",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Raven"
+    },
+    "killShielder": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Shielder",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Shielder"
+    },
+    "killSnake": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Interfaces/Bestiary/BP_EnemyProxy_Snake",
+      "longName": null,
+      "rarity": null,
+      "type": "Cryptic",
+      "class": "Snake"
+    }
   }
 }

@@ -1,4 +1,6 @@
 import type { FFWSave } from "@/lib/far-far-west/decoder"
+import { reprojectFriendly } from "@/lib/far-far-west/decoder"
+import * as raw from "@/lib/far-far-west/raw_ops"
 import upgradeCapsData from "@/data/far-far-west/upgrade-caps.json"
 
 export const INT32_MAX = 2_147_483_647
@@ -107,41 +109,75 @@ function levelKeyFor(itemKey: string): string {
 }
 
 /**
- * Set an existing runtimeInventory key. Clamps to [0, INT32_MAX]. If the save
- * has a matching `challenges.<key>Lvl`, that level is recomputed from the new
- * amount (game keeps these in lockstep).
+ * Set a runtimeInventory key. Clamps to [0, INT32_MAX]. Adds the key if
+ * it isn't already in the save (via raw scaffold; clones an existing
+ * inventory entry as template). If the save has a matching
+ * `challenges.<key>Lvl`, that level is recomputed from the new amount
+ * (game keeps these in lockstep) — and added too if missing.
  */
 export function setInventoryAmount(save: FFWSave, key: string, amount: number): FFWSave {
+  const clamped = clampInt32(amount)
   const inv: Inventory = progress(save).runtimeInventory ?? {}
-  if (!Object.prototype.hasOwnProperty.call(inv, key)) {
-    console.warn(`setInventoryAmount: "${key}" not in save — ignored (cannot add new inventory keys)`)
+
+  if (Object.prototype.hasOwnProperty.call(inv, key)) {
+    // Value-only path — friendly update; graft patches raw at encode.
+    const next = clone(save)
+    const nextInv: Inventory = { ...inv, [key]: clamped }
+    ;(progress(next) as PlayerProgress).runtimeInventory = nextInv
+
+    const lvl = levelKeyFor(key)
+    const challenges: Challenges = progress(next).challenges ?? {}
+    if (Object.prototype.hasOwnProperty.call(challenges, lvl)) {
+      progress(next).challenges = { ...challenges, [lvl]: levelFromAmount(clamped) }
+    }
+    return next
+  }
+
+  // Structural path — insert the entry into raw, then reproject friendly.
+  const r = raw.insertInventoryEntry(save.raw, key, clamped)
+  if (r === "no-template") {
+    console.warn(`setInventoryAmount: cannot insert "${key}" — runtimeInventory has no template entry`)
     return save
   }
-  const next = clone(save)
-  const nextInv: Inventory = { ...inv }
-  nextInv[key] = clampInt32(amount)
-  ;(progress(next) as PlayerProgress).runtimeInventory = nextInv
 
+  // Pair the level stat. Add it to the challenges map if it isn't there.
   const lvl = levelKeyFor(key)
-  const challenges: Challenges = progress(next).challenges ?? {}
+  const challenges = progress(save).challenges ?? {}
   if (Object.prototype.hasOwnProperty.call(challenges, lvl)) {
-    progress(next).challenges = { ...challenges, [lvl]: levelFromAmount(nextInv[key]) }
+    // existing: graft will sync from friendly — update via reproject after.
+  } else {
+    raw.insertMapEntry(save.raw, "playerProgress.challenges", lvl, levelFromAmount(clamped))
   }
-  return next
+  // After both raw inserts, re-derive friendly so the UI catches up.
+  const projected = reprojectFriendly(save)
+  if (Object.prototype.hasOwnProperty.call(challenges, lvl)) {
+    progress(projected).challenges = {
+      ...(progress(projected).challenges ?? {}),
+      [lvl]: levelFromAmount(clamped),
+    }
+  }
+  return projected
 }
 
 /**
- * Set a challenge stat. For <itemX>Lvl keys with a paired runtimeInventory
- * entry, also recomputes the inventory amount preserving progress-into-level.
+ * Set a challenge stat. Adds the key if it isn't in the save (via raw).
+ * For <itemX>Lvl keys with a paired runtimeInventory entry, also
+ * recomputes the inventory amount preserving progress-into-level.
  */
 export function setChallengeStat(save: FFWSave, key: string, value: number): FFWSave {
-  const challenges: Challenges = progress(save).challenges ?? {}
-  if (!Object.prototype.hasOwnProperty.call(challenges, key)) {
-    console.warn(`setChallengeStat: "${key}" not in save — ignored`)
-    return save
-  }
-  const next = clone(save)
   const clamped = clampInt32(value)
+  const challenges: Challenges = progress(save).challenges ?? {}
+
+  if (!Object.prototype.hasOwnProperty.call(challenges, key)) {
+    const r = raw.insertMapEntry(save.raw, "playerProgress.challenges", key, clamped)
+    if (r === "no-template") {
+      console.warn(`setChallengeStat: cannot insert "${key}" — challenges map has no template entry`)
+      return save
+    }
+    return reprojectFriendly(save)
+  }
+
+  const next = clone(save)
   progress(next).challenges = { ...challenges, [key]: clamped }
 
   if (key.startsWith("item") && key.endsWith("Lvl")) {
@@ -165,13 +201,20 @@ export function setLoadoutField(
   field: (typeof KNOWN_LOADOUT_FIELDS)[number],
   value: string,
 ): FFWSave {
-  if (!Object.prototype.hasOwnProperty.call(progress(save), field)) {
-    console.warn(`setLoadoutField: "${field}" not in save — ignored`)
+  if (Object.prototype.hasOwnProperty.call(progress(save), field)) {
+    const next = clone(save)
+    ;(progress(next) as Record<string, unknown>)[field] = value
+    return next
+  }
+
+  // Add a brand-new scalar property onto playerProgress via the raw scaffold.
+  // Clones a sibling string/name property as the envelope template.
+  const r = raw.setScalarProperty(save.raw, "playerProgress", field, value)
+  if (r === "no-template") {
+    console.warn(`setLoadoutField: cannot insert "${field}" — no template scalar property in playerProgress`)
     return save
   }
-  const next = clone(save)
-  ;(progress(next) as Record<string, unknown>)[field] = value
-  return next
+  return reprojectFriendly(save)
 }
 
 export function setSelectedSkin(save: FFWSave, id: string): FFWSave {
@@ -207,18 +250,25 @@ export function setWeaponTweak(
   const upgrades = progress(save).itemsUpgrades ?? {}
   const current = upgrades[weapon]
   const tweaks = current?.tweaks ?? {}
-  if (!current || !Object.prototype.hasOwnProperty.call(tweaks, tweak)) {
-    console.warn(`setWeaponTweak: "${weapon}.${tweak}" not in save — ignored`)
-    return save
-  }
   const cap = upgradeCapFor(weapon, tweak, tweaks[tweak] ?? 0)
   const clamped = Math.min(clampInt32(value), cap)
 
-  const next = clone(save)
-  const nextUpgrades = { ...upgrades }
-  nextUpgrades[weapon] = { ...current, tweaks: { ...tweaks, [tweak]: clamped } }
-  progress(next).itemsUpgrades = nextUpgrades
-  return next
+  if (current && Object.prototype.hasOwnProperty.call(tweaks, tweak)) {
+    const next = clone(save)
+    const nextUpgrades = { ...upgrades }
+    nextUpgrades[weapon] = { ...current, tweaks: { ...tweaks, [tweak]: clamped } }
+    progress(next).itemsUpgrades = nextUpgrades
+    return next
+  }
+
+  // Structural path — bootstraps `itemsUpgrades[weapon]` if absent and
+  // inserts the tweak map entry.
+  const r = raw.setWeaponTweak(save.raw, weapon, tweak, clamped)
+  if (r === "no-template") {
+    console.warn(`setWeaponTweak: cannot insert "${weapon}.${tweak}" — no template weapon/tweak in save`)
+    return save
+  }
+  return reprojectFriendly(save)
 }
 
 export function setEquippedJoker(
@@ -229,14 +279,32 @@ export function setEquippedJoker(
 ): FFWSave {
   const jokers = progress(save).itemJokers ?? {}
   const current = jokers[weapon]
-  if (!current) {
-    console.warn(`setEquippedJoker: weapon "${weapon}" not in save — ignored`)
+  if (current) {
+    const next = clone(save)
+    const nextJokers = { ...jokers, [weapon]: { ...current, [`joker${slot}`]: jokerId } }
+    progress(next).itemJokers = nextJokers
+    return next
+  }
+
+  // Structural path — bootstraps `itemJokers[weapon]` if absent.
+  const r = raw.setEquippedJokerSlot(save.raw, weapon, slot, jokerId)
+  if (r === "no-template") {
+    console.warn(`setEquippedJoker: cannot insert "${weapon}.${slot}" — no template joker entry in save`)
     return save
   }
-  const next = clone(save)
-  const nextJokers = { ...jokers, [weapon]: { ...current, [`joker${slot}`]: jokerId } }
-  progress(next).itemJokers = nextJokers
-  return next
+  return reprojectFriendly(save)
+}
+
+// Add a joker to a weapon's owned-pool (`itemJokers[weapon].jokers[]`).
+// Bootstraps the weapon entry if it isn't in the save.
+export function addJokerToWeaponPool(save: FFWSave, weapon: string, jokerId: string): FFWSave {
+  const r = raw.addJokerToWeaponPool(save.raw, weapon, jokerId)
+  if (r === "no-template") {
+    console.warn(`addJokerToWeaponPool: cannot add "${jokerId}" to "${weapon}" pool — no template`)
+    return save
+  }
+  if (r === "duplicate") return save
+  return reprojectFriendly(save)
 }
 
 // ---------------------------------------------------------------------------

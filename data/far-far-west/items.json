@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-14T00:36:05.864Z",
+  "generatedAt": "2026-05-14T01:11:38.475Z",
   "source": "FarFarWest/Content/Progress/DT_Player*.uasset + Localization/Game/en-US",
   "categories": {
     "currency": [
@@ -322,8 +322,8 @@
     "itemSpellVoodooHealArea": "Item Spell Voodoo Heal Area",
     "itemShotgunFragment": "Shotgun",
     "itemUtilityBottleCrateFragment": "Bottle Crate",
-    "skinAnvil": "All jaw, no jokes. \r\nHe once stared at a plank so long, the floor filed a complaint.",
-    "skinBlink": "He dreams of velvet curtains and standing ovations, but only found gunpowder and emergency extractions.",
+    "skinAnvil": "Anvil",
+    "skinBlink": "Blink Skin",
     "skinBull": "Bull",
     "skinCariboo": "Cariboo",
     "skinCryptic": "Skin Cryptic",
@@ -335,15 +335,15 @@
     "skinHunter": "Skin Hunter",
     "skinJaneDoe": "Jane Doe",
     "skinJohnDoe": "Skin John Doe",
-    "skinMarauder": "He came for the Gold. He stayed because he got lost. \r\nHe fights because he’s mad about it.",
-    "skinOtto": "He loves bureaucracy and dreams of taxing bounty rewards.\r\nRefuse to comply and he will promptly slap you in the face.",
+    "skinMarauder": "Marauder Skin",
+    "skinOtto": "Otto Skin",
     "skinPumpkinJack": "Pumpkin Jack",
-    "skinSheriff": "He doesn’t move much. Or talk. Or blink. Honestly, we’re not even sure he’s alive, but damn, he looks cool.",
+    "skinSheriff": "Sheriff Skin",
     "skinTrackman": "Skin Trackman",
-    "skinViejo": "Cloaked in style, armed with tales, and older than he admits. Some say he’s fought in every war. All of them.",
-    "skinWanderingTrader": "She has killed more invaders than you ever will, yet she somehow stays humble.",
-    "skinWillyBilly": "Need something fixed? He’s already halfway done. \r\nNeed a friend? He’s been here the whole time.",
-    "skinWoody": "Half keg, half bomb, all unstable. He doesn’t talk much, mostly because any spark of conversation might set him off.",
+    "skinViejo": "Viejo",
+    "skinWanderingTrader": "Wandering Trader Skin",
+    "skinWillyBilly": "Willy Billy Skin",
+    "skinWoody": "Woody Skin",
     "emoteClap": "Clap",
     "emoteCowboy": "Cowboy",
     "emoteDeadWeight": "Dead Weight",
@@ -393,8 +393,8 @@
     "jokerEcoTrick": "ECO TRICK",
     "jokerElementalSpin": "ELEMENTAL SPIN",
     "jokerExplosiveRounds": "EXPLOSIVE ROUNDS",
-    "jokerExplosiveRoundsAcid": "+5% chance to shoot explosive projectiles (Acid)",
-    "jokerExplosiveRoundsElec": "+5% chance to shoot explosive projectiles (Elec)",
+    "jokerExplosiveRoundsAcid": "EXPLOSIVE ROUNDS",
+    "jokerExplosiveRoundsElec": "EXPLOSIVE ROUNDS",
     "jokerExtraDash": "EXTRA DASH",
     "jokerExtraJump": "EXTRA JUMP",
     "jokerFanningAce": "FANNING ACE",
@@ -506,5 +506,1843 @@
     "mapWoodlands": "Map Woodlands",
     "musicDisc_TrainRush_2": "Music Disc_ Train Rush_2",
     "killedBosses": "Killed Bosses"
+  },
+  "descriptions": {
+    "itemBoomerang": "Flies out, bullies enemies for a while, then swings back for another round. \r\nNo ammo needed, perfect for an eco-friendly loadout.",
+    "itemBow": "Fires bargain-bin arrows when you quick draw. \r\nBend it like you mean it to drop an explosive banger.",
+    "itemDualRevolver": "High fire rate, bad accuracy, yet one reload sends both revolvers soaring into explosive usefulness. A miraculous jump from meh to mayhem.",
+    "itemMinigun": "Once it spins up, this thing spews bullets nonstop. Technically stoppable, but you’re a full-time bullet-slinger, not some quitter.",
+    "itemPistol": "Reliable at all times, average at everything. \r\nPeak choice for people who fear commitment.",
+    "itemSheriffStar": "Launches at high speed and slice enemies. \r\nJustice has never been this low-effort.",
+    "itemShotgun": "Weirdly high fire rate for a shotgun, single-shell reloads, and a spread wildfires wish for. At last, a weapon that matches your aim.",
+    "itemWinchester": "Crisp lever action, flawless precision, and rugged reloads. \r\nOnce used to win sickly goldfish at the fair, now wins gunfights.",
+    "itemUtilityAmmo": "Explodes into ammo. More players means more bullets. \r\nFamily gatherings have never been so lucrative.",
+    "itemUtilityBottleCrate": "Explodes into healing bottles.\r\nGuaranteed to make you the most popular cowboy at the saloon.",
+    "itemUtilityHealBottle": "Explodes on impact and creates a healing zone that lasts for a long time. \r\nSmells like rotten soup, just like any proper grandma’s remedy.",
+    "itemUtilityImpulse": "Periodically generates shockwaves that push players away. \r\nAllows you to reach heights your skill level never will.",
+    "itemSpellAcidBubble": "Throw a big acid bubble that bursts on impact and creates multiple acid puddles",
+    "itemSpellAcidContagion": "Corrodes all enemies in a wide zone and applies Contagious, causing them to explode on death",
+    "itemSpellAcidGeyser": "Summon an acid geyser that erupts on impact and launches enemies into the air",
+    "itemSpellAcidRain": "Call down a rain of acid that corrodes enemies in a wide area",
+    "itemSpellAcidThrower": "Spit jets of acid that leave corrosive puddles on the ground",
+    "itemSpellCactusDecoy": "Summon a dancing cactus that lures enemies before exploding",
+    "itemSpellCactusTurret": "Summon a cactus turret that fires continuously at nearby enemies",
+    "itemSpellCactusWall": "Summon cactus spikes that damage and slow enemies on contact",
+    "itemSpellElecPortal": "Spawn up to two portals that teleport players and duplicate spell projectiles",
+    "itemSpellElecStrike": "Strikes",
+    "itemSpellFireFingergun": "Finger Guns",
+    "itemSpellFireSurcharge": "Burn all enemies in a wide zone, detonating those already ablaze",
+    "itemSpellFireWisp": "Summon a wisp that deals extra burn damage, jumping to another enemy on kill",
+    "itemSpellVoodooCorruption": "Channel a doll to corrupt enemies, making them fight for you",
+    "itemSpellVoodooDoll": "Summon a doll that grants invincibility and high speed to allies within its zone",
+    "itemSpellVoodooDrain": "Command your doll to drain an enemy’s health",
+    "itemShotgunFragment": "Weirdly high fire rate for a shotgun, single-shell reloads, and a spread wildfires wish for. At last, a weapon that matches your aim.",
+    "itemUtilityBottleCrateFragment": "Explodes into healing bottles.\r\nGuaranteed to make you the most popular cowboy at the saloon.",
+    "skinAnvil": "All jaw, no jokes. \r\nHe once stared at a plank so long, the floor filed a complaint.",
+    "skinBlink": "He dreams of velvet curtains and standing ovations, but only found gunpowder and emergency extractions.",
+    "skinBull": "Hmmmph. Mooooo.\r\nHmmmp. Moo.",
+    "skinCariboo": "Snowman-crazed, he genuinely sees every enemy as a naughty snowman that needs discipline.",
+    "skinDrSparkTwist": "Dr Spark-Twist Skin",
+    "skinFortuna": "Fortuna Bluff",
+    "skinGravekeeper": "Paid by the grave, so he’s weirdly rooting for the invaders. \r\nNot exactly the villagers’ favorite.",
+    "skinHooty": "She’s revered as a pro tomb raider, but her career is accidental.\r\nShe just flipped a rock hunting mice and unearthed a temple.",
+    "skinJaneDoe": "Factory standard. The kind of girl who reads the instruction manual and highlights only the key details.",
+    "skinMarauder": "He came for the Gold. He stayed because he got lost. \r\nHe fights because he’s mad about it.",
+    "skinOtto": "He loves bureaucracy and dreams of taxing bounty rewards.\r\nRefuse to comply and he will promptly slap you in the face.",
+    "skinPumpkinJack": "Already the god of his own game, so he figured he might as well stroll in and wreck the Far Far West too.",
+    "skinSheriff": "He doesn’t move much. Or talk. Or blink. Honestly, we’re not even sure he’s alive, but damn, he looks cool.",
+    "skinViejo": "Cloaked in style, armed with tales, and older than he admits. Some say he’s fought in every war. All of them.",
+    "skinWanderingTrader": "She has killed more invaders than you ever will, yet she somehow stays humble.",
+    "skinWillyBilly": "Need something fixed? He’s already halfway done. \r\nNeed a friend? He’s been here the whole time.",
+    "skinWoody": "Half keg, half bomb, all unstable. He doesn’t talk much, mostly because any spark of conversation might set him off.",
+    "emoteClap": "When your teammate fumbles so hard you've gotta applaud.",
+    "emoteCowboy": "Gives big “I’ve trained for this in the mirror” energy.",
+    "emoteDeadWeight": "Sometimes you carry the team. \r\nToday, you’re mopping the floor with your face.",
+    "emoteFingerGuns": "Looks cool. Feels cooler. \r\nUnless you pair it with socks and sandals.",
+    "emoteGuitar": "The ultimate morale boost.\r\nBecause everyone loves an unsolicited acoustic cover mid-fight.",
+    "emoteHarmonica": "A soothing tune to mark the loss of yet another teammate.",
+    "emoteLasso": "Spinning like a cowboy, looking like a budget helicopter. \r\nAnd loving it.",
+    "emotePrisiadki": "A tasteful tactical squat.\r\nWidely recognized as the intellectual successor to teabagging.",
+    "emoteRockingChair": "Sit and relax. \r\nThe enemy can’t kill you if you’re already dead inside.",
+    "emoteSalute": "A proud salute to honor the mission that failed in record time.",
+    "emoteTpose": "It’s not a bug, it’s a feature.",
+    "emoteWaitingsocket": "Visibly judge your friend for taking forever in the lobby.",
+    "mountNyxie": "Born in the darkness, she spends her time standing dramatically in the rain, listening to the screaming of her own soul.",
+    "mountRoach": "It will never give you up, never let you down. \r\nUnless there are monsters nearby.",
+    "mountRodulph": "Fired from reindeer duty for his awful flying, Rodulph now spends his days as a minimum-wage fairground horse.",
+    "jokerAmmoSupply": "+5% chance for enemies to drop an ammo box upon death",
+    "jokerBattleMage": "Killing an enemy shortens all ongoing spell cooldowns by 1%",
+    "jokerBellShot": "+5% chance for weakspot hits to summon a healing ghost bell",
+    "jokerBouncingBall": "+15% damage airborne",
+    "jokerCactusDay": "+3% chance for a Cactus Mino to spawn when an enemy dies",
+    "jokerCamper": "50% chance not to consume ammo while standing still",
+    "jokerCantRipOneTrick": "Spells with base cooldowns of 35s or less have 20% reduced cooldown",
+    "jokerCarePackage": "+1 Utility Ammo",
+    "jokerChad": "Reveals the position of the Wandering Trader and get a 20% discount. You deserve it",
+    "jokerCheapSkate": "Gain +1HP for every 20 Gold in your mission inventory",
+    "jokerChickshot": "+50% chance for bullets to make chicken sounds. Useless!",
+    "jokerChonky": "+20% damage, but +25% gravity",
+    "jokerChonkyThrow": "The boomerang is twice as big",
+    "jokerClutch": "The last 2 bullets in your magazine are explosive",
+    "jokerConsumer": "Grants +20% weapon damage, but reloading now wastes unused ammo",
+    "jokerDeadlyStrong": "Move faster and deal more damage as a dead ghost",
+    "jokerDestroyer": "The first 25% of your clip deals +15% damage",
+    "jokerDisgrace": "Gain +30% movement speed. Your horse does not want to be with you",
+    "jokerDwarf": "You are small. Gain Movespeed, Firerate and Lower gravity",
+    "jokerEagleLever": "Consecutive shots without missing grant +5% damage, stacking up to +50%",
+    "jokerEcoTrick": "Reloading no longer wastes ammo",
+    "jokerElementalSpin": "The minigun has a 30% chance to fire a random elemental bullet instead of a regular one",
+    "jokerExplosiveRounds": "+5% chance to shoot explosive projectiles (Pyro)",
+    "jokerExplosiveRoundsAcid": "+5% chance to shoot explosive projectiles (Acid)",
+    "jokerExplosiveRoundsElec": "+5% chance to shoot explosive projectiles (Elec)",
+    "jokerExtraDash": "+1 Dash",
+    "jokerExtraJump": "+1 Jump",
+    "jokerFanningAce": "Fire mid-reload at the right moment to chain-fire all bullets with low accuracy",
+    "jokerFistFight": "Your melee hits are twice as powerful",
+    "jokerFocusShot": "Every kill reduces the cooldown of your spells by 1 second",
+    "jokerFocusedFeet": "+10% fire rate when aiming",
+    "jokerFrenzySpin": "While your kill counter is above 10, the minigun fires twice as fast",
+    "jokerGiant": "You are big. Gain Health, Weapon Damage and Spell CDR",
+    "jokerGlassCannon": "+40% weapon and melee damage, but -25% HP",
+    "jokerGoldProspector": "Increase your acquired Gold by 20% at the end of a mission",
+    "jokerGoldTooth": "+10% chance for enemies to drop 1 gold nugget upon death",
+    "jokerHeadBang": "Deal +20% damage to weakspots",
+    "jokerHeadshotRefund": "+20% chance to get your bullet back after a weakspot hit",
+    "jokerHealthyBoi": "While at full HP, gain +20% move speed, reload speed, and fire rate",
+    "jokerHeavyDrinker": "Healing bottles are 25% more effective on you",
+    "jokerHelpingHand": "You can revive your allies twice as fast",
+    "jokerHitMe": "Heal 0.5 HP per second for 20 seconds after being hit",
+    "jokerHoarder": "+15% chance that collecting a Joker makes another random one appear",
+    "jokerHomingBurst": "Every 20 bullets fired, shoot 5 homing bullets at nearby enemies",
+    "jokerJumpStar": "+2 Jump while holding the Sheriff Stars",
+    "jokerLastDance": "While under 30% HP, gain +30% move speed",
+    "jokerLazy": "Ammo pickups are disabled. Passively regain ammos",
+    "jokerLifePact": "Kills heal you for 2 HP, but max. HP is reduced by 30%",
+    "jokerLingeringThrow": "Doubles the lingering time. Combines with Lingering Time upgrade",
+    "jokerLowGravity": "25% lower gravity",
+    "jokerLuckyStrike": "+10% chance to deal double damage per shot",
+    "jokerMachineGun": "Per mission, the weapon gains +0.3% fire rate for every 50 damage dealt",
+    "jokerMagicFriendship": "Passively regain HP while being near allies",
+    "jokerMarkAce": "Bullets mark enemies for 3s. Marked enemies take +15% damage",
+    "jokerMindShot": "Your weakspot hits cause an explosion",
+    "jokerOverBlast": "Shoot an extra pellet for every round missing from the magazine",
+    "jokerPartyShot": "+50% chance for weakspot hits to blow confetti. Useless!",
+    "jokerPickPick": "+5% chance on hit to spawn damaging pickaxes on the target",
+    "jokerPigshot": "+5% chance to spawn a pig on impact. Shoot them to make them explode",
+    "jokerPlasticDuck": "Walking makes rubber duck noises. Useless!",
+    "jokerRage": "Upon reaching 25% HP, release a wave that burns nearby enemies (cooldown: 60 sec.)",
+    "jokerRampage": "Killing an enemy grants 25% movespeed for 3 seconds (no stacking)",
+    "jokerRelentless": "While under 30% HP, deal +30% damage",
+    "jokerReloadMastery": "Reloading an empty clip is 50% faster",
+    "jokerRicochet": "The fired bullet ricochets, with a 30% chance to automatically hit a nearby enemy",
+    "jokerRunAndGun": "+30% move speed when shooting",
+    "jokerRunAndReload": "+30% move speed when reloading",
+    "jokerRushBlast": "The first bullet in your magazine has 100% accuracy and shoots further away",
+    "jokerScavengerStar": "Gain +30% move speed and +100% pickup range",
+    "jokerSecondWind": "Heal 50 HP instead of dying to a fatal hit (cooldown: 180 sec.)",
+    "jokerShineBright": "+50% hero glow. You’re shining! Useless!",
+    "jokerShroomGrave": "+10% chance for a shroom to spawn when an enemy dies",
+    "jokerSoulEater": "Picking up a soul grants +20% damage and reload speed for 5s (no stacking)",
+    "jokerSoulReaper": "Increase your acquired Souls by 20% at the end of a mission",
+    "jokerSoulSiphon": "Increased pick up range and gain +2 HP when picking up a soul",
+    "jokerSpeedster": "Gives increased damage and fire rate the faster you are",
+    "jokerSpeedyGunzales": "+10% move speed",
+    "jokerStackedLever": "Instantly reload 2 bullets from your reserve ammo on kill",
+    "jokerStonks": "+15% chance that opening a chest gives you a random Joker",
+    "jokerSwampTrick": "Reload explosions now leave puddles on the ground",
+    "jokerToolBox": "Utility pickups are disabled. Your utility automatically refills after 90 sec",
+    "jokerTweakDealer": "Gain +1 HP for each active Joker (including weapons)",
+    "jokerWeakLink": "Weakspot hits do 35% more damage, but regular hits do 35% less damage",
+    "jokerWestWizard": "Gain -30% spell cooldown, but -30% HP "
+  },
+  "attributes": {
+    "itemAcid": {
+      "element": "Acid",
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_SpellClass_Acid",
+      "longName": null,
+      "rarity": null
+    },
+    "itemBoomerang": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_Boomerang",
+      "longName": null,
+      "rarity": null
+    },
+    "itemBow": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_Bow",
+      "longName": null,
+      "rarity": null
+    },
+    "itemCactus": {
+      "element": "Cactus",
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_SpellClass_Cactus",
+      "longName": null,
+      "rarity": null
+    },
+    "itemDefaultGun": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_DefaultGun",
+      "longName": null,
+      "rarity": null
+    },
+    "itemDualRevolver": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_DualRevolver",
+      "longName": null,
+      "rarity": null
+    },
+    "itemElec": {
+      "element": "Elec",
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_SpellClass_Elec",
+      "longName": null,
+      "rarity": null
+    },
+    "itemFire": {
+      "element": "Fire",
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_SpellClass_Fire",
+      "longName": null,
+      "rarity": null
+    },
+    "itemHero": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_Hero",
+      "longName": null,
+      "rarity": null
+    },
+    "itemLongRanger": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_LongRanger",
+      "longName": null,
+      "rarity": null
+    },
+    "itemMelee": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_Melee",
+      "longName": null,
+      "rarity": null
+    },
+    "itemMinigun": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_Minigun",
+      "longName": null,
+      "rarity": null
+    },
+    "itemPistol": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_Pistol",
+      "longName": null,
+      "rarity": null
+    },
+    "itemQuadCylinder": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSheriffStar": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_SheriffStar",
+      "longName": null,
+      "rarity": null
+    },
+    "itemShotgun": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_Shotgun",
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellAcidBubble": {
+      "element": "Acid",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellAcidContagion": {
+      "element": "Acid",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellAcidGeyser": {
+      "element": "Acid",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellAcidRain": {
+      "element": "Acid",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellAcidThrower": {
+      "element": "Acid",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellCactusBetty": {
+      "element": "Cactus",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellCactusDecoy": {
+      "element": "Cactus",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellCactusTurret": {
+      "element": "Cactus",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellCactusUlti": {
+      "element": "Cactus",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellCactusWall": {
+      "element": "Cactus",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellElecPortal": {
+      "element": "Elec",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellElecStrike": {
+      "element": "Elec",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellElecSuperJump": {
+      "element": "Elec",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellElecSwap": {
+      "element": "Elec",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellElecThunderstrike": {
+      "element": "Elec",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellFireBall": {
+      "element": "Fire",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellFireBeam": {
+      "element": "Fire",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellFireFingergun": {
+      "element": "Fire",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellFireSurcharge": {
+      "element": "Fire",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellFireWisp": {
+      "element": "Fire",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellVoodooCorruption": {
+      "element": "Voodoo",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellVoodooDoll": {
+      "element": "Voodoo",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellVoodooDrain": {
+      "element": "Voodoo",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellVoodooHeal": {
+      "element": "Voodoo",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemSpellVoodooHealArea": {
+      "element": "Voodoo",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemUtilityAmmo": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/Grenades/BP_Item_Grenade_Ammos",
+      "longName": null,
+      "rarity": null
+    },
+    "itemUtilityBottleCrate": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/Grenades/BP_Item_Grenade_BottleCrate",
+      "longName": null,
+      "rarity": null
+    },
+    "itemUtilityHealBottle": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemUtilityImpulse": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/Grenades/BP_Item_Grenade_Impulse",
+      "longName": null,
+      "rarity": null
+    },
+    "itemVoodoo": {
+      "element": "Voodoo",
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_SpellClass_Voodoo",
+      "longName": null,
+      "rarity": null
+    },
+    "itemWinchester": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": "/Game/Items/BP_Item_Winchester",
+      "longName": null,
+      "rarity": null
+    },
+    "skinAnvil": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "skinBlink": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_Blink",
+      "bpPath": null,
+      "longName": "Blink Skin",
+      "rarity": null,
+      "unlockedVia": "challengeBuySkinsA"
+    },
+    "skinBull": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_Bull",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "skinCariboo": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_Cariboo",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeSecretFarFarNorthA"
+    },
+    "skinCryptic": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_Cryptic",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "skinDrSparkTwist": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": "Dr Spark-Twist Skin",
+      "rarity": null,
+      "unlockedVia": "challengeSparkTwistQuestlineA"
+    },
+    "skinFarmer": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_Farmer",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "skinFortuna": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_FortunaBluff",
+      "bpPath": null,
+      "longName": "Fortuna Bluff Skin",
+      "rarity": null
+    },
+    "skinGravekeeper": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": "Gravekeeper Skin",
+      "rarity": null,
+      "unlockedVia": "challengeGravesSkin"
+    },
+    "skinHooty": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": "Hooty Skin",
+      "rarity": null
+    },
+    "skinHunter": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_Hunter",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "skinJaneDoe": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_JaneDoe",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "skinJohnDoe": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "skinMarauder": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_Marauder",
+      "bpPath": null,
+      "longName": "Marauder Skin",
+      "rarity": null,
+      "unlockedVia": "challengeKillMaraudersA"
+    },
+    "skinOtto": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_Otto",
+      "bpPath": null,
+      "longName": "Otto Skin",
+      "rarity": null
+    },
+    "skinPumpkinJack": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_PumpkinJack",
+      "bpPath": null,
+      "longName": "Pumpkin Jack Skin",
+      "rarity": null,
+      "unlockedVia": "challengeModifierHalloweenA"
+    },
+    "skinSheriff": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_Sheriff",
+      "bpPath": null,
+      "longName": "Sheriff Skin",
+      "rarity": null,
+      "unlockedVia": "challengeFinishContractsA"
+    },
+    "skinTrackman": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "skinViejo": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_Viejo",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "skinWanderingTrader": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_WanderingTrader",
+      "bpPath": null,
+      "longName": "Wandering Trader Skin",
+      "rarity": null,
+      "unlockedVia": "challengeTradeWandering"
+    },
+    "skinWillyBilly": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_WillyBilly",
+      "bpPath": null,
+      "longName": "Willy Billy Skin",
+      "rarity": null,
+      "unlockedVia": "challengeWillyBillyQuestlineA"
+    },
+    "skinWoody": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_PlayerIcon_Woody",
+      "bpPath": null,
+      "longName": "Woody Skin",
+      "rarity": null,
+      "unlockedVia": "challengeKillMeleeA"
+    },
+    "jokerAimingBurst": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_AimingBurst",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerAmmoSupply": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_AmmoSupply",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerAntiGravityFalls": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_AntiGravityFalls",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerBattleMage": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Battlemage",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerBellShot": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeSecretFarWestA"
+    },
+    "jokerBigBoots": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_BigBoots",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerBouncingBall": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_BouncingBall",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerCactusDay": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_CactusDay",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeSecretDesertA"
+    },
+    "jokerCamper": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Camper",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerCantRipOneTrick": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerCarePackage": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerCdrAcid": {
+      "element": "Acid",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerCdrCactus": {
+      "element": "Cactus",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerCdrElec": {
+      "element": "Elec",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerCdrFire": {
+      "element": "Fire",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerCdrVoodoo": {
+      "element": "Voodoo",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerChad": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Chad",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerCheapSkate": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/Icon_CheapSkate",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerChickshot": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerChonky": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Chonky",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerChonkyThrow": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_ChonkyThrow",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeBoomerangDamage02"
+    },
+    "jokerClutch": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Clutch",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerConsumer": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Consumer",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerDeadlyStrong": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/Icon_DeadlyStrong",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerDestroyer": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Destroyer",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerDisgrace": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Disgrace",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerDwarf": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Dwarf",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerEagleLever": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_EagleLever",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeWinchesterDamage01"
+    },
+    "jokerEcoTrick": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_EcoTrick",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeDualRevolverDamage03"
+    },
+    "jokerElementalSpin": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_ElementalSpin",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeMinigunDamage01"
+    },
+    "jokerExplosiveRounds": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerExplosiveRoundsAcid": {
+      "element": "Acid",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerExplosiveRoundsElec": {
+      "element": "Elec",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerExtraDash": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerExtraJump": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerFanningAce": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_FanningAce",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeRevolverDamage02"
+    },
+    "jokerFistFight": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_FistFight",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeKillMeleeB"
+    },
+    "jokerFocusShot": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_FocusShot",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeLongRangerDamage03"
+    },
+    "jokerFocusedFeet": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_FocusedFeet",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerFrenzySpin": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_FrenzySpin",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeMinigunDamage02"
+    },
+    "jokerGiant": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Giant",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerGlassCannon": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerGoldProspector": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengePickGoldA"
+    },
+    "jokerGoldTooth": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_GoldTooth",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerHeadBang": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerHeadshotRefund": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerHealthyBoi": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_HealthyBoi",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerHeavyDrinker": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_HeavyDrinker",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerHelpingHand": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_HelpingHand",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerHitMe": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_HitMe",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerHoarder": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Hoarder",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeCollectJokers"
+    },
+    "jokerHomingBurst": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeQuadCylinderDamage02"
+    },
+    "jokerJokheal": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Jokheal",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerJumpStar": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_JumpStar",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeSheriffStarDamage01"
+    },
+    "jokerLastDance": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_LastDance",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerLazy": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Lazy",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerLifePact": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_LifePact",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerLingeringThrow": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_LingeringThrow",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeBoomerangDamage01"
+    },
+    "jokerLowGravity": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_LowGravity",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerLuckyStrike": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_LuckyStrike",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerMachineGun": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_MachineGun",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerMagicFriendship": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_MagicFriendship",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerMarkAce": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_MarkAce",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeRevolverDamage01"
+    },
+    "jokerMindShot": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Mindshot",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerOverBlast": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_OverBlast",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeShotgunDamage02"
+    },
+    "jokerOverDraw": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_OverDraw",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerPartyShot": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerPickPick": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_PickPick",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeSecretCanyonA"
+    },
+    "jokerPigshot": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerPlasticDuck": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_PlasticDuck",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerRage": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Rage",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerRampage": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Rampage",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerRelentless": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Relentless",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerReloadMastery": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_ReloadMastery",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerRicochet": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/Icon_BulletRicochet",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerRunAndGun": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerRunAndReload": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerRushBlast": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_RushBlast",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeShotgunDamage01"
+    },
+    "jokerScavengerStar": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_ScavengerStar",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeSheriffStarDamage02"
+    },
+    "jokerSecondWind": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerShineBright": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerShroomGrave": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeSecretWoodlandsA"
+    },
+    "jokerSoulEater": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_SoulEater",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerSoulReaper": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_SoulReaper",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengePickSoulsA"
+    },
+    "jokerSoulSiphon": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_SoulSiphon",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerSpeedster": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Speedster",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerSpeedyGunzales": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerStackedLever": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_StackedLever",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeWinchesterDamage02"
+    },
+    "jokerStonks": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Stonks",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerSwampTrick": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_SwampTrick",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeDualRevolverDamage02"
+    },
+    "jokerToolBox": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_Toolbox",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerTweakDealer": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_TweakDealer",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUltraDraw": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_UltraDraw",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeAccuracy": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeBendSpeed": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeBoomerangLingeringTime": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeBoomerangRange": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeClipSize": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeDamage": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeDrawSpeed": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeFirerate": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeHeal": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeHeroSpeed": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeJumpHeight": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeLifesteal": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeReloadSpeed": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeSherrifStarPickUpRange": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeSpellCooldownReduction": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerUpgradeTotalAmmoBag": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerWeakLink": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_WeakLink",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "jokerWestWizard": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "emoteClap": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "emoteCowboy": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_EmoteIcon_Cowboy",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "emoteDeadWeight": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeLoseMissionsA"
+    },
+    "emoteFingerGuns": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "emoteGuitar": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_EmoteIcon_Guitar",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "emoteHarmonica": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_EmoteIcon_Harmonica",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "emoteLasso": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_EmoteIcon_Lasso",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "emotePrisiadki": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null,
+      "unlockedVia": "challengeFindDiskFragments"
+    },
+    "emoteRockingChair": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_EmoteIcon_RockingChair",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "emoteSalute": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_EmoteIcon_Salute",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "emoteTpose": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_EmoteIcon_Tpose",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "emoteWaitingsocket": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleAcid": {
+      "element": "Acid",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleBlackoutDrinker": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleBountyHunter": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleCactus": {
+      "element": "Cactus",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleCrypticReaper": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleDustEater": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleElec": {
+      "element": "Elec",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleGamblingAddict": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleLegendOfTheFarFarWest": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleOiledMachine": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titlePlaytester": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titlePyro": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleRusty": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleSheriff": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": "Sheriff Skin",
+      "rarity": null
+    },
+    "titleSixShooterAce": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleSurvivorNoose": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleVoodoo": {
+      "element": "Voodoo",
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleVultureBait": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "titleWarlock": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mountCargo": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_MountCargo",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mountCryptic": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mountNyxie": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_MountNyxie",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mountRacing": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_Icon_MountRacing",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mountRoach": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mountRodulph": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mapArea41": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_IconLarge_Area41",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mapCanyon": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_IconLarge_Canyon",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mapDesert": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_IconLarge_Desert",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mapFarFarNorth": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_IconLarge_FarFarNorth",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mapFarWest": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_IconLarge_FarWest",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mapJungle": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_IconLarge_Jungle",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mapLobby": {
+      "element": null,
+      "iconPath": "/Game/Textures/Icons/T_IconLarge_Lobby",
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "mapWoodlands": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "moneyGold": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "moneySoul": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "moneyTicket": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemShotgunFragment": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "itemUtilityBottleCrateFragment": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "questRidingLicenceA": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "questSparkTwistA": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "questSparkTwistB": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "questSteamTrainB": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "musicDisc_TrainRush_2": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    },
+    "killedBosses": {
+      "element": null,
+      "iconPath": null,
+      "bpPath": null,
+      "longName": null,
+      "rarity": null
+    }
   }
 }

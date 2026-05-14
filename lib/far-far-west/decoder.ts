@@ -720,7 +720,7 @@ function isInventoryEntry(entry: Any): boolean {
   )
 }
 
-function toFriendly(gvas: GvasFile): { tree: Any; unparsed: Record<string, string> } {
+export function toFriendly(gvas: GvasFile): { tree: Any; unparsed: Record<string, string> } {
   const unparsed: Record<string, string> = {}
   const tree = friendlyFromProperties(gvas.properties, "", unparsed)
   return { tree, unparsed }
@@ -989,4 +989,13 @@ export async function encodeSaveToBlob(save: FFWSave): Promise<Blob> {
   const plaintext = serializeGvas(save.raw)
   const out = encryptSave(plaintext, key, save.iv)
   return new Blob([out as BlobPart], { type: "application/octet-stream" })
+}
+
+// Re-derive the friendly projection from the (possibly mutated) raw
+// scaffold. Use this after `raw_ops` structural edits so the UI's
+// friendly-bound state catches up. Returns a new `FFWSave` so React's
+// reference-identity tracking sees the change.
+export function reprojectFriendly(save: FFWSave): FFWSave {
+  const { tree, unparsed } = toFriendly(save.raw)
+  return { ...save, friendly: tree, unparsed }
 }

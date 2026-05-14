@@ -36,6 +36,7 @@ import { EditorSidebar } from "@/components/editor-sidebar"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
 
 import { decodeSaveFromFile, encodeSaveToBlob, type FFWSave } from "@/lib/far-far-west/decoder"
+import { EnumSelect } from "@/components/save-fields/EnumSelect"
 import {
   setInventoryAmount,
   maxCurrencies,
@@ -68,10 +69,27 @@ import {
 import gamesData from "@/data/games.json"
 import itemsCatalog from "@/data/far-far-west/items.json"
 import challengesCatalog from "@/data/far-far-west/challenges.json"
+import enemiesCatalog from "@/data/far-far-west/enemies.json"
 
 const CATEGORIES = itemsCatalog.categories as Record<string, string[]>
 const ITEM_LABELS = itemsCatalog.labels as Record<string, string>
+const ITEM_DESCRIPTIONS = (itemsCatalog as { descriptions?: Record<string, string> }).descriptions ?? {}
 const CHALLENGE_LABELS = challengesCatalog.labels as Record<string, string>
+const CHALLENGE_DESCRIPTIONS = (challengesCatalog as { descriptions?: Record<string, string> }).descriptions ?? {}
+const ENEMY_LABELS = (enemiesCatalog as { labels?: Record<string, string> }).labels ?? {}
+
+interface ItemAttrs {
+  element?: string | null
+  iconPath?: string | null
+  bpPath?: string | null
+  longName?: string | null
+  rarity?: string | null
+  unlockedVia?: string | null
+  type?: string | null
+  class?: string | null
+}
+const ITEM_ATTRS = ((itemsCatalog as { attributes?: Record<string, ItemAttrs> }).attributes ?? {})
+const ENEMY_ATTRS = ((enemiesCatalog as { attributes?: Record<string, ItemAttrs> }).attributes ?? {})
 
 function splitCamel(s: string): string {
   return s
@@ -82,6 +100,95 @@ function splitCamel(s: string): string {
 
 function labelFor(id: string, overrides: Record<string, string> = ITEM_LABELS): string {
   return overrides[id] ?? splitCamel(id)
+}
+
+// Per-element tint used by the small dot badge next to spell / joker /
+// material entries. Matches the in-game element palette.
+const ELEMENT_TINT: Record<string, { dot: string; ring: string }> = {
+  Acid:   { dot: "bg-green-500",   ring: "ring-green-500/40" },
+  Cactus: { dot: "bg-emerald-500", ring: "ring-emerald-500/40" },
+  Elec:   { dot: "bg-yellow-400",  ring: "ring-yellow-400/40" },
+  Fire:   { dot: "bg-red-500",     ring: "ring-red-500/40" },
+  Voodoo: { dot: "bg-purple-500",  ring: "ring-purple-500/40" },
+}
+
+// Tiny element indicator dot. Hover text gives the element name.
+function ElementDot({ element }: { element?: string | null }) {
+  if (!element) return null
+  const tint = ELEMENT_TINT[element]?.dot ?? "bg-gray-400"
+  return (
+    <span
+      className={`inline-block w-2 h-2 rounded-full ${tint}`}
+      aria-label={element}
+      title={element}
+    />
+  )
+}
+
+// Rarity placeholder. Always renders nothing for now because rarity is
+// usmap-locked for Far Far West (every value is null). Kept in the JSX so
+// the layout is wired for when the data lands.
+function RarityBadge({ rarity }: { rarity?: string | null }) {
+  if (!rarity) return null
+  return <Badge variant="outline" className="text-[10px] uppercase">{rarity}</Badge>
+}
+
+// Render an icon for an item. We have the in-game asset *path* but no
+// PNG bundle yet — show a minimal placeholder rendered from the asset
+// name so the grid layout already has the slot.
+function ItemIcon({ id, attrs, size = 16 }: { id: string; attrs?: ItemAttrs | null; size?: number }) {
+  const path = attrs?.iconPath
+  const initial = (attrs?.longName ?? ITEM_LABELS[id] ?? id).replace(/^[a-z]+/, "").charAt(0).toUpperCase() || "?"
+  return (
+    <span
+      className="inline-flex items-center justify-center rounded bg-muted text-muted-foreground text-[10px] font-semibold shrink-0"
+      style={{ width: size, height: size }}
+      title={path ?? undefined}
+      aria-label={attrs?.longName ?? labelFor(id)}
+    >
+      {initial}
+    </span>
+  )
+}
+
+// Composed label: icon + display name + element dot + rarity. Wraps the
+// existing `labelFor` in a hoverable span carrying the description as a
+// native browser tooltip — falls through silently when no description
+// exists. Used everywhere the page currently renders bare `labelFor(id)`.
+function ItemLabel({
+  id,
+  className = "",
+  showIcon = true,
+  descriptions = ITEM_DESCRIPTIONS,
+  attrs = ITEM_ATTRS,
+}: {
+  id: string
+  className?: string
+  showIcon?: boolean
+  descriptions?: Record<string, string>
+  attrs?: Record<string, ItemAttrs>
+}) {
+  const a = attrs[id]
+  const desc = descriptions[id]
+  return (
+    <span className={`inline-flex items-center gap-1.5 ${className}`} title={desc ?? undefined}>
+      {showIcon && <ItemIcon id={id} attrs={a} />}
+      <span>{a?.longName ?? labelFor(id, ITEM_LABELS)}</span>
+      <ElementDot element={a?.element} />
+      <RarityBadge rarity={a?.rarity} />
+    </span>
+  )
+}
+
+// Small "from challenge X" chip when the catalog back-linked an unlock.
+function UnlockedViaChip({ id }: { id: string }) {
+  const via = ITEM_ATTRS[id]?.unlockedVia
+  if (!via) return null
+  return (
+    <Badge variant="secondary" className="text-[10px] gap-1" title={`Unlocked via ${via}`}>
+      <span className="opacity-60">via</span>{CHALLENGE_LABELS[via] ?? labelFor(via, CHALLENGE_LABELS)}
+    </Badge>
+  )
 }
 
 type Progress = {
@@ -321,10 +428,10 @@ export default function FarFarWestSaveEditor() {
     other: "Other",
   }
 
-  // Owned options lists for the Loadout dropdowns
-  const ownedSkins = Object.keys(inventory).filter((k) => k.startsWith("skin") && inventory[k] > 0)
-  const ownedEmotes = Object.keys(inventory).filter((k) => k.startsWith("emote") && inventory[k] > 0)
-  const ownedUtilities = Object.keys(inventory).filter((k) => k.startsWith("itemUtility") && !k.endsWith("Fragment") && inventory[k] > 0)
+  // Loadout dropdowns used to be gated to owned items only (workaround for
+  // the silent-ignore on structural inserts). The mutations layer now adds
+  // missing entries via the raw scaffold, so dropdowns just source the
+  // full catalog directly.
 
   const weaponKeys = Object.keys(progress.itemsUpgrades ?? {})
   const weaponJokerKeys = Object.keys(progress.itemJokers ?? {})
@@ -429,7 +536,7 @@ export default function FarFarWestSaveEditor() {
                           <CardHeader className="pb-3">
                             <CardTitle className="flex items-center gap-2 text-foreground">
                               <Coins className={k === "moneyGold" ? "w-5 h-5 text-yellow-500" : "w-5 h-5 text-cyan-400"} />
-                              {labelFor(k)}
+                              <ItemLabel id={k} showIcon={false} />
                             </CardTitle>
                           </CardHeader>
                           <CardContent>
@@ -467,7 +574,7 @@ export default function FarFarWestSaveEditor() {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                           {CATEGORIES.materials.filter((k) => ownedKeys.has(k)).map((k) => (
                             <div key={k} className="space-y-2 p-3 bg-muted rounded-lg border border-border">
-                              <Label className="text-sm font-medium text-card-foreground">{labelFor(k)}</Label>
+                              <Label className="text-sm font-medium text-card-foreground"><ItemLabel id={k} /></Label>
                               <Input
                                 type="number"
                                 value={inventory[k]}
@@ -513,7 +620,17 @@ export default function FarFarWestSaveEditor() {
                                       const hasLvl = Object.prototype.hasOwnProperty.call(challenges, `${k}Lvl`)
                                       return (
                                         <div key={k} className="space-y-2 p-3 bg-muted rounded-lg border border-border">
-                                          <Label className="text-sm font-medium text-card-foreground">{labelFor(k)}</Label>
+                                          <Label className="text-sm font-medium text-card-foreground">
+                                            <span className="inline-flex items-center gap-1.5 flex-wrap">
+                                              <ItemLabel id={k} />
+                                              <UnlockedViaChip id={k} />
+                                            </span>
+                                          </Label>
+                                          {ITEM_DESCRIPTIONS[k] && (
+                                            <p className="text-[11px] text-muted-foreground italic leading-snug line-clamp-2">
+                                              {ITEM_DESCRIPTIONS[k]}
+                                            </p>
+                                          )}
                                           <Input
                                             type="number"
                                             value={inventory[k]}
@@ -549,114 +666,133 @@ export default function FarFarWestSaveEditor() {
                         </p>
                       </CardHeader>
                       <CardContent className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {"selectedPlayerSkin" in progress && (
-                          <LoadoutSelect
-                            label="Selected Skin"
-                            value={progress.selectedPlayerSkin ?? ""}
-                            options={ownedSkins.length ? ownedSkins : [progress.selectedPlayerSkin ?? ""]}
-                            onChange={(v) => setSaveData(setSelectedSkin(saveData, v))}
-                          />
-                        )}
-                        {"selectedMountSkin" in progress && (
-                          <LoadoutInput
-                            label="Selected Mount"
-                            value={progress.selectedMountSkin ?? ""}
-                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedMountSkin", v))}
-                          />
-                        )}
-                        {"selectedEmoteA" in progress && (
-                          <LoadoutInput
-                            label="Emote A"
-                            value={progress.selectedEmoteA ?? ""}
-                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedEmoteA", v))}
-                          />
-                        )}
-                        {"selectedEmoteB" in progress && (
-                          <LoadoutSelect
-                            label="Emote B"
-                            value={progress.selectedEmoteB ?? ""}
-                            options={ownedEmotes.length ? ownedEmotes : [progress.selectedEmoteB ?? ""]}
-                            onChange={(v) => setSaveData(setSelectedEmote(saveData, v))}
-                          />
-                        )}
-                        {"selectedEmoteC" in progress && (
-                          <LoadoutInput
-                            label="Emote C"
-                            value={progress.selectedEmoteC ?? ""}
-                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedEmoteC", v))}
-                          />
-                        )}
-                        {"selectedEmoteD" in progress && (
-                          <LoadoutInput
-                            label="Emote D"
-                            value={progress.selectedEmoteD ?? ""}
-                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedEmoteD", v))}
-                          />
-                        )}
-                        {"selectedItemA" in progress && (
-                          <LoadoutInput
-                            label="Item A"
-                            value={progress.selectedItemA ?? ""}
-                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedItemA", v))}
-                          />
-                        )}
-                        {"selectedItemB" in progress && (
-                          <LoadoutInput
-                            label="Item B"
-                            value={progress.selectedItemB ?? ""}
-                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedItemB", v))}
-                          />
-                        )}
-                        {"selectedItemUtility" in progress && (
-                          <LoadoutSelect
-                            label="Selected Utility"
-                            value={progress.selectedItemUtility ?? ""}
-                            options={ownedUtilities.length ? ownedUtilities : [progress.selectedItemUtility ?? ""]}
-                            onChange={(v) => setSaveData(setSelectedUtility(saveData, v))}
-                          />
-                        )}
-                        {"selectedSpellA" in progress && (
-                          <LoadoutInput
-                            label="Spell A"
-                            value={progress.selectedSpellA ?? ""}
-                            onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedSpellA", v))}
-                          />
-                        )}
-                        {"spellB" in progress && (
-                          <LoadoutInput
-                            label="Spell B"
-                            value={progress.spellB ?? ""}
-                            onChange={(v) => setSaveData(setSpell(saveData, "B", v))}
-                          />
-                        )}
-                        {"spellC" in progress && (
-                          <LoadoutInput
-                            label="Spell C"
-                            value={progress.spellC ?? ""}
-                            onChange={(v) => setSaveData(setSpell(saveData, "C", v))}
-                          />
-                        )}
-                        {"specialWeaponElement" in progress && (
-                          <LoadoutInput
-                            label="Special Weapon Element"
-                            value={progress.specialWeaponElement ?? ""}
-                            onChange={(v) => setSaveData(setLoadoutField(saveData, "specialWeaponElement", v))}
-                          />
-                        )}
-                        {"fragmentTrackedWeaponName" in progress && (
-                          <LoadoutInput
-                            label="Fragment-Tracked Weapon"
-                            value={progress.fragmentTrackedWeaponName ?? ""}
-                            onChange={(v) => setSaveData(setFragmentTrackedWeapon(saveData, v))}
-                          />
-                        )}
-                        {"title" in progress && (
-                          <LoadoutInput
-                            label="Title"
-                            value={progress.title ?? ""}
-                            onChange={(v) => setSaveData(setLoadoutField(saveData, "title", v))}
-                          />
-                        )}
+                        {/* Catalog-backed pickers. The save-mutations layer now
+                            supports adding fields that aren't yet in the save,
+                            so each list is the full catalog (not just owned),
+                            and the `in progress` guards from the silent-ignore
+                            era are gone. */}
+                        <EnumSelect
+                          label="Selected Skin"
+                          value={progress.selectedPlayerSkin ?? ""}
+                          options={CATEGORIES.skins ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setSelectedSkin(saveData, v))}
+                        />
+                        <EnumSelect
+                          label="Selected Mount"
+                          value={progress.selectedMountSkin ?? ""}
+                          options={CATEGORIES.mounts ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedMountSkin", v))}
+                        />
+                        <EnumSelect
+                          label="Emote A"
+                          value={progress.selectedEmoteA ?? ""}
+                          options={CATEGORIES.emotes ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedEmoteA", v))}
+                        />
+                        <EnumSelect
+                          label="Emote B"
+                          value={progress.selectedEmoteB ?? ""}
+                          options={CATEGORIES.emotes ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setSelectedEmote(saveData, v))}
+                        />
+                        <EnumSelect
+                          label="Emote C"
+                          value={progress.selectedEmoteC ?? ""}
+                          options={CATEGORIES.emotes ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedEmoteC", v))}
+                        />
+                        <EnumSelect
+                          label="Emote D"
+                          value={progress.selectedEmoteD ?? ""}
+                          options={CATEGORIES.emotes ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedEmoteD", v))}
+                        />
+                        <EnumSelect
+                          label="Item Utility"
+                          value={progress.selectedItemUtility ?? ""}
+                          options={CATEGORIES.utilities ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setSelectedUtility(saveData, v))}
+                        />
+                        <EnumSelect
+                          label="Spell A"
+                          value={progress.selectedSpellA ?? ""}
+                          options={CATEGORIES.spells ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setLoadoutField(saveData, "selectedSpellA", v))}
+                        />
+                        <EnumSelect
+                          label="Spell B"
+                          value={progress.spellB ?? ""}
+                          options={CATEGORIES.spells ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setSpell(saveData, "B", v))}
+                        />
+                        <EnumSelect
+                          label="Spell C"
+                          value={progress.spellC ?? ""}
+                          options={CATEGORIES.spells ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setSpell(saveData, "C", v))}
+                        />
+                        <EnumSelect
+                          label="Special Weapon Element"
+                          value={progress.specialWeaponElement ?? ""}
+                          options={["Acid", "Cactus", "Elec", "Fire", "Voodoo"]}
+                          labels={{ Acid: "Acid", Cactus: "Cactus", Elec: "Elec", Fire: "Fire", Voodoo: "Voodoo" }}
+                          attributes={{
+                            Acid:   { element: "Acid" },
+                            Cactus: { element: "Cactus" },
+                            Elec:   { element: "Elec" },
+                            Fire:   { element: "Fire" },
+                            Voodoo: { element: "Voodoo" },
+                          }}
+                          onChange={(v) => setSaveData(setLoadoutField(saveData, "specialWeaponElement", v))}
+                        />
+                        <EnumSelect
+                          label="Fragment-Tracked Weapon"
+                          value={progress.fragmentTrackedWeaponName ?? ""}
+                          options={CATEGORIES.weapons ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setFragmentTrackedWeapon(saveData, v))}
+                        />
+                        <EnumSelect
+                          label="Title"
+                          value={progress.title ?? ""}
+                          options={CATEGORIES.titles ?? []}
+                          labels={ITEM_LABELS}
+                          descriptions={ITEM_DESCRIPTIONS}
+                          attributes={ITEM_ATTRS}
+                          onChange={(v) => setSaveData(setLoadoutField(saveData, "title", v))}
+                        />
                       </CardContent>
                     </Card>
 
@@ -672,7 +808,7 @@ export default function FarFarWestSaveEditor() {
                               <div key={weapon} className="p-4 bg-muted rounded-lg border border-border space-y-3">
                                 <div className="flex items-center gap-2">
                                   <Sword className="w-4 h-4 text-amber-500" />
-                                  <span className="font-medium text-foreground">{labelFor(weapon)}</span>
+                                  <span className="font-medium text-foreground"><ItemLabel id={weapon} /></span>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                   {Object.entries(tweaks).map(([tweak, value]) => {
@@ -717,7 +853,7 @@ export default function FarFarWestSaveEditor() {
                               <div key={weapon} className="p-4 bg-muted rounded-lg border border-border space-y-3">
                                 <div className="flex items-center gap-2">
                                   <Sword className="w-4 h-4 text-amber-500" />
-                                  <span className="font-medium text-foreground">{labelFor(weapon)}</span>
+                                  <span className="font-medium text-foreground"><ItemLabel id={weapon} /></span>
                                   {(slots.jokers?.length ?? 0) > 0 && (
                                     <Badge variant="secondary" className="bg-background text-muted-foreground">
                                       {slots.jokers!.length} owned
@@ -725,20 +861,46 @@ export default function FarFarWestSaveEditor() {
                                   )}
                                 </div>
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                                  {(["A", "B", "C", "D"] as const).map((slot) => (
-                                    <div key={slot} className="space-y-1.5">
-                                      <Label className="text-xs text-muted-foreground">Slot {slot}</Label>
-                                      <Input
-                                        value={(slots as Record<string, string | undefined>)[`joker${slot}`] ?? "None"}
-                                        onChange={(e) => updateEquippedJoker(weapon, slot, e.target.value)}
-                                        className="font-mono bg-background border-border text-foreground"
+                                  {(["A", "B", "C", "D"] as const).map((slot) => {
+                                    const current = (slots as Record<string, string | undefined>)[`joker${slot}`] ?? "None"
+                                    return (
+                                      <EnumSelect
+                                        key={slot}
+                                        label={`Slot ${slot}`}
+                                        value={current}
+                                        options={CATEGORIES.jokers ?? []}
+                                        labels={ITEM_LABELS}
+                                        descriptions={ITEM_DESCRIPTIONS}
+                                        attributes={ITEM_ATTRS}
+                                        allowNone
+                                        onChange={(v) => updateEquippedJoker(weapon, slot, v || "None")}
                                       />
-                                    </div>
-                                  ))}
+                                    )
+                                  })}
                                 </div>
                                 {(slots.jokers?.length ?? 0) > 0 && (
-                                  <div className="text-xs text-muted-foreground">
-                                    <span className="font-medium">Owned:</span> {slots.jokers!.map((j) => labelFor(j)).join(", ")}
+                                  <div className="space-y-1.5">
+                                    <span className="text-xs font-medium text-muted-foreground">
+                                      Owned ({slots.jokers!.length})
+                                    </span>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1.5">
+                                      {slots.jokers!.map((j) => (
+                                        <div
+                                          key={j}
+                                          className="text-xs px-2 py-1.5 rounded border border-border bg-background space-y-0.5"
+                                        >
+                                          <div className="inline-flex items-center gap-1.5 font-medium text-foreground">
+                                            <span>{ITEM_LABELS[j] ?? labelFor(j)}</span>
+                                            <ElementDot element={ITEM_ATTRS[j]?.element ?? null} />
+                                          </div>
+                                          {ITEM_DESCRIPTIONS[j] && (
+                                            <div className="text-[10px] text-muted-foreground italic leading-snug line-clamp-2">
+                                              {ITEM_DESCRIPTIONS[j]}
+                                            </div>
+                                          )}
+                                        </div>
+                                      ))}
+                                    </div>
                                   </div>
                                 )}
                               </div>
@@ -807,8 +969,13 @@ export default function FarFarWestSaveEditor() {
                         <CardContent>
                           <div className="flex flex-wrap gap-2">
                             {progress.rewardedChallenges!.map((c) => (
-                              <Badge key={c} variant="secondary" className="bg-muted text-muted-foreground">
-                                {splitCamel(c)}
+                              <Badge
+                                key={c}
+                                variant="secondary"
+                                className="bg-muted text-muted-foreground"
+                                title={CHALLENGE_DESCRIPTIONS[c] ?? undefined}
+                              >
+                                {CHALLENGE_LABELS[c] ?? splitCamel(c)}
                               </Badge>
                             ))}
                           </div>
@@ -844,57 +1011,6 @@ export default function FarFarWestSaveEditor() {
   )
 }
 
-function LoadoutInput({
-  label,
-  value,
-  onChange,
-}: {
-  label: string
-  value: string
-  onChange: (v: string) => void
-}) {
-  return (
-    <div className="space-y-1.5">
-      <Label className="text-xs text-muted-foreground">{label}</Label>
-      <Input
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="font-mono bg-background border-border text-foreground"
-      />
-    </div>
-  )
-}
-
-function LoadoutSelect({
-  label,
-  value,
-  options,
-  onChange,
-}: {
-  label: string
-  value: string
-  options: string[]
-  onChange: (v: string) => void
-}) {
-  const all = options.includes(value) ? options : [value, ...options.filter(Boolean)]
-  return (
-    <div className="space-y-1.5">
-      <Label className="text-xs text-muted-foreground">{label}</Label>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full h-9 rounded-md border border-border bg-background px-3 text-sm font-mono text-foreground"
-      >
-        {all.filter((v) => v !== "").map((v) => (
-          <option key={v} value={v}>
-            {labelFor(v)}
-          </option>
-        ))}
-      </select>
-    </div>
-  )
-}
-
 function ChallengeGroup({
   title,
   keys,
@@ -916,9 +1032,19 @@ function ChallengeGroup({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {keys.sort().map((k) => {
               const isSynced = k.startsWith("item") && k.endsWith("Lvl")
+              const challengeDesc = CHALLENGE_DESCRIPTIONS[k]
+              const enemyLabel = ENEMY_LABELS[k]
               return (
                 <div key={k} className="space-y-1.5 p-3 bg-muted rounded-lg border border-border">
-                  <Label className="text-xs text-muted-foreground">{CHALLENGE_LABELS[k] ?? splitCamel(k)}</Label>
+                  <Label
+                    className="text-xs text-muted-foreground inline-flex items-center gap-1.5"
+                    title={challengeDesc ?? undefined}
+                  >
+                    <span>{enemyLabel ?? CHALLENGE_LABELS[k] ?? splitCamel(k)}</span>
+                    {ENEMY_ATTRS[k]?.class && (
+                      <Badge variant="outline" className="text-[10px]">{ENEMY_ATTRS[k]!.class}</Badge>
+                    )}
+                  </Label>
                   <Input
                     type="number"
                     value={data[k] ?? 0}

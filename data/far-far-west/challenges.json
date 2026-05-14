@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-14T00:36:05.872Z",
+  "generatedAt": "2026-05-14T01:11:38.484Z",
   "source": "FarFarWest/Content/Progress/DT_PlayerChallenges.uasset + Localization/Game/en-US",
   "labels": {
     "KillAcid": "Kill Acid",
@@ -179,18 +179,18 @@
     "mountRacingnightmarenormal": "Mount Racingnightmarenormal",
     "pickUpGold": "Pick Up Gold",
     "pickUpSoulprestige": "Pick Up Soulprestige",
-    "skinBlink": "He dreams of velvet curtains and standing ovations, but only found gunpowder and emergency extractions.",
+    "skinBlink": "Blink Skin",
     "skinCariboo": "Cariboo",
     "skinCryptic": "Skin Cryptic",
     "skinDrSparkTwist": "Dr Spark-Twist Skin",
     "skinFortuna": "Fortuna Bluff Skin",
     "skinGravekeeper": "Gravekeeper",
-    "skinMarauder": "He came for the Gold. He stayed because he got lost. \r\nHe fights because he’s mad about it.",
-    "skinOtto": "He loves bureaucracy and dreams of taxing bounty rewards.\r\nRefuse to comply and he will promptly slap you in the face.",
+    "skinMarauder": "Marauder Skin",
+    "skinOtto": "Otto Skin",
     "skinPumpkinJack": "Pumpkin Jack",
-    "skinSheriff": "He doesn’t move much. Or talk. Or blink. Honestly, we’re not even sure he’s alive, but damn, he looks cool.",
-    "skinWanderingTrader": "She has killed more invaders than you ever will, yet she somehow stays humble.",
-    "skinWillyBilly": "Need something fixed? He’s already halfway done. \r\nNeed a friend? He’s been here the whole time.",
+    "skinSheriff": "Sheriff Skin",
+    "skinWanderingTrader": "Wandering Trader Skin",
+    "skinWillyBilly": "Willy Billy Skin",
     "titleAcid": "Title Acid",
     "titleCactus": "Title Cactus",
     "titleCrypticReaper": "Title Cryptic Reaper",
@@ -202,5 +202,861 @@
     "titleVoodoo": "Title Voodoo",
     "titleWarlock": "Title Warlock",
     "tradeWanderingTradervery": "Trade Wandering Tradervery"
+  },
+  "descriptions": {
+    "KillCrypticSaloon": "Cryptics",
+    "KillCrypticShielders": "Cryptics",
+    "KillCryptics": "Cryptics",
+    "challengeWin": "Win a game on Easy Difficulty",
+    "challengeWinEasy": "Win a game on Nightmare Difficulty",
+    "emoteDeadWeight": "Sometimes you carry the team. \r\nToday, you’re mopping the floor with your face.",
+    "emotePrisiadki": "A tasteful tactical squat.\r\nWidely recognized as the intellectual successor to teabagging.",
+    "itemBoomerangLvl": "Flies out, bullies enemies for a while, then swings back for another round. \r\nNo ammo needed, perfect for an eco-friendly loadout.",
+    "itemBowLvl": "Fires bargain-bin arrows when you quick draw. \r\nBend it like you mean it to drop an explosive banger.",
+    "itemDualRevolverLvl": "High fire rate, bad accuracy, yet one reload sends both revolvers soaring into explosive usefulness. A miraculous jump from meh to mayhem.",
+    "itemMinigunLvl": "Once it spins up, this thing spews bullets nonstop. Technically stoppable, but you’re a full-time bullet-slinger, not some quitter.",
+    "itemPistolLvl": "Reliable at all times, average at everything. \r\nPeak choice for people who fear commitment.",
+    "itemSheriffStarLvl": "Launches at high speed and slice enemies. \r\nJustice has never been this low-effort.",
+    "itemShotgunLvl": "Weirdly high fire rate for a shotgun, single-shell reloads, and a spread wildfires wish for. At last, a weapon that matches your aim.",
+    "itemWinchesterLvl": "Crisp lever action, flawless precision, and rugged reloads. \r\nOnce used to win sickly goldfish at the fair, now wins gunfights.",
+    "jokerBellShot": "+5% chance for weakspot hits to summon a healing ghost bell",
+    "jokerCactusDay": "+3% chance for a Cactus Mino to spawn when an enemy dies",
+    "jokerChonkyThrow": "The boomerang is twice as big",
+    "jokerEagleLever": "Consecutive shots without missing grant +5% damage, stacking up to +50%",
+    "jokerEcoTrick": "Reloading no longer wastes ammo",
+    "jokerElementalSpin": "The minigun has a 30% chance to fire a random elemental bullet instead of a regular one",
+    "jokerFanningAce": "Fire mid-reload at the right moment to chain-fire all bullets with low accuracy",
+    "jokerFistFight": "Your melee hits are twice as powerful",
+    "jokerFocusShot": "Every kill reduces the cooldown of your spells by 1 second",
+    "jokerFrenzySpin": "While your kill counter is above 10, the minigun fires twice as fast",
+    "jokerGoldProspector": "Increase your acquired Gold by 20% at the end of a mission",
+    "jokerHoarder": "+15% chance that collecting a Joker makes another random one appear",
+    "jokerHomingBurst": "Every 20 bullets fired, shoot 5 homing bullets at nearby enemies",
+    "jokerJumpStar": "+2 Jump while holding the Sheriff Stars",
+    "jokerLingeringThrow": "Doubles the lingering time. Combines with Lingering Time upgrade",
+    "jokerMarkAce": "Bullets mark enemies for 3s. Marked enemies take +15% damage",
+    "jokerMindShot": "Your weakspot hits cause an explosion",
+    "jokerOverBlast": "Shoot an extra pellet for every round missing from the magazine",
+    "jokerPickPick": "+5% chance on hit to spawn damaging pickaxes on the target",
+    "jokerRushBlast": "The first bullet in your magazine has 100% accuracy and shoots further away",
+    "jokerScavengerStar": "Gain +30% move speed and +100% pickup range",
+    "jokerShroomGrave": "+10% chance for a shroom to spawn when an enemy dies",
+    "jokerSoulReaper": "Increase your acquired Souls by 20% at the end of a mission",
+    "jokerStackedLever": "Instantly reload 2 bullets from your reserve ammo on kill",
+    "jokerSwampTrick": "Reload explosions now leave puddles on the ground",
+    "killCryptic": "Cryptics",
+    "skinBlink": "He dreams of velvet curtains and standing ovations, but only found gunpowder and emergency extractions.",
+    "skinCariboo": "Snowman-crazed, he genuinely sees every enemy as a naughty snowman that needs discipline.",
+    "skinDrSparkTwist": "Dr Spark-Twist Skin",
+    "skinFortuna": "Fortuna Bluff",
+    "skinGravekeeper": "Paid by the grave, so he’s weirdly rooting for the invaders. \r\nNot exactly the villagers’ favorite.",
+    "skinMarauder": "He came for the Gold. He stayed because he got lost. \r\nHe fights because he’s mad about it.",
+    "skinOtto": "He loves bureaucracy and dreams of taxing bounty rewards.\r\nRefuse to comply and he will promptly slap you in the face.",
+    "skinPumpkinJack": "Already the god of his own game, so he figured he might as well stroll in and wreck the Far Far West too.",
+    "skinSheriff": "He doesn’t move much. Or talk. Or blink. Honestly, we’re not even sure he’s alive, but damn, he looks cool.",
+    "skinWanderingTrader": "She has killed more invaders than you ever will, yet she somehow stays humble.",
+    "skinWillyBilly": "Need something fixed? He’s already halfway done. \r\nNeed a friend? He’s been here the whole time."
+  },
+  "attributes": {
+    "KillAcid": {
+      "element": "Acid",
+      "rarity": null
+    },
+    "KillCactus": {
+      "element": "Cactus",
+      "rarity": null
+    },
+    "KillCrypticAssassins": {
+      "element": null,
+      "rarity": null
+    },
+    "KillCrypticBuffalos": {
+      "element": null,
+      "rarity": null
+    },
+    "KillCrypticGrenadiers": {
+      "element": null,
+      "rarity": null
+    },
+    "KillCrypticGrunt": {
+      "element": null,
+      "rarity": null
+    },
+    "KillCrypticGunners": {
+      "element": null,
+      "rarity": null
+    },
+    "KillCrypticLiches": {
+      "element": null,
+      "rarity": null
+    },
+    "KillCrypticNecromancer": {
+      "element": null,
+      "rarity": null
+    },
+    "KillCrypticSaloon": {
+      "element": null,
+      "rarity": null
+    },
+    "KillCrypticShielders": {
+      "element": null,
+      "rarity": null
+    },
+    "KillCrypticTrain": {
+      "element": null,
+      "rarity": null
+    },
+    "KillCrypticVulture": {
+      "element": null,
+      "rarity": null
+    },
+    "KillCryptics": {
+      "element": null,
+      "rarity": null
+    },
+    "KillElec": {
+      "element": "Elec",
+      "rarity": null
+    },
+    "KillFire": {
+      "element": "Fire",
+      "rarity": null
+    },
+    "KillMarauders": {
+      "element": null,
+      "rarity": null
+    },
+    "KillMelee": {
+      "element": null,
+      "rarity": null
+    },
+    "KillVoodoo": {
+      "element": "Voodoo",
+      "rarity": null
+    },
+    "challengeBuy4Skins": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeCast1000Spells": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeCast150SpellAcid": {
+      "element": "Acid",
+      "rarity": null
+    },
+    "challengeCast150SpellCactus": {
+      "element": "Cactus",
+      "rarity": null
+    },
+    "challengeCast150SpellElec": {
+      "element": "Elec",
+      "rarity": null
+    },
+    "challengeCast150SpellFire": {
+      "element": "Fire",
+      "rarity": null
+    },
+    "challengeCast150SpellVoodoo": {
+      "element": "Voodoo",
+      "rarity": null
+    },
+    "challengeCast3000Spells": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeCollect30JokersInSingleMission": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeCrypticArmy": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeFindDiscFragments": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeFinish30Contracts": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeFinish50Contracts": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeGamble100": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeGraveCrossArea41": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeGraveCrossCanyon": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeGraveCrossDesert": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeGraveCrossFarFarNorth": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeGraveCrossFarWest": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeGraveCrossJungle": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeGraveCrossWoodlands": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeGravekeeper": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLevel35ItemQuadCylinder": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLevel35ItemShotgun": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLevel55ItemQuadCylinder": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLevel55ItemShotgun": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLose10Missions": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl100Acid": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl100Cactus": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl100Elec": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl100Fire": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl100Voodoo": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl30ItemBoomerang": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl30ItemBow": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl30ItemDualRevolver": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl30ItemRevolver": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl30ItemSheriffStar": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl35ItemLongRanger": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl35ItemMinigun": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl35ItemWinchester": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl40ItemBoomerang": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl40ItemBow": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl40ItemDualRevolver": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl40ItemRevolver": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl40ItemSheriffStar": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl50Acid": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl50Cactus": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl50Elec": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl50Fire": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl50Voodoo": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl55ItemLongRanger": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl55ItemMinigun": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeLvl55ItemWinchester": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeOpen15Chests": {
+      "element": null,
+      "rarity": null
+    },
+    "challengePickUp5000Souls": {
+      "element": null,
+      "rarity": null
+    },
+    "challengePickUp7777Gold": {
+      "element": null,
+      "rarity": null
+    },
+    "challengePrestigeHero10": {
+      "element": null,
+      "rarity": null
+    },
+    "challengePumpkinJack": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeQuestAllTrainWrecks": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeQuestFarFarNorth": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeQuestPostOffice": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeQuestRidingLicence": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeQuestSparkTwist": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeQuestTrainWreckArea41": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeQuestTrainWreckCanyon": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeQuestTrainWreckFarWest": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeQuestWillyBilly": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeRevive10Allies": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeSecretArea41": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeSecretCanyon": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeSecretDesert": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeSecretFarFarNorth": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeSecretFarWest": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeSecretWoodlands": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeWanderingTrader": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeWin": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeWinEasy": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeWinNightmare": {
+      "element": null,
+      "rarity": null
+    },
+    "challengeWinVery": {
+      "element": null,
+      "rarity": null
+    },
+    "chestsOpencollect30JokersInSingleMission": {
+      "element": null,
+      "rarity": null
+    },
+    "discFragment": {
+      "element": null,
+      "rarity": null
+    },
+    "emoteDeadWeight": {
+      "element": null,
+      "rarity": null
+    },
+    "emotePrisiadki": {
+      "element": null,
+      "rarity": null
+    },
+    "itemAcid": {
+      "element": "Acid",
+      "rarity": null
+    },
+    "itemAcidLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemBoomerangLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemBowLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemCactus": {
+      "element": "Cactus",
+      "rarity": null
+    },
+    "itemCactusLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemDualRevolverLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemElec": {
+      "element": "Elec",
+      "rarity": null
+    },
+    "itemElecLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemFire": {
+      "element": "Fire",
+      "rarity": null
+    },
+    "itemFireLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemHero": {
+      "element": null,
+      "rarity": null
+    },
+    "itemLongRangerLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemMeleemapArea41mapFarFarNorthmapJunglemapWoodlandsmissionFailmissionSuccess": {
+      "element": null,
+      "rarity": null
+    },
+    "itemMinigunLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemPistolLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemQuadCylinderLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemSheriffStarLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemShotgunLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemVoodoo": {
+      "element": "Voodoo",
+      "rarity": null
+    },
+    "itemVoodooLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "itemWinchesterLvl": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerAimingBurst": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerAntiGravityFalls": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerBellShot": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerCactusDay": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerCdrAcid": {
+      "element": "Acid",
+      "rarity": null
+    },
+    "jokerCdrCactus": {
+      "element": "Cactus",
+      "rarity": null
+    },
+    "jokerCdrElec": {
+      "element": "Elec",
+      "rarity": null
+    },
+    "jokerCdrFire": {
+      "element": "Fire",
+      "rarity": null
+    },
+    "jokerCdrVoodoo": {
+      "element": "Voodoo",
+      "rarity": null
+    },
+    "jokerChonkyThrow": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerEagleLever": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerEcoTrick": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerElementalSpin": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerFanningAce": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerFistFight": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerFocusShot": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerFrenzySpin": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerGoldProspector": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerHoarder": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerHomingBurst": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerJumpStar": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerLingeringThrow": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerMarkAce": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerMindShot": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerOverBlast": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerOverDraw": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerPickPick": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerRushBlast": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerScavengerStar": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerShroomGrave": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerSoulReaper": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerStackedLever": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerSwampTrick": {
+      "element": null,
+      "rarity": null
+    },
+    "jokerUltraDraw": {
+      "element": null,
+      "rarity": null
+    },
+    "killAssassin": {
+      "element": null,
+      "rarity": null
+    },
+    "killBuffalo": {
+      "element": null,
+      "rarity": null
+    },
+    "killCryptic": {
+      "element": null,
+      "rarity": null
+    },
+    "killGrenadier": {
+      "element": null,
+      "rarity": null
+    },
+    "killGrunt": {
+      "element": null,
+      "rarity": null
+    },
+    "killGunner": {
+      "element": null,
+      "rarity": null
+    },
+    "killLich": {
+      "element": null,
+      "rarity": null
+    },
+    "killMarauder": {
+      "element": null,
+      "rarity": null
+    },
+    "killNecromancer": {
+      "element": null,
+      "rarity": null
+    },
+    "killSaloon": {
+      "element": null,
+      "rarity": null
+    },
+    "killShielder": {
+      "element": null,
+      "rarity": null
+    },
+    "killTrain": {
+      "element": null,
+      "rarity": null
+    },
+    "killVulture": {
+      "element": null,
+      "rarity": null
+    },
+    "killWith": {
+      "element": null,
+      "rarity": null
+    },
+    "moneyGold": {
+      "element": null,
+      "rarity": null
+    },
+    "moneySoul": {
+      "element": null,
+      "rarity": null
+    },
+    "mountRacingnightmarenormal": {
+      "element": null,
+      "rarity": null
+    },
+    "pickUpGold": {
+      "element": null,
+      "rarity": null
+    },
+    "pickUpSoulprestige": {
+      "element": null,
+      "rarity": null
+    },
+    "skinBlink": {
+      "element": null,
+      "rarity": null
+    },
+    "skinCariboo": {
+      "element": null,
+      "rarity": null
+    },
+    "skinCryptic": {
+      "element": null,
+      "rarity": null
+    },
+    "skinDrSparkTwist": {
+      "element": null,
+      "rarity": null
+    },
+    "skinFortuna": {
+      "element": null,
+      "rarity": null
+    },
+    "skinGravekeeper": {
+      "element": null,
+      "rarity": null
+    },
+    "skinMarauder": {
+      "element": null,
+      "rarity": null
+    },
+    "skinOtto": {
+      "element": null,
+      "rarity": null
+    },
+    "skinPumpkinJack": {
+      "element": null,
+      "rarity": null
+    },
+    "skinSheriff": {
+      "element": null,
+      "rarity": null
+    },
+    "skinWanderingTrader": {
+      "element": null,
+      "rarity": null
+    },
+    "skinWillyBilly": {
+      "element": null,
+      "rarity": null
+    },
+    "titleAcid": {
+      "element": "Acid",
+      "rarity": null
+    },
+    "titleCactus": {
+      "element": "Cactus",
+      "rarity": null
+    },
+    "titleCrypticReaper": {
+      "element": null,
+      "rarity": null
+    },
+    "titleElec": {
+      "element": "Elec",
+      "rarity": null
+    },
+    "titleGamblingAddict": {
+      "element": null,
+      "rarity": null
+    },
+    "titleLegendOfTheFarFarWest": {
+      "element": null,
+      "rarity": null
+    },
+    "titlePyro": {
+      "element": null,
+      "rarity": null
+    },
+    "titleSheriff": {
+      "element": null,
+      "rarity": null
+    },
+    "titleVoodoo": {
+      "element": "Voodoo",
+      "rarity": null
+    },
+    "titleWarlock": {
+      "element": null,
+      "rarity": null
+    },
+    "tradeWanderingTradervery": {
+      "element": null,
+      "rarity": null
+    }
   }
 }
