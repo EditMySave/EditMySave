@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Gamepad2 } from "lucide-react"
 import gamesData from "@/data/games.json"
 import { generateHomeMetadata } from "@/lib/seo"
+import { generateFAQStructuredData, generateItemListStructuredData } from "@/lib/seo-faq"
 import { VoteButton } from "@/components/vote-button"
 import { head } from "@vercel/blob"
 
@@ -34,8 +35,19 @@ export default async function HomePage() {
   const availableGames = gamesData.games.filter((game) => game.status === "available")
   const comingSoonGames = gamesData.games.filter((game) => game.status === "coming-soon")
 
+  const faqData = generateFAQStructuredData()
+  const itemListData = generateItemListStructuredData(availableGames)
+
   return (
     <main className="min-h-screen p-6 md:p-12 bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListData) }}
+      />
       <div className="max-w-7xl mx-auto space-y-8">
         <div className="text-center space-y-3">
           <div className="flex items-center justify-center gap-3">
@@ -56,7 +68,7 @@ export default async function HomePage() {
                   <div className="aspect-video w-full overflow-hidden bg-muted relative">
                     <img
                       src={game.image || "/placeholder.svg"}
-                      alt={game.name}
+                      alt={`${game.name} Save Editor - Edit ${game.name} save files`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -114,7 +126,7 @@ export default async function HomePage() {
                   <div className="aspect-video w-full overflow-hidden bg-muted relative">
                     <img
                       src={game.image || "/placeholder.svg"}
-                      alt={game.name}
+                      alt={`${game.name} - Coming Soon`}
                       className="w-full h-full object-cover grayscale"
                     />
                     <div className="absolute inset-0 bg-background/40 flex items-center justify-center">
@@ -137,6 +149,51 @@ export default async function HomePage() {
             </div>
           </div>
         )}
+
+        <div className="space-y-6 pt-8">
+          <div className="text-center space-y-4 max-w-4xl mx-auto">
+            <h2 className="text-2xl font-semibold">Free Online Game Save Editor</h2>
+            <div className="text-muted-foreground space-y-3 text-sm md:text-base">
+              <p>
+                EditMySave is a free, open-source platform that allows you to edit game save files directly in your
+                web browser. No downloads, no installations, and no registration required. All processing happens
+                entirely on your device, ensuring your save files remain private and secure.
+              </p>
+              <p>
+                We support popular games including Sworn, Megabonk, Cloverpit, Balatro, BALL x PIT, and Deep Rock
+                Galactic: Survivor. Each editor is specifically designed for its game, providing intuitive controls
+                to modify currencies, resources, unlocks, and progression. Simply drag and drop your save file,
+                make your edits, and download the modified version.
+              </p>
+              <p>
+                Our save editors work on all modern browsers and platforms including Windows, Mac, and Linux. Whether
+                you play on Steam, Epic Games Store, or other platforms, you can safely edit your game saves with
+                our browser-based tools. Always remember to backup your original save files before making any changes.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="text-center space-y-2">
+              <h3 className="font-semibold">100% Free</h3>
+              <p className="text-sm text-muted-foreground">
+                All save editors are completely free to use with no hidden fees or premium features.
+              </p>
+            </div>
+            <div className="text-center space-y-2">
+              <h3 className="font-semibold">Private & Secure</h3>
+              <p className="text-sm text-muted-foreground">
+                Your save files are processed entirely in your browser and never uploaded to any server.
+              </p>
+            </div>
+            <div className="text-center space-y-2">
+              <h3 className="font-semibold">Easy to Use</h3>
+              <p className="text-sm text-muted-foreground">
+                Simple drag-and-drop interface with no technical knowledge required.
+              </p>
+            </div>
+          </div>
+        </div>
 
         <div className="text-center pt-8">
           <p className="text-sm text-muted-foreground">
