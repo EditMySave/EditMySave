@@ -6,6 +6,7 @@ import { Gamepad2 } from "lucide-react"
 import gamesData from "@/data/games.json"
 import { generateHomeMetadata } from "@/lib/seo"
 import { VoteButton } from "@/components/vote-button"
+import { assetUrl } from "@/lib/asset-url"
 import { head } from "@vercel/blob"
 
 async function getVotes() {
@@ -55,7 +56,7 @@ export default async function HomePage() {
                 <Card className="overflow-hidden hover:border-primary/50 transition-all hover:shadow-lg h-full">
                   <div className="aspect-video w-full overflow-hidden bg-muted relative">
                     <img
-                      src={game.image || "/placeholder.svg"}
+                      src={assetUrl(game.image) || "/placeholder.svg"}
                       alt={game.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -113,7 +114,7 @@ export default async function HomePage() {
                 <Card key={game.id} className="overflow-hidden h-full opacity-60 hover:opacity-80 transition-opacity">
                   <div className="aspect-video w-full overflow-hidden bg-muted relative">
                     <img
-                      src={game.image || "/placeholder.svg"}
+                      src={assetUrl(game.image) || "/placeholder.svg"}
                       alt={game.name}
                       className="w-full h-full object-cover grayscale"
                     />

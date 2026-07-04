@@ -56,6 +56,7 @@ import {
   powerFromLevel,
 } from "@/lib/minecraft-dungeons/decoder"
 import manifestData from "@/data/minecraft-dungeons/manifest.json"
+import { assetUrl } from "@/lib/asset-url"
 import {
   type ItemLocation,
   setSkin,
@@ -142,7 +143,7 @@ for (const p of manifest.armorProperties) {
 
 function getArmorPropertyIcon(id: string): string | null {
   const p = ARMOR_PROPERTY_LOOKUP.get(id)
-  return p?.icon ? `/images/minecraft-dungeons/${p.icon}` : null
+  return assetUrl(p?.icon ? `/images/minecraft-dungeons/${p.icon}` : null) ?? null
 }
 
 // Localization templates use {0}, {1}, … placeholders the game fills in at
@@ -163,12 +164,12 @@ function inferItemCategory(typeId: string): "melee" | "ranged" | "armor" | "arti
 
 function getItemIcon(typeId: string): string | null {
   const m = ITEM_LOOKUP.get(typeId)
-  return m ? `/images/minecraft-dungeons/${m.icon}` : null
+  return assetUrl(m ? `/images/minecraft-dungeons/${m.icon}` : null) ?? null
 }
 
 function getEnchantmentIcon(id: string): string | null {
   const e = ENCHANTMENT_LOOKUP.get(id)
-  return e ? `/images/minecraft-dungeons/${e.icon}` : null
+  return assetUrl(e ? `/images/minecraft-dungeons/${e.icon}` : null) ?? null
 }
 
 function humanize(name: string): string {
@@ -1205,7 +1206,7 @@ function ItemDetailEditor({
                                 {m.icon && (
                                   // eslint-disable-next-line @next/next/no-img-element
                                   <img
-                                    src={`/images/minecraft-dungeons/${m.icon}`}
+                                    src={assetUrl(`/images/minecraft-dungeons/${m.icon}`)}
                                     alt=""
                                     className="w-4 h-4 object-contain"
                                   />
@@ -1564,7 +1565,7 @@ function AddItemDialog({ initialCategory, onCategoryChange, onPick }: AddItemDia
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {visibleItems.map((m) => {
-                  const icon = `/images/minecraft-dungeons/${m.icon}`
+                  const icon = assetUrl(`/images/minecraft-dungeons/${m.icon}`)
                   const rarity = (m.rarity === "unique" ? "unique" : "common") as DisplayRarity
                   return (
                     <button

@@ -16,10 +16,10 @@ import { SaveFileUpload } from "@/components/save-file-upload"
 import { SaveLocationHelp } from "@/components/save-location-help"
 import { EditorSidebar } from "@/components/editor-sidebar"
 import gamesData from "@/data/games.json"
+import { assetUrl } from "@/lib/asset-url"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
 import { maxAllCurrencies, updateCurrencies } from "./save-mutations"
-import Head from "next/head"
 
 interface CurrencyValues {
   fairyEmbers: number
@@ -227,13 +227,6 @@ export default function SwornSaveEditor() {
 
   return (
     <>
-      <Head>
-        <title>Sworn Save Editor - Edit Your Sworn Save Files | EditMySave</title>
-        <meta
-          name="description"
-          content="Free online Sworn save editor. Edit currencies and resources for your Sworn save files. Works entirely in your browser with no downloads required. Supports version v1.0.1.0.1018."
-        />
-      </Head>
       <main className="min-h-screen bg-background pb-20">
         <div className="border-b border-border bg-card backdrop-blur-sm sticky top-0 z-50">
           <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -322,7 +315,7 @@ export default function SwornSaveEditor() {
                               <div className="flex flex-col items-center gap-2">
                                 <div className="w-16 h-16 flex items-center justify-center">
                                   <img
-                                    src={currency.image || "/placeholder.svg"}
+                                    src={assetUrl(currency.image) || "/placeholder.svg"}
                                     alt={currency.name}
                                     className="w-full h-full object-contain"
                                   />

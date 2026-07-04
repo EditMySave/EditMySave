@@ -44,7 +44,6 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import Link from "next/link"
 import { track } from "@vercel/analytics"
 import gamesData from "@/data/games.json"
-import Head from "next/head"
 
 function formatDate(date: Date) {
   const now = new Date()
@@ -178,13 +177,6 @@ export default function CloverpitEditor() {
   if (!saveData) {
     return (
       <>
-        <Head>
-          <title>Cloverpit Save Editor - Edit Your Cloverpit Save Files | EditMySave</title>
-          <meta
-            name="description"
-            content="Free online Cloverpit save editor. Edit currencies, powerups, symbols, patterns, and more for your Cloverpit save files. Works entirely in your browser with no downloads required."
-          />
-        </Head>
         <main className="min-h-screen bg-background pb-20">
           <div className="border-b border-border bg-card backdrop-blur-sm sticky top-0 z-50">
             <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -253,13 +245,6 @@ export default function CloverpitEditor() {
 
   return (
     <>
-      <Head>
-        <title>Cloverpit Save Editor - Edit Your Cloverpit Save Files | EditMySave</title>
-        <meta
-          name="description"
-          content="Free online Cloverpit save editor. Edit currencies, powerups, symbols, patterns, and more for your Cloverpit save files. Works entirely in your browser with no downloads required."
-        />
-      </Head>
       <main className="min-h-screen bg-background pb-20">
         <div className="border-b border-border bg-card backdrop-blur-sm sticky top-0 z-50">
           <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">

@@ -18,7 +18,6 @@ import {
   Map as MapIcon,
 } from "lucide-react"
 import Link from "next/link"
-import Head from "next/head"
 import { track } from "@vercel/analytics"
 
 import { Button } from "@/components/ui/button"
@@ -445,13 +444,6 @@ export default function FarFarWestSaveEditor() {
 
   return (
     <>
-      <Head>
-        <title>Far Far West Save Editor - Edit Your Far Far West Save Files | EditMySave</title>
-        <meta
-          name="description"
-          content="Free online Far Far West save editor. Edit currencies, inventory, loadout, weapon upgrades, and progression for your Far Far West save files. Works entirely in your browser."
-        />
-      </Head>
       <main className="min-h-screen bg-background pb-20">
         <div className="border-b border-border bg-card backdrop-blur-sm sticky top-0 z-50">
           <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">

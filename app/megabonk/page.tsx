@@ -64,7 +64,6 @@ import {
   removeTierFromMap as removeTier,
   toggleCharacterInTier as toggleCharacter,
 } from "./save-mutations"
-import Head from "next/head"
 
 function formatDate(date: Date) {
   const now = new Date()
@@ -425,13 +424,6 @@ export default function MegabonkSaveEditor() {
 
   return (
     <>
-      <Head>
-        <title>Megabonk Save Editor - Edit Your Megabonk Save Files | EditMySave</title>
-        <meta
-          name="description"
-          content="Free online Megabonk save editor. Edit currencies, characters, achievements, shop items, and purchases for your Megabonk save files. Works entirely in your browser with no downloads required. Supports version v1.0.12."
-        />
-      </Head>
       <main className="min-h-screen bg-background pb-20">
         <div className="border-b border-border bg-card backdrop-blur-sm sticky top-0 z-50">
           <div className="w-full max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
