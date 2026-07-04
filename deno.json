@@ -1,0 +1,15 @@
+{
+  "nodeModulesDir": "auto",
+  "imports": {
+    "aes-js": "npm:aes-js@^3.1.2",
+    "@std/assert": "jsr:@std/assert@^1.0.0",
+    "@std/path": "jsr:@std/path@^1.0.0"
+  },
+  "compilerOptions": {
+    "lib": ["dom", "esnext", "deno.window"]
+  },
+  "tasks": {
+    "test:far-far-west": "deno test -A --no-check --unstable-sloppy-imports lib/far-far-west/",
+    "test:windblown": "deno test -A --no-check lib/windblown/"
+  }
+}

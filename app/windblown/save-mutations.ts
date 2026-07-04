@@ -1,24 +1,28 @@
-import type { WindblownSave, Currencies } from "@/lib/windblown/decoder"
+import { type WindblownSave, CURRENCY_NAMES, CURRENCY_FRIENDLY_NAMES } from "@/lib/windblown/decoder"
 
 const MAX_CURRENCY = 99999
 
-export function updateCurrency(save: WindblownSave, key: keyof Currencies, value: number): WindblownSave {
+export function updateCurrency(save: WindblownSave, enumId: number, value: number): WindblownSave {
+  // Update in place if already present; otherwise append a new entry. New non-zero entries
+  // are structurally inserted into the save's currency array at encode time.
+  if (save.currencies.some((c) => c.enumId === enumId)) {
+    return {
+      ...save,
+      currencies: save.currencies.map((c) => (c.enumId === enumId ? { ...c, amount: value } : c)),
+    }
+  }
+  const name = CURRENCY_NAMES[enumId] ?? `currency_${enumId}`
+  const friendlyName = CURRENCY_FRIENDLY_NAMES[enumId] ?? name
   return {
     ...save,
-    currencies: { ...save.currencies, [key]: value },
+    currencies: [...save.currencies, { enumId, name, friendlyName, amount: value }],
   }
 }
 
 export function maxAllCurrencies(save: WindblownSave): WindblownSave {
   return {
     ...save,
-    currencies: {
-      cogs: MAX_CURRENCY,
-      memoniteDust: MAX_CURRENCY,
-      memoniteShard: MAX_CURRENCY,
-      memoniteFragment: MAX_CURRENCY,
-      obsidianMemonite: MAX_CURRENCY,
-    },
+    currencies: save.currencies.map((c) => ({ ...c, amount: MAX_CURRENCY })),
   }
 }
 

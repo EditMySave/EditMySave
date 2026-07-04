@@ -6,7 +6,6 @@ import {
   ArrowLeft,
   Coins,
   Gem,
-  Sparkles,
   Unlock,
   Lock,
   Code,
@@ -30,10 +29,11 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import {
   type WindblownSave,
-  type Currencies,
+  type CurrencyEntry,
   decodeSaveFromFile,
   encodeSaveToBlob,
-  META_FLAG_NAMES,
+  CURRENCY_NAMES,
+  CURRENCY_FRIENDLY_NAMES,
 } from "@/lib/windblown/decoder"
 import {
   updateCurrency,
@@ -44,17 +44,15 @@ import {
   lockCategoryFlags,
 } from "./save-mutations"
 
-// ── Currency definitions ────────────────────────────────────────────────
-
-const CURRENCY_DEFS: { key: keyof Currencies; name: string; icon: typeof Coins; color: string }[] = [
-  { key: "cogs", name: "Cogs", icon: Coins, color: "text-yellow-500" },
-  { key: "memoniteDust", name: "Memonite Dust", icon: Gem, color: "text-blue-400" },
-  { key: "memoniteShard", name: "Memonite Shard", icon: Gem, color: "text-purple-400" },
-  { key: "memoniteFragment", name: "Memonite Fragment", icon: Gem, color: "text-emerald-400" },
-  { key: "obsidianMemonite", name: "Obsidian Memonite", icon: Gem, color: "text-red-400" },
-]
-
 const MAX_CURRENCY = 99999
+
+// ── Currency presentation ───────────────────────────────────────────────
+// Currencies are a dynamic enum-keyed list. Cog (the primary Cogs currency) is
+// highlighted; every other material shares a neutral colour.
+
+function currencyColor(enumId: number): string {
+  return enumId === 0 ? "text-yellow-500" : "text-blue-400"
+}
 
 // ── Meta flag categories ────────────────────────────────────────────────
 
@@ -175,17 +173,39 @@ const FLAG_CATEGORIES: FlagCategory[] = [
 // ── Helpers ─────────────────────────────────────────────────────────────
 
 function humanize(name: string): string {
+  // Unidentified flags arrive as `flag_<index>`.
+  const extra = name.match(/^flag_(\d+)$/)
+  if (extra) return `Flag ${extra[1]}`
   return name
     .replace(/([A-Z])/g, " $1")
     .replace(/Lvl(\d)/g, "Level $1")
     .replace(/Lv(\d)/g, "Level $1")
-    .replace(/DMG/g, "DMG")
     .replace(/^ /, "")
     .trim()
 }
 
 function countEnabled(flags: Record<string, boolean>, names: string[]): number {
   return names.filter((n) => flags[n]).length
+}
+
+/**
+ * Build the category list for the current save: the 8 curated categories plus a
+ * dynamic "Advanced / Unidentified" bucket holding every flag not otherwise
+ * categorized (the `flag_<i>` extras and any future-appended named flags).
+ */
+function buildCategories(flags: Record<string, boolean>): FlagCategory[] {
+  const categorized = new Set(FLAG_CATEGORIES.flatMap((c) => c.flags))
+  const uncategorized = Object.keys(flags).filter((f) => !categorized.has(f))
+  if (uncategorized.length === 0) return FLAG_CATEGORIES
+  return [
+    ...FLAG_CATEGORIES,
+    {
+      id: "advanced",
+      label: "Advanced / Unidentified",
+      description: "Flags not yet mapped to a known unlock — edit at your own risk",
+      flags: uncategorized,
+    },
+  ]
 }
 
 // ── Component ───────────────────────────────────────────────────────────
@@ -242,20 +262,46 @@ export default function WindblownSaveEditor() {
     }
   }
 
-  const handleCurrencyChange = (key: keyof Currencies, value: string) => {
+  const handleCurrencyChange = (enumId: number, value: string) => {
     if (!saveData) return
     const numValue = Math.min(Math.max(Number.parseInt(value) || 0, 0), MAX_CURRENCY)
-    setSaveData(updateCurrency(saveData, key, numValue))
+    setSaveData(updateCurrency(saveData, enumId, numValue))
   }
 
-  const totalEnabledFlags = saveData ? countEnabled(saveData.metaFlags, META_FLAG_NAMES) : 0
+  // Every MetaCurrencyType id (plus any stored unknowns), so currencies not yet in the
+  // save can still be edited. Not-yet-stored ids show as 0 and get inserted on download.
+  const displayCurrencies = saveData
+    ? (() => {
+        const ids = new Set<number>(Object.keys(CURRENCY_NAMES).map(Number))
+        for (const c of saveData.currencies) ids.add(c.enumId)
+        return [...ids]
+          .sort((a, b) => a - b)
+          .map((enumId) => {
+            const stored = saveData.currencies.find((c) => c.enumId === enumId)
+            const name = stored?.name ?? CURRENCY_NAMES[enumId] ?? `currency_${enumId}`
+            return {
+              enumId,
+              name,
+              friendlyName: stored?.friendlyName ?? CURRENCY_FRIENDLY_NAMES[enumId] ?? name,
+              amount: stored?.amount ?? 0,
+              stored: !!stored,
+            }
+          })
+      })()
+    : []
+
+  const playerName = saveData ? saveData.metadata.PlayerName || saveData.metadata.PlayerId : ""
+  const flagNames = saveData ? Object.keys(saveData.metaFlags) : []
+  const totalEnabledFlags = saveData ? countEnabled(saveData.metaFlags, flagNames) : 0
+  const hasFlags = flagNames.length > 0
+  const categories = saveData ? buildCategories(saveData.metaFlags) : []
 
   const quickStats = saveData
     ? [
-        { label: "Player", value: saveData.metadata.PlayerName, icon: <User className="w-4 h-4 text-blue-400" /> },
+        { label: "Player", value: playerName, icon: <User className="w-4 h-4 text-blue-400" /> },
         {
           label: "Unlocks",
-          value: `${totalEnabledFlags}/${META_FLAG_NAMES.length}`,
+          value: hasFlags ? `${totalEnabledFlags}/${flagNames.length}` : "N/A",
           icon: <Unlock className="w-4 h-4 text-green-400" />,
         },
       ]
@@ -279,7 +325,7 @@ export default function WindblownSaveEditor() {
             const filename = originalFile?.name.replace(/\.[^/.]+$/, "") || "windblown-save"
             downloadJSON(
               {
-                playerName: saveData.metadata.PlayerName,
+                playerName,
                 currencies: saveData.currencies,
                 metaFlags: saveData.metaFlags,
               },
@@ -363,119 +409,147 @@ export default function WindblownSaveEditor() {
                 {/* ── Currencies Tab ──────────────────────────────── */}
                 <TabsContent value="currencies" className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {CURRENCY_DEFS.map(({ key, name, icon: Icon, color }) => (
-                      <Card key={key} className="bg-card border-border">
-                        <CardHeader className="pb-3">
-                          <CardTitle className="flex items-center justify-between text-foreground">
-                            <span className="flex items-center gap-2">
-                              <Icon className={`w-5 h-5 ${color}`} />
-                              {name}
-                            </span>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent"
-                              onClick={() => setSaveData(updateCurrency(saveData, key, MAX_CURRENCY))}
-                            >
-                              Max
-                            </Button>
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <Input
-                            type="number"
-                            value={saveData.currencies[key]}
-                            onChange={(e) => handleCurrencyChange(key, e.target.value)}
-                            min="0"
-                            max={MAX_CURRENCY}
-                            className="font-mono text-lg bg-muted border-border text-foreground"
-                          />
-                        </CardContent>
-                      </Card>
-                    ))}
+                    {displayCurrencies.map((entry) => {
+                      const Icon = entry.enumId === 0 ? Coins : Gem
+                      return (
+                        <Card
+                          key={entry.enumId}
+                          className={`bg-card border-border ${entry.stored ? "" : "opacity-70"}`}
+                        >
+                          <CardHeader className="pb-3">
+                            <CardTitle className="flex items-start justify-between text-foreground gap-2">
+                              <span className="flex items-start gap-2 min-w-0 flex-1">
+                                <Icon className={`w-5 h-5 shrink-0 mt-0.5 ${currencyColor(entry.enumId)}`} />
+                                <span className="min-w-0">
+                                  <span className="flex items-center gap-2 flex-wrap">
+                                    <span className="break-words leading-tight">{entry.friendlyName}</span>
+                                    {!entry.stored && (
+                                      <Badge variant="outline" className="text-[10px] shrink-0">
+                                        not in save
+                                      </Badge>
+                                    )}
+                                  </span>
+                                  <span className="block text-xs font-mono font-normal text-muted-foreground break-all">
+                                    {entry.name}
+                                  </span>
+                                </span>
+                              </span>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent shrink-0"
+                                onClick={() => setSaveData(updateCurrency(saveData, entry.enumId, MAX_CURRENCY))}
+                              >
+                                Max
+                              </Button>
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <Input
+                              type="number"
+                              value={entry.amount}
+                              onChange={(e) => handleCurrencyChange(entry.enumId, e.target.value)}
+                              min="0"
+                              max={MAX_CURRENCY}
+                              className="font-mono text-lg bg-muted border-border text-foreground"
+                            />
+                          </CardContent>
+                        </Card>
+                      )
+                    })}
                   </div>
                 </TabsContent>
 
                 {/* ── Unlocks Tab ─────────────────────────────────── */}
                 <TabsContent value="unlocks" className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="text-sm text-muted-foreground">
-                      {totalEnabledFlags} of {META_FLAG_NAMES.length} flags enabled
-                    </div>
-                    <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent"
-                        onClick={() => setSaveData(unlockAllFlags(saveData))}
-                      >
-                        <Unlock className="w-4 h-4 mr-2" />
-                        Unlock All
-                      </Button>
-                    </div>
-                  </div>
+                  {!hasFlags ? (
+                    <Card className="bg-card border-border">
+                      <CardContent className="py-8 text-center text-muted-foreground">
+                        Unlock flags could not be located in this save. Currencies can still be edited.
+                      </CardContent>
+                    </Card>
+                  ) : (
+                    <>
+                      <div className="flex items-center justify-between">
+                        <div className="text-sm text-muted-foreground">
+                          {totalEnabledFlags} of {flagNames.length} flags enabled
+                        </div>
+                        <div className="flex gap-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent"
+                            onClick={() => setSaveData(unlockAllFlags(saveData))}
+                          >
+                            <Unlock className="w-4 h-4 mr-2" />
+                            Unlock All
+                          </Button>
+                        </div>
+                      </div>
 
-                  <Accordion type="multiple" defaultValue={["progression", "feature-unlocks"]}>
-                    {FLAG_CATEGORIES.map((category) => {
-                      const enabled = countEnabled(saveData.metaFlags, category.flags)
-                      const total = category.flags.length
+                      <Accordion type="multiple" defaultValue={["progression", "feature-unlocks"]}>
+                        {categories.map((category) => {
+                          const enabled = countEnabled(saveData.metaFlags, category.flags)
+                          const total = category.flags.length
 
-                      return (
-                        <AccordionItem key={category.id} value={category.id}>
-                          <AccordionTrigger className="hover:no-underline">
-                            <div className="flex items-center gap-3">
-                              <span className="font-medium">{category.label}</span>
-                              <Badge variant="secondary" className="font-mono text-xs">
-                                {enabled}/{total}
-                              </Badge>
-                            </div>
-                          </AccordionTrigger>
-                          <AccordionContent>
-                            <div className="space-y-1">
-                              <div className="flex justify-end gap-2 mb-3">
-                                <Button
-                                  variant="outline"
-                                  size="sm"
-                                  className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent"
-                                  onClick={() => setSaveData(unlockCategoryFlags(saveData, category.flags))}
-                                >
-                                  <Unlock className="w-3 h-3 mr-1" />
-                                  Unlock All
-                                </Button>
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  className="text-muted-foreground"
-                                  onClick={() => setSaveData(lockCategoryFlags(saveData, category.flags))}
-                                >
-                                  <Lock className="w-3 h-3 mr-1" />
-                                  Lock All
-                                </Button>
-                              </div>
-
-                              {category.flags.map((flagName) => (
-                                <div
-                                  key={flagName}
-                                  className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-muted/50"
-                                >
-                                  <Label className="text-sm cursor-pointer" htmlFor={flagName}>
-                                    {humanize(flagName)}
-                                  </Label>
-                                  <Checkbox
-                                    id={flagName}
-                                    checked={saveData.metaFlags[flagName] ?? false}
-                                    onCheckedChange={(checked) =>
-                                      setSaveData(toggleMetaFlag(saveData, flagName, !!checked))
-                                    }
-                                  />
+                          return (
+                            <AccordionItem key={category.id} value={category.id}>
+                              <AccordionTrigger className="hover:no-underline">
+                                <div className="flex items-center gap-3">
+                                  <span className="font-medium">{category.label}</span>
+                                  <Badge variant="secondary" className="font-mono text-xs">
+                                    {enabled}/{total}
+                                  </Badge>
                                 </div>
-                              ))}
-                            </div>
-                          </AccordionContent>
-                        </AccordionItem>
-                      )
-                    })}
-                  </Accordion>
+                              </AccordionTrigger>
+                              <AccordionContent>
+                                <div className="space-y-1">
+                                  <div className="flex justify-end gap-2 mb-3">
+                                    <Button
+                                      variant="outline"
+                                      size="sm"
+                                      className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent"
+                                      onClick={() => setSaveData(unlockCategoryFlags(saveData, category.flags))}
+                                    >
+                                      <Unlock className="w-3 h-3 mr-1" />
+                                      Unlock All
+                                    </Button>
+                                    <Button
+                                      variant="ghost"
+                                      size="sm"
+                                      className="text-muted-foreground"
+                                      onClick={() => setSaveData(lockCategoryFlags(saveData, category.flags))}
+                                    >
+                                      <Lock className="w-3 h-3 mr-1" />
+                                      Lock All
+                                    </Button>
+                                  </div>
+
+                                  {category.flags.map((flagName) => (
+                                    <div
+                                      key={flagName}
+                                      className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-muted/50"
+                                    >
+                                      <Label className="text-sm cursor-pointer" htmlFor={flagName}>
+                                        {humanize(flagName)}
+                                      </Label>
+                                      <Checkbox
+                                        id={flagName}
+                                        checked={saveData.metaFlags[flagName] ?? false}
+                                        onCheckedChange={(checked) =>
+                                          setSaveData(toggleMetaFlag(saveData, flagName, !!checked))
+                                        }
+                                      />
+                                    </div>
+                                  ))}
+                                </div>
+                              </AccordionContent>
+                            </AccordionItem>
+                          )
+                        })}
+                      </Accordion>
+                    </>
+                  )}
                 </TabsContent>
 
                 {/* ── Raw JSON Tab ────────────────────────────────── */}
@@ -490,11 +564,15 @@ export default function WindblownSaveEditor() {
                     <CardContent className="pt-6">
                       <JsonTreeEditor
                         data={{
-                          playerName: saveData.metadata.PlayerName,
+                          playerName,
                           currencies: saveData.currencies,
                           metaFlags: saveData.metaFlags,
                         }}
-                        onChange={(updated: { playerName: string; currencies: Currencies; metaFlags: Record<string, boolean> }) => {
+                        onChange={(updated: {
+                          playerName: string
+                          currencies: CurrencyEntry[]
+                          metaFlags: Record<string, boolean>
+                        }) => {
                           setSaveData({
                             ...saveData,
                             currencies: updated.currencies,
@@ -509,7 +587,7 @@ export default function WindblownSaveEditor() {
 
               <div className="flex items-center justify-between p-3 bg-card border border-border rounded-lg text-sm">
                 <span className="text-muted-foreground">
-                  Player: <span className="text-foreground font-medium">{saveData.metadata.PlayerName}</span>
+                  Player: <span className="text-foreground font-medium">{playerName}</span>
                 </span>
                 <span className="text-muted-foreground">
                   Editing: <span className="text-foreground font-medium">{originalFile?.name}</span>

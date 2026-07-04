@@ -89,13 +89,15 @@ export function EditorSidebar({
               {quickStats.map((stat, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between p-2 bg-muted rounded-md hover:bg-muted/80 transition-colors"
+                  className="flex items-center justify-between gap-2 p-2 bg-muted rounded-md hover:bg-muted/80 transition-colors"
                 >
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 shrink-0">
                     {stat.icon}
                     <span className="text-sm text-muted-foreground">{stat.label}</span>
                   </div>
-                  <span className="text-sm font-mono font-semibold text-foreground">{stat.value.toLocaleString()}</span>
+                  <span className="text-sm font-mono font-semibold text-foreground min-w-0 break-all text-right">
+                    {stat.value.toLocaleString()}
+                  </span>
                 </div>
               ))}
             </CardContent>
