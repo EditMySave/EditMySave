@@ -329,10 +329,23 @@
     {
       "id": "minecraft-dungeons",
       "name": "Minecraft Dungeons",
-      "description": "Modify your Minecraft Dungeons save files including gear, emeralds, and character levels",
-      "image": "/placeholder.svg?height=400&width=600",
-      "route": "#",
-      "status": "coming-soon"
+      "description": "Edit your Minecraft Dungeons save files including items, enchantments, currencies, and character progression",
+      "image": "/images/minecraft-dungeons/cover.jpg",
+      "route": "/minecraft-dungeons",
+      "status": "available",
+      "supportedVersion": "1.17.0+",
+      "platforms": [
+        {
+          "name": "Steam / Microsoft Store / Xbox",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\Saved Games\\Mojang Studios\\Dungeons\\[USER_ID]\\Characters\\*.dat"
+          },
+          "fileName": "*.dat",
+          "instructions": "Windows: %USERPROFILE%\\Saved Games\\Mojang Studios\\Dungeons\\\n\nOpen the folder for your user, then Characters\\, and drag a character .dat file into this editor.",
+          "notes": "Always create a backup of your save file before editing. Saves are AES-256-ECB encrypted JSON; this editor encrypts/decrypts entirely in your browser."
+        }
+      ]
     },
     {
       "id": "dredge",
