@@ -32,7 +32,7 @@ interface CurrencyValues {
 const CURRENCY_IDENTIFIERS = {
   crystalShards: "medaocebbencincbicdalchabd", // index 231
   fairyEmbers: "medaocebbencinfaibiembeb", // index 234
-  grailWater: "medaocebbencincingbailgadeb", // index 236
+  grailWater: "medaocebbencingbailgadeb", // index 236
   moonstone: "medaocebbencinmooncdone", // index 238
   silk: "medaocebbencincilk", // index 240
 }
