@@ -12,7 +12,11 @@
    "baseOf": [
     "SW.Item.EvocationBoots"
    ],
-   "icon": "icons/SW.Item.EvocationBoots_Unique.png"
+   "icon": "icons/SW.Item.EvocationBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EvocationChest_Unique",
@@ -24,7 +28,11 @@
    "baseOf": [
     "SW.Item.EvocationChest"
    ],
-   "icon": "icons/SW.Item.EvocationChest_Unique.png"
+   "icon": "icons/SW.Item.EvocationChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EvocationHelmet_Unique",
@@ -36,7 +44,11 @@
    "baseOf": [
     "SW.Item.EvocationHelmet"
    ],
-   "icon": "icons/SW.Item.EvocationHelmet_Unique.png"
+   "icon": "icons/SW.Item.EvocationHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EvocationLeggings_Unique",
@@ -48,7 +60,11 @@
    "baseOf": [
     "SW.Item.EvocationLeggings"
    ],
-   "icon": "icons/SW.Item.EvocationLeggings_Unique.png"
+   "icon": "icons/SW.Item.EvocationLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.RangedBuff",
@@ -87,7 +103,11 @@
    "baseOf": [
     "SW.Item.GreatAxe"
    ],
-   "icon": "icons/SW.Item.GreatAxe_Unique1.png"
+   "icon": "icons/SW.Item.GreatAxe_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Axe",
@@ -95,7 +115,11 @@
    "description": "An effective weapon, favored by the relentless Vindicators of the Illager army.",
    "category": "melee",
    "uniqueOf": "SW.Item.Axe_Unique1",
-   "icon": "icons/SW.Item.Axe.png"
+   "icon": "icons/SW.Item.Axe.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.PotionBarrier",
@@ -109,7 +133,10 @@
    "name": "Battle Banner",
    "description": "Raise the banner of war and grant strength to you and all nearby allies.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.WarBanner.png"
+   "icon": "icons/SW.Item.Artifact.WarBanner.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Hammer",
@@ -117,7 +144,11 @@
    "description": "Strike while the iron is still hot.",
    "category": "melee",
    "uniqueOf": "SW.Item.Hammer_Unique1",
-   "icon": "icons/SW.Item.Hammer.png"
+   "icon": "icons/SW.Item.Hammer.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Battlestaff",
@@ -125,7 +156,11 @@
    "description": "With extra weights on the ends for striking fear into your enemies.",
    "category": "melee",
    "uniqueOf": "SW.Item.Battlestaff_Unique1",
-   "icon": "icons/SW.Item.Battlestaff.png"
+   "icon": "icons/SW.Item.Battlestaff.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.HoneyBoots",
@@ -134,7 +169,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.HoneyBoots_Unique",
-   "icon": "icons/SW.Item.HoneyBoots.png"
+   "icon": "icons/SW.Item.HoneyBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HoneyLeggings",
@@ -143,7 +182,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.HoneyLeggings_Unique",
-   "icon": "icons/SW.Item.HoneyLeggings.png"
+   "icon": "icons/SW.Item.HoneyLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HoneyChest",
@@ -152,7 +195,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.HoneyChest_Unique",
-   "icon": "icons/SW.Item.HoneyChest.png"
+   "icon": "icons/SW.Item.HoneyChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HoneyHelmet",
@@ -161,28 +208,41 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.HoneyHelmet_Unique",
-   "icon": "icons/SW.Item.HoneyHelmet.png"
+   "icon": "icons/SW.Item.HoneyHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.FireBracelet",
    "name": "Blaze Bangle",
    "description": "Imbues your attacks with the power of a blazing inferno and looks radiant on your wrist!",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.FireBracelet.png"
+   "icon": "icons/SW.Item.Artifact.FireBracelet.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.PoisonBracelet",
    "name": "Blight Bangle",
    "description": "Imbues your attacks with poisonous power and looks stunning on your wrist!",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.PoisonBracelet.png"
+   "icon": "icons/SW.Item.Artifact.PoisonBracelet.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.FrostBracelet",
    "name": "Blizzard Bangle",
    "description": "Imbues your attacks with the power of freezing blizzards and looks really cool on your wrist!",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.FrostBracelet.png"
+   "icon": "icons/SW.Item.Artifact.FrostBracelet.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Cosmetic.Pet.Blub",
@@ -206,7 +266,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.UndauntedBoots_Unique",
-   "icon": "icons/SW.Item.UndauntedBoots.png"
+   "icon": "icons/SW.Item.UndauntedBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.UndauntedChest",
@@ -215,7 +279,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.UndauntedChest_Unique",
-   "icon": "icons/SW.Item.UndauntedChest.png"
+   "icon": "icons/SW.Item.UndauntedChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.UndauntedHelmet",
@@ -224,7 +292,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.UndauntedHelmet_Unique",
-   "icon": "icons/SW.Item.UndauntedHelmet.png"
+   "icon": "icons/SW.Item.UndauntedHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.UndauntedLeggings",
@@ -233,7 +305,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.UndauntedLeggings_Unique",
-   "icon": "icons/SW.Item.UndauntedLeggings.png"
+   "icon": "icons/SW.Item.UndauntedLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Bow",
@@ -241,7 +317,14 @@
    "description": "A hunter’s best friend, repurposed for hunting Illagers and monsters.",
    "category": "ranged",
    "uniqueOf": "SW.Item.Bow_Unique1",
-   "icon": "icons/SW.Item.Bow.png"
+   "icon": "icons/SW.Item.Bow.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.PotionSharing",
@@ -259,7 +342,11 @@
    "baseOf": [
     "SW.Item.Cleaver"
    ],
-   "icon": "icons/SW.Item.Cleaver_Unique1.png"
+   "icon": "icons/SW.Item.Cleaver_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Mace_Unique1",
@@ -270,7 +357,11 @@
    "baseOf": [
     "SW.Item.Mace"
    ],
-   "icon": "icons/SW.Item.Mace_Unique1.png"
+   "icon": "icons/SW.Item.Mace_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.ChainReaction",
@@ -291,7 +382,10 @@
    "name": "Cinder Scepter",
    "description": "Hold the scepter to charge it up with souls, then release soul-powered fire on your enemies.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.FlameSceptre.png"
+   "icon": "icons/SW.Item.Artifact.FlameSceptre.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Claymore",
@@ -299,7 +393,11 @@
    "description": "A massive sword that rests easily in a righteous warrior's hands.",
    "category": "melee",
    "uniqueOf": "SW.Item.Claymore_Unique1",
-   "icon": "icons/SW.Item.Claymore.png"
+   "icon": "icons/SW.Item.Claymore.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.GiantClub",
@@ -307,14 +405,25 @@
    "description": "For those who prefer a less subtle approach to problem solving.",
    "category": "melee",
    "uniqueOf": "SW.Item.GiantClub_Unique1",
-   "icon": "icons/SW.Item.GiantClub.png"
+   "icon": "icons/SW.Item.GiantClub.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.LightningQuiver",
    "name": "Conductive Quiver",
    "description": "These arrows will strike your enemies like lightning from the skies.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.LightningQuiver.png"
+   "icon": "icons/SW.Item.Artifact.LightningQuiver.png",
+   "effectGroups": [
+    "Artifact",
+    "RangedWeapon",
+    "RangedWeaponQuiverArtifact",
+    "QuiverEffectTemplate",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.CurvedGreatsword",
@@ -322,14 +431,21 @@
    "description": "A curved greatsword that works all enemies into equal shape and size.",
    "category": "melee",
    "uniqueOf": "SW.Item.CurvedGreatsword_Unique1",
-   "icon": "icons/SW.Item.CurvedGreatsword.png"
+   "icon": "icons/SW.Item.CurvedGreatsword.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.CorruptedBeacon",
    "name": "Corrupted Beacon",
    "description": "Turns souls into raw power as you fire it in short bursts or in one long, soul-draining blast of ultimate power.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.CorruptedBeacon.png"
+   "icon": "icons/SW.Item.Artifact.CorruptedBeacon.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Cosmetic.Cape.CorruptedCreeper",
@@ -343,7 +459,10 @@
    "name": "Corrupted Seeds",
    "description": "Instantly sprout into deadly vines, poisoning and binding your enemies while you reap what you’ve sown.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.CorruptedSeeds.png"
+   "icon": "icons/SW.Item.Artifact.CorruptedSeeds.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.Unstoppable",
@@ -368,14 +487,24 @@
    "baseOf": [
     "SW.Item.Longbow"
    ],
-   "icon": "icons/SW.Item.Longbow_Unique1.png"
+   "icon": "icons/SW.Item.Longbow_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.CreeperCandle",
    "name": "Creeper Candle",
    "description": "Just a completely normal candle, apart from that ominous hss coming from the burning wick... Wait, that’s a fuse!",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.CreeperCandle.png"
+   "icon": "icons/SW.Item.Artifact.CreeperCandle.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.CriticalQuiver",
@@ -390,7 +519,13 @@
    "description": "The ranged weapon of choice for the Pillager warriors.",
    "category": "ranged",
    "uniqueOf": "SW.Item.Crossbow_Unique1",
-   "icon": "icons/SW.Item.Crossbow.png"
+   "icon": "icons/SW.Item.Crossbow.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "CrossbowOnly",
+    "RangedWeaponQuiverArtifact"
+   ]
   },
   {
    "tag": "SW.Item.UndauntedLeggings_Unique",
@@ -402,7 +537,11 @@
    "baseOf": [
     "SW.Item.UndauntedLeggings"
    ],
-   "icon": "icons/SW.Item.UndauntedLeggings_Unique.png"
+   "icon": "icons/SW.Item.UndauntedLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.UndauntedHelmet_Unique",
@@ -414,7 +553,11 @@
    "baseOf": [
     "SW.Item.UndauntedHelmet"
    ],
-   "icon": "icons/SW.Item.UndauntedHelmet_Unique.png"
+   "icon": "icons/SW.Item.UndauntedHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.UndauntedChest_Unique",
@@ -426,7 +569,11 @@
    "baseOf": [
     "SW.Item.UndauntedChest"
    ],
-   "icon": "icons/SW.Item.UndauntedChest_Unique.png"
+   "icon": "icons/SW.Item.UndauntedChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.UndauntedBoots_Unique",
@@ -438,14 +585,21 @@
    "baseOf": [
     "SW.Item.UndauntedBoots"
    ],
-   "icon": "icons/SW.Item.UndauntedBoots_Unique.png"
+   "icon": "icons/SW.Item.UndauntedBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.DeathcapMushroom",
    "name": "Death Cap Mushroom",
    "description": "Eaten by daring warriors before battle to enter a berserker state, increasing both movement and attack speed.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.DeathcapMushroom.png"
+   "icon": "icons/SW.Item.Artifact.DeathcapMushroom.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Shovel_Unique1",
@@ -456,7 +610,11 @@
    "baseOf": [
     "SW.Item.Shovel"
    ],
-   "icon": "icons/SW.Item.Shovel_Unique1.png"
+   "icon": "icons/SW.Item.Shovel_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.DiscipleLeggings",
@@ -465,7 +623,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.DiscipleLeggings_Unique",
-   "icon": "icons/SW.Item.DiscipleLeggings.png"
+   "icon": "icons/SW.Item.DiscipleLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.DiscipleHelmet",
@@ -474,7 +636,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.DiscipleHelmet_Unique",
-   "icon": "icons/SW.Item.DiscipleHelmet.png"
+   "icon": "icons/SW.Item.DiscipleHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.DiscipleChest",
@@ -483,7 +649,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.DiscipleChest_Unique",
-   "icon": "icons/SW.Item.DiscipleChest.png"
+   "icon": "icons/SW.Item.DiscipleChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.DiscipleBoots",
@@ -492,7 +662,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.DiscipleBoots_Unique",
-   "icon": "icons/SW.Item.DiscipleBoots.png"
+   "icon": "icons/SW.Item.DiscipleBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.DualCrossbow_Unique1",
@@ -503,7 +677,13 @@
    "baseOf": [
     "SW.Item.DualCrossbow"
    ],
-   "icon": "icons/SW.Item.DualCrossbow_Unique1.png"
+   "icon": "icons/SW.Item.DualCrossbow_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "CrossbowOnly",
+    "RangedWeaponQuiverArtifact"
+   ]
   },
   {
    "tag": "SW.Item.Daggers",
@@ -511,7 +691,11 @@
    "description": "When one dagger just isn’t fast enough.",
    "category": "melee",
    "uniqueOf": "SW.Item.Daggers_Unique1",
-   "icon": "icons/SW.Item.Daggers.png"
+   "icon": "icons/SW.Item.Daggers.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Sickles",
@@ -519,7 +703,11 @@
    "description": "Harvest tools from Honeycomb Fields, repurposed for reaping illagers and monsters.",
    "category": "melee",
    "uniqueOf": "SW.Item.Sickles_Unique1",
-   "icon": "icons/SW.Item.Sickles.png"
+   "icon": "icons/SW.Item.Sickles.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.PhantomChest_Unique",
@@ -531,7 +719,11 @@
    "baseOf": [
     "SW.Item.PhantomChest"
    ],
-   "icon": "icons/SW.Item.PhantomChest_Unique.png"
+   "icon": "icons/SW.Item.PhantomChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.PhantomHelmet_Unique",
@@ -543,7 +735,11 @@
    "baseOf": [
     "SW.Item.PhantomHelmet"
    ],
-   "icon": "icons/SW.Item.PhantomHelmet_Unique.png"
+   "icon": "icons/SW.Item.PhantomHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.PhantomLeggings_Unique",
@@ -555,7 +751,11 @@
    "baseOf": [
     "SW.Item.PhantomLeggings"
    ],
-   "icon": "icons/SW.Item.PhantomLeggings_Unique.png"
+   "icon": "icons/SW.Item.PhantomLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.PhantomBoots_Unique",
@@ -567,7 +767,11 @@
    "baseOf": [
     "SW.Item.PhantomBoots"
    ],
-   "icon": "icons/SW.Item.PhantomBoots_Unique.png"
+   "icon": "icons/SW.Item.PhantomBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.DualCrossbow",
@@ -575,7 +779,13 @@
    "description": "When one crossbow just isn’t enough.",
    "category": "ranged",
    "uniqueOf": "SW.Item.DualCrossbow_Unique1",
-   "icon": "icons/SW.Item.DualCrossbow.png"
+   "icon": "icons/SW.Item.DualCrossbow.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "CrossbowOnly",
+    "RangedWeaponQuiverArtifact"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.Dynamo",
@@ -589,14 +799,20 @@
    "name": "Echo Ocarina",
    "description": "The music of this hollowed husk protects against ranged attacks.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.CarapaceOcarina.png"
+   "icon": "icons/SW.Item.Artifact.CarapaceOcarina.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.ConductiveBracelet",
    "name": "Electric Bangle",
    "description": "Imbues your attacks with the power of crackling electricity and looks striking on your wrist!",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.ConductiveBracelet.png"
+   "icon": "icons/SW.Item.Artifact.ConductiveBracelet.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Battlestaff_Unique1",
@@ -607,7 +823,11 @@
    "baseOf": [
     "SW.Item.Battlestaff"
    ],
-   "icon": "icons/SW.Item.Battlestaff_Unique1.png"
+   "icon": "icons/SW.Item.Battlestaff_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Hammer_Unique1",
@@ -618,7 +838,11 @@
    "baseOf": [
     "SW.Item.Hammer"
    ],
-   "icon": "icons/SW.Item.Hammer_Unique1.png"
+   "icon": "icons/SW.Item.Hammer_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.EmeraldIncrease",
@@ -632,7 +856,10 @@
    "name": "Ender Fog",
    "description": "The Ender Fog smoke bomb lets you sneak up on enemies, cloaked by shadows.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.SmokeBomb.png"
+   "icon": "icons/SW.Item.Artifact.SmokeBomb.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.Borealis",
@@ -660,14 +887,20 @@
    "name": "Fighter's Flute",
    "description": "The music of the flute grants critical striking powers to any fighter of note.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.FightersFife.png"
+   "icon": "icons/SW.Item.Artifact.FightersFife.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.MaimingMushroom",
    "name": "Fighting Fungus",
    "description": "Eaten by daring warriors before battle, unleashing their rage and increasing their attack speed.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.MaimingMushroom.png"
+   "icon": "icons/SW.Item.Artifact.MaimingMushroom.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.FireAspect",
@@ -681,7 +914,14 @@
    "name": "Firework Arrow",
    "description": "The explosive power of the TNT combined with the high velocity movement of an arrow, what could possibly go wrong?",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.FireworkQuiver.png"
+   "icon": "icons/SW.Item.Artifact.FireworkQuiver.png",
+   "effectGroups": [
+    "Artifact",
+    "RangedWeapon",
+    "RangedWeaponQuiverArtifact",
+    "QuiverEffectTemplate",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.Brawling",
@@ -695,7 +935,14 @@
    "name": "Flaming Quiver",
    "description": "Light your arrows with the flame of your righteous rage.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.FlameQuiver.png"
+   "icon": "icons/SW.Item.Artifact.FlameQuiver.png",
+   "effectGroups": [
+    "Artifact",
+    "RangedWeapon",
+    "RangedWeaponQuiverArtifact",
+    "QuiverEffectTemplate",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.MushroomHelmet_Unique",
@@ -707,7 +954,11 @@
    "baseOf": [
     "SW.Item.MushroomHelmet"
    ],
-   "icon": "icons/SW.Item.MushroomHelmet_Unique.png"
+   "icon": "icons/SW.Item.MushroomHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MushroomChest_Unique",
@@ -719,7 +970,11 @@
    "baseOf": [
     "SW.Item.MushroomChest"
    ],
-   "icon": "icons/SW.Item.MushroomChest_Unique.png"
+   "icon": "icons/SW.Item.MushroomChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MushroomBoots_Unique",
@@ -731,7 +986,11 @@
    "baseOf": [
     "SW.Item.MushroomBoots"
    ],
-   "icon": "icons/SW.Item.MushroomBoots_Unique.png"
+   "icon": "icons/SW.Item.MushroomBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MushroomLeggings_Unique",
@@ -743,14 +1002,25 @@
    "baseOf": [
     "SW.Item.MushroomLeggings"
    ],
-   "icon": "icons/SW.Item.MushroomLeggings_Unique.png"
+   "icon": "icons/SW.Item.MushroomLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.FrostQuiver",
    "name": "Freezing Quiver",
    "description": "These arrows will have your enemies quivering from both fear and cold.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.FrostQuiver.png"
+   "icon": "icons/SW.Item.Artifact.FrostQuiver.png",
+   "effectGroups": [
+    "Artifact",
+    "RangedWeapon",
+    "RangedWeaponQuiverArtifact",
+    "QuiverEffectTemplate",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.FrostCrescent",
@@ -768,7 +1038,11 @@
    "baseOf": [
     "SW.Item.StraightSword"
    ],
-   "icon": "icons/SW.Item.StraightSword_Unique1.png"
+   "icon": "icons/SW.Item.StraightSword_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Gauntlet",
@@ -776,7 +1050,11 @@
    "description": "Powerful steel gauntlets for when the defenseless need a pair of helping hands.",
    "category": "melee",
    "uniqueOf": "SW.Item.Gauntlet_Unique1",
-   "icon": "icons/SW.Item.Gauntlet.png"
+   "icon": "icons/SW.Item.Gauntlet.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Glaive",
@@ -784,7 +1062,11 @@
    "description": "A wise blacksmith once stuck a sword on top of a staff and the world has never been the same.",
    "category": "melee",
    "uniqueOf": "SW.Item.Glaive_Unique1",
-   "icon": "icons/SW.Item.Glaive.png"
+   "icon": "icons/SW.Item.Glaive.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.PotionCooldown",
@@ -802,7 +1084,11 @@
    "baseOf": [
     "SW.Item.Glaive"
    ],
-   "icon": "icons/SW.Item.Glaive_Unique1.png"
+   "icon": "icons/SW.Item.Glaive_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.IronGolem",
@@ -824,7 +1110,11 @@
    "description": "A good axe settles for having a blade on one side. This is no goodaxe.",
    "category": "melee",
    "uniqueOf": "SW.Item.GreatAxe_Unique1",
-   "icon": "icons/SW.Item.GreatAxe.png"
+   "icon": "icons/SW.Item.GreatAxe.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Greatbow",
@@ -832,7 +1122,14 @@
    "description": "A powerful bow that fires with such force your arrows pierce even the toughest of enemies.",
    "category": "ranged",
    "uniqueOf": "SW.Item.Greatbow_Unique1",
-   "icon": "icons/SW.Item.Greatbow.png"
+   "icon": "icons/SW.Item.Greatbow.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.Greatsword",
@@ -840,14 +1137,21 @@
    "description": "If your heart is just, even the greatest sword will feel light as a feather.",
    "category": "melee",
    "uniqueOf": "SW.Item.Greatsword_Unique1",
-   "icon": "icons/SW.Item.Greatsword.png"
+   "icon": "icons/SW.Item.Greatsword.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.Grindstone",
    "name": "Grindstone",
    "description": "Sharpen your weapons on the grindstone to make enemies feel the sting of your steel and cause extra damage.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.Grindstone.png"
+   "icon": "icons/SW.Item.Artifact.Grindstone.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScatterCrossbow_Unique1",
@@ -858,7 +1162,13 @@
    "baseOf": [
     "SW.Item.ScatterCrossbow"
    ],
-   "icon": "icons/SW.Item.ScatterCrossbow_Unique1.png"
+   "icon": "icons/SW.Item.ScatterCrossbow_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "CrossbowOnly",
+    "RangedWeaponQuiverArtifact"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.Healing",
@@ -890,7 +1200,11 @@
    "baseOf": [
     "SW.Item.WarHammer"
    ],
-   "icon": "icons/SW.Item.WarHammer_Unique1.png"
+   "icon": "icons/SW.Item.WarHammer_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.HeavyCrossbow",
@@ -898,7 +1212,13 @@
    "description": "A slow but deadly menace and a real threat from a distance.",
    "category": "ranged",
    "uniqueOf": "SW.Item.HeavyCrossbow_Unique1",
-   "icon": "icons/SW.Item.HeavyCrossbow.png"
+   "icon": "icons/SW.Item.HeavyCrossbow.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "CrossbowOnly",
+    "RangedWeaponQuiverArtifact"
+   ]
   },
   {
    "tag": "SW.Item.Cosmetic.Cape.Hero",
@@ -917,7 +1237,11 @@
    "baseOf": [
     "SW.Item.HoneyHelmet"
    ],
-   "icon": "icons/SW.Item.HoneyHelmet_Unique.png"
+   "icon": "icons/SW.Item.HoneyHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HoneyBoots_Unique",
@@ -929,7 +1253,11 @@
    "baseOf": [
     "SW.Item.HoneyBoots"
    ],
-   "icon": "icons/SW.Item.HoneyBoots_Unique.png"
+   "icon": "icons/SW.Item.HoneyBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HoneyChest_Unique",
@@ -941,7 +1269,11 @@
    "baseOf": [
     "SW.Item.HoneyChest"
    ],
-   "icon": "icons/SW.Item.HoneyChest_Unique.png"
+   "icon": "icons/SW.Item.HoneyChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HoneyLeggings_Unique",
@@ -953,14 +1285,21 @@
    "baseOf": [
     "SW.Item.HoneyLeggings"
    ],
-   "icon": "icons/SW.Item.HoneyLeggings_Unique.png"
+   "icon": "icons/SW.Item.HoneyLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.Honeypot",
    "name": "Honey Dipper",
    "description": "A sticky treat to trap your enemies as your buzzing friends join the battle! Victory never tasted so sweet.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.Honeypot.png"
+   "icon": "icons/SW.Item.Artifact.Honeypot.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.StalwartHelmet_Unique",
@@ -972,7 +1311,11 @@
    "baseOf": [
     "SW.Item.StalwartHelmet"
    ],
-   "icon": "icons/SW.Item.StalwartHelmet_Unique.png"
+   "icon": "icons/SW.Item.StalwartHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.StalwartChest_Unique",
@@ -984,7 +1327,11 @@
    "baseOf": [
     "SW.Item.StalwartChest"
    ],
-   "icon": "icons/SW.Item.StalwartChest_Unique.png"
+   "icon": "icons/SW.Item.StalwartChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.StalwartLeggings_Unique",
@@ -996,7 +1343,11 @@
    "baseOf": [
     "SW.Item.StalwartLeggings"
    ],
-   "icon": "icons/SW.Item.StalwartLeggings_Unique.png"
+   "icon": "icons/SW.Item.StalwartLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Greatbow_Unique1",
@@ -1007,7 +1358,14 @@
    "baseOf": [
     "SW.Item.Greatbow"
    ],
-   "icon": "icons/SW.Item.Greatbow_Unique1.png"
+   "icon": "icons/SW.Item.Greatbow_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.StalwartBoots_Unique",
@@ -1019,14 +1377,21 @@
    "baseOf": [
     "SW.Item.StalwartBoots"
    ],
-   "icon": "icons/SW.Item.StalwartBoots_Unique.png"
+   "icon": "icons/SW.Item.StalwartBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.RallyingHorn",
    "name": "Humbling Horn",
    "description": "The music from this mystical horn will knock enemies over and leave their ears ringing. You may need some practice.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.RallyingHorn.png"
+   "icon": "icons/SW.Item.Artifact.RallyingHorn.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Axe_Unique1",
@@ -1037,14 +1402,21 @@
    "baseOf": [
     "SW.Item.Axe"
    ],
-   "icon": "icons/SW.Item.Axe_Unique1.png"
+   "icon": "icons/SW.Item.Axe_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.LightningRod",
    "name": "Lightning Rod",
    "description": "Channels soul-powered lightning, zapping your enemies silly for as long as you hold it.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.LightningRod.png"
+   "icon": "icons/SW.Item.Artifact.LightningRod.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.Channeling",
@@ -1059,7 +1431,14 @@
    "description": "Crafted for hunting but extremely effective at long range.",
    "category": "ranged",
    "uniqueOf": "SW.Item.Longbow_Unique1",
-   "icon": "icons/SW.Item.Longbow.png"
+   "icon": "icons/SW.Item.Longbow.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.StraightSword",
@@ -1067,7 +1446,11 @@
    "description": "A mighty longsword with a razor-sharp edge.",
    "category": "melee",
    "uniqueOf": "SW.Item.StraightSword_Unique1",
-   "icon": "icons/SW.Item.StraightSword.png"
+   "icon": "icons/SW.Item.StraightSword.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.DropChance",
@@ -1092,7 +1475,11 @@
    "baseOf": [
     "SW.Item.CurvedGreatsword"
    ],
-   "icon": "icons/SW.Item.CurvedGreatsword_Unique1.png"
+   "icon": "icons/SW.Item.CurvedGreatsword_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.MoonSword_Unique1",
@@ -1103,7 +1490,11 @@
    "baseOf": [
     "SW.Item.MoonSword"
    ],
-   "icon": "icons/SW.Item.MoonSword_Unique1.png"
+   "icon": "icons/SW.Item.MoonSword_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Mace",
@@ -1111,7 +1502,11 @@
    "description": "A brutal tool of war, but what it lacks in finesse it makes up for in power.",
    "category": "melee",
    "uniqueOf": "SW.Item.Mace_Unique1",
-   "icon": "icons/SW.Item.Mace.png"
+   "icon": "icons/SW.Item.Mace.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.WellspringHelmet_Unique",
@@ -1123,7 +1518,11 @@
    "baseOf": [
     "SW.Item.WellspringHelmet"
    ],
-   "icon": "icons/SW.Item.WellspringHelmet_Unique.png"
+   "icon": "icons/SW.Item.WellspringHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WellspringBoots_Unique",
@@ -1135,7 +1534,11 @@
    "baseOf": [
     "SW.Item.WellspringBoots"
    ],
-   "icon": "icons/SW.Item.WellspringBoots_Unique.png"
+   "icon": "icons/SW.Item.WellspringBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WellspringLeggings_Unique",
@@ -1147,7 +1550,11 @@
    "baseOf": [
     "SW.Item.WellspringLeggings"
    ],
-   "icon": "icons/SW.Item.WellspringLeggings_Unique.png"
+   "icon": "icons/SW.Item.WellspringLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WellspringChest_Unique",
@@ -1159,7 +1566,11 @@
    "baseOf": [
     "SW.Item.WellspringChest"
    ],
-   "icon": "icons/SW.Item.WellspringChest_Unique.png"
+   "icon": "icons/SW.Item.WellspringChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Cleaver",
@@ -1167,7 +1578,11 @@
    "description": "A reliable kitchen cleaver repurposed for serving up justice.",
    "category": "melee",
    "uniqueOf": "SW.Item.Cleaver_Unique1",
-   "icon": "icons/SW.Item.Cleaver.png"
+   "icon": "icons/SW.Item.Cleaver.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.SpeedIncrement",
@@ -1182,7 +1597,11 @@
    "description": "Let's play a good old game of whack-a-mob!",
    "category": "melee",
    "uniqueOf": "SW.Item.GiantMallet_Unique1",
-   "icon": "icons/SW.Item.GiantMallet.png"
+   "icon": "icons/SW.Item.GiantMallet.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Cosmetic.Cape.Mojang",
@@ -1201,7 +1620,11 @@
    "baseOf": [
     "SW.Item.ScavengerHelmet"
    ],
-   "icon": "icons/SW.Item.ScavengerHelmet_Unique.png"
+   "icon": "icons/SW.Item.ScavengerHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScavengerChest_Unique",
@@ -1213,7 +1636,11 @@
    "baseOf": [
     "SW.Item.ScavengerChest"
    ],
-   "icon": "icons/SW.Item.ScavengerChest_Unique.png"
+   "icon": "icons/SW.Item.ScavengerChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScavengerLeggings_Unique",
@@ -1225,7 +1652,11 @@
    "baseOf": [
     "SW.Item.ScavengerLeggings"
    ],
-   "icon": "icons/SW.Item.ScavengerLeggings_Unique.png"
+   "icon": "icons/SW.Item.ScavengerLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScavengerBoots_Unique",
@@ -1237,7 +1668,11 @@
    "baseOf": [
     "SW.Item.ScavengerBoots"
    ],
-   "icon": "icons/SW.Item.ScavengerBoots_Unique.png"
+   "icon": "icons/SW.Item.ScavengerBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.GiantMallet_Unique1",
@@ -1248,7 +1683,11 @@
    "baseOf": [
     "SW.Item.GiantMallet"
    ],
-   "icon": "icons/SW.Item.GiantMallet_Unique1.png"
+   "icon": "icons/SW.Item.GiantMallet_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.RedstoneChest_Unique",
@@ -1260,7 +1699,11 @@
    "baseOf": [
     "SW.Item.RedstoneChest"
    ],
-   "icon": "icons/SW.Item.RedstoneChest_Unique.png"
+   "icon": "icons/SW.Item.RedstoneChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RedstoneLeggings_Unique",
@@ -1272,7 +1715,11 @@
    "baseOf": [
     "SW.Item.RedstoneLeggings"
    ],
-   "icon": "icons/SW.Item.RedstoneLeggings_Unique.png"
+   "icon": "icons/SW.Item.RedstoneLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RedstoneHelmet_Unique",
@@ -1284,7 +1731,11 @@
    "baseOf": [
     "SW.Item.RedstoneHelmet"
    ],
-   "icon": "icons/SW.Item.RedstoneHelmet_Unique.png"
+   "icon": "icons/SW.Item.RedstoneHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RedstoneBoots_Unique",
@@ -1296,7 +1747,11 @@
    "baseOf": [
     "SW.Item.RedstoneBoots"
    ],
-   "icon": "icons/SW.Item.RedstoneBoots_Unique.png"
+   "icon": "icons/SW.Item.RedstoneBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MushroomBoots",
@@ -1305,7 +1760,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.MushroomBoots_Unique",
-   "icon": "icons/SW.Item.MushroomBoots.png"
+   "icon": "icons/SW.Item.MushroomBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MushroomHelmet",
@@ -1314,7 +1773,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.MushroomHelmet_Unique",
-   "icon": "icons/SW.Item.MushroomHelmet.png"
+   "icon": "icons/SW.Item.MushroomHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MushroomLeggings",
@@ -1323,7 +1786,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.MushroomLeggings_Unique",
-   "icon": "icons/SW.Item.MushroomLeggings.png"
+   "icon": "icons/SW.Item.MushroomLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MushroomChest",
@@ -1332,7 +1799,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.MushroomChest_Unique",
-   "icon": "icons/SW.Item.MushroomChest.png"
+   "icon": "icons/SW.Item.MushroomChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MysticBoots",
@@ -1341,7 +1812,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.MysticBoots_Unique",
-   "icon": "icons/SW.Item.MysticBoots.png"
+   "icon": "icons/SW.Item.MysticBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MysticHelmet",
@@ -1350,7 +1825,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.MysticHelmet_Unique",
-   "icon": "icons/SW.Item.MysticHelmet.png"
+   "icon": "icons/SW.Item.MysticHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MysticLeggings",
@@ -1359,7 +1838,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.MysticLeggings_Unique",
-   "icon": "icons/SW.Item.MysticLeggings.png"
+   "icon": "icons/SW.Item.MysticLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MysticChest",
@@ -1368,7 +1851,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.MysticChest_Unique",
-   "icon": "icons/SW.Item.MysticChest.png"
+   "icon": "icons/SW.Item.MysticChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.VoyagerBoots",
@@ -1377,7 +1864,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.VoyagerBoots_Unique",
-   "icon": "icons/SW.Item.VoyagerBoots.png"
+   "icon": "icons/SW.Item.VoyagerBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.VoyagerChest",
@@ -1386,7 +1877,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.VoyagerChest_Unique",
-   "icon": "icons/SW.Item.VoyagerChest.png"
+   "icon": "icons/SW.Item.VoyagerChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.VoyagerHelmet",
@@ -1395,7 +1890,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.VoyagerHelmet_Unique",
-   "icon": "icons/SW.Item.VoyagerHelmet.png"
+   "icon": "icons/SW.Item.VoyagerHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.VoyagerLeggings",
@@ -1404,7 +1903,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.VoyagerLeggings_Unique",
-   "icon": "icons/SW.Item.VoyagerLeggings.png"
+   "icon": "icons/SW.Item.VoyagerLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.Plummeting",
@@ -1423,7 +1926,11 @@
    "baseOf": [
     "SW.Item.MysticHelmet"
    ],
-   "icon": "icons/SW.Item.MysticHelmet_Unique.png"
+   "icon": "icons/SW.Item.MysticHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MysticChest_Unique",
@@ -1435,7 +1942,11 @@
    "baseOf": [
     "SW.Item.MysticChest"
    ],
-   "icon": "icons/SW.Item.MysticChest_Unique.png"
+   "icon": "icons/SW.Item.MysticChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MysticBoots_Unique",
@@ -1447,7 +1958,11 @@
    "baseOf": [
     "SW.Item.MysticBoots"
    ],
-   "icon": "icons/SW.Item.MysticBoots_Unique.png"
+   "icon": "icons/SW.Item.MysticBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.MysticLeggings_Unique",
@@ -1459,7 +1974,11 @@
    "baseOf": [
     "SW.Item.MysticLeggings"
    ],
-   "icon": "icons/SW.Item.MysticLeggings_Unique.png"
+   "icon": "icons/SW.Item.MysticLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WolfclutchLeggings_Unique",
@@ -1471,7 +1990,11 @@
    "baseOf": [
     "SW.Item.WolfclutchLeggings"
    ],
-   "icon": "icons/SW.Item.WolfclutchLeggings_Unique.png"
+   "icon": "icons/SW.Item.WolfclutchLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WolfclutchChest_Unique",
@@ -1483,7 +2006,11 @@
    "baseOf": [
     "SW.Item.WolfclutchChest"
    ],
-   "icon": "icons/SW.Item.WolfclutchChest_Unique.png"
+   "icon": "icons/SW.Item.WolfclutchChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WolfclutchHelmet_Unique",
@@ -1495,7 +2022,11 @@
    "baseOf": [
     "SW.Item.WolfclutchHelmet"
    ],
-   "icon": "icons/SW.Item.WolfclutchHelmet_Unique.png"
+   "icon": "icons/SW.Item.WolfclutchHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WolfclutchBoots_Unique",
@@ -1507,7 +2038,11 @@
    "baseOf": [
     "SW.Item.WolfclutchBoots"
    ],
-   "icon": "icons/SW.Item.WolfclutchBoots_Unique.png"
+   "icon": "icons/SW.Item.WolfclutchBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Powerbow_Unique1",
@@ -1518,7 +2053,14 @@
    "baseOf": [
     "SW.Item.Powerbow"
    ],
-   "icon": "icons/SW.Item.Powerbow_Unique1.png"
+   "icon": "icons/SW.Item.Powerbow_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.PhantomBoots",
@@ -1527,7 +2069,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.PhantomBoots_Unique",
-   "icon": "icons/SW.Item.PhantomBoots.png"
+   "icon": "icons/SW.Item.PhantomBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.PhantomChest",
@@ -1536,7 +2082,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.PhantomChest_Unique",
-   "icon": "icons/SW.Item.PhantomChest.png"
+   "icon": "icons/SW.Item.PhantomChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.PhantomHelmet",
@@ -1545,7 +2095,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.PhantomHelmet_Unique",
-   "icon": "icons/SW.Item.PhantomHelmet.png"
+   "icon": "icons/SW.Item.PhantomHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.PhantomLeggings",
@@ -1554,7 +2108,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.PhantomLeggings_Unique",
-   "icon": "icons/SW.Item.PhantomLeggings.png"
+   "icon": "icons/SW.Item.PhantomLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Trickbow_Unique1",
@@ -1565,7 +2123,14 @@
    "baseOf": [
     "SW.Item.Trickbow"
    ],
-   "icon": "icons/SW.Item.Trickbow_Unique1.png"
+   "icon": "icons/SW.Item.Trickbow_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.Pickaxe",
@@ -1573,14 +2138,21 @@
    "description": "The iconic tool of adventurers and heroes for as long as anyone can remember.",
    "category": "melee",
    "uniqueOf": "SW.Item.Pickaxe_Unique1",
-   "icon": "icons/SW.Item.Pickaxe.png"
+   "icon": "icons/SW.Item.Pickaxe.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.PicnicBlanket",
    "name": "Picnic Basket",
    "description": "Great day for a picnic! Share healthy treats with your friends. Hangry friends make for bad allies in battle.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.PicnicBlanket.png"
+   "icon": "icons/SW.Item.Artifact.PicnicBlanket.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.Piercing",
@@ -1595,7 +2167,11 @@
    "description": "Enemies won’t want to get the wrong end of the stick when they run into you.",
    "category": "melee",
    "uniqueOf": "SW.Item.Pike_Unique1",
-   "icon": "icons/SW.Item.Pike.png"
+   "icon": "icons/SW.Item.Pike.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.PoisonFog",
@@ -1609,28 +2185,40 @@
    "name": "Pouch of Ember",
    "description": "Throw it on the ground to spread a fierce fire around yourself. You’ll be too hot to handle!",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.Satchel.Fire.png"
+   "icon": "icons/SW.Item.Artifact.Satchel.Fire.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.Satchel.Freezing",
    "name": "Pouch of Frost",
    "description": "Throw it on the ground to spread a blistering blizzard around yourself. One of the coolest artifacts there is!",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.Satchel.Freezing.png"
+   "icon": "icons/SW.Item.Artifact.Satchel.Freezing.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.Satchel.Poison",
    "name": "Pouch of Poison",
    "description": "Throw it on the ground to spread toxic terror around yourself. Don’t worry, this mob repellent is completely eco-friendly.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.Satchel.Poison.png"
+   "icon": "icons/SW.Item.Artifact.Satchel.Poison.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.Satchel.Conductive",
    "name": "Pouch of Thunder",
    "description": "Throw it on the ground to spread conductive chaos around yourself. It’s a real power trip!",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.Satchel.Conductive.png"
+   "icon": "icons/SW.Item.Artifact.Satchel.Conductive.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.LingeringPower",
@@ -1645,14 +2233,24 @@
    "description": "For the patient ranger who doesn’t like to waste arrows.",
    "category": "ranged",
    "uniqueOf": "SW.Item.Powerbow_Unique1",
-   "icon": "icons/SW.Item.Powerbow.png"
+   "icon": "icons/SW.Item.Powerbow.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.Powershaker",
    "name": "Powershaker",
    "description": "Let’s shake things up! The Powershaker is a smashing good time and will blow your enemies’ minds!",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.Powershaker.png"
+   "icon": "icons/SW.Item.Artifact.Powershaker.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.Prickle",
@@ -1670,7 +2268,11 @@
    "baseOf": [
     "SW.Item.CurvedLongsword"
    ],
-   "icon": "icons/SW.Item.CurvedLongsword_Unique1.png"
+   "icon": "icons/SW.Item.CurvedLongsword_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Gauntlet_Unique1",
@@ -1681,7 +2283,11 @@
    "baseOf": [
     "SW.Item.Gauntlet"
    ],
-   "icon": "icons/SW.Item.Gauntlet_Unique1.png"
+   "icon": "icons/SW.Item.Gauntlet_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.StalwartBoots",
@@ -1690,7 +2296,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.StalwartBoots_Unique",
-   "icon": "icons/SW.Item.StalwartBoots.png"
+   "icon": "icons/SW.Item.StalwartBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.StalwartChest",
@@ -1699,7 +2309,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.StalwartChest_Unique",
-   "icon": "icons/SW.Item.StalwartChest.png"
+   "icon": "icons/SW.Item.StalwartChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.StalwartHelmet",
@@ -1708,7 +2322,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.StalwartHelmet_Unique",
-   "icon": "icons/SW.Item.StalwartHelmet.png"
+   "icon": "icons/SW.Item.StalwartHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.StalwartLeggings",
@@ -1717,7 +2335,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.StalwartLeggings_Unique",
-   "icon": "icons/SW.Item.StalwartLeggings.png"
+   "icon": "icons/SW.Item.StalwartLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RealmreacherBoots",
@@ -1726,7 +2348,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.RealmreacherBoots_Unique",
-   "icon": "icons/SW.Item.RealmreacherBoots.png"
+   "icon": "icons/SW.Item.RealmreacherBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RealmreacherHelmet",
@@ -1735,7 +2361,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.RealmreacherHelmet_Unique",
-   "icon": "icons/SW.Item.RealmreacherHelmet.png"
+   "icon": "icons/SW.Item.RealmreacherHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RealmreacherChest",
@@ -1744,7 +2374,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.RealmreacherChest_Unique",
-   "icon": "icons/SW.Item.RealmreacherChest.png"
+   "icon": "icons/SW.Item.RealmreacherChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RealmreacherLeggings",
@@ -1753,7 +2387,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.RealmreacherLeggings_Unique",
-   "icon": "icons/SW.Item.RealmreacherLeggings.png"
+   "icon": "icons/SW.Item.RealmreacherLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Bow_Unique1",
@@ -1764,7 +2402,15 @@
    "baseOf": [
     "SW.Item.Bow"
    ],
-   "icon": "icons/SW.Item.Bow_Unique1.png"
+   "icon": "icons/SW.Item.Bow_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "CrossbowOnly",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.RapidCrossbow",
@@ -1772,7 +2418,13 @@
    "description": "For the hair-trigger hunter who likes firing rapid bursts of arrows.",
    "category": "ranged",
    "uniqueOf": "SW.Item.RapidCrossbow_Unique1",
-   "icon": "icons/SW.Item.RapidCrossbow.png"
+   "icon": "icons/SW.Item.RapidCrossbow.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "CrossbowOnly",
+    "RangedWeaponQuiverArtifact"
+   ]
   },
   {
    "tag": "SW.Item.Rapier",
@@ -1780,7 +2432,11 @@
    "description": "A nimble and narrow blade that strikes with fierce ferocity.",
    "category": "melee",
    "uniqueOf": "SW.Item.Rapier_Unique1",
-   "icon": "icons/SW.Item.Rapier.png"
+   "icon": "icons/SW.Item.Rapier.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Sabre_Unique1",
@@ -1791,7 +2447,11 @@
    "baseOf": [
     "SW.Item.Sabre"
    ],
-   "icon": "icons/SW.Item.Sabre_Unique1.png"
+   "icon": "icons/SW.Item.Sabre_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.TimewornBoots",
@@ -1800,7 +2460,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.TimewornBoots_Unique",
-   "icon": "icons/SW.Item.TimewornBoots.png"
+   "icon": "icons/SW.Item.TimewornBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.TimewornHelmet",
@@ -1809,7 +2473,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.TimewornHelmet_Unique",
-   "icon": "icons/SW.Item.TimewornHelmet.png"
+   "icon": "icons/SW.Item.TimewornHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.TimewornLeggings",
@@ -1818,7 +2486,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.TimewornLeggings_Unique",
-   "icon": "icons/SW.Item.TimewornLeggings.png"
+   "icon": "icons/SW.Item.TimewornLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.TimewornChest",
@@ -1827,7 +2499,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.TimewornChest_Unique",
-   "icon": "icons/SW.Item.TimewornChest.png"
+   "icon": "icons/SW.Item.TimewornChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RedstoneBoots",
@@ -1836,7 +2512,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.RedstoneBoots_Unique",
-   "icon": "icons/SW.Item.RedstoneBoots.png"
+   "icon": "icons/SW.Item.RedstoneBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RedstoneChest",
@@ -1845,7 +2525,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.RedstoneChest_Unique",
-   "icon": "icons/SW.Item.RedstoneChest.png"
+   "icon": "icons/SW.Item.RedstoneChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RedstoneHelmet",
@@ -1854,14 +2538,21 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.RedstoneHelmet_Unique",
-   "icon": "icons/SW.Item.RedstoneHelmet.png"
+   "icon": "icons/SW.Item.RedstoneHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.RedstoneMines",
    "name": "Redstone Mine Launcher",
    "description": "This state-of-the-craft mine launcher will fire a volley of explosive Redstone mines.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.RedstoneMines.png"
+   "icon": "icons/SW.Item.Artifact.RedstoneMines.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RedstoneLeggings",
@@ -1870,7 +2561,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.RedstoneLeggings_Unique",
-   "icon": "icons/SW.Item.RedstoneLeggings.png"
+   "icon": "icons/SW.Item.RedstoneLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.GiantClub_Unique1",
@@ -1881,7 +2576,11 @@
    "baseOf": [
     "SW.Item.GiantClub"
    ],
-   "icon": "icons/SW.Item.GiantClub_Unique1.png"
+   "icon": "icons/SW.Item.GiantClub_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.Ricochet",
@@ -1896,7 +2595,11 @@
    "description": "A curved longsword with an edge so sharp it could open rifts of its own... It doesn’t, though.",
    "category": "melee",
    "uniqueOf": "SW.Item.CurvedLongsword_Unique1",
-   "icon": "icons/SW.Item.CurvedLongsword.png"
+   "icon": "icons/SW.Item.CurvedLongsword.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.FrostRimeChest_Unique",
@@ -1908,7 +2611,11 @@
    "baseOf": [
     "SW.Item.FrostRimeChest"
    ],
-   "icon": "icons/SW.Item.FrostRimeChest_Unique.png"
+   "icon": "icons/SW.Item.FrostRimeChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.FrostRimeHelmet_Unique",
@@ -1920,7 +2627,11 @@
    "baseOf": [
     "SW.Item.FrostRimeHelmet"
    ],
-   "icon": "icons/SW.Item.FrostRimeHelmet_Unique.png"
+   "icon": "icons/SW.Item.FrostRimeHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.FrostRimeLeggings_Unique",
@@ -1932,7 +2643,11 @@
    "baseOf": [
     "SW.Item.FrostRimeLeggings"
    ],
-   "icon": "icons/SW.Item.FrostRimeLeggings_Unique.png"
+   "icon": "icons/SW.Item.FrostRimeLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.FrostRimeBoots_Unique",
@@ -1944,7 +2659,11 @@
    "baseOf": [
     "SW.Item.FrostRimeBoots"
    ],
-   "icon": "icons/SW.Item.FrostRimeBoots_Unique.png"
+   "icon": "icons/SW.Item.FrostRimeBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.VoyagerLeggings_Unique",
@@ -1956,7 +2675,11 @@
    "baseOf": [
     "SW.Item.VoyagerLeggings"
    ],
-   "icon": "icons/SW.Item.VoyagerLeggings_Unique.png"
+   "icon": "icons/SW.Item.VoyagerLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.VoyagerChest_Unique",
@@ -1968,7 +2691,11 @@
    "baseOf": [
     "SW.Item.VoyagerChest"
    ],
-   "icon": "icons/SW.Item.VoyagerChest_Unique.png"
+   "icon": "icons/SW.Item.VoyagerChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.VoyagerBoots_Unique",
@@ -1980,7 +2707,11 @@
    "baseOf": [
     "SW.Item.VoyagerBoots"
    ],
-   "icon": "icons/SW.Item.VoyagerBoots_Unique.png"
+   "icon": "icons/SW.Item.VoyagerBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.VoyagerHelmet_Unique",
@@ -1992,7 +2723,11 @@
    "baseOf": [
     "SW.Item.VoyagerHelmet"
    ],
-   "icon": "icons/SW.Item.VoyagerHelmet_Unique.png"
+   "icon": "icons/SW.Item.VoyagerHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Sabre",
@@ -2000,7 +2735,11 @@
    "description": "A slightly curved sword for when you want to paint with broad strokes.",
    "category": "melee",
    "uniqueOf": "SW.Item.Sabre_Unique1",
-   "icon": "icons/SW.Item.Sabre.png"
+   "icon": "icons/SW.Item.Sabre.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.DiscipleLeggings_Unique",
@@ -2012,7 +2751,11 @@
    "baseOf": [
     "SW.Item.DiscipleLeggings"
    ],
-   "icon": "icons/SW.Item.DiscipleLeggings_Unique.png"
+   "icon": "icons/SW.Item.DiscipleLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.DiscipleHelmet_Unique",
@@ -2024,7 +2767,11 @@
    "baseOf": [
     "SW.Item.DiscipleHelmet"
    ],
-   "icon": "icons/SW.Item.DiscipleHelmet_Unique.png"
+   "icon": "icons/SW.Item.DiscipleHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.DiscipleChest_Unique",
@@ -2036,7 +2783,11 @@
    "baseOf": [
     "SW.Item.DiscipleChest"
    ],
-   "icon": "icons/SW.Item.DiscipleChest_Unique.png"
+   "icon": "icons/SW.Item.DiscipleChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.DiscipleBoots_Unique",
@@ -2048,7 +2799,11 @@
    "baseOf": [
     "SW.Item.DiscipleBoots"
    ],
-   "icon": "icons/SW.Item.DiscipleBoots_Unique.png"
+   "icon": "icons/SW.Item.DiscipleBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScampHelmet",
@@ -2057,7 +2812,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.ScampHelmet_Unique",
-   "icon": "icons/SW.Item.ScampHelmet.png"
+   "icon": "icons/SW.Item.ScampHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScampChest",
@@ -2066,7 +2825,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.ScampChest_Unique",
-   "icon": "icons/SW.Item.ScampChest.png"
+   "icon": "icons/SW.Item.ScampChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScampLeggings",
@@ -2075,7 +2838,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.ScampLeggings_Unique",
-   "icon": "icons/SW.Item.ScampLeggings.png"
+   "icon": "icons/SW.Item.ScampLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScampBoots",
@@ -2084,7 +2851,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.ScampBoots_Unique",
-   "icon": "icons/SW.Item.ScampBoots.png"
+   "icon": "icons/SW.Item.ScampBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScatterCrossbow",
@@ -2092,7 +2863,13 @@
    "description": "The ultimate weapon for when you have enemies coming from every direction.",
    "category": "ranged",
    "uniqueOf": "SW.Item.ScatterCrossbow_Unique1",
-   "icon": "icons/SW.Item.ScatterCrossbow.png"
+   "icon": "icons/SW.Item.ScatterCrossbow.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "CrossbowOnly",
+    "RangedWeaponQuiverArtifact"
+   ]
   },
   {
    "tag": "SW.Item.ScampChest_Unique",
@@ -2104,7 +2881,11 @@
    "baseOf": [
     "SW.Item.ScampChest"
    ],
-   "icon": "icons/SW.Item.ScampChest_Unique.png"
+   "icon": "icons/SW.Item.ScampChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScampLeggings_Unique",
@@ -2116,7 +2897,11 @@
    "baseOf": [
     "SW.Item.ScampLeggings"
    ],
-   "icon": "icons/SW.Item.ScampLeggings_Unique.png"
+   "icon": "icons/SW.Item.ScampLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScampHelmet_Unique",
@@ -2128,7 +2913,11 @@
    "baseOf": [
     "SW.Item.ScampHelmet"
    ],
-   "icon": "icons/SW.Item.ScampHelmet_Unique.png"
+   "icon": "icons/SW.Item.ScampHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScampBoots_Unique",
@@ -2140,7 +2929,11 @@
    "baseOf": [
     "SW.Item.ScampBoots"
    ],
-   "icon": "icons/SW.Item.ScampBoots_Unique.png"
+   "icon": "icons/SW.Item.ScampBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.StatusBuff",
@@ -2156,7 +2949,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.CaveCrawlerBoots_Unique",
-   "icon": "icons/SW.Item.CaveCrawlerBoots.png"
+   "icon": "icons/SW.Item.CaveCrawlerBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.CaveCrawlerHelmet",
@@ -2165,7 +2962,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.CaveCrawlerHelmet_Unique",
-   "icon": "icons/SW.Item.CaveCrawlerHelmet.png"
+   "icon": "icons/SW.Item.CaveCrawlerHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.CaveCrawlerLeggings",
@@ -2174,7 +2975,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.CaveCrawlerLeggings_Unique",
-   "icon": "icons/SW.Item.CaveCrawlerLeggings.png"
+   "icon": "icons/SW.Item.CaveCrawlerLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.CaveCrawlerChest",
@@ -2183,7 +2988,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.CaveCrawlerChest_Unique",
-   "icon": "icons/SW.Item.CaveCrawlerChest.png"
+   "icon": "icons/SW.Item.CaveCrawlerChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScavengerBoots",
@@ -2192,7 +3001,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.ScavengerBoots_Unique",
-   "icon": "icons/SW.Item.ScavengerBoots.png"
+   "icon": "icons/SW.Item.ScavengerBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Claws_Unique1",
@@ -2203,7 +3016,11 @@
    "baseOf": [
     "SW.Item.Claws"
    ],
-   "icon": "icons/SW.Item.Claws_Unique1.png"
+   "icon": "icons/SW.Item.Claws_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.ScavengerHelmet",
@@ -2212,7 +3029,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.ScavengerHelmet_Unique",
-   "icon": "icons/SW.Item.ScavengerHelmet.png"
+   "icon": "icons/SW.Item.ScavengerHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScavengerChest",
@@ -2221,7 +3042,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.ScavengerChest_Unique",
-   "icon": "icons/SW.Item.ScavengerChest.png"
+   "icon": "icons/SW.Item.ScavengerChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.ScavengerLeggings",
@@ -2230,7 +3055,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.ScavengerLeggings_Unique",
-   "icon": "icons/SW.Item.ScavengerLeggings.png"
+   "icon": "icons/SW.Item.ScavengerLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Dagger_Unique1",
@@ -2241,7 +3070,11 @@
    "baseOf": [
     "SW.Item.Dagger"
    ],
-   "icon": "icons/SW.Item.Dagger_Unique1.png"
+   "icon": "icons/SW.Item.Dagger_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Scythe",
@@ -2249,7 +3082,11 @@
    "description": "Fit only for toiling warriors, the scythe truly separates the wheat from the chaff.",
    "category": "melee",
    "uniqueOf": "SW.Item.Scythe_Unique1",
-   "icon": "icons/SW.Item.Scythe.png"
+   "icon": "icons/SW.Item.Scythe.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.ShadowStrike",
@@ -2268,7 +3105,11 @@
    "baseOf": [
     "SW.Item.RealmreacherLeggings"
    ],
-   "icon": "icons/SW.Item.RealmreacherLeggings_Unique.png"
+   "icon": "icons/SW.Item.RealmreacherLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RealmreacherChest_Unique",
@@ -2280,7 +3121,11 @@
    "baseOf": [
     "SW.Item.RealmreacherChest"
    ],
-   "icon": "icons/SW.Item.RealmreacherChest_Unique.png"
+   "icon": "icons/SW.Item.RealmreacherChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RealmreacherHelmet_Unique",
@@ -2292,7 +3137,11 @@
    "baseOf": [
     "SW.Item.RealmreacherHelmet"
    ],
-   "icon": "icons/SW.Item.RealmreacherHelmet_Unique.png"
+   "icon": "icons/SW.Item.RealmreacherHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.RealmreacherBoots_Unique",
@@ -2304,7 +3153,11 @@
    "baseOf": [
     "SW.Item.RealmreacherBoots"
    ],
-   "icon": "icons/SW.Item.RealmreacherBoots_Unique.png"
+   "icon": "icons/SW.Item.RealmreacherBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.GuardingStrike",
@@ -2329,7 +3182,14 @@
    "baseOf": [
     "SW.Item.Shortbow"
    ],
-   "icon": "icons/SW.Item.Shortbow_Unique1.png"
+   "icon": "icons/SW.Item.Shortbow_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.ShortSpear",
@@ -2337,7 +3197,11 @@
    "description": "With the right wielder, even a short spear can reach across dimensions.",
    "category": "melee",
    "uniqueOf": "SW.Item.ShortSpear_Unique1",
-   "icon": "icons/SW.Item.ShortSpear.png"
+   "icon": "icons/SW.Item.ShortSpear.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Shortbow",
@@ -2345,7 +3209,14 @@
    "description": "A shorter, weaker bow with a faster fire rate and quicker charge time.",
    "category": "ranged",
    "uniqueOf": "SW.Item.Shortbow_Unique1",
-   "icon": "icons/SW.Item.Shortbow.png"
+   "icon": "icons/SW.Item.Shortbow.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.Shovel",
@@ -2353,7 +3224,11 @@
    "description": "When planning for revenge, you must dig two graves: one for your enemy. And one... for your other enemy.",
    "category": "melee",
    "uniqueOf": "SW.Item.Shovel_Unique1",
-   "icon": "icons/SW.Item.Shovel.png"
+   "icon": "icons/SW.Item.Shovel.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Sickles_Unique1",
@@ -2364,7 +3239,11 @@
    "baseOf": [
     "SW.Item.Sickles"
    ],
-   "icon": "icons/SW.Item.Sickles_Unique1.png"
+   "icon": "icons/SW.Item.Sickles_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.WellspringBoots",
@@ -2373,7 +3252,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.WellspringBoots_Unique",
-   "icon": "icons/SW.Item.WellspringBoots.png"
+   "icon": "icons/SW.Item.WellspringBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WellspringHelmet",
@@ -2382,7 +3265,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.WellspringHelmet_Unique",
-   "icon": "icons/SW.Item.WellspringHelmet.png"
+   "icon": "icons/SW.Item.WellspringHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WellspringLeggings",
@@ -2391,7 +3278,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.WellspringLeggings_Unique",
-   "icon": "icons/SW.Item.WellspringLeggings.png"
+   "icon": "icons/SW.Item.WellspringLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WellspringChest",
@@ -2400,7 +3291,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.WellspringChest_Unique",
-   "icon": "icons/SW.Item.WellspringChest.png"
+   "icon": "icons/SW.Item.WellspringChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.HealthBoost",
@@ -2418,7 +3313,11 @@
    "baseOf": [
     "SW.Item.Claymore"
    ],
-   "icon": "icons/SW.Item.Claymore_Unique1.png"
+   "icon": "icons/SW.Item.Claymore_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Cosmetic.Cape.SliceSlayer",
@@ -2441,7 +3340,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.EvocationBoots_Unique",
-   "icon": "icons/SW.Item.EvocationBoots.png"
+   "icon": "icons/SW.Item.EvocationBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EvocationHelmet",
@@ -2450,7 +3353,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.EvocationHelmet_Unique",
-   "icon": "icons/SW.Item.EvocationHelmet.png"
+   "icon": "icons/SW.Item.EvocationHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EvocationLeggings",
@@ -2459,7 +3366,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.EvocationLeggings_Unique",
-   "icon": "icons/SW.Item.EvocationLeggings.png"
+   "icon": "icons/SW.Item.EvocationLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EvocationChest",
@@ -2468,7 +3379,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.EvocationChest_Unique",
-   "icon": "icons/SW.Item.EvocationChest.png"
+   "icon": "icons/SW.Item.EvocationChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.SoulAspect",
@@ -2502,7 +3417,11 @@
    "baseOf": [
     "SW.Item.TimewornChest"
    ],
-   "icon": "icons/SW.Item.TimewornChest_Unique.png"
+   "icon": "icons/SW.Item.TimewornChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.TimewornHelmet_Unique",
@@ -2514,7 +3433,11 @@
    "baseOf": [
     "SW.Item.TimewornHelmet"
    ],
-   "icon": "icons/SW.Item.TimewornHelmet_Unique.png"
+   "icon": "icons/SW.Item.TimewornHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.TimewornBoots_Unique",
@@ -2526,7 +3449,11 @@
    "baseOf": [
     "SW.Item.TimewornBoots"
    ],
-   "icon": "icons/SW.Item.TimewornBoots_Unique.png"
+   "icon": "icons/SW.Item.TimewornBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.TimewornLeggings_Unique",
@@ -2538,14 +3465,21 @@
    "baseOf": [
     "SW.Item.TimewornLeggings"
    ],
-   "icon": "icons/SW.Item.TimewornLeggings_Unique.png"
+   "icon": "icons/SW.Item.TimewornLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.SoulHarvester",
    "name": "Soul Harvester",
    "description": "Charge it up with the souls you have collected before releasing them into a cluster hex of power.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.SoulHarvester.png"
+   "icon": "icons/SW.Item.Artifact.SoulHarvester.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Scythe_Unique1",
@@ -2556,7 +3490,11 @@
    "baseOf": [
     "SW.Item.Scythe"
    ],
-   "icon": "icons/SW.Item.Scythe_Unique1.png"
+   "icon": "icons/SW.Item.Scythe_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Cosmetic.Cape.Special",
@@ -2574,7 +3512,11 @@
    "baseOf": [
     "SW.Item.ShortSpear"
    ],
-   "icon": "icons/SW.Item.ShortSpear_Unique1.png"
+   "icon": "icons/SW.Item.ShortSpear_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.SpringLoaded",
@@ -2590,7 +3532,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.FrostRimeBoots_Unique",
-   "icon": "icons/SW.Item.FrostRimeBoots.png"
+   "icon": "icons/SW.Item.FrostRimeBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.FrostRimeHelmet",
@@ -2599,7 +3545,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.FrostRimeHelmet_Unique",
-   "icon": "icons/SW.Item.FrostRimeHelmet.png"
+   "icon": "icons/SW.Item.FrostRimeHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.FrostRimeLeggings",
@@ -2608,7 +3558,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.FrostRimeLeggings_Unique",
-   "icon": "icons/SW.Item.FrostRimeLeggings.png"
+   "icon": "icons/SW.Item.FrostRimeLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.FrostRimeChest",
@@ -2617,7 +3571,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.FrostRimeChest_Unique",
-   "icon": "icons/SW.Item.FrostRimeChest.png"
+   "icon": "icons/SW.Item.FrostRimeChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Pike_Unique1",
@@ -2628,7 +3586,11 @@
    "baseOf": [
     "SW.Item.Pike"
    ],
-   "icon": "icons/SW.Item.Pike_Unique1.png"
+   "icon": "icons/SW.Item.Pike_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.Swirling",
@@ -2643,7 +3605,11 @@
    "description": "A classic sword used by heroes and survivors since the dawn of the Overworld.",
    "category": "melee",
    "uniqueOf": "SW.Item.Sword_Unique1",
-   "icon": "icons/SW.Item.Sword.png"
+   "icon": "icons/SW.Item.Sword.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.Wolf",
@@ -2664,7 +3630,10 @@
    "name": "Tempo Truffle",
    "description": "Eaten by daring warriors before battle, sending them charging into battle with increased movement speed.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.HasteMushroom.png"
+   "icon": "icons/SW.Item.Artifact.HasteMushroom.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.HealthyStrike",
@@ -2682,7 +3651,11 @@
    "baseOf": [
     "SW.Item.Sword"
    ],
-   "icon": "icons/SW.Item.Sword_Unique1.png"
+   "icon": "icons/SW.Item.Sword_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.HeavyCrossbow_Unique1",
@@ -2693,7 +3666,13 @@
    "baseOf": [
     "SW.Item.HeavyCrossbow"
    ],
-   "icon": "icons/SW.Item.HeavyCrossbow_Unique1.png"
+   "icon": "icons/SW.Item.HeavyCrossbow_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "CrossbowOnly",
+    "RangedWeaponQuiverArtifact"
+   ]
   },
   {
    "tag": "SW.Item.RapidCrossbow_Unique1",
@@ -2704,7 +3683,13 @@
    "baseOf": [
     "SW.Item.RapidCrossbow"
    ],
-   "icon": "icons/SW.Item.RapidCrossbow_Unique1.png"
+   "icon": "icons/SW.Item.RapidCrossbow_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "CrossbowOnly",
+    "RangedWeaponQuiverArtifact"
+   ]
   },
   {
    "tag": "SW.Item.Greatsword_Unique1",
@@ -2715,7 +3700,11 @@
    "baseOf": [
     "SW.Item.Greatsword"
    ],
-   "icon": "icons/SW.Item.Greatsword_Unique1.png"
+   "icon": "icons/SW.Item.Greatsword_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.ExperienceIncrease",
@@ -2733,7 +3722,11 @@
    "baseOf": [
     "SW.Item.Pickaxe"
    ],
-   "icon": "icons/SW.Item.Pickaxe_Unique1.png"
+   "icon": "icons/SW.Item.Pickaxe_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Crossbow_Unique1",
@@ -2744,7 +3737,13 @@
    "baseOf": [
     "SW.Item.Crossbow"
    ],
-   "icon": "icons/SW.Item.Crossbow_Unique1.png"
+   "icon": "icons/SW.Item.Crossbow_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "CrossbowOnly",
+    "RangedWeaponQuiverArtifact"
+   ]
   },
   {
    "tag": "SW.Item.Rapier_Unique1",
@@ -2755,7 +3754,11 @@
    "baseOf": [
     "SW.Item.Rapier"
    ],
-   "icon": "icons/SW.Item.Rapier_Unique1.png"
+   "icon": "icons/SW.Item.Rapier_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.FiringEmeralds",
@@ -2777,7 +3780,11 @@
    "description": "A harvest tool for the new dimension, perfect for reaping souls.",
    "category": "melee",
    "uniqueOf": "SW.Item.MoonSword_Unique1",
-   "icon": "icons/SW.Item.MoonSword.png"
+   "icon": "icons/SW.Item.MoonSword.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Consumable.Throwable.TNT",
@@ -2791,21 +3798,30 @@
    "name": "Totem of Casting",
    "description": "Place the totem on the ground to spread artificing energy to your allies, reducing their artifact cooldown time.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.TotemOfCasting.png"
+   "icon": "icons/SW.Item.Artifact.TotemOfCasting.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.TotemOfRegeneration",
    "name": "Totem of Regeneration",
    "description": "This wooden figurine radiates a warmth like that of a crackling campfire and heals all friends who gather around it.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.TotemOfRegeneration.png"
+   "icon": "icons/SW.Item.Artifact.TotemOfRegeneration.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.TotemOfShielding",
    "name": "Totem of Shielding",
    "description": "This solid gold totem radiates a protective barrier, shielding all inside it from projectiles.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.TotemOfShielding.png"
+   "icon": "icons/SW.Item.Artifact.TotemOfShielding.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HewnBarkChest",
@@ -2814,7 +3830,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.HewnBarkChest_Unique",
-   "icon": "icons/SW.Item.HewnBarkChest.png"
+   "icon": "icons/SW.Item.HewnBarkChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HewnBarkBoots",
@@ -2823,7 +3843,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.HewnBarkBoots_Unique",
-   "icon": "icons/SW.Item.HewnBarkBoots.png"
+   "icon": "icons/SW.Item.HewnBarkBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HewnBarkLeggings",
@@ -2832,7 +3856,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.HewnBarkLeggings_Unique",
-   "icon": "icons/SW.Item.HewnBarkLeggings.png"
+   "icon": "icons/SW.Item.HewnBarkLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HewnBarkHelmet",
@@ -2841,7 +3869,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.HewnBarkHelmet_Unique",
-   "icon": "icons/SW.Item.HewnBarkHelmet.png"
+   "icon": "icons/SW.Item.HewnBarkHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Trickbow",
@@ -2849,7 +3881,14 @@
    "description": "For the trick shooter who likes to roll, jump, and shoot ricocheting arrows.",
    "category": "ranged",
    "uniqueOf": "SW.Item.Trickbow_Unique1",
-   "icon": "icons/SW.Item.Trickbow.png"
+   "icon": "icons/SW.Item.Trickbow.png",
+   "effectGroups": [
+    "Weapon",
+    "RangedWeapon",
+    "BowOnly",
+    "RangedWeaponQuiverArtifact",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.EnchantmentBook.BurstBowstring",
@@ -2863,7 +3902,10 @@
    "name": "Turtle Master's Mandolin",
    "description": "A beautiful instrument varnished with Potion of the Turtle Master, granting resistance to all friends who catch your groove.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.IronHideLute.png"
+   "icon": "icons/SW.Item.Artifact.IronHideLute.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.AmmoCapacity",
@@ -2878,7 +3920,11 @@
    "description": "A must-have in any rogue's inventory.",
    "category": "melee",
    "uniqueOf": "SW.Item.Dagger_Unique1",
-   "icon": "icons/SW.Item.Dagger.png"
+   "icon": "icons/SW.Item.Dagger.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Cosmetic.Cape.Twisted",
@@ -2911,7 +3957,11 @@
    "baseOf": [
     "SW.Item.CaveCrawlerHelmet"
    ],
-   "icon": "icons/SW.Item.CaveCrawlerHelmet_Unique.png"
+   "icon": "icons/SW.Item.CaveCrawlerHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.CaveCrawlerBoots_Unique",
@@ -2923,7 +3973,11 @@
    "baseOf": [
     "SW.Item.CaveCrawlerBoots"
    ],
-   "icon": "icons/SW.Item.CaveCrawlerBoots_Unique.png"
+   "icon": "icons/SW.Item.CaveCrawlerBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.CaveCrawlerLeggings_Unique",
@@ -2935,7 +3989,11 @@
    "baseOf": [
     "SW.Item.CaveCrawlerLeggings"
    ],
-   "icon": "icons/SW.Item.CaveCrawlerLeggings_Unique.png"
+   "icon": "icons/SW.Item.CaveCrawlerLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.CaveCrawlerChest_Unique",
@@ -2947,7 +4005,11 @@
    "baseOf": [
     "SW.Item.CaveCrawlerChest"
    ],
-   "icon": "icons/SW.Item.CaveCrawlerChest_Unique.png"
+   "icon": "icons/SW.Item.CaveCrawlerChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Daggers_Unique1",
@@ -2958,14 +4020,25 @@
    "baseOf": [
     "SW.Item.Daggers"
    ],
-   "icon": "icons/SW.Item.Daggers_Unique1.png"
+   "icon": "icons/SW.Item.Daggers_Unique1.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.PoisonQuiver",
    "name": "Venomous Quiver",
    "description": "A quiver soaked in venom for that extra sting when your arrows bite.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.PoisonQuiver.png"
+   "icon": "icons/SW.Item.Artifact.PoisonQuiver.png",
+   "effectGroups": [
+    "Artifact",
+    "RangedWeapon",
+    "RangedWeaponQuiverArtifact",
+    "QuiverEffectTemplate",
+    "BowQuiverOnly"
+   ]
   },
   {
    "tag": "SW.Item.WarHammer",
@@ -2973,35 +4046,51 @@
    "description": "Its strikes send tremors through the earth and through your enemies’ hearts.",
    "category": "melee",
    "uniqueOf": "SW.Item.WarHammer_Unique1",
-   "icon": "icons/SW.Item.WarHammer.png"
+   "icon": "icons/SW.Item.WarHammer.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.WardingChimes",
    "name": "Warding Chimes",
    "description": "Chimes crafted from humbler husk. Their music turns your skin as thick as carapace.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.WardingChimes.png"
+   "icon": "icons/SW.Item.Artifact.WardingChimes.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.WarriorsDrums",
    "name": "Warrior Drums",
    "description": "Let the sound of drums fill your warrior heart with the power to do double damage on all critical hits.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.WarriorsDrums.png"
+   "icon": "icons/SW.Item.Artifact.WarriorsDrums.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.BlizzardStaff",
    "name": "Winter Staff",
    "description": "Blasts a soul-powered blizzard at your enemies and creates a cozy winter wonderland.",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.BlizzardStaff.png"
+   "icon": "icons/SW.Item.Artifact.BlizzardStaff.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Artifact.WitchesBrew",
    "name": "Witch Brew",
    "description": "A witch's secret formula to throw at your enemies and spread a cloud of weakening vapor. What do they put in this stuff?",
    "category": "artifact",
-   "icon": "icons/SW.Item.Artifact.WitchesBrew.png"
+   "icon": "icons/SW.Item.Artifact.WitchesBrew.png",
+   "effectGroups": [
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.Talisman.Wobble",
@@ -3016,7 +4105,11 @@
    "description": "A respectful offering from your wolf friends, for close combat beneath the full moon.",
    "category": "melee",
    "uniqueOf": "SW.Item.Claws_Unique1",
-   "icon": "icons/SW.Item.Claws.png"
+   "icon": "icons/SW.Item.Claws.png",
+   "effectGroups": [
+    "Weapon",
+    "MeleeWeapon"
+   ]
   },
   {
    "tag": "SW.Item.WolfclutchBoots",
@@ -3025,7 +4118,11 @@
    "category": "armor",
    "armorPiece": "Boots",
    "uniqueOf": "SW.Item.WolfclutchBoots_Unique",
-   "icon": "icons/SW.Item.WolfclutchBoots.png"
+   "icon": "icons/SW.Item.WolfclutchBoots.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WolfclutchHelmet",
@@ -3034,7 +4131,11 @@
    "category": "armor",
    "armorPiece": "Helmet",
    "uniqueOf": "SW.Item.WolfclutchHelmet_Unique",
-   "icon": "icons/SW.Item.WolfclutchHelmet.png"
+   "icon": "icons/SW.Item.WolfclutchHelmet.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WolfclutchChest",
@@ -3043,7 +4144,11 @@
    "category": "armor",
    "armorPiece": "Chest",
    "uniqueOf": "SW.Item.WolfclutchChest_Unique",
-   "icon": "icons/SW.Item.WolfclutchChest.png"
+   "icon": "icons/SW.Item.WolfclutchChest.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.WolfclutchLeggings",
@@ -3052,7 +4157,11 @@
    "category": "armor",
    "armorPiece": "Leggings",
    "uniqueOf": "SW.Item.WolfclutchLeggings_Unique",
-   "icon": "icons/SW.Item.WolfclutchLeggings.png"
+   "icon": "icons/SW.Item.WolfclutchLeggings.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "sw.Item.Talisman.Llama",
@@ -3071,7 +4180,11 @@
    "baseOf": [
     "SW.Item.HewnBarkChest"
    ],
-   "icon": "icons/SW.Item.HewnBarkChest_Unique.png"
+   "icon": "icons/SW.Item.HewnBarkChest_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HewnBarkHelmet_Unique",
@@ -3083,7 +4196,11 @@
    "baseOf": [
     "SW.Item.HewnBarkHelmet"
    ],
-   "icon": "icons/SW.Item.HewnBarkHelmet_Unique.png"
+   "icon": "icons/SW.Item.HewnBarkHelmet_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HewnBarkBoots_Unique",
@@ -3095,7 +4212,11 @@
    "baseOf": [
     "SW.Item.HewnBarkBoots"
    ],
-   "icon": "icons/SW.Item.HewnBarkBoots_Unique.png"
+   "icon": "icons/SW.Item.HewnBarkBoots_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   },
   {
    "tag": "SW.Item.HewnBarkLeggings_Unique",
@@ -3107,7 +4228,11 @@
    "baseOf": [
     "SW.Item.HewnBarkLeggings"
    ],
-   "icon": "icons/SW.Item.HewnBarkLeggings_Unique.png"
+   "icon": "icons/SW.Item.HewnBarkLeggings_Unique.png",
+   "effectGroups": [
+    "Armor",
+    "Artifact"
+   ]
   }
  ],
  "equipSlots": [
@@ -3649,5 +4774,2922 @@
   "SW.MinecartStation.DesertA1.TaigaBeach",
   "SW.MinecartStation.PlainsA2.SouthEastBridge",
   "SW.MinecartStation.PlainsA2.NorthWestBridge"
- ]
+ ],
+ "enchantments": [
+  {
+   "tag": "SW.Enchantment.SoulInfusedPotion",
+   "name": "Ancient Alchemy",
+   "description": "Potion usage grants {0} souls.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.SoulInfusedPotion.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.SoulInfusedPotion.I",
+     "value": 0.5
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.SoulInfusedPotion.II",
+     "value": 0.6
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.SoulInfusedPotion.III",
+     "value": 0.85
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Arcane",
+   "name": "Artifact Amplifier",
+   "description": "Artifact usage improves artifact cooldown and damage for {0} seconds.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.Arcane.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Arcane.I",
+     "value": 6
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Arcane.II",
+     "value": 7.5
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Arcane.III",
+     "value": 9
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.PotionBarrier",
+   "name": "Barrier Brew",
+   "description": "Potion usage creates a Fortifying well for allies lasting {0} seconds.",
+   "category": "Defensive",
+   "icon": "icons/SW.Enchantment.PotionBarrier.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.PotionBarrier.I",
+     "value": 2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.PotionBarrier.II",
+     "value": 4
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.PotionBarrier.III",
+     "value": 6
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.MultiPotion",
+   "name": "Bottomless Brew",
+   "description": "Grants {0} additional health potions.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.MultiPotion.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.MultiPotion.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.MultiPotion.II",
+     "value": 2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.MultiPotion.III",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.PotionSharing",
+   "name": "Buddy Brew",
+   "description": "Potion usage creates a Regenerating well for allies lasting {0} seconds.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.PotionSharing.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.PotionSharing.I",
+     "value": 2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.PotionSharing.II",
+     "value": 4
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.PotionSharing.III",
+     "value": 6
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.ChainReaction",
+   "name": "Chain Reaction",
+   "description": "Projectiles have a {0} chance to spawn {1} additional projectiles.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.ChainReaction.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.ChainReaction.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.ChainReaction.II",
+     "value": 3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.ChainReaction.III",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Unstoppable",
+   "name": "Cow Stampede",
+   "description": "Slamming into enemies deals damage and knocks them back.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.Unstoppable.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Unstoppable.I",
+     "value": 0
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Unstoppable.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Unstoppable.III",
+     "value": 0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.Enchantment.Unstoppable.Unique",
+     "value": 0.5
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Blowback",
+   "name": "Crash Landing",
+   "description": "Jump attack landings deal {0} additional damage and increases knockback by {1}.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.Blowback.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Blowback.I",
+     "value": 0
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Blowback.II",
+     "value": 0
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Blowback.III",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.CriticalQuiver",
+   "name": "Critical Quiver",
+   "description": "Critical hits restore {0} arrows.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.CriticalQuiver.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.CriticalQuiver.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.CriticalQuiver.II",
+     "value": 3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.CriticalQuiver.III",
+     "value": 5
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Dynamo",
+   "name": "Dynamo",
+   "description": "Rolling applies {0} damage amplification to your next melee or ranged attack.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.Dynamo.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Dynamo.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Dynamo.II",
+     "value": 0.3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Dynamo.III",
+     "value": 0.4
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.Enchantment.Dynamo.Unique",
+     "value": 0.5
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Borealis",
+   "name": "Ender Mines",
+   "description": "Weapon attacks deploy {0} mines that explode in proximity to enemies or after a short time.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.Borealis.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Borealis.I",
+     "value": 0
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Borealis.II",
+     "value": 0
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Borealis.III",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.ExpandedQuiver",
+   "name": "Ender Quiver",
+   "description": "Grants {0} additional arrows.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.ExpandedQuiver.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.ExpandedQuiver.I",
+     "value": 2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.ExpandedQuiver.II",
+     "value": 3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.ExpandedQuiver.III",
+     "value": 4
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.FireAspect",
+   "name": "Fire Aspect",
+   "description": "Wave deals {0} of weapon damage and sets mobs on fire for a short time.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.FireAspect.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.FireAspect.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.FireAspect.II",
+     "value": 1
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.FireAspect.III",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.FrostCrescent",
+   "name": "Frost Crescent",
+   "description": "Wave deals {0} of weapon damage and freezes mobs for a short time, slowing their attacks and movement.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.FrostCrescent.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.FrostCrescent.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.FrostCrescent.II",
+     "value": 2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.FrostCrescent.III",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.GravityPulse",
+   "name": "Gravity Pulse",
+   "description": "Artifact usage pulls all enemies within {0} blocks toward you.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.GravityPulse.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.GravityPulse.I",
+     "value": 0
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.GravityPulse.II",
+     "value": 0
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.GravityPulse.III",
+     "value": 0
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.Enchantment.GravityPulse.Unique",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Radiance",
+   "name": "Healing Smite",
+   "description": "Defeating an enemy has a {0} chance to create a Regenerating well for allies.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.Radiance.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Radiance.I",
+     "value": 0.3
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Radiance.II",
+     "value": 0.4
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Radiance.III",
+     "value": 0.5
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.HealthSynergy",
+   "name": "Health Synergy",
+   "description": "Artifact usage heals {0} of your maximum health.",
+   "category": "Defensive",
+   "icon": "icons/SW.Enchantment.HealthSynergy.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.HealthSynergy.I",
+     "value": 0.15
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.HealthSynergy.II",
+     "value": 0.25
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.HealthSynergy.III",
+     "value": 0.35
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Channeling",
+   "name": "Lightning Surge",
+   "description": "Wave deals {0} of weapon damage and zaps mobs for a short time, making them weaker but faster.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.Channeling.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Channeling.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Channeling.II",
+     "value": 2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Channeling.III",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Piercing",
+   "name": "Piercing",
+   "description": "Projectiles can pierce up to {0} enemies.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.Piercing.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Piercing.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Piercing.II",
+     "value": 3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Piercing.III",
+     "value": 5
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.Enchantment.Piercing.Unique",
+     "value": 10
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.PoisonFog",
+   "name": "Poison Fog",
+   "description": "Wave deals {0} of weapon damage and poisons mobs for a time.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.PoisonFog.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.PoisonFog.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.PoisonFog.II",
+     "value": 1
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.PoisonFog.III",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.LingeringPower",
+   "name": "Power Amplifier",
+   "description": "Artifact usage applies {0} damage amplification to your next melee or ranged attack.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.LingeringPower.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.LingeringPower.I",
+     "value": 0
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.LingeringPower.II",
+     "value": 0
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.LingeringPower.III",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Ricochet",
+   "name": "Ricochet",
+   "description": "Projectiles can bounce up to {0} times.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.Ricochet.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Ricochet.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Ricochet.II",
+     "value": 2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Ricochet.III",
+     "value": 3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.Enchantment.Ricochet.Unique",
+     "value": 10
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.ShadowStrike",
+   "name": "Shadowcloak",
+   "description": "Grants a {0} chance to enter Shadowcloaking when defeating enemies.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.ShadowStrike.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.ShadowStrike.I",
+     "value": 0.15
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.ShadowStrike.II",
+     "value": 0.2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.ShadowStrike.III",
+     "value": 0.35
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.GuardingStrike",
+   "name": "Shielding Smite",
+   "description": "Defeating an enemy has a {0} chance to create a Fortifying well for allies.",
+   "category": "Defensive",
+   "icon": "icons/SW.Enchantment.GuardingStrike.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.GuardingStrike.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.GuardingStrike.II",
+     "value": 0.2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.GuardingStrike.III",
+     "value": 0.4
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.Enchantment.GuardingStrike.Unique",
+     "value": 0.6
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Shockwave",
+   "name": "Shockwave",
+   "description": "Shockwave deals {0} of weapon damage and increases knockback by {1}.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.Shockwave.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Shockwave.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Shockwave.II",
+     "value": 1
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Shockwave.III",
+     "value": 1
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.Enchantment.Shockwave.Unique",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.MultiRoll",
+   "name": "Somersault",
+   "description": "Grants {0} additional rolls.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.MultiRoll.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.MultiRoll.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.MultiRoll.II",
+     "value": 2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.MultiRoll.III",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.SoulFireAspect",
+   "name": "Soul Blast",
+   "description": "Wave deals {0} of weapon damage and deals additional soul damage over time.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.SoulFireAspect.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.SoulFireAspect.I",
+     "value": 1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.SoulFireAspect.II",
+     "value": 2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.SoulFireAspect.III",
+     "value": 3
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.SpringLoaded",
+   "name": "Springload",
+   "description": "Artifact usage grants the Hurrying status for {0} seconds, increasing movement speed.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.SpringLoaded.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Springloaded.I",
+     "value": 4
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Springloaded.II",
+     "value": 5
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Springloaded.III",
+     "value": 6
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Swirling",
+   "name": "Swirling",
+   "description": "Swirl deals an additional {0} of weapon damage to nearby enemies.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.Swirling.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Swirling.I",
+     "value": 0.5
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Swirling.II",
+     "value": 0.75
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Swirling.III",
+     "value": 1
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.Enchantment.Swirling.Unique",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.TempoTheft",
+   "name": "Tempo Theft",
+   "description": "Grants a {0} chance to increase movement speed when defeating enemies.",
+   "category": "Utility",
+   "icon": "icons/SW.Enchantment.TempoTheft.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.TempoTheft.I",
+     "value": 0.3
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.TempoTheft.II",
+     "value": 0.4
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.TempoTheft.III",
+     "value": 0.5
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.Thundering",
+   "name": "Thundering",
+   "description": "Grants a {0} chance for {1} of weapon damage to spread as lightning damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.Thundering.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.Thundering.I",
+     "value": 0
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.Thundering.II",
+     "value": 0
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.Thundering.III",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "tag": "SW.Enchantment.BurstBowstring",
+   "name": "Tumbleshot",
+   "description": "Rolling fires a barrage of {0} arrows, dealing {1} of ranged weapon damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Enchantment.BurstBowstring.png",
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.Enchantment.BurstBowstring.I",
+     "value": 1.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.Enchantment.BurstBowstring.II",
+     "value": 1.4
+    },
+    {
+     "tier": "III",
+     "tag": "SW.Enchantment.BurstBowstring.III",
+     "value": 1.5
+    }
+   ]
+  }
+ ],
+ "effects": [
+  {
+   "template": "SW.EffectTemplate.Acrobat",
+   "effect": "SW.Effect.RollCooldown",
+   "name": "Acrobat",
+   "description": "Reduces rolling cooldown time by {0}.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.RollCooldown.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Acrobat.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Acrobat.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Acrobat.III",
+     "value": 0.25
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Acrobat.Unique",
+     "value": 0.4
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.EagleEye",
+   "effect": "SW.Effect.EagleEye",
+   "name": "Aim",
+   "description": "Increases chance of critical hits from ranged attacks by {0}.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.EagleEye.png",
+   "groups": [
+    "RangedWeapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.EagleEye.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.EagleEye.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.EagleEye.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.EagleEye.Unique",
+     "value": 0.25
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.AnimaConduit",
+   "effect": "SW.Effect.AnimaConduit",
+   "name": "Alchemist",
+   "description": "Restores {0} of max health for each soul gathered.",
+   "category": "Defensive",
+   "icon": "icons/SW.Effect.AnimaConduit.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.AnimaConduit.I",
+     "value": 0.01
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.AnimaConduit.II",
+     "value": 0.03
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.AnimaConduit.III",
+     "value": 0.05
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.AnimaConduit.Unique",
+     "value": 0.07
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Vivify",
+   "effect": "SW.Effect.Vivify",
+   "name": "Ally",
+   "description": "Positive statuses you apply to yourself and allies last {0} longer.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.Vivify.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Vivify.I",
+     "value": 0.15
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Vivify.II",
+     "value": 0.3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Vivify.III",
+     "value": 0.5
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Vivify.Unique",
+     "value": 0.7
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Gambler",
+   "effect": "SW.Effect.Gambler",
+   "name": "Assassin",
+   "description": "Grants a {0} chance to stay in Shadowcloaking when attacking.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.Gambler.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Gambler.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Gambler.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Gambler.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Gambler.Unique",
+     "value": 0.25
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Committed",
+   "effect": "SW.Effect.Committed",
+   "name": "Bounty Hunter",
+   "description": "Deal {0} more damage to wounded enemies.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Committed.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Committed.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Committed.II",
+     "value": 0.25
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Committed.III",
+     "value": 0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Committed.Unique",
+     "value": 0.4
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.ArrowBurst",
+   "effect": "SW.Effect.ArrowBurst",
+   "name": "Bowyer",
+   "description": "Grants a {0} chance to gain an additional arrow when ammo is regained.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.ArrowBurst.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.ArrowBurst.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.ArrowBurst.II",
+     "value": 0.25
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.ArrowBurst.III",
+     "value": 0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.ArrowBurst.Unique",
+     "value": 0.5
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.SweepingEdge",
+   "effect": "SW.Effect.SweepingEdge",
+   "name": "Brawler",
+   "description": "Melee attacks deal {0} more damage to secondary targets.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.SweepingEdge.png",
+   "groups": [
+    "MeleeWeapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.SweepingEdge.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.SweepingEdge.II",
+     "value": 0.3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.SweepingEdge.III",
+     "value": 0.4
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.SweepingEdge.Unique",
+     "value": 0.5
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Opportunist",
+   "effect": "SW.Effect.Opportunist",
+   "name": "Bully",
+   "description": "Deal {0} more damage to enemies affected by a negative status.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Opportunist.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Opportunist.I",
+     "value": 0.25
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Opportunist.II",
+     "value": 0.35
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Opportunist.III",
+     "value": 0.5
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Opportunist.Unique",
+     "value": 0.5
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Cooldown",
+   "effect": "SW.Effect.Cooldown",
+   "name": "Cooldown",
+   "description": "Reduces artifact cooldown time by {0}.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.Cooldown.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Cooldown.I",
+     "value": -0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Cooldown.II",
+     "value": -0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Cooldown.III",
+     "value": -0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Cooldown.Unique",
+     "value": -0.3
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.CriticalEdge",
+   "effect": "SW.Effect.CriticalEdge",
+   "name": "Critical Edge",
+   "description": "All critical hits deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.CriticalEdge.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.CriticalEdge.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.CriticalEdge.II",
+     "value": 0.2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.CriticalEdge.III",
+     "value": 0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.CriticalEdge.Unique",
+     "value": 0.4
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.CriticalHit",
+   "effect": "SW.Effect.CriticalHit",
+   "name": "Critical Hit",
+   "description": "Increases chance of critical hits by {0}.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.CriticalHit.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.CriticalHit.I",
+     "value": 0.05
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.CriticalHit.II",
+     "value": 0.1
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.CriticalHit.III",
+     "value": 0.15
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.CriticalHit.Unique",
+     "value": 0.2
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.FrostFocus",
+   "effect": "SW.Effect.FrostFocus",
+   "name": "Cryomancer",
+   "description": "Frost attacks deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.FrostFocus.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.FrostFocus.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.FrostFocus.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.FrostFocus.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.FrostFocus.Unique",
+     "value": 0.3
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Deflect",
+   "effect": "SW.Effect.Deflect",
+   "name": "Deflection",
+   "description": "Grants a {0} chance to deflect enemy projectiles.",
+   "category": "Defensive",
+   "icon": "icons/SW.Effect.Deflect.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Deflect.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Deflect.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Deflect.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Deflect.Unique",
+     "value": 0.25
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Duelist",
+   "effect": "SW.Effect.Duelist",
+   "name": "Duelist",
+   "description": "Melee attacks deal {0} more damage to primary targets.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Duelist.png",
+   "groups": [
+    "MeleeWeapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Duelist.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Duelist.II",
+     "value": 0.25
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Duelist.III",
+     "value": 0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Duelist.Unique",
+     "value": 0.4
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.LightningFocus",
+   "effect": "SW.Effect.LightningFocus",
+   "name": "Electromancer",
+   "description": "Lightning attacks deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.LightningFocus.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.LightningFocus.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.LightningFocus.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.LightningFocus.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.LightningFocus.Unique",
+     "value": 0.25
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.ElementalProtection",
+   "effect": "SW.Effect.ElementalProtection",
+   "name": "Elemental Protection",
+   "description": "Reduces damage taken from elemental attacks by {0}.",
+   "category": "Defensive",
+   "icon": "icons/SW.Effect.ElementalProtection.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.ElementalProtection.I",
+     "value": -0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.ElementalProtection.II",
+     "value": -0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.ElementalProtection.III",
+     "value": -0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.ElementalProtection.Unique",
+     "value": -0.25
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Sidestep",
+   "effect": "SW.Effect.Sidestep",
+   "name": "Evasion",
+   "description": "Grants a {0} chance to evade melee damage.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.Sidestep.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Sidestep.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Sidestep.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Sidestep.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Sidestep.Unique",
+     "value": 0.2
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Finesse",
+   "effect": "SW.Effect.Finesse",
+   "name": "Finesse",
+   "description": "Increases attack damage by {0} when jumping or rolling.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Finesse.png",
+   "groups": [
+    "MeleeWeapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Finesse.I",
+     "value": 0.15
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Finesse.II",
+     "value": 0.25
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Finesse.III",
+     "value": 0.35
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Finesse.Unique",
+     "value": 0.35
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Reconstruction",
+   "effect": "SW.Effect.Reconstruction",
+   "name": "Fletcher",
+   "description": "Reduces ranged ammo cooldown time by {0}.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.Reconstruction.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Reconstruction.I",
+     "value": -0.15
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Reconstruction.II",
+     "value": -0.2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Reconstruction.III",
+     "value": -0.25
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Reconstruction.Unique",
+     "value": -0.35
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.HealingFocus",
+   "effect": "SW.Effect.HealingFocus",
+   "name": "Healer",
+   "description": "Increases healing given to yourself and allies by {0}.",
+   "category": "Defensive",
+   "icon": "icons/SW.Effect.HealingFocus.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.HealingFocus.I",
+     "value": 0.25
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.HealingFocus.II",
+     "value": 0.35
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.HealingFocus.III",
+     "value": 0.5
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.HealingFocus.Unique",
+     "value": 0.5
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Power",
+   "effect": "SW.Effect.Power",
+   "name": "Impact",
+   "description": "Ranged attacks deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Power.png",
+   "groups": [
+    "RangedWeaponQuiverArtifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Power.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Power.II",
+     "value": 0.2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Power.III",
+     "value": 0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Power.Unique",
+     "value": 0.3
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Knockback",
+   "effect": "SW.Effect.Knockback",
+   "name": "Knockback",
+   "description": "Attacks do {0} more knockback.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Knockback.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Knockback.I",
+     "value": 0.15
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Knockback.II",
+     "value": 0.2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Knockback.III",
+     "value": 0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Knockback.Unique",
+     "value": 0.4
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Looting",
+   "effect": "SW.Effect.Looting",
+   "name": "Looter",
+   "description": "Grants a {0} chance to get additional loot drops.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.Looting.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Looting.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Looting.II",
+     "value": 0.4
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Looting.III",
+     "value": 0.6
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Looting.Unique",
+     "value": 0.8
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Lucky",
+   "effect": "SW.Effect.Lucky",
+   "name": "Luck",
+   "description": "Grants a {0} chance to drop duplicate variations of items.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.Lucky.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Lucky.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Lucky.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Lucky.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Lucky.Unique",
+     "value": 0.3
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.MasterMarksman",
+   "effect": "SW.Effect.MasterMarksman",
+   "name": "Marksman",
+   "description": "Critical hits with ranged weapons deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.MasterMarksman.png",
+   "groups": [
+    "RangedWeapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.MasterMarksman.I",
+     "value": 0.15
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.MasterMarksman.II",
+     "value": 0.2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.MasterMarksman.III",
+     "value": 0.25
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.MasterMarksman.Unique",
+     "value": 0.45
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Reeling",
+   "effect": "SW.Effect.Reeling",
+   "name": "Momentum",
+   "description": "Increases chance to stagger enemies on hit by {0}.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Reeling.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Reeling.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Reeling.II",
+     "value": 0.3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Reeling.III",
+     "value": 0.4
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Reeling.Unique",
+     "value": 0.6
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.BeastBoss",
+   "effect": "SW.Effect.BeastBoss",
+   "name": "Pack Leader",
+   "description": "Companions deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.BeastBoss.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.BeastBoss.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.BeastBoss.II",
+     "value": 0.25
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.BeastBoss.III",
+     "value": 0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.BeastBoss.Unique",
+     "value": 0.4
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Desperation",
+   "effect": "SW.Effect.Desperation",
+   "name": "Persistence",
+   "description": "Increases damage dealt by {0} of player's total missing health.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Desperation.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Desperation.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Desperation.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Desperation.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Desperation.Unique",
+     "value": 0.25
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.PointBlank",
+   "effect": "SW.Effect.PointBlank",
+   "name": "Point Blank",
+   "description": "Ranged attacks deal {0} more damage at close range.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.PointBlank.png",
+   "groups": [
+    "RangedWeapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.PointBlank.I",
+     "value": 0.25
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.PointBlank.II",
+     "value": 0.5
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.PointBlank.III",
+     "value": 0.75
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.PointBlank.Unique",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.PotionMaster",
+   "effect": "SW.Effect.PotionCooldown",
+   "name": "Potion Maker",
+   "description": "Reduces potion cooldown time by {0}.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.PotionCooldown.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.PotionMaster.I",
+     "value": -0.05
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.PotionMaster.II",
+     "value": -0.1
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.PotionMaster.III",
+     "value": -0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.PotionMaster.Unique",
+     "value": -0.25
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Precision",
+   "effect": "SW.Effect.Precision",
+   "name": "Precision",
+   "description": "Increases chance of critical hits with melee attacks by {0}.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Precision.png",
+   "groups": [
+    "MeleeWeapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Precision.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Precision.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Precision.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Precision.Unique",
+     "value": 0.25
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Thorns",
+   "effect": "SW.Effect.Thorns",
+   "name": "Prickly",
+   "description": "Deals {0} of received damage back to the attacker.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Thorns.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Thorns.I",
+     "value": 0.5
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Thorns.II",
+     "value": 0.65
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Thorns.III",
+     "value": 0.8
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Thorns.Unique",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.ProjectileProtection",
+   "effect": "SW.Effect.ProjectileProtection",
+   "name": "Projectile Protection",
+   "description": "Take {0} less damage from ranged attacks.",
+   "category": "Defensive",
+   "icon": "icons/SW.Effect.ProjectileProtection.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.ProjectileProtection.I",
+     "value": -0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.ProjectileProtection.II",
+     "value": -0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.ProjectileProtection.III",
+     "value": -0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.ProjectileProtection.Unique",
+     "value": -0.25
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Prospector",
+   "effect": "SW.Effect.EmeraldsIncrease",
+   "name": "Prospector",
+   "description": "Grants a {0} chance to receive additional emeralds.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.EmeraldsIncrease.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Prospector.I",
+     "value": 0.05
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Prospector.II",
+     "value": 0.1
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Prospector.III",
+     "value": 0.15
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Prospector.Unique",
+     "value": 0.2
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Protection",
+   "effect": "SW.Effect.Protection",
+   "name": "Protection",
+   "description": "Take {0} less damage.",
+   "category": "Defensive",
+   "icon": "icons/SW.Effect.Protection.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Protection.I",
+     "value": -0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Protection.II",
+     "value": -0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Protection.III",
+     "value": -0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.Effecttemplate.Protection.Unique",
+     "value": -0.25
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.SwiftSneak",
+   "effect": "SW.Effect.SwiftSneak",
+   "name": "Prowler",
+   "description": "Increases movement speed by {0} while Shadowcloaking.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.SwiftSneak.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.SwiftSneak.I",
+     "value": 0.15
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.SwiftSneak.II",
+     "value": 0.2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.SwiftSneak.III",
+     "value": 0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.SwiftSneak.Unique",
+     "value": 0.4
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.FireFocus",
+   "effect": "SW.Effect.FireFocus",
+   "name": "Pyromancer",
+   "description": "Fire attacks deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.FireFocus.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.FireFocus.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.FireFocus.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.FireFocus.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.FireFocus.Unique",
+     "value": 0.2
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.AmmoCapacity",
+   "effect": "SW.Effect.AmmoCapacity",
+   "name": "Quiver",
+   "description": "Carry {0} more ammo.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.AmmoCapacity.png",
+   "groups": [
+    "QuiverEffectTemplate"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.AmmoCapacity.I",
+     "value": 1.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.AmmoCapacity.II",
+     "value": 1.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.AmmoCapacity.III",
+     "value": 1.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.AmmoCapacity.Unique",
+     "value": 1.45
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Opulence",
+   "effect": "SW.Effect.Opulence",
+   "name": "Raider",
+   "description": "Grants a {0} chance of higher rarity loot drops.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.Opulence.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Opulence.I",
+     "value": 0.01
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Opulence.II",
+     "value": 0.02
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Opulence.III",
+     "value": 0.03
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Opulence.Unique",
+     "value": 0.05
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.MultiShot",
+   "effect": "SW.Effect.MultiShot",
+   "name": "Ranger",
+   "description": "Grants a {0} chance to fire additional projectiles.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.MultiShot.png",
+   "groups": [
+    "RangedWeapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.MultiShot.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.MultiShot.II",
+     "value": 0.3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.MultiShot.III",
+     "value": 0.4
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.MultiShot.Unique",
+     "value": 0.6
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.SoulSiphon",
+   "effect": "SW.Effect.SoulGatherMultiply",
+   "name": "Reaper",
+   "description": "Increases souls gained by {0}.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.SoulGatherMultiply.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.SoulSiphon.I",
+     "value": 0.25
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.SoulSiphon.II",
+     "value": 0.35
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.SoulSiphon.III",
+     "value": 0.45
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.SoulSiphon.Unique",
+     "value": 0.6
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Constitution",
+   "effect": "SW.Effect.Constitution",
+   "name": "Recovery",
+   "description": "Increases all healing received by {0}.",
+   "category": "Defensive",
+   "icon": "icons/SW.Effect.Constitution.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Constitution.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Constitution.II",
+     "value": 0.2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Constitution.III",
+     "value": 0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Constitution.Unique",
+     "value": 0.4
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Regeneration",
+   "effect": "SW.Effect.Regeneration",
+   "name": "Regeneration",
+   "description": "Restores health by {0} per second after 5 seconds out of combat.",
+   "category": "Defensive",
+   "icon": "icons/SW.Effect.Regeneration.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Regeneration.I",
+     "value": 0.05
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Regeneration.II",
+     "value": 0.075
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Regeneration.III",
+     "value": 0.1
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Regeneration.Unique",
+     "value": 0.15
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Hairtrigger",
+   "effect": "SW.Effect.Hairtrigger",
+   "name": "Reload",
+   "description": "Reduces time between shots with ranged weapons by {0}.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Hairtrigger.png",
+   "groups": [
+    "CrossbowOnly"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Hairtrigger.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Hairtrigger.II",
+     "value": 0.3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Hairtrigger.III",
+     "value": 0.4
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Hairtrigger.Unique",
+     "value": 0.4
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Resilience",
+   "effect": "SW.Effect.Resilience",
+   "name": "Resilience",
+   "description": "Recover from negative statuses {0} faster.",
+   "category": "Defensive",
+   "icon": "icons/SW.Effect.Resilience.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Resilience.I",
+     "value": -0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Resilience.II",
+     "value": -0.25
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Resilience.III",
+     "value": -0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Resilience.Unique",
+     "value": -0.5
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Chains",
+   "effect": "SW.Effect.Chains",
+   "name": "Shackler",
+   "description": "Attacks have a {0} chance to inflict the Chained status on hits.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Chains.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Chains.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Chains.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Chains.III",
+     "value": 0.25
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Chains.Unique",
+     "value": 0.3
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Sharpness",
+   "effect": "SW.Effect.Sharpness",
+   "name": "Sharpness",
+   "description": "Melee attacks deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Sharpness.png",
+   "groups": [
+    "MeleeWeapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Sharpness.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Sharpness.II",
+     "value": 0.2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Sharpness.III",
+     "value": 0.3
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Sharpness.Unique",
+     "value": 0.3
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Supercharge",
+   "effect": "SW.Effect.Supercharge",
+   "name": "Sharpshooter",
+   "description": "Charged ranged attacks deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Supercharge.png",
+   "groups": [
+    "BowQuiverOnly"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Supercharge.I",
+     "value": 0.3
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Supercharge.II",
+     "value": 0.35
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Supercharge.III",
+     "value": 0.4
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Supercharge.Unique",
+     "value": 0.6
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Friendship",
+   "effect": "SW.Effect.Friendship",
+   "name": "Shepherd",
+   "description": "Companions take {0} less damage.",
+   "category": "Defensive",
+   "icon": "icons/SW.Effect.Friendship.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Friendship.I",
+     "value": -0.05
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Friendship.II",
+     "value": -0.1
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Friendship.III",
+     "value": -0.15
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Friendship.Unique",
+     "value": -0.2
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Sniper",
+   "effect": "SW.Effect.Sniper",
+   "name": "Sniper",
+   "description": "Ranged attacks deal {0} more damage from far away.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Sniper.png",
+   "groups": [
+    "RangedWeapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Sniper.I",
+     "value": 0.25
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Sniper.II",
+     "value": 0.5
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Sniper.III",
+     "value": 0.75
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Sniper.Unique",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Vestige",
+   "effect": "SW.Effect.Vestige",
+   "name": "Sorcerer",
+   "description": "Artifact attacks deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Vestige.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Vestige.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Vestige.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Vestige.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Vestige.Unique",
+     "value": 0.25
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.SoulFocus",
+   "effect": "SW.Effect.SoulFocus",
+   "name": "Soulmancer",
+   "description": "Soul attacks deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.SoulFocus.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.SoulFocus.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.SoulFocus.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.SoulFocus.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.SoulFocus.Unique",
+     "value": 0.2
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.SpeedBoost",
+   "effect": "SW.Effect.SpeedBoost",
+   "name": "Speed",
+   "description": "Increases movement speed by {0}.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.SpeedBoost.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.SpeedBoost.I",
+     "value": 0.05
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.SpeedBoost.II",
+     "value": 0.1
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.SpeedBoost.III",
+     "value": 0.15
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.SpeedBoost.Unique",
+     "value": 0.2
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.BagOfSouls",
+   "effect": "SW.Effect.SoulMax",
+   "name": "Spiritual",
+   "description": "Increases Soul capacity by {0}.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.SoulMax.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.BagOfSouls.I",
+     "value": 1.25
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.BagOfSouls.II",
+     "value": 1.3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.BagOfSouls.III",
+     "value": 1.35
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.BagOfSouls.Unique",
+     "value": 1.5
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.ShadowWalk",
+   "effect": "SW.Effect.ShadowWalk",
+   "name": "Stealth",
+   "description": "Shadowcloaking lasts {0} longer.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.ShadowWalk.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.ShadowWalk.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.ShadowWalk.II",
+     "value": 0.25
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.ShadowWalk.III",
+     "value": 0.35
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.ShadowWalk.Unique",
+     "value": 0.45
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.MasterStrike",
+   "effect": "SW.Effect.MasterStrike",
+   "name": "Strength",
+   "description": "Critical hits with melee weapons deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.MasterStrike.png",
+   "groups": [
+    "MeleeWeapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.MasterStrike.I",
+     "value": 0.15
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.MasterStrike.II",
+     "value": 0.2
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.MasterStrike.III",
+     "value": 0.25
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.MasterStrike.Unique",
+     "value": 0.45
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.RapidStrike",
+   "effect": "SW.Effect.RapidStrike",
+   "name": "Swiftness",
+   "description": "Increases melee attack speed by {0}.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.RapidStrike.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.RapidStrike.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.RapidStrike.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.RapidStrike.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.RapidStrike.Unique",
+     "value": 0.3
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Saboteur",
+   "effect": "SW.Effect.Saboteur",
+   "name": "Tainted",
+   "description": "Increases duration of negative statuses on enemies by {0}.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.Saboteur.png",
+   "groups": [
+    "Armor"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Saboteur.I",
+     "value": 0.4
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Saboteur.II",
+     "value": 0.6
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Saboteur.III",
+     "value": 0.8
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Saboteur.Unique",
+     "value": 1
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Expand",
+   "effect": "SW.Effect.Expand",
+   "name": "Totem Radius",
+   "description": "Increases the area of all positive status effects by {0}.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.Expand.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Expand.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Expand.II",
+     "value": 0.3
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Expand.III",
+     "value": 0.4
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Expand.Unique",
+     "value": 0.55
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.Vanguard",
+   "effect": "SW.Effect.Vanguard",
+   "name": "Vanguard",
+   "description": "Deal {0} more damage to enemies who are at full health.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.Vanguard.png",
+   "groups": [
+    "Weapon"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.Vanguard.I",
+     "value": 0.2
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.Vanguard.II",
+     "value": 0.35
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.Vanguard.III",
+     "value": 0.5
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.Vanguard.Unique",
+     "value": 0.6
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.PoisonFocus",
+   "effect": "SW.Effect.PoisonFocus",
+   "name": "Venomancer",
+   "description": "Poison attacks deal {0} more damage.",
+   "category": "Offensive",
+   "icon": "icons/SW.Effect.PoisonFocus.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.PoisonFocus.I",
+     "value": 0.1
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.PoisonFocus.II",
+     "value": 0.15
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.PoisonFocus.III",
+     "value": 0.2
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.PoisonFocus.Unique",
+     "value": 0.2
+    }
+   ]
+  },
+  {
+   "template": "SW.EffectTemplate.FriendsForever",
+   "effect": "SW.Effect.FriendsForever",
+   "name": "Veterinarian",
+   "description": "Defeated companions come back {0} faster.",
+   "category": "Utility",
+   "icon": "icons/SW.Effect.FriendsForever.png",
+   "groups": [
+    "Artifact"
+   ],
+   "tiers": [
+    {
+     "tier": "I",
+     "tag": "SW.EffectTemplate.FriendsForever.I",
+     "value": -0.05
+    },
+    {
+     "tier": "II",
+     "tag": "SW.EffectTemplate.FriendsForever.II",
+     "value": -0.1
+    },
+    {
+     "tier": "III",
+     "tag": "SW.EffectTemplate.FriendsForever.III",
+     "value": -0.15
+    },
+    {
+     "tier": "Unique",
+     "tag": "SW.EffectTemplate.FriendsForever.Unique",
+     "value": -0.2
+    }
+   ]
+  }
+ ],
+ "enchantCosts": {
+  "SW.Rarity.Common": {
+   "points": 1,
+   "pointsPerLevel": 1
+  },
+  "SW.Rarity.Rare": {
+   "points": 1,
+   "pointsPerLevel": 2
+  },
+  "SW.Rarity.Special": {
+   "points": 2,
+   "pointsPerLevel": 2
+  },
+  "SW.Rarity.Unique": {
+   "points": 3,
+   "pointsPerLevel": 2
+  }
+ },
+ "rerollableEffectCounts": {
+  "SW.Rarity.Base": 0,
+  "SW.Rarity.Common": 0,
+  "SW.Rarity.Rare": 1,
+  "SW.Rarity.Special": 2,
+  "SW.Rarity.Unique": 1,
+  "SW.Rarity.None": 0
+ }
 }

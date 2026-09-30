@@ -61,6 +61,7 @@ import {
   type CharacterSave,
   type InventoryEntry,
   ATTRIBUTE_DEFS,
+  EFFECT_BATCH,
   NO_SLOT,
   decodeSaveFromFile,
   encodeSaveToBlob,
@@ -70,7 +71,7 @@ import {
   isMerchantStock,
   numberValue,
   parseLossless,
-} from "@/lib/dungeons-2/decoder"
+} from "@/lib/minecraft-dungeons-2/decoder"
 import {
   type CatalogItem,
   type ItemCategory,
@@ -83,7 +84,17 @@ import {
   catalog,
   collectionKey,
   collectionTagName,
+  MAX_ENCHANTMENTS_PER_ITEM,
   defaultRarity,
+  enchantPoints,
+  enchantmentInfo,
+  enchantmentsFor,
+  objectiveName,
+  questDescription,
+  rolledEffectCount,
+  rolledEffectsFor,
+  talismanInfo,
+  xpForNextLevel,
   equipSlotName,
   equipSlotsFor,
   hasItemPower,
@@ -97,10 +108,30 @@ import {
   rarityName,
   raritiesFor,
   stationName,
-} from "@/lib/dungeons-2/catalog"
+} from "@/lib/minecraft-dungeons-2/catalog"
+import {
+  type ItemEffectInfo,
+  GEAR_RULES,
+  effectTotals,
+  formatCombo,
+  formatPercent,
+  isAlwaysOn,
+  itemEffects,
+  maxDropPower,
+  meleeStats,
+  powerStanding,
+  predictMelee,
+  predictRanged,
+  rangedStats,
+  round,
+} from "@/lib/minecraft-dungeons-2/stats"
 import {
   type BoolAchievementGroup,
+  type TalismanLevelSpec,
   MINECART_ACHIEVEMENT,
+  removeItemEffect,
+  setItemEffect,
+  setTalismanProgress,
   addItem,
   claimMerchantItem,
   completeAllAchievements,
@@ -276,7 +307,7 @@ export default function Dungeons2SaveEditor() {
         {
           label: "Download JSON",
           onClick: () => {
-            const filename = originalFile?.name.replace(/\.[^/.]+$/, "") || "dungeons-2-character"
+            const filename = originalFile?.name.replace(/\.[^/.]+$/, "") || "minecraft-dungeons-2-character"
             downloadJSON(saveData, filename)
             track("json_downloaded", {
               game: GAME_NAME,
@@ -288,7 +319,7 @@ export default function Dungeons2SaveEditor() {
       ]
     : []
 
-  const gameData = gamesData.games.find((game) => game.id === "dungeons-2")
+  const gameData = gamesData.games.find((game) => game.id === "minecraft-dungeons-2")
 
   return (
     <main className="min-h-screen bg-background pb-20">
@@ -389,6 +420,7 @@ export default function Dungeons2SaveEditor() {
                   ))}
 
                   <CharacterCard save={saveData} onChange={setSaveData} />
+                  <LoadoutCard save={saveData} />
                 </TabsContent>
 
                 {/* ── Inventory Tab ───────────────────────────────── */}
@@ -414,6 +446,7 @@ export default function Dungeons2SaveEditor() {
                           power: defaultPower(saveData),
                           hasPower: hasItemPower(item.category),
                           collectionKey: collectionKey(item.tag, rarity),
+                          talisman: talismanLevels(item.tag),
                         }),
                       )
                       setSelectedItem(entries.length)
@@ -521,6 +554,12 @@ function AttributeCard({ def, icon, save, onChange }: SaveProps & { def: Attribu
           step={def.float ? "any" : 1}
           className="font-mono text-lg bg-muted border-border text-foreground"
         />
+        {def.name === "XP" && (
+          <p className="text-[11px] text-muted-foreground mt-2">
+            Progress toward the next level: {xpForNextLevel(getAttribute(save, "Level")).toLocaleString()} XP levels up
+            from level {getAttribute(save, "Level")}.
+          </p>
+        )}
       </CardContent>
     </Card>
   )
@@ -909,14 +948,29 @@ function ItemDetail({ save, onChange, entry, index, entryCount, onSelect }: Item
                 (rolled {numberValue(power.ItemPowerMin)}–{numberValue(power.ItemPowerMax)})
               </span>
             </Label>
-            <Input
-              type="number"
-              value={numberValue(power.ItemPower)}
-              onChange={(e) => onChange(setItemPower(save, index, parseNumber(e.target.value, MAX_ITEM_POWER)))}
-              className="font-mono bg-muted border-border text-foreground"
-            />
+            <div className="flex gap-2">
+              <Input
+                type="number"
+                value={numberValue(power.ItemPower)}
+                onChange={(e) => onChange(setItemPower(save, index, parseNumber(e.target.value, MAX_ITEM_POWER)))}
+                className="font-mono bg-muted border-border text-foreground"
+              />
+              <Button
+                variant="outline"
+                size="sm"
+                className="h-9 shrink-0 bg-transparent"
+                title={`Highest power a drop can roll at your level (level + ${GEAR_RULES.dropPowerAboveLevel})`}
+                onClick={() => onChange(setItemPower(save, index, maxDropPower(getAttribute(save, "Level"))))}
+              >
+                Max drop ({maxDropPower(getAttribute(save, "Level"))})
+              </Button>
+            </div>
+            <PowerStandingNote power={numberValue(power.ItemPower)} level={getAttribute(save, "Level")} />
           </div>
         )}
+
+        <PredictedStats save={save} entry={entry} index={index} />
+        <EffectsEditor save={save} onChange={onChange} entry={entry} index={index} />
 
         <div className="space-y-1.5">
           <Label className="text-xs text-muted-foreground">Stack Count</Label>
@@ -1178,6 +1232,11 @@ function QuestsPanel({ save, onChange }: SaveProps) {
                   </div>
                 </AccordionTrigger>
                 <AccordionContent>
+                  {questDescription(quest.QuestName) && (
+                    <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
+                      {questDescription(quest.QuestName)}
+                    </p>
+                  )}
                   <div className="flex items-center justify-between gap-2 mb-3 flex-wrap">
                     <div className="flex items-center gap-2">
                       <Label className="text-xs text-muted-foreground">Quest state</Label>
@@ -1203,7 +1262,14 @@ function QuestsPanel({ save, onChange }: SaveProps) {
                         key={task.TaskName}
                         className="flex items-center justify-between py-1.5 px-3 rounded-md hover:bg-muted/50 gap-2"
                       >
-                        <span className="text-sm font-mono text-foreground">{task.TaskName}</span>
+                        <span className="min-w-0">
+                          <span className="block text-sm text-foreground">
+                            {objectiveName(task.TaskName) ?? task.TaskName}
+                          </span>
+                          {objectiveName(task.TaskName) && (
+                            <span className="block text-[11px] font-mono text-muted-foreground">{task.TaskName}</span>
+                          )}
+                        </span>
                         <span className="flex items-center gap-2">
                           {numberValue(task.PartialProgress) > 0 && (
                             <span className="text-xs text-muted-foreground font-mono">
@@ -1465,5 +1531,509 @@ function MinecartPanel({ save, onChange }: SaveProps) {
         </div>
       </CardContent>
     </Card>
+  )
+}
+
+// ── Predicted stats ─────────────────────────────────────────────────────
+
+function StatRow({ label, value, base, hint }: { label: string; value: React.ReactNode; base?: React.ReactNode; hint?: string }) {
+  return (
+    <div className="flex items-baseline justify-between gap-3 py-1" title={hint}>
+      <span className="text-xs text-muted-foreground">{label}</span>
+      <span className="text-sm font-mono text-foreground text-right">
+        {value}
+        {base !== undefined && base !== value && <span className="ml-2 text-xs text-muted-foreground line-through">{base}</span>}
+      </span>
+    </div>
+  )
+}
+
+function PowerStandingNote({ power, level }: { power: number; level: number }) {
+  const { ratio, standing } = powerStanding(power, level)
+  const color =
+    standing === "very-low" ? "text-red-400" : standing === "above" ? "text-green-400" : "text-muted-foreground"
+  return (
+    <p className={`text-[11px] ${color}`}>
+      {Math.round(ratio * 100)}% of your level {level}
+      {standing === "very-low" && ` — "Very Low" power (under ${GEAR_RULES.veryLowPowerRatio * 100}%), damage drops hard`}
+      {standing === "above" && ` — damage scales up to ${GEAR_RULES.powerMultiplierCap}x against the area`}
+    </p>
+  )
+}
+
+function EffectLine({ effect }: { effect: ItemEffectInfo }) {
+  const label =
+    effect.kind === "enchantment" ? "Enchantment" : effect.kind === "talisman" ? "Talisman" : "Rolled effect"
+  // Enchantments aren't in the gear tables; name them from the game catalog and
+  // show the stored value (its display format isn't known).
+  const enchant = effect.name ? undefined : enchantmentInfo(effect.tag)
+  const name = effect.name ?? enchant?.name ?? humanizeTag(effect.tag)
+  const text = effect.text ?? enchant?.description?.replace("{0}", "X")
+  return (
+    <div className="py-1.5">
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-sm text-foreground">
+          {name}
+          {effect.tier && <span className="ml-1.5 text-xs text-muted-foreground">{effect.tier}</span>}
+        </span>
+        <span className="flex items-center gap-1.5">
+          {isAlwaysOn(effect) && (
+            <Badge variant="outline" className="text-[10px] bg-primary/10 text-primary border-primary/30">
+              in prediction
+            </Badge>
+          )}
+          <Badge variant="outline" className="text-[10px]">
+            {label}
+          </Badge>
+          <span className="text-sm font-mono text-foreground">
+            {effect.valueLabel ?? (effect.flag ? "✓" : round(effect.raw, 3))}
+          </span>
+        </span>
+      </div>
+      {text && <p className="text-[11px] text-muted-foreground">{text}</p>}
+    </div>
+  )
+}
+
+/** Weapon stats: base values from the game's tables, adjusted by this item's always-on effects. */
+function PredictedStats({ save, entry, index }: { save: CharacterSave; entry: InventoryEntry; index: number }) {
+  const tag = entry.ItemData.TypeTag
+  const info = itemInfo(tag)
+  const bases = info?.baseOf ?? []
+  const effects = itemEffects(entry)
+  const melee = meleeStats(tag, bases)
+  const ranged = rangedStats(tag, bases)
+  const category = itemCategory(tag)
+
+  // Compare against whatever is equipped in this item's slot type.
+  const entries = save.CharacterSaveV1.Inventory?.Entries ?? []
+  const equippedIndex = entries.findIndex(
+    (e, i) => i !== index && e.EquippedSlot !== NO_SLOT && itemCategory(e.ItemData.TypeTag) === category,
+  )
+  const equipped = equippedIndex >= 0 ? entries[equippedIndex] : undefined
+
+  if (!melee && !ranged && category !== "armor") return null
+
+  const delta = (mine: number, theirs: number) => {
+    const d = round(mine - theirs)
+    if (d === 0) return <span className="text-muted-foreground">same as equipped</span>
+    return (
+      <span className={d > 0 ? "text-green-400" : "text-red-400"}>
+        {d > 0 ? "+" : ""}
+        {d} vs equipped {itemName(equipped!.ItemData.TypeTag)}
+      </span>
+    )
+  }
+
+  return (
+    <div className="space-y-3 p-3 rounded-md bg-muted/40 border border-border">
+      <div className="flex items-center justify-between">
+        <Label className="text-xs font-semibold text-foreground uppercase tracking-wide">Predicted Stats</Label>
+        <span className="text-[10px] text-muted-foreground">base values · before Item Power scaling</span>
+      </div>
+
+      {melee &&
+        (() => {
+          const p = predictMelee(melee, effects)
+          const other = equipped && meleeStats(equipped.ItemData.TypeTag, itemInfo(equipped.ItemData.TypeTag)?.baseOf)
+          const otherTotal = other && predictMelee(other, itemEffects(equipped)).total
+          return (
+            <div>
+              <StatRow label="Combo" value={p.combo} base={p.damageBonus ? formatCombo(melee.combo) : undefined} />
+              <StatRow label="Combo total" value={p.total} base={p.damageBonus ? melee.total : undefined} />
+              <StatRow label="Jump attack" value={p.jump} base={p.damageBonus ? melee.jump : undefined} />
+              <StatRow label="Reach" value={melee.reach} />
+              <StatRow
+                label={`Splash (${Math.round(melee.splash * 100)}% to adjacent)`}
+                value={p.splashTotal}
+                hint="Damage dealt to enemies next to your target over a full combo"
+              />
+              <StatRow label="Weight" value={humanizeTag(melee.weight)} />
+              {otherTotal !== undefined && <p className="text-[11px] text-right">{delta(p.total, otherTotal)}</p>}
+            </div>
+          )
+        })()}
+
+      {ranged &&
+        (() => {
+          const p = predictRanged(ranged, effects)
+          const other = equipped && rangedStats(equipped.ItemData.TypeTag, itemInfo(equipped.ItemData.TypeTag)?.baseOf)
+          const otherDps = other && predictRanged(other, itemEffects(equipped)).dps
+          return (
+            <div>
+              <StatRow
+                label="Damage per arrow"
+                value={ranged.arrows > 1 ? `${p.damage} × ${ranged.arrows}` : p.damage}
+                base={p.damageBonus ? (ranged.arrows > 1 ? `${ranged.damage} × ${ranged.arrows}` : ranged.damage) : undefined}
+              />
+              <StatRow label="Time between shots" value={`${p.rate}s`} base={p.rate !== ranged.rate ? `${ranged.rate}s` : undefined} />
+              <StatRow
+                label="Damage per second"
+                value={p.dps}
+                base={p.dps !== p.baseDps ? p.baseDps : undefined}
+                hint="Uncharged: damage × arrows ÷ time between shots"
+              />
+              {p.charged !== undefined && (
+                <StatRow
+                  label={`Charged shot (${ranged.chargeTime}s)`}
+                  value={p.charged}
+                  hint={`x${ranged.chargeMultiplier} damage when fully charged`}
+                />
+              )}
+              <StatRow label="Ammo" value={p.ammo} base={p.ammo !== ranged.ammo ? ranged.ammo : undefined} />
+              <StatRow label="Reload" value={`${ranged.reload}s`} />
+              {otherDps !== undefined && <p className="text-[11px] text-right">{delta(p.dps, otherDps)}</p>}
+            </div>
+          )
+        })()}
+
+      {category === "armor" && (
+        <p className="text-[11px] text-muted-foreground">
+          Armor has no health or defence stat: a piece is its Item Power plus its effects. Light, medium and heavy is
+          only a label.
+        </p>
+      )}
+
+    </div>
+  )
+}
+
+/** Everything currently equipped: average power and stacked effect totals. */
+function LoadoutCard({ save }: { save: CharacterSave }) {
+  const equipped = (save.CharacterSaveV1.Inventory?.Entries ?? []).filter((e) => e.EquippedSlot !== NO_SLOT)
+  const gear = equipped.filter((e) => numberValue(e.ItemData.GeneratorData.PowerGeneratorValues.ItemPower) >= 0)
+  if (gear.length === 0) return null
+  const avgPower =
+    gear.reduce((sum, e) => sum + numberValue(e.ItemData.GeneratorData.PowerGeneratorValues.ItemPower), 0) / gear.length
+  const totals = effectTotals(equipped)
+  const level = getAttribute(save, "Level")
+
+  return (
+    <Card className="bg-card border-border">
+      <CardHeader>
+        <CardTitle className="text-foreground flex items-center gap-2">
+          <Swords className="w-5 h-5 text-orange-400" />
+          Equipped Loadout
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="p-3 rounded-md bg-muted/50">
+            <div className="text-xs text-muted-foreground">Average gear power</div>
+            <div className="text-xl font-mono text-foreground">{round(avgPower)}</div>
+            <PowerStandingNote power={avgPower} level={level} />
+          </div>
+          <div className="p-3 rounded-md bg-muted/50">
+            <div className="text-xs text-muted-foreground">Items equipped</div>
+            <div className="text-xl font-mono text-foreground">{equipped.length}</div>
+          </div>
+          <div className="p-3 rounded-md bg-muted/50">
+            <div className="text-xs text-muted-foreground">Max drop power</div>
+            <div className="text-xl font-mono text-foreground">{maxDropPower(level)}</div>
+            <p className="text-[11px] text-muted-foreground">level + {GEAR_RULES.dropPowerAboveLevel}</p>
+          </div>
+          <div className="p-3 rounded-md bg-muted/50">
+            <div className="text-xs text-muted-foreground">Damage scaling cap</div>
+            <div className="text-xl font-mono text-foreground">{GEAR_RULES.powerMultiplierCap}x</div>
+            <p className="text-[11px] text-muted-foreground">power vs area level</p>
+          </div>
+        </div>
+        {totals.length > 0 && (
+          <div>
+            <Label className="text-xs text-muted-foreground">Effect totals across equipped gear</Label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 mt-1">
+              {totals.map((t) => (
+                <div key={t.name} className="flex items-center justify-between py-1 px-2 rounded hover:bg-muted/50">
+                  <span className="text-sm">
+                    {t.name}
+                    {t.count > 1 && <span className="ml-1 text-xs text-muted-foreground">×{t.count}</span>}
+                  </span>
+                  <span className="text-sm font-mono">{formatPercent(t.percent)}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-[11px] text-muted-foreground mt-1">
+              Summed per effect; how the game stacks duplicates isn&apos;t confirmed.
+            </p>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  )
+}
+
+// ── Effects editor ──────────────────────────────────────────────────────
+
+/** Talisman levels for a new item, built from the game's level and template tables. */
+function talismanLevels(tag: string): TalismanLevelSpec[] | undefined {
+  if (itemCategory(tag) !== "talisman") return undefined
+  const info = talismanInfo(tag)
+  if (!info) return undefined
+  return info.levels.map((level, i) => {
+    const t = info.templates[i]
+    return {
+      grantedTag: level.grantedTag || undefined,
+      effect: t ? { effect: t.effect, template: t.tag, value: t.fixedValue } : undefined,
+    }
+  })
+}
+
+const TIER_ORDER = ["I", "II", "III", "Unique"]
+
+function batchEffects(entry: InventoryEntry, batchType: string) {
+  return entry.ItemData.Effects?.find((b) => b.TypeTag === batchType)?.EffectsInThisBatch ?? []
+}
+
+function EffectsEditor({ save, onChange, entry, index }: SaveProps & { entry: InventoryEntry; index: number }) {
+  const tag = entry.ItemData.TypeTag
+  const rarity = entry.ItemData.RarityTag
+  const info = itemInfo(tag)
+  const effects = itemEffects(entry)
+  const enchantOptions = enchantmentsFor(tag)
+  const rolledOptions = rolledEffectsFor(tag)
+  const enchants = batchEffects(entry, EFFECT_BATCH.enchantment)
+  const rolled = batchEffects(entry, EFFECT_BATCH.rerollable)
+  const maxRolled = rolledEffectCount(rarity)
+  const talisman = itemCategory(tag) === "talisman" ? talismanInfo(tag) : undefined
+
+  if (!talisman && enchantOptions.length === 0 && rolledOptions.length === 0 && effects.length === 0) return null
+
+  const infoFor = (e: { TypeTag: string; GeneratorData: { GeneratorParentTemplate: string } }) =>
+    effects.find((x) => x.tag === e.TypeTag && x.template === e.GeneratorData.GeneratorParentTemplate)
+
+  // ── Enchantment ──
+  const setEnchant = (position: number, enchantTag: string, tier: string) => {
+    const option = enchantOptions.find((o) => o.tag === enchantTag)
+    const t = option?.tiers.find((x) => x.tier === tier) ?? option?.tiers[0]
+    if (!option || !t) return
+    const level = TIER_ORDER.indexOf(t.tier) + 1
+    onChange(
+      setItemEffect(save, index, EFFECT_BATCH.enchantment, position, {
+        effect: option.tag,
+        template: t.tag,
+        value: t.value,
+        points: enchantPoints(rarity, level),
+      }),
+    )
+  }
+
+  // ── Rolled effects ──
+  const rolledTiers = (option: (typeof rolledOptions)[number]) =>
+    option.tiers.filter((t) => t.tier !== "Unique" || info?.unique)
+  const setRolled = (position: number, template: string, tier: string) => {
+    const option = rolledOptions.find((o) => o.template === template)
+    const t = option && (rolledTiers(option).find((x) => x.tier === tier) ?? rolledTiers(option)[0])
+    if (!option || !t) return
+    onChange(setItemEffect(save, index, EFFECT_BATCH.rerollable, position, { effect: option.effect, template: t.tag, value: t.value }))
+  }
+  const templateOf = (templateTag: string) => templateTag.replace(/\.(I|II|III|Unique)$/, "")
+  const tierLabels = Object.fromEntries(TIER_ORDER.map((t) => [t, t === "Unique" ? "Unique" : `Level ${t}`]))
+
+  return (
+    <div className="space-y-4 p-3 rounded-md bg-muted/40 border border-border">
+      <Label className="text-xs font-semibold text-foreground uppercase tracking-wide">Enchantments &amp; Effects</Label>
+
+      {enchantOptions.length > 0 && (
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-xs text-muted-foreground">Enchantment</span>
+            <span className="text-[10px] text-muted-foreground">
+              {enchants.length}/{MAX_ENCHANTMENTS_PER_ITEM}
+            </span>
+          </div>
+          {enchants.map((e, position) => {
+            const current = enchantOptions.find((o) => o.tag === e.TypeTag)
+            const tier = e.GeneratorData.GeneratorParentTemplate.split(".").pop() ?? "I"
+            const fx = infoFor(e)
+            return (
+              <div key={position} className="space-y-2 p-2 rounded bg-background/60 border border-border">
+                <div className="grid grid-cols-[1fr_auto] gap-2 items-end">
+                  <EnumSelect
+                    label="Enchantment"
+                    value={e.TypeTag}
+                    options={enchantOptions.map((o) => o.tag)}
+                    labels={Object.fromEntries(enchantOptions.map((o) => [o.tag, o.name]))}
+                    descriptions={Object.fromEntries(
+                      enchantOptions.filter((o) => o.description).map((o) => [o.tag, o.description!.replace(/\{\d\}/g, "X")]),
+                    )}
+                    onChange={(v) => setEnchant(position, v, tier)}
+                  />
+                  <StateSelect
+                    value={tier}
+                    options={(current?.tiers ?? []).map((t) => t.tier)}
+                    labels={tierLabels}
+                    className="w-28"
+                    onChange={(v) => setEnchant(position, e.TypeTag, v)}
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[11px] text-muted-foreground">
+                    {numberValue(e.EnchantmentPointsInvested)} enchantment point
+                    {numberValue(e.EnchantmentPointsInvested) === 1 ? "" : "s"} invested
+                    {fx?.valueLabel && ` · ${fx.valueLabel}`}
+                  </span>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-7 text-destructive"
+                    onClick={() => onChange(removeItemEffect(save, index, EFFECT_BATCH.enchantment, position))}
+                  >
+                    <Trash2 className="w-3.5 h-3.5 mr-1" />
+                    Remove
+                  </Button>
+                </div>
+              </div>
+            )
+          })}
+          {enchants.length < MAX_ENCHANTMENTS_PER_ITEM && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full bg-transparent"
+              onClick={() => setEnchant(enchants.length, enchantOptions[0].tag, "I")}
+            >
+              <Plus className="w-4 h-4 mr-2" />
+              Add Enchantment
+            </Button>
+          )}
+        </div>
+      )}
+
+      {(rolledOptions.length > 0 || rolled.length > 0) && (
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-xs text-muted-foreground">Rolled effects</span>
+            <span className={`text-[10px] ${rolled.length > maxRolled ? "text-amber-400" : "text-muted-foreground"}`}>
+              {rolled.length}/{maxRolled} for {rarityName(rarity)}
+            </span>
+          </div>
+          {rolled.map((e, position) => {
+            const template = templateOf(e.GeneratorData.GeneratorParentTemplate)
+            const option = rolledOptions.find((o) => o.template.toLowerCase() === template.toLowerCase())
+            const tier = e.GeneratorData.GeneratorParentTemplate.split(".").pop() ?? "I"
+            const fx = infoFor(e)
+            return (
+              <div key={position} className="space-y-1 p-2 rounded bg-background/60 border border-border">
+                <div className="grid grid-cols-[1fr_auto] gap-2 items-end">
+                  <EnumSelect
+                    label="Effect"
+                    value={option?.template ?? template}
+                    options={rolledOptions.map((o) => o.template)}
+                    labels={Object.fromEntries([
+                      ...rolledOptions.map((o) => [o.template, o.name]),
+                      [template, fx?.name ?? humanizeTag(template)],
+                    ])}
+                    onChange={(v) => setRolled(position, v, tier)}
+                  />
+                  <StateSelect
+                    value={tier}
+                    options={option ? rolledTiers(option).map((t) => t.tier) : [tier]}
+                    labels={tierLabels}
+                    className="w-28"
+                    onChange={(v) => option && setRolled(position, option.template, v)}
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[11px] text-muted-foreground">
+                    {fx?.text ?? ""}
+                    {fx && isAlwaysOn(fx) && " · included in predicted stats"}
+                  </span>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-7 text-destructive shrink-0"
+                    onClick={() => onChange(removeItemEffect(save, index, EFFECT_BATCH.rerollable, position))}
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </Button>
+                </div>
+              </div>
+            )
+          })}
+          {rolledOptions.length > 0 && rolled.length < maxRolled && (
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-full bg-transparent"
+              onClick={() => setRolled(rolled.length, rolledOptions[0].template, "I")}
+            >
+              <Plus className="w-4 h-4 mr-2" />
+              Add Effect
+            </Button>
+          )}
+          {maxRolled === 0 && rolled.length === 0 && (
+            <p className="text-[11px] text-muted-foreground">
+              {rarityName(rarity)} items don&apos;t roll effects. Raise the rarity to add some.
+            </p>
+          )}
+          {rolled.length > maxRolled && (
+            <p className="text-[11px] text-amber-400">
+              More effects than a {rarityName(rarity)} item normally rolls.
+            </p>
+          )}
+        </div>
+      )}
+
+      {talisman && <TalismanEditor save={save} onChange={onChange} entry={entry} index={index} levels={talisman.levels} />}
+
+      {/* Effects the editor can't manage (unknown to the catalog) are still shown. */}
+      {effects
+        .filter((e) => e.kind !== "talisman" && !enchantOptions.some((o) => o.tag === e.tag) && !rolledOptions.some((o) => o.effect === e.tag))
+        .map((e, i) => (
+          <EffectLine key={`other-${i}`} effect={e} />
+        ))}
+    </div>
+  )
+}
+
+function TalismanEditor({
+  save,
+  onChange,
+  entry,
+  index,
+  levels,
+}: SaveProps & { entry: InventoryEntry; index: number; levels: { level: number; xpForNext: number }[] }) {
+  const progression = entry.ItemData.ItemProgression
+  const levelIndex = numberValue(progression.CurrentLevel)
+  const xp = numberValue(progression.CurrentXP)
+  const needed = levels[levelIndex]?.xpForNext ?? 0
+  const current = itemEffects(entry).filter((e) => e.kind === "talisman")
+
+  return (
+    <div className="space-y-2">
+      <div className="grid grid-cols-2 gap-2">
+        <div className="space-y-1.5">
+          <Label className="text-xs text-muted-foreground">Talisman level</Label>
+          <StateSelect
+            value={String(levelIndex)}
+            options={levels.map((_, i) => String(i))}
+            labels={Object.fromEntries(levels.map((l, i) => [String(i), `Level ${l.level}`]))}
+            className="w-full"
+            onChange={(v) => onChange(setTalismanProgress(save, index, Number(v), 0))}
+          />
+        </div>
+        <div className="space-y-1.5">
+          <Label className="text-xs text-muted-foreground">XP {needed > 0 ? `(of ${needed.toLocaleString()})` : "(max level)"}</Label>
+          <Input
+            type="number"
+            value={xp}
+            min={0}
+            max={needed > 0 ? needed - 1 : undefined}
+            onChange={(e) =>
+              onChange(
+                setTalismanProgress(save, index, levelIndex, parseNumber(e.target.value, needed > 0 ? needed - 1 : 0)),
+              )
+            }
+            className="h-8 font-mono bg-muted border-border text-foreground"
+          />
+        </div>
+      </div>
+      {current.map((e, i) => (
+        <EffectLine key={i} effect={e} />
+      ))}
+      {current.length === 0 && (
+        <p className="text-[11px] text-muted-foreground">This talisman grants a companion ability rather than a stat.</p>
+      )}
+    </div>
   )
 }

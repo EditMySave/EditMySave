@@ -5,12 +5,13 @@
 // the app does. Character saves are plain JSON, so a no-edit roundtrip must be
 // byte-identical.
 //
-// Run from the EditMySave repo root:  deno task test:dungeons-2
+// Run from the EditMySave repo root:  deno task test:minecraft-dungeons-2
 
 import { assert, assertEquals, assertNotEquals, assertRejects } from "@std/assert"
 
 import {
   type CharacterSave,
+  EFFECT_BATCH,
   decodeSaveFromFile,
   encodeSaveToBlob,
   getAttribute,
@@ -31,11 +32,16 @@ import {
   setEquippedSlot,
   setLevel,
   setMetaFlag,
-} from "../../app/dungeons-2/save-mutations.ts"
+  removeItemEffect,
+  setItemEffect,
+  setTalismanProgress,
+} from "../../app/minecraft-dungeons-2/save-mutations.ts"
 
 const fixture = (name: string) => new URL(`./fixtures/${name}`, import.meta.url).pathname
 const CHARACTER = fixture("Character3e32bf70-bc1e-11f1-80e5-7294a1be58a5.sav")
 const GLOBAL = fixture("GlobalSaveDataDefault.sav")
+/** Level 8 save with enchantments, rolled effects and two talismans. */
+const ENCHANTED = fixture("CharacterWithEnchant.sav")
 
 async function load(path: string): Promise<{ raw: Uint8Array; file: File }> {
   const raw = await Deno.readFile(path)
@@ -206,4 +212,108 @@ Deno.test("setMetaFlag toggles only that MetaData flag", async () => {
   assertEquals(save.CharacterSaveV1.MetaData.IsOnline, false)
   const text = await encode(setMetaFlag(save, "IsOnline", true))
   assertEquals(text, new TextDecoder().decode(raw).replace('"IsOnline":false', '"IsOnline":true'))
+})
+
+// ── Effects & talismans (enchanted fixture) ─────────────────────────────
+
+async function loadEnchanted() {
+  const { raw, file } = await load(ENCHANTED)
+  const save = await decodeSaveFromFile(file)
+  const entries = save.CharacterSaveV1.Inventory!.Entries
+  const find = (tag: string) => entries.findIndex((e) => e.ItemData.TypeTag === tag)
+  return { raw, save, entries, find }
+}
+
+Deno.test("enchanted save round-trips byte-identical", async () => {
+  const { raw, save } = await loadEnchanted()
+  assertEquals(new Uint8Array(await (await encodeSaveToBlob(save)).arrayBuffer()), raw)
+})
+
+Deno.test("upgrading an enchantment rewrites only that effect", async () => {
+  const { raw, save, find } = await loadEnchanted()
+  const rapier = find("SW.Item.Rapier")
+  const updated = setItemEffect(save, rapier, EFFECT_BATCH.enchantment, 0, {
+    effect: "SW.Enchantment.Channeling",
+    template: "SW.Enchantment.Channeling.II",
+    value: 1,
+    points: 3,
+  })
+  const before = '"TypeTag":"SW.Enchantment.Channeling","Intensity":1,"Quality":0,"EnchantmentPointsInvested":1,' +
+    '"GeneratorData":{"GeneratorParentTemplate":"SW.Enchantment.Channeling.I","Locked":false}'
+  const after = before.replace("Invested\":1", "Invested\":3").replace("Channeling.I\"", "Channeling.II\"")
+  const original = new TextDecoder().decode(raw)
+  assert(original.includes(before))
+  assertEquals(await encode(updated), original.replace(before, after))
+})
+
+Deno.test("adding and removing effects keeps the game's batch order", async () => {
+  const { save, find } = await loadEnchanted()
+  const sword = find("SW.Item.Sword")
+  // Enchant first, then roll an effect: the Rerollable batch must still come first.
+  let updated = setItemEffect(save, sword, EFFECT_BATCH.enchantment, 0, {
+    effect: "SW.Enchantment.FireAspect",
+    template: "SW.Enchantment.FireAspect.I",
+    value: 1,
+    points: 1,
+  })
+  updated = setItemEffect(updated, sword, EFFECT_BATCH.rerollable, 0, {
+    effect: "SW.Effect.Sharpness",
+    template: "SW.EffectTemplate.Sharpness.I",
+    value: 0.1,
+  })
+  const batches = updated.CharacterSaveV1.Inventory!.Entries[sword].ItemData.Effects
+  assertEquals(batches.map((b) => b.TypeTag), [EFFECT_BATCH.rerollable, EFFECT_BATCH.enchantment])
+  assertEquals(batches[0].EffectsInThisBatch[0], {
+    TypeTag: "SW.Effect.Sharpness",
+    Intensity: 0.1,
+    Quality: 0,
+    EnchantmentPointsInvested: 0,
+    GeneratorData: { GeneratorParentTemplate: "SW.EffectTemplate.Sharpness.I", Locked: false },
+  })
+  // Removing the last effect in a batch drops the batch.
+  const removed = removeItemEffect(updated, sword, EFFECT_BATCH.enchantment, 0)
+  assertEquals(removed.CharacterSaveV1.Inventory!.Entries[sword].ItemData.Effects.map((b) => b.TypeTag), [
+    EFFECT_BATCH.rerollable,
+  ])
+})
+
+Deno.test("talisman level copies that level's effects into the active batch", async () => {
+  const { save, find } = await loadEnchanted()
+  const idx = find("SW.Item.Talisman.HealthBoost")
+  const data = setTalismanProgress(save, idx, 2, 100).CharacterSaveV1.Inventory!.Entries[idx].ItemData
+  assertEquals(data.ItemProgression.CurrentLevel, 2)
+  assertEquals(data.ItemProgression.CurrentXP, 100)
+  const active = data.Effects.find((b) => b.TypeTag === EFFECT_BATCH.upgradable)!.EffectsInThisBatch
+  assertEquals(active[0].GeneratorData.GeneratorParentTemplate, "SW.EffectTemplate.HealthBoost.III")
+  assertEquals(active[0].Intensity, 1.35)
+})
+
+Deno.test("companion talismans keep an empty active batch", async () => {
+  const { save, find } = await loadEnchanted()
+  const idx = find("SW.Item.Talisman.Wolf")
+  const data = setTalismanProgress(save, idx, 1, 0).CharacterSaveV1.Inventory!.Entries[idx].ItemData
+  assertEquals(data.Effects, [{ TypeTag: EFFECT_BATCH.upgradable, EffectsInThisBatch: [] }])
+})
+
+Deno.test("a new talisman matches the layout the game writes", async () => {
+  const { save, entries, find } = await loadEnchanted()
+  const game = entries[find("SW.Item.Talisman.HealthBoost")].ItemData
+  const updated = addItem(save, {
+    tag: "SW.Item.Talisman.HealthBoost",
+    rarity: "SW.Rarity.None",
+    power: 0,
+    hasPower: false,
+    collectionKey: "CollectedTalismans",
+    talisman: ["I", "II", "III"].map((tier, i) => ({
+      effect: {
+        effect: "SW.Effect.HealthBoost",
+        template: `SW.EffectTemplate.HealthBoost.${tier}`,
+        value: [1.2, 1.25, 1.35][i],
+      },
+    })),
+  })
+  const added = updated.CharacterSaveV1.Inventory!.Entries.at(-1)!.ItemData
+  assertEquals(added.Effects, game.Effects)
+  assertEquals(added.ItemProgression.ItemLevels, game.ItemProgression.ItemLevels)
+  assertEquals(added.RarityTag, "SW.Rarity.None")
 })

@@ -1,0 +1,1411 @@
+{
+ "source": "Community gear guide (base values from game data tables). Item Power scaling formula lives in game code and is not included.",
+ "rules": {
+  "powerMultiplierCap": 1.75,
+  "veryLowPowerRatio": 0.8,
+  "dropPowerAboveLevel": 9,
+  "maxRolledEffects": 4,
+  "defaultSplash": 0.3
+ },
+ "melee": {
+  "SW.Item.Rapier": {
+   "name": "Rapier",
+   "weight": "light",
+   "combo": [
+    6,
+    8,
+    28
+   ],
+   "total": 42,
+   "jump": 22,
+   "reach": 425,
+   "splash": 0.3
+  },
+  "SW.Item.Claws": {
+   "name": "Wolf Claws",
+   "weight": "light",
+   "combo": [
+    12,
+    12,
+    16
+   ],
+   "total": 40,
+   "jump": 12,
+   "reach": 180,
+   "splash": 0.3
+  },
+  "SW.Item.Sickles": {
+   "name": "Double Sickles",
+   "weight": "light",
+   "combo": [
+    9,
+    9,
+    13
+   ],
+   "total": 31,
+   "jump": 24,
+   "reach": 300,
+   "splash": 0.3
+  },
+  "SW.Item.Dagger": {
+   "name": "Twilight Dagger",
+   "weight": "light",
+   "combo": [
+    25
+   ],
+   "total": 25,
+   "jump": 28,
+   "reach": 280,
+   "splash": 0.3
+  },
+  "SW.Item.Daggers": {
+   "name": "Double Daggers",
+   "weight": "light",
+   "combo": [
+    6,
+    6,
+    9
+   ],
+   "total": 21,
+   "jump": 14,
+   "reach": 275,
+   "splash": 0.3
+  },
+  "SW.Item.Scythe": {
+   "name": "Scythe",
+   "weight": "medium",
+   "combo": [
+    22,
+    26,
+    30
+   ],
+   "total": 78,
+   "jump": 24,
+   "reach": 350,
+   "splash": 0.3
+  },
+  "SW.Item.StraightSword": {
+   "name": "Longsword",
+   "weight": "medium",
+   "combo": [
+    18,
+    18,
+    26
+   ],
+   "total": 62,
+   "jump": 22,
+   "reach": 475,
+   "splash": 0.3
+  },
+  "SW.Item.Pickaxe": {
+   "name": "Pickaxe",
+   "weight": "medium",
+   "combo": [
+    16,
+    16,
+    24
+   ],
+   "total": 56,
+   "jump": 28,
+   "reach": 300,
+   "splash": 0.3
+  },
+  "SW.Item.Hammer": {
+   "name": "Battle Hammer",
+   "weight": "medium",
+   "combo": [
+    15,
+    15,
+    25
+   ],
+   "total": 55,
+   "jump": 30,
+   "reach": 300,
+   "splash": 0.3
+  },
+  "SW.Item.Mace": {
+   "name": "Mace",
+   "weight": "medium",
+   "combo": [
+    14,
+    16,
+    24
+   ],
+   "total": 54,
+   "jump": 35,
+   "reach": 250,
+   "splash": 0.3
+  },
+  "SW.Item.Pike": {
+   "name": "Pike",
+   "weight": "medium",
+   "combo": [
+    15,
+    17,
+    22
+   ],
+   "total": 54,
+   "jump": 24,
+   "reach": 525,
+   "splash": 0.3
+  },
+  "SW.Item.Axe": {
+   "name": "Axe",
+   "weight": "medium",
+   "combo": [
+    14,
+    16,
+    22
+   ],
+   "total": 52,
+   "jump": 21,
+   "reach": 350,
+   "splash": 0.3
+  },
+  "SW.Item.Sword": {
+   "name": "Sword",
+   "weight": "medium",
+   "combo": [
+    14,
+    16,
+    22
+   ],
+   "total": 52,
+   "jump": 24,
+   "reach": 385,
+   "splash": 0.3
+  },
+  "SW.Item.Sabre": {
+   "name": "Sabre",
+   "weight": "medium",
+   "combo": [
+    12,
+    14,
+    22
+   ],
+   "total": 48,
+   "jump": 20,
+   "reach": 350,
+   "splash": 0.3
+  },
+  "SW.Item.Cleaver": {
+   "name": "Meat Cleaver",
+   "weight": "medium",
+   "combo": [
+    13,
+    13,
+    18
+   ],
+   "total": 44,
+   "jump": 20,
+   "reach": 350,
+   "splash": 0.3
+  },
+  "SW.Item.CurvedLongsword": {
+   "name": "Riftslasher",
+   "weight": "medium",
+   "combo": [
+    14,
+    14,
+    15
+   ],
+   "total": 43,
+   "jump": 20,
+   "reach": 320,
+   "splash": 0.3
+  },
+  "SW.Item.ShortSpear": {
+   "name": "Short Spear",
+   "weight": "medium",
+   "combo": [
+    14,
+    8,
+    20
+   ],
+   "total": 42,
+   "jump": 22,
+   "reach": 450,
+   "splash": 0.3
+  },
+  "SW.Item.GiantMallet": {
+   "name": "Mob Mallet",
+   "weight": "heavy",
+   "combo": [
+    [
+     18,
+     5
+    ],
+    24
+   ],
+   "total": 114,
+   "jump": 24,
+   "reach": 450,
+   "splash": 0.6
+  },
+  "SW.Item.Shovel": {
+   "name": "Shovel",
+   "weight": "heavy",
+   "combo": [
+    15,
+    15,
+    60
+   ],
+   "total": 90,
+   "jump": 30,
+   "reach": 400,
+   "splash": 0.3
+  },
+  "SW.Item.Battlestaff": {
+   "name": "Battlestaff",
+   "weight": "heavy",
+   "combo": [
+    26,
+    26,
+    30
+   ],
+   "total": 82,
+   "jump": 26,
+   "reach": 450,
+   "splash": 0.3
+  },
+  "SW.Item.CurvedGreatsword": {
+   "name": "Cookiecutter",
+   "weight": "heavy",
+   "combo": [
+    20,
+    20,
+    30
+   ],
+   "total": 70,
+   "jump": 20,
+   "reach": 500,
+   "splash": 0.3
+  },
+  "SW.Item.Glaive": {
+   "name": "Glaive",
+   "weight": "heavy",
+   "combo": [
+    18,
+    20,
+    28
+   ],
+   "total": 66,
+   "jump": 24,
+   "reach": 350,
+   "splash": 0.3
+  },
+  "SW.Item.Claymore": {
+   "name": "Claymore",
+   "weight": "heavy",
+   "combo": [
+    15,
+    25,
+    20
+   ],
+   "total": 60,
+   "jump": 25,
+   "reach": 385,
+   "splash": 0.3
+  },
+  "SW.Item.GreatAxe": {
+   "name": "Greataxe",
+   "weight": "heavy",
+   "combo": [
+    28,
+    30
+   ],
+   "total": 58,
+   "jump": 24,
+   "reach": 350,
+   "splash": 0.3
+  },
+  "SW.Item.MoonSword": {
+   "name": "Tidal Sickle",
+   "weight": "heavy",
+   "combo": [
+    12,
+    12,
+    19
+   ],
+   "total": 43,
+   "jump": 22,
+   "reach": 300,
+   "splash": 0.3
+  },
+  "SW.Item.WarHammer": {
+   "name": "War Hammer",
+   "weight": "heavy",
+   "combo": [
+    40
+   ],
+   "total": 40,
+   "jump": 40,
+   "reach": 250,
+   "splash": 0.3
+  },
+  "SW.Item.GiantClub": {
+   "name": "Clobberer",
+   "weight": "heavy",
+   "combo": [
+    35
+   ],
+   "total": 35,
+   "jump": 28,
+   "reach": 400,
+   "splash": 0.3
+  },
+  "SW.Item.Greatsword": {
+   "name": "Greatsword",
+   "weight": "heavy",
+   "combo": [
+    18
+   ],
+   "total": 18,
+   "jump": 18,
+   "reach": 400,
+   "splash": 0.3
+  },
+  "SW.Item.Gauntlet": {
+   "name": "Gauntlets",
+   "weight": "fist",
+   "combo": [
+    9,
+    9,
+    12
+   ],
+   "total": 30,
+   "jump": 22,
+   "reach": 275,
+   "splash": 0.3
+  },
+  "SW.Item.Axe_Unique1": {
+   "name": "Hunter's Hatchet",
+   "weight": "medium",
+   "combo": [
+    14,
+    14,
+    21
+   ],
+   "total": 49,
+   "jump": 22,
+   "reach": 350,
+   "splash": 0.3
+  },
+  "SW.Item.Battlestaff_Unique1": {
+   "name": "Elemental Staff",
+   "weight": "heavy",
+   "combo": [
+    24,
+    24,
+    30
+   ],
+   "total": 78,
+   "jump": 26,
+   "reach": 450,
+   "splash": 0.3
+  },
+  "SW.Item.CurvedGreatsword_Unique1": {
+   "name": "Lullaby Blade",
+   "weight": "heavy",
+   "combo": [
+    20,
+    20,
+    30
+   ],
+   "total": 70,
+   "jump": 20,
+   "reach": 385,
+   "splash": 0.3
+  },
+  "SW.Item.Daggers_Unique1": {
+   "name": "Venomous Fangs",
+   "weight": "light",
+   "combo": [
+    6,
+    6,
+    9
+   ],
+   "total": 21,
+   "jump": 14,
+   "reach": 285,
+   "splash": 0.3
+  },
+  "SW.Item.Gauntlet_Unique1": {
+   "name": "Prime Enchanter's Gauntlets",
+   "weight": "fist",
+   "combo": [
+    5,
+    5.5,
+    7
+   ],
+   "total": 17.5,
+   "jump": 24,
+   "reach": 275,
+   "splash": 0.3
+  },
+  "SW.Item.GreatAxe_Unique1": {
+   "name": "Awesomeaxe",
+   "weight": "heavy",
+   "combo": [
+    28,
+    30
+   ],
+   "total": 58,
+   "jump": 24,
+   "reach": 330,
+   "splash": 0.3
+  },
+  "SW.Item.Mace_Unique1": {
+   "name": "Carapace Mace",
+   "weight": "medium",
+   "combo": [
+    14,
+    16,
+    24
+   ],
+   "total": 54,
+   "jump": 35,
+   "reach": 300,
+   "splash": 0.3
+  },
+  "SW.Item.GiantMallet_Unique1": {
+   "name": "Monster Masher",
+   "weight": "heavy",
+   "combo": [
+    [
+     16,
+     5
+    ],
+    24
+   ],
+   "total": 104,
+   "jump": 18,
+   "reach": 450,
+   "splash": 0.6
+  },
+  "SW.Item.Sword_Unique1": {
+   "name": "The Burning Blade",
+   "weight": "medium",
+   "combo": [
+    14,
+    14,
+    20
+   ],
+   "total": 48,
+   "jump": 24,
+   "reach": 385,
+   "splash": 0.3
+  },
+  "SW.Item.MoonSword_Unique1": {
+   "name": "Lunar Sickle",
+   "weight": "heavy",
+   "combo": [
+    15,
+    15,
+    23
+   ],
+   "total": 53,
+   "jump": 22,
+   "reach": 300,
+   "splash": 0.3
+  },
+  "SW.Item.WarHammer_Unique1": {
+   "name": "Heartbreaker",
+   "weight": "heavy",
+   "combo": [
+    40
+   ],
+   "total": 40,
+   "jump": 40,
+   "reach": 300,
+   "splash": 0.3
+  }
+ },
+ "ranged": {
+  "SW.Item.Bow": {
+   "name": "Bow",
+   "damage": 18,
+   "arrows": 1,
+   "rate": 0.4,
+   "ammo": 15,
+   "reload": 1.2,
+   "chargeTime": 0.35,
+   "chargeMultiplier": 3
+  },
+  "SW.Item.Crossbow": {
+   "name": "Crossbow",
+   "damage": 24,
+   "arrows": 1,
+   "rate": 0.6,
+   "ammo": 15,
+   "reload": 1.5
+  },
+  "SW.Item.DualCrossbow": {
+   "name": "Dual Crossbows",
+   "damage": 12,
+   "arrows": 2,
+   "rate": 0.6,
+   "ammo": 20,
+   "reload": 1
+  },
+  "SW.Item.Greatbow": {
+   "name": "Greatbow",
+   "damage": 72,
+   "arrows": 1,
+   "rate": 0.4,
+   "ammo": 10,
+   "reload": 1.2,
+   "chargeTime": 0.3,
+   "chargeMultiplier": 4
+  },
+  "SW.Item.HeavyCrossbow": {
+   "name": "Heavy Crossbow",
+   "damage": 108,
+   "arrows": 1,
+   "rate": 0.95,
+   "ammo": 8,
+   "reload": 2
+  },
+  "SW.Item.Longbow": {
+   "name": "Longbow",
+   "damage": 25,
+   "arrows": 1,
+   "rate": 0.5,
+   "ammo": 12,
+   "reload": 1.5,
+   "chargeTime": 0.4,
+   "chargeMultiplier": 3
+  },
+  "SW.Item.Powerbow": {
+   "name": "Powerbow",
+   "damage": 40,
+   "arrows": 1,
+   "rate": 0.5,
+   "ammo": 12,
+   "reload": 1.5,
+   "chargeTime": 0.4,
+   "chargeMultiplier": 4
+  },
+  "SW.Item.RapidCrossbow": {
+   "name": "Rapid Crossbow",
+   "damage": 8,
+   "arrows": 1,
+   "rate": 0.2,
+   "ammo": 25,
+   "reload": 0.8
+  },
+  "SW.Item.ScatterCrossbow": {
+   "name": "Scatter Crossbow",
+   "damage": 12,
+   "arrows": 3,
+   "rate": 0.4,
+   "ammo": 12,
+   "reload": 1.5
+  },
+  "SW.Item.Shortbow": {
+   "name": "Shortbow",
+   "damage": 11,
+   "arrows": 1,
+   "rate": 0.2,
+   "ammo": 18,
+   "reload": 1,
+   "chargeTime": 0.125,
+   "chargeMultiplier": 3
+  },
+  "SW.Item.Trickbow": {
+   "name": "Trickbow",
+   "damage": 14,
+   "arrows": 1,
+   "rate": 0.3,
+   "ammo": 15,
+   "reload": 1.2,
+   "chargeTime": 0.2,
+   "chargeMultiplier": 3
+  },
+  "SW.Item.Bow_Unique1": {
+   "name": "Ranger's Promise",
+   "damage": 18,
+   "arrows": 1,
+   "rate": 0.4,
+   "ammo": 15,
+   "reload": 0.8,
+   "chargeTime": 0.3,
+   "chargeMultiplier": 3
+  }
+ },
+ "effects": {
+  "SW.Effect.RollCooldown": {
+   "name": "Acrobat",
+   "group": "Armour",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 25,
+    "Unique": 40
+   },
+   "text": "Reduces rolling cooldown time by X."
+  },
+  "SW.Effect.AnimaConduit": {
+   "name": "Alchemist",
+   "group": "Armour",
+   "tiers": {
+    "I": 1,
+    "II": 3,
+    "III": 5,
+    "Unique": 7
+   },
+   "text": "Restores X of max health for each soul gathered."
+  },
+  "SW.Effect.Gambler": {
+   "name": "Assassin",
+   "group": "Armour",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 25
+   },
+   "text": "Grants a X chance to stay in Shadowcloaking when attacking."
+  },
+  "SW.Effect.ArrowBurst": {
+   "name": "Bowyer",
+   "group": "Armour",
+   "tiers": {
+    "I": 20,
+    "II": 25,
+    "III": 30,
+    "Unique": 50
+   },
+   "text": "Grants a X chance to gain an additional arrow when ammo is regained."
+  },
+  "SW.Effect.Deflect": {
+   "name": "Deflection",
+   "group": "Armour",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 25
+   },
+   "text": "Grants a X chance to deflect enemy projectiles."
+  },
+  "SW.Effect.ElementalProtection": {
+   "name": "Elemental Protection",
+   "group": "Armour",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 25
+   },
+   "text": "Reduces damage taken from elemental attacks by X."
+  },
+  "SW.Effect.Sidestep": {
+   "name": "Evasion",
+   "group": "Armour",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 20
+   },
+   "text": "Grants a X chance to evade melee damage."
+  },
+  "SW.Effect.Reconstruction": {
+   "name": "Fletcher",
+   "group": "Armour",
+   "tiers": {
+    "I": 15,
+    "II": 20,
+    "III": 25,
+    "Unique": 35
+   },
+   "text": "Reduces ranged ammo cooldown time by X."
+  },
+  "SW.Effect.Lucky": {
+   "name": "Luck",
+   "group": "Armour",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 30
+   },
+   "text": "Grants a X chance to drop duplicate variations of items."
+  },
+  "SW.Effect.PotionCooldown": {
+   "name": "Potion Maker",
+   "group": "Armour",
+   "tiers": {
+    "I": 5,
+    "II": 10,
+    "III": 20,
+    "Unique": 25
+   },
+   "text": "Reduces potion cooldown time by X."
+  },
+  "SW.Effect.Thorns": {
+   "name": "Prickly",
+   "group": "Armour",
+   "tiers": {
+    "I": 50,
+    "II": 65,
+    "III": 80,
+    "Unique": 100
+   },
+   "text": "Deals X of received damage back to the attacker."
+  },
+  "SW.Effect.ProjectileProtection": {
+   "name": "Projectile Protection",
+   "group": "Armour",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 25
+   },
+   "text": "Take X less damage from ranged attacks."
+  },
+  "SW.Effect.EmeraldsIncrease": {
+   "name": "Prospector",
+   "group": "Armour",
+   "tiers": {
+    "I": 5,
+    "II": 10,
+    "III": 15,
+    "Unique": 20
+   },
+   "text": "Grants a X chance to receive additional emeralds."
+  },
+  "SW.Effect.Protection": {
+   "name": "Protection",
+   "group": "Armour",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 25
+   },
+   "text": "Take X less damage."
+  },
+  "SW.Effect.SwiftSneak": {
+   "name": "Prowler",
+   "group": "Armour",
+   "tiers": {
+    "I": 15,
+    "II": 20,
+    "III": 30,
+    "Unique": 40
+   },
+   "text": "Increases movement speed by X while Shadowcloaking."
+  },
+  "SW.Effect.Constitution": {
+   "name": "Recovery",
+   "group": "Armour",
+   "tiers": {
+    "I": 10,
+    "II": 20,
+    "III": 30,
+    "Unique": 40
+   },
+   "text": "Increases all healing received by X."
+  },
+  "SW.Effect.Regeneration": {
+   "name": "Regeneration",
+   "group": "Armour",
+   "tiers": {
+    "I": 5,
+    "II": 7.5,
+    "III": 10,
+    "Unique": 15
+   },
+   "text": "Restores health by X per second after 5 seconds out of combat."
+  },
+  "SW.Effect.Resilience": {
+   "name": "Resilience",
+   "group": "Armour",
+   "tiers": {
+    "I": 20,
+    "II": 25,
+    "III": 30,
+    "Unique": 50
+   },
+   "text": "Recover from negative statuses X faster."
+  },
+  "SW.Effect.SpeedBoost": {
+   "name": "Speed",
+   "group": "Armour",
+   "tiers": {
+    "I": 5,
+    "II": 10,
+    "III": 15,
+    "Unique": 20
+   },
+   "text": "Increases movement speed by X."
+  },
+  "SW.Effect.ShadowWalk": {
+   "name": "Stealth",
+   "group": "Armour",
+   "tiers": {
+    "I": 20,
+    "II": 25,
+    "III": 35,
+    "Unique": 45
+   },
+   "text": "Shadowcloaking lasts X longer."
+  },
+  "SW.Effect.RapidStrike": {
+   "name": "Swiftness",
+   "group": "Armour",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 30
+   },
+   "text": "Increases melee attack speed by X."
+  },
+  "SW.Effect.Saboteur": {
+   "name": "Tainted",
+   "group": "Armour",
+   "tiers": {
+    "I": 40,
+    "II": 60,
+    "III": 80,
+    "Unique": 100
+   },
+   "text": "Increases duration of negative statuses on enemies by X."
+  },
+  "SW.Effect.SweepingEdge": {
+   "name": "Brawler",
+   "group": "Melee",
+   "tiers": {
+    "I": 20,
+    "II": 30,
+    "III": 40,
+    "Unique": 50
+   },
+   "text": "Melee attacks deal X more damage to secondary targets."
+  },
+  "SW.Effect.Duelist": {
+   "name": "Duelist",
+   "group": "Melee",
+   "tiers": {
+    "I": 20,
+    "II": 25,
+    "III": 30,
+    "Unique": 40
+   },
+   "text": "Melee attacks deal X more damage to primary targets."
+  },
+  "SW.Effect.Finesse": {
+   "name": "Finesse",
+   "group": "Melee",
+   "tiers": {
+    "I": 15,
+    "II": 25,
+    "III": 35,
+    "Unique": 35
+   },
+   "text": "Increases attack damage by X when jumping or rolling."
+  },
+  "SW.Effect.Precision": {
+   "name": "Precision",
+   "group": "Melee",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 25
+   },
+   "text": "Increases chance of critical hits with melee attacks by X."
+  },
+  "SW.Effect.Sharpness": {
+   "name": "Sharpness",
+   "group": "Melee",
+   "tiers": {
+    "I": 10,
+    "II": 20,
+    "III": 30,
+    "Unique": 30
+   },
+   "text": "Melee attacks deal X more damage."
+  },
+  "SW.Effect.MasterStrike": {
+   "name": "Strength",
+   "group": "Melee",
+   "tiers": {
+    "I": 15,
+    "II": 20,
+    "III": 25,
+    "Unique": 45
+   },
+   "text": "Critical hits with melee weapons deal X more damage."
+  },
+  "SW.Effect.EagleEye": {
+   "name": "Aim",
+   "group": "Ranged",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 25
+   },
+   "text": "Increases chance of critical hits from ranged attacks by X."
+  },
+  "SW.Effect.MasterMarksman": {
+   "name": "Marksman",
+   "group": "Ranged",
+   "tiers": {
+    "I": 15,
+    "II": 20,
+    "III": 25,
+    "Unique": 45
+   },
+   "text": "Critical hits with ranged weapons deal X more damage."
+  },
+  "SW.Effect.PointBlank": {
+   "name": "Point Blank",
+   "group": "Ranged",
+   "tiers": {
+    "I": 25,
+    "II": 50,
+    "III": 75,
+    "Unique": 100
+   },
+   "text": "Ranged attacks deal X more damage at close range."
+  },
+  "SW.Effect.MultiShot": {
+   "name": "Ranger",
+   "group": "Ranged",
+   "tiers": {
+    "I": 20,
+    "II": 30,
+    "III": 40,
+    "Unique": 60
+   },
+   "text": "Grants a X chance to fire additional projectiles."
+  },
+  "SW.Effect.Sniper": {
+   "name": "Sniper",
+   "group": "Ranged",
+   "tiers": {
+    "I": 25,
+    "II": 50,
+    "III": 75,
+    "Unique": 100
+   },
+   "text": "Ranged attacks deal X more damage from far away."
+  },
+  "SW.Effect.Committed": {
+   "name": "Bounty Hunter",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 20,
+    "II": 25,
+    "III": 30,
+    "Unique": 40
+   },
+   "text": "Deal X more damage to wounded enemies."
+  },
+  "SW.Effect.Opportunist": {
+   "name": "Bully",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 25,
+    "II": 35,
+    "III": 50,
+    "Unique": 50
+   },
+   "text": "Deal X more damage to enemies affected by a negative status."
+  },
+  "SW.Effect.CriticalEdge": {
+   "name": "Critical Edge",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 10,
+    "II": 20,
+    "III": 30,
+    "Unique": 40
+   },
+   "text": "All critical hits deal X more damage."
+  },
+  "SW.Effect.CriticalHit": {
+   "name": "Critical Hit",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 5,
+    "II": 10,
+    "III": 15,
+    "Unique": 20
+   },
+   "text": "Increases chance of critical hits by X."
+  },
+  "SW.Effect.Knockback": {
+   "name": "Knockback",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 15,
+    "II": 20,
+    "III": 30,
+    "Unique": 40
+   },
+   "text": "Attacks do X more knockback."
+  },
+  "SW.Effect.Looting": {
+   "name": "Looter",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 20,
+    "II": 40,
+    "III": 60,
+    "Unique": 80
+   },
+   "text": "Grants a X chance to get additional loot drops."
+  },
+  "SW.Effect.Reeling": {
+   "name": "Momentum",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 20,
+    "II": 30,
+    "III": 40,
+    "Unique": 60
+   },
+   "text": "Increases chance to stagger enemies on hit by X."
+  },
+  "SW.Effect.BeastBoss": {
+   "name": "Pack Leader",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 20,
+    "II": 25,
+    "III": 30,
+    "Unique": 40
+   },
+   "text": "Companions deal X more damage."
+  },
+  "SW.Effect.Desperation": {
+   "name": "Persistence",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 25
+   },
+   "text": "Increases damage dealt by X of player's total missing health."
+  },
+  "SW.Effect.Opulence": {
+   "name": "Raider",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 1,
+    "II": 2,
+    "III": 3,
+    "Unique": 5
+   },
+   "text": "Grants a X chance of higher rarity loot drops."
+  },
+  "SW.Effect.SoulGatherMultiply": {
+   "name": "Reaper",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 25,
+    "II": 35,
+    "III": 45,
+    "Unique": 60
+   },
+   "text": "Increases souls gained by X."
+  },
+  "SW.Effect.Chains": {
+   "name": "Shackler",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 25,
+    "Unique": 30
+   },
+   "text": "Attacks have a X chance to inflict the Chained status on hits."
+  },
+  "SW.Effect.Vanguard": {
+   "name": "Vanguard",
+   "group": "Melee & Ranged",
+   "tiers": {
+    "I": 20,
+    "II": 35,
+    "III": 50,
+    "Unique": 60
+   },
+   "text": "Deal X more damage to enemies who are at full health."
+  },
+  "SW.Effect.Hairtrigger": {
+   "name": "Reload",
+   "group": "Crossbows",
+   "tiers": {
+    "I": 20,
+    "II": 30,
+    "III": 40,
+    "Unique": 40
+   },
+   "text": "Reduces time between shots with ranged weapons by X."
+  },
+  "SW.Effect.Supercharge": {
+   "name": "Sharpshooter",
+   "group": "Bows & Quivers",
+   "tiers": {
+    "I": 30,
+    "II": 35,
+    "III": 40,
+    "Unique": 60
+   },
+   "text": "Charged ranged attacks deal X more damage."
+  },
+  "SW.Effect.AmmoCapacity": {
+   "name": "Quiver",
+   "group": "Quivers",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 45
+   },
+   "text": "Carry X more ammo."
+  },
+  "SW.Effect.Power": {
+   "name": "Impact",
+   "group": "Ranged, Quiver & Artifact",
+   "tiers": {
+    "I": 10,
+    "II": 20,
+    "III": 30,
+    "Unique": 30
+   },
+   "text": "Ranged attacks deal X more damage."
+  },
+  "SW.Effect.Vivify": {
+   "name": "Ally",
+   "group": "Artifact",
+   "tiers": {
+    "I": 15,
+    "II": 30,
+    "III": 50,
+    "Unique": 70
+   },
+   "text": "Positive statuses you apply to yourself and allies last X longer."
+  },
+  "SW.Effect.Cooldown": {
+   "name": "Cooldown",
+   "group": "Artifact",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 30
+   },
+   "text": "Reduces artifact cooldown time by X."
+  },
+  "SW.Effect.FrostFocus": {
+   "name": "Cryomancer",
+   "group": "Artifact",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 30
+   },
+   "text": "Frost attacks deal X more damage."
+  },
+  "SW.Effect.LightningFocus": {
+   "name": "Electromancer",
+   "group": "Artifact",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 25
+   },
+   "text": "Lightning attacks deal X more damage."
+  },
+  "SW.Effect.HealingFocus": {
+   "name": "Healer",
+   "group": "Artifact",
+   "tiers": {
+    "I": 25,
+    "II": 35,
+    "III": 50,
+    "Unique": 50
+   },
+   "text": "Increases healing given to yourself and allies by X."
+  },
+  "SW.Effect.FireFocus": {
+   "name": "Pyromancer",
+   "group": "Artifact",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 20
+   },
+   "text": "Fire attacks deal X more damage."
+  },
+  "SW.Effect.Friendship": {
+   "name": "Shepherd",
+   "group": "Artifact",
+   "tiers": {
+    "I": 5,
+    "II": 10,
+    "III": 15,
+    "Unique": 20
+   },
+   "text": "Companions take X less damage."
+  },
+  "SW.Effect.Vestige": {
+   "name": "Sorcerer",
+   "group": "Artifact",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 25
+   },
+   "text": "Artifact attacks deal X more damage."
+  },
+  "SW.Effect.SoulFocus": {
+   "name": "Soulmancer",
+   "group": "Artifact",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 20
+   },
+   "text": "Soul attacks deal X more damage."
+  },
+  "SW.Effect.SoulMax": {
+   "name": "Spiritual",
+   "group": "Artifact",
+   "tiers": {
+    "I": 25,
+    "II": 30,
+    "III": 35,
+    "Unique": 50
+   },
+   "text": "Increases Soul capacity by X."
+  },
+  "SW.Effect.Expand": {
+   "name": "Totem Radius",
+   "group": "Artifact",
+   "tiers": {
+    "I": 20,
+    "II": 30,
+    "III": 40,
+    "Unique": 55
+   },
+   "text": "Increases the area of all positive status effects by X."
+  },
+  "SW.Effect.PoisonFocus": {
+   "name": "Venomancer",
+   "group": "Artifact",
+   "tiers": {
+    "I": 10,
+    "II": 15,
+    "III": 20,
+    "Unique": 20
+   },
+   "text": "Poison attacks deal X more damage."
+  },
+  "SW.Effect.FriendsForever": {
+   "name": "Veterinarian",
+   "group": "Artifact",
+   "tiers": {
+    "I": 5,
+    "II": 10,
+    "III": 15,
+    "Unique": 20
+   },
+   "text": "Defeated companions come back X faster."
+  },
+  "SW.Effect.StatusBuff": {
+   "name": "Boost",
+   "group": "Unique only",
+   "tiers": {
+    "Unique": 20
+   },
+   "text": "Increases duration of positive statuses applied to you by X."
+  },
+  "SW.Effect.HealthBoost": {
+   "name": "Constitution",
+   "group": "Unique only",
+   "tiers": {
+    "Unique": 30
+   },
+   "text": "Increases the player's maximum health by X."
+  },
+  "SW.Effect.Jumpshot": {
+   "name": "Jumpshot",
+   "group": "Unique only",
+   "tiers": {
+    "Unique": 6
+   },
+   "text": "Increases jump shot damage dealt by X."
+  },
+  "SW.Effect.Plummeting": {
+   "name": "Leaper",
+   "group": "Unique only",
+   "tiers": {
+    "Unique": 50
+   },
+   "text": "Jumping melee attacks deal X more damage."
+  },
+  "SW.Effect.ExperienceIncrease": {
+   "name": "Prodigy",
+   "group": "Unique only",
+   "tiers": {
+    "Unique": 8
+   },
+   "text": "Increases experience gained by X."
+  },
+  "SW.Effect.ExplosiveStrike": {
+   "name": "Pyrotechnics",
+   "group": "Unique only",
+   "tiers": {
+    "Unique": true
+   },
+   "text": "Hits with this weapon explode on impact!"
+  },
+  "SW.Effect.ElementalHit": {
+   "name": "Randomancer",
+   "group": "Unique only",
+   "tiers": {
+    "Unique": true
+   },
+   "text": "Chance to grant random elemental melee buff when defeating an enemy."
+  },
+  "SW.Effect.ArtifactHealing": {
+   "name": "Relic",
+   "group": "Unique only",
+   "tiers": {
+    "Unique": 6
+   },
+   "text": "Restores X of max health when activating an artifact."
+  },
+  "SW.Effect.SoulCurse": {
+   "name": "Soul Cursed",
+   "group": "Unique only",
+   "tiers": {
+    "Unique": true
+   },
+   "text": "Applies Soulsick status to enemies on hit."
+  },
+  "SW.Effect.StatusOnHit.Strength": {
+   "name": "Strengthening Hit",
+   "group": "Unique only",
+   "tiers": {
+    "Unique": 6
+   },
+   "text": "Attacks have a X chance to grant the Strength status on hit."
+  }
+ }
+}

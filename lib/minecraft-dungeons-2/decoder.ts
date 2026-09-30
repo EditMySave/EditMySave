@@ -62,10 +62,36 @@ export interface PowerGeneratorValues {
   [key: string]: unknown
 }
 
+/** One effect on an item: an enchantment, a rolled effect or a talisman effect. */
+export interface ItemEffect {
+  TypeTag: string
+  Intensity: Num
+  Quality: Num
+  EnchantmentPointsInvested: Num
+  GeneratorData: { GeneratorParentTemplate: string; Locked: boolean; [key: string]: unknown }
+  [key: string]: unknown
+}
+
+/** Effects are grouped into batches by kind (see EFFECT_BATCH). */
+export interface EffectBatch {
+  TypeTag: string
+  EffectsInThisBatch: ItemEffect[]
+  [key: string]: unknown
+}
+
+export const EFFECT_BATCH = {
+  /** Rolled bonus effects; count set by rarity. */
+  rerollable: "SW.Item.Effect.Rerollable",
+  /** Enchantments added at the Enchantsmith. */
+  enchantment: "SW.Item.Effect.Enchantment",
+  /** Talisman effects, upgraded per talisman level. */
+  upgradable: "SW.Item.Effect.Upgradable",
+} as const
+
 export interface ItemData {
   TypeTag: string
   RarityTag: string
-  Effects: unknown[]
+  Effects: EffectBatch[]
   ItemProgression: { CurrentLevel: Num; CurrentXP: Num; ItemLevels: unknown[]; [key: string]: unknown }
   GeneratorData: {
     GenesisRandomSeed: Num
@@ -163,7 +189,7 @@ export function isRawNumber(value: unknown): value is RawNumber {
 /** JSON.parse that keeps numbers JS can't reproduce verbatim as raw JSON. */
 export function parseLossless(text: string): unknown {
   if (!HAS_RAW_JSON) {
-    console.warn("[dungeons-2] JSON.rawJSON unavailable; long numbers will be normalised on save")
+    console.warn("[minecraft-dungeons-2] JSON.rawJSON unavailable; long numbers will be normalised on save")
     return JSON.parse(text)
   }
   return LosslessJSON.parse(text, (_key, value, context) => {

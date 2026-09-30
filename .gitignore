@@ -32,3 +32,6 @@ next-env.d.ts
 # Local reverse-engineering material (raw game folders contain auth tokens)
 /saves/
 /experiments/
+
+
+.DS_Store

@@ -1,5 +1,5 @@
-import type { CharacterData, CharacterSave, InventoryEntry, Quest } from "@/lib/dungeons-2/decoder"
-import { CURRENCY_ATTRIBUTES, NO_SLOT, getAttribute, numberValue } from "@/lib/dungeons-2/decoder"
+import type { CharacterData, CharacterSave, EffectBatch, InventoryEntry, ItemEffect, Quest } from "@/lib/minecraft-dungeons-2/decoder"
+import { CURRENCY_ATTRIBUTES, EFFECT_BATCH, NO_SLOT, getAttribute, numberValue } from "@/lib/minecraft-dungeons-2/decoder"
 
 const MAX_CURRENCY = 999999
 const COMPLETED = "Completed"
@@ -110,6 +110,139 @@ export function setItemPower(save: CharacterSave, index: number, power: number):
   }))
 }
 
+// ── Item effects ─────────────────────────────────────────────────────────
+
+export interface ItemEffectSpec {
+  /** SW.Enchantment.* or SW.Effect.* */
+  effect: string
+  /** Tier template, e.g. SW.Enchantment.Channeling.II or SW.EffectTemplate.BeastBoss.I */
+  template: string
+  /** The tier's fixed value (stored as Intensity). */
+  value: number
+  /** Enchantment points spent on this effect (enchantments only). */
+  points?: number
+}
+
+function makeEffect(spec: ItemEffectSpec, previous?: ItemEffect): ItemEffect {
+  return {
+    TypeTag: spec.effect,
+    Intensity: spec.value,
+    Quality: previous?.Quality ?? 0,
+    EnchantmentPointsInvested: spec.points ?? previous?.EnchantmentPointsInvested ?? 0,
+    GeneratorData: {
+      ...previous?.GeneratorData,
+      GeneratorParentTemplate: spec.template,
+      Locked: previous?.GeneratorData.Locked ?? false,
+    },
+  }
+}
+
+/** Batches in the order the game writes them. */
+const BATCH_ORDER: string[] = [EFFECT_BATCH.upgradable, EFFECT_BATCH.rerollable, EFFECT_BATCH.enchantment]
+
+function batchRank(batchType: string): number {
+  const i = BATCH_ORDER.indexOf(batchType)
+  return i < 0 ? BATCH_ORDER.length : i
+}
+
+/** Update one batch; an emptied batch is dropped, a new one is inserted in game order. */
+function updateBatch(
+  save: CharacterSave,
+  index: number,
+  batchType: string,
+  fn: (effects: ItemEffect[]) => ItemEffect[],
+): CharacterSave {
+  return updateItemData(save, index, (d) => {
+    const batches = d.Effects ?? []
+    const existing = batches.find((b) => b.TypeTag === batchType)
+    const effects = fn(existing?.EffectsInThisBatch ?? [])
+    let next: EffectBatch[]
+    if (effects.length === 0) {
+      next = batches.filter((b) => b !== existing)
+    } else if (existing) {
+      next = batches.map((b) => (b === existing ? { ...b, EffectsInThisBatch: effects } : b))
+    } else {
+      next = [...batches, { TypeTag: batchType, EffectsInThisBatch: effects }].sort(
+        (a, b) => batchRank(a.TypeTag) - batchRank(b.TypeTag),
+      )
+    }
+    return { ...d, Effects: next }
+  })
+}
+
+/**
+ * Set the effect at `position` in a batch (appends when position is past the end).
+ * Fields the editor doesn't manage (Quality, Locked) are kept from the replaced effect.
+ */
+export function setItemEffect(
+  save: CharacterSave,
+  index: number,
+  batchType: string,
+  position: number,
+  spec: ItemEffectSpec,
+): CharacterSave {
+  return updateBatch(save, index, batchType, (effects) => {
+    const next = [...effects]
+    const at = Math.min(position, next.length)
+    next[at] = makeEffect(spec, effects[at])
+    return next
+  })
+}
+
+export function removeItemEffect(save: CharacterSave, index: number, batchType: string, position: number): CharacterSave {
+  return updateBatch(save, index, batchType, (effects) => effects.filter((_, i) => i !== position))
+}
+
+// ── Talismans ───────────────────────────────────────────────────────────
+// A talisman stores every level up front in ItemProgression.ItemLevels, and its
+// Upgradable effect batch holds the current level's effects (kept even when
+// empty, e.g. companion talismans that grant a tag instead of an effect).
+
+export interface TalismanLevelSpec {
+  /** Stat talismans: this level's effect. */
+  effect?: ItemEffectSpec
+  /** Companion talismans: the tag granted at this level. */
+  grantedTag?: string
+}
+
+function itemLevels(levels: TalismanLevelSpec[]) {
+  return levels.map((l) => ({
+    LevelEffects: l.effect ? [makeEffect(l.effect)] : [],
+    LevelTags: l.grantedTag ? [l.grantedTag] : [],
+  }))
+}
+
+function upgradableBatch(levels: TalismanLevelSpec[], levelIndex: number): EffectBatch {
+  const effect = levels[levelIndex]?.effect
+  return { TypeTag: EFFECT_BATCH.upgradable, EffectsInThisBatch: effect ? [makeEffect(effect)] : [] }
+}
+
+interface ItemLevelEntry {
+  LevelEffects?: ItemEffect[]
+  [key: string]: unknown
+}
+
+/**
+ * Set a talisman's level (0-based CurrentLevel) and XP. The active effects are
+ * copied from that level's stored ItemLevels entry so they always agree.
+ */
+export function setTalismanProgress(save: CharacterSave, index: number, levelIndex: number, xp: number): CharacterSave {
+  return updateItemData(save, index, (d) => {
+    const levels = (d.ItemProgression.ItemLevels ?? []) as ItemLevelEntry[]
+    const clamped = Math.max(0, Math.min(levelIndex, Math.max(levels.length - 1, 0)))
+    const effects = levels[clamped]?.LevelEffects ?? []
+    const batches = d.Effects ?? []
+    const hasBatch = batches.some((b) => b.TypeTag === EFFECT_BATCH.upgradable)
+    return {
+      ...d,
+      ItemProgression: { ...d.ItemProgression, CurrentLevel: clamped, CurrentXP: Math.max(0, xp) },
+      Effects: hasBatch
+        ? batches.map((b) => (b.TypeTag === EFFECT_BATCH.upgradable ? { ...b, EffectsInThisBatch: [...effects] } : b))
+        : [{ TypeTag: EFFECT_BATCH.upgradable, EffectsInThisBatch: [...effects] }, ...batches],
+    }
+  })
+}
+
 export function setStackCount(save: CharacterSave, index: number, count: number): CharacterSave {
   return updateEntry(save, index, (e) => ({ ...e, StackCount: count }))
 }
@@ -183,6 +316,8 @@ export interface NewItemSpec {
   hasPower: boolean
   /** CollectionsStats list to record the item in, e.g. "CollectedWeaponsCommon". */
   collectionKey?: string
+  /** Talismans: the per-level effects/tags (see talismanLevels). */
+  talisman?: TalismanLevelSpec[]
 }
 
 /** Record a tag in a string-list field if it isn't there already. */
@@ -201,8 +336,8 @@ export function addItem(save: CharacterSave, spec: NewItemSpec): CharacterSave {
     ItemData: {
       TypeTag: spec.tag,
       RarityTag: spec.rarity,
-      Effects: [],
-      ItemProgression: { CurrentLevel: 0, CurrentXP: 0, ItemLevels: [] },
+      Effects: spec.talisman ? [upgradableBatch(spec.talisman, 0)] : [],
+      ItemProgression: { CurrentLevel: 0, CurrentXP: 0, ItemLevels: spec.talisman ? itemLevels(spec.talisman) : [] },
       GeneratorData: {
         GenesisRandomSeed: randomSeed(),
         PowerGeneratorValues: {

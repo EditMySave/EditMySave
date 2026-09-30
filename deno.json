@@ -12,6 +12,6 @@
   "tasks": {
     "test:far-far-west": "deno test -A --no-check --unstable-sloppy-imports lib/far-far-west/",
     "test:windblown": "deno test -A --no-check lib/windblown/",
-    "test:dungeons-2": "deno test -A --no-check --unstable-sloppy-imports lib/dungeons-2/"
+    "test:minecraft-dungeons-2": "deno test -A --no-check --unstable-sloppy-imports lib/minecraft-dungeons-2/"
   }
 }

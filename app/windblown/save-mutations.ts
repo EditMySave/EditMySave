@@ -1,21 +1,14 @@
-import { type WindblownSave, CURRENCY_NAMES, CURRENCY_FRIENDLY_NAMES } from "@/lib/windblown/decoder"
+import type { WindblownSave } from "@/lib/windblown/decoder"
 
 const MAX_CURRENCY = 99999
 
 export function updateCurrency(save: WindblownSave, enumId: number, value: number): WindblownSave {
-  // Update in place if already present; otherwise append a new entry. New non-zero entries
-  // are structurally inserted into the save's currency array at encode time.
-  if (save.currencies.some((c) => c.enumId === enumId)) {
-    return {
-      ...save,
-      currencies: save.currencies.map((c) => (c.enumId === enumId ? { ...c, amount: value } : c)),
-    }
-  }
-  const name = CURRENCY_NAMES[enumId] ?? `currency_${enumId}`
-  const friendlyName = CURRENCY_FRIENDLY_NAMES[enumId] ?? name
+  // Only currencies already stored in the save can be edited: adding a new record corrupts
+  // the save in-game, so encodeSaveToBlob refuses it (see the note in lib/windblown/decoder.ts).
+  if (!save.currencies.some((c) => c.enumId === enumId)) return save
   return {
     ...save,
-    currencies: [...save.currencies, { enumId, name, friendlyName, amount: value }],
+    currencies: save.currencies.map((c) => (c.enumId === enumId ? { ...c, amount: value } : c)),
   }
 }
 

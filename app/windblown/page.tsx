@@ -256,7 +256,7 @@ export default function WindblownSaveEditor() {
       })
     } catch (error) {
       console.error("Error encoding save file:", error)
-      alert("Failed to create edited save file.")
+      alert(`Failed to create edited save file.${error instanceof Error ? `\n\n${error.message}` : ""}`)
     } finally {
       setIsProcessing(false)
     }
@@ -268,8 +268,8 @@ export default function WindblownSaveEditor() {
     setSaveData(updateCurrency(saveData, enumId, numValue))
   }
 
-  // Every MetaCurrencyType id (plus any stored unknowns), so currencies not yet in the
-  // save can still be edited. Not-yet-stored ids show as 0 and get inserted on download.
+  // Every MetaCurrencyType id (plus any stored unknowns). Ids not yet in the save are shown
+  // read-only: adding a new currency record corrupts the save, so the encoder refuses it.
   const displayCurrencies = saveData
     ? (() => {
         const ids = new Set<number>(Object.keys(CURRENCY_NAMES).map(Number))
@@ -424,7 +424,11 @@ export default function WindblownSaveEditor() {
                                   <span className="flex items-center gap-2 flex-wrap">
                                     <span className="break-words leading-tight">{entry.friendlyName}</span>
                                     {!entry.stored && (
-                                      <Badge variant="outline" className="text-[10px] shrink-0">
+                                      <Badge
+                                        variant="outline"
+                                        className="text-[10px] shrink-0"
+                                        title="Collect this currency in-game once, then it can be edited here"
+                                      >
                                         not in save
                                       </Badge>
                                     )}
@@ -438,6 +442,7 @@ export default function WindblownSaveEditor() {
                                 variant="outline"
                                 size="sm"
                                 className="text-primary border-primary/30 hover:bg-primary/10 bg-transparent shrink-0"
+                                disabled={!entry.stored}
                                 onClick={() => setSaveData(updateCurrency(saveData, entry.enumId, MAX_CURRENCY))}
                               >
                                 Max
@@ -451,8 +456,14 @@ export default function WindblownSaveEditor() {
                               onChange={(e) => handleCurrencyChange(entry.enumId, e.target.value)}
                               min="0"
                               max={MAX_CURRENCY}
+                              disabled={!entry.stored}
                               className="font-mono text-lg bg-muted border-border text-foreground"
                             />
+                            {!entry.stored && (
+                              <p className="text-xs text-muted-foreground mt-2">
+                                Collect this in-game once to make it editable.
+                              </p>
+                            )}
                           </CardContent>
                         </Card>
                       )
