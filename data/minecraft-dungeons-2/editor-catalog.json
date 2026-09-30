@@ -1,0 +1,3653 @@
+{
+ "game": "Minecraft Dungeons II (codename Spicewood)",
+ "generatedAt": "2026-09-30T15:07:23.239Z",
+ "items": [
+  {
+   "tag": "SW.Item.EvocationBoots_Unique",
+   "name": "Alchemist Loafers",
+   "description": "An alchemist’s old loafers with stacked soles AND stacked with souls!",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.EvocationBoots"
+   ],
+   "icon": "icons/SW.Item.EvocationBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.EvocationChest_Unique",
+   "name": "Alchemist Overcoat",
+   "description": "An alchemist’s old overcoat that grants extra power to all artifacts.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.EvocationChest"
+   ],
+   "icon": "icons/SW.Item.EvocationChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.EvocationHelmet_Unique",
+   "name": "Alchemist Top Hat",
+   "description": "An alchemist's old top hat that casts a tall shadow when healing and shielding allies.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.EvocationHelmet"
+   ],
+   "icon": "icons/SW.Item.EvocationHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.EvocationLeggings_Unique",
+   "name": "Alchemist Trousers",
+   "description": "An alchemist’s old trousers that generate health from all artifacts.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.EvocationLeggings"
+   ],
+   "icon": "icons/SW.Item.EvocationLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.RangedBuff",
+   "name": "Amethyst Lens",
+   "description": "Ranged Buff Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.RangedBuff.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.SoulInfusedPotion",
+   "name": "Ancient Alchemy",
+   "description": "Using health potion also grants additional souls. Allows potion to be used even at full health.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.SoulInfusedPotion.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.RollingCooldown",
+   "name": "Armadillo Amulet",
+   "description": "Rolling Cooldown Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.RollingCooldown.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Arcane",
+   "name": "Artifact Amplifier",
+   "description": "Using an artifact grants the Artificing status, decreasing artifact cooldown while increasing artifact damage and soul gathering.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Arcane.png"
+  },
+  {
+   "tag": "SW.Item.GreatAxe_Unique1",
+   "name": "Awesomeaxe",
+   "description": "Why would anyone ever settle for a greataxe?",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.GreatAxe"
+   ],
+   "icon": "icons/SW.Item.GreatAxe_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Axe",
+   "name": "Axe",
+   "description": "An effective weapon, favored by the relentless Vindicators of the Illager army.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Axe_Unique1",
+   "icon": "icons/SW.Item.Axe.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.PotionBarrier",
+   "name": "Barrier Brew",
+   "description": "Using health potion creates a well that grants you and your allies the Fortifying status, protecting you from enemies. Allows potion to be used even at full health.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.PotionBarrier.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.WarBanner",
+   "name": "Battle Banner",
+   "description": "Raise the banner of war and grant strength to you and all nearby allies.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.WarBanner.png"
+  },
+  {
+   "tag": "SW.Item.Hammer",
+   "name": "Battle Hammer",
+   "description": "Strike while the iron is still hot.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Hammer_Unique1",
+   "icon": "icons/SW.Item.Hammer.png"
+  },
+  {
+   "tag": "SW.Item.Battlestaff",
+   "name": "Battlestaff",
+   "description": "With extra weights on the ends for striking fear into your enemies.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Battlestaff_Unique1",
+   "icon": "icons/SW.Item.Battlestaff.png"
+  },
+  {
+   "tag": "SW.Item.HoneyBoots",
+   "name": "Beekeeper Boots",
+   "description": "Adds a buzz to your step and a sting to your kicks.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.HoneyBoots_Unique",
+   "icon": "icons/SW.Item.HoneyBoots.png"
+  },
+  {
+   "tag": "SW.Item.HoneyLeggings",
+   "name": "Beekeeper Leggings",
+   "description": "As far as leggings go, these truly are the bee’s knees.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.HoneyLeggings_Unique",
+   "icon": "icons/SW.Item.HoneyLeggings.png"
+  },
+  {
+   "tag": "SW.Item.HoneyChest",
+   "name": "Beekeeper Suit",
+   "description": "Shields you from the swarms as you reach for their golden treasures.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.HoneyChest_Unique",
+   "icon": "icons/SW.Item.HoneyChest.png"
+  },
+  {
+   "tag": "SW.Item.HoneyHelmet",
+   "name": "Beekeeper Veil",
+   "description": "Keeps enemies out of your face without compromising your vision.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.HoneyHelmet_Unique",
+   "icon": "icons/SW.Item.HoneyHelmet.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.FireBracelet",
+   "name": "Blaze Bangle",
+   "description": "Imbues your attacks with the power of a blazing inferno and looks radiant on your wrist!",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.FireBracelet.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.PoisonBracelet",
+   "name": "Blight Bangle",
+   "description": "Imbues your attacks with poisonous power and looks stunning on your wrist!",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.PoisonBracelet.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.FrostBracelet",
+   "name": "Blizzard Bangle",
+   "description": "Imbues your attacks with the power of freezing blizzards and looks really cool on your wrist!",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.FrostBracelet.png"
+  },
+  {
+   "tag": "SW.Item.Cosmetic.Pet.Blub",
+   "name": "Blub Pet",
+   "description": "Traveling far from its home, this lost blub will eagerly follow you wherever you go.",
+   "category": "pet",
+   "product": "SW.Product.DeluxeEdition",
+   "icon": "icons/SW.Item.Cosmetic.Pet.Blub.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.MultiPotion",
+   "name": "Bottomless Brew",
+   "description": "Grants additional uses of health potion.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.MultiPotion.png"
+  },
+  {
+   "tag": "SW.Item.UndauntedBoots",
+   "name": "Bounty Hunter Boots",
+   "description": "Made from dark metal and bone, fit for the unwavering bounty hunter.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.UndauntedBoots_Unique",
+   "icon": "icons/SW.Item.UndauntedBoots.png"
+  },
+  {
+   "tag": "SW.Item.UndauntedChest",
+   "name": "Bounty Hunter Chestplate",
+   "description": "Made from dark metal and bone, fit for the tireless bounty hunter.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.UndauntedChest_Unique",
+   "icon": "icons/SW.Item.UndauntedChest.png"
+  },
+  {
+   "tag": "SW.Item.UndauntedHelmet",
+   "name": "Bounty Hunter Helmet",
+   "description": "Made from dark metal and bone, fit for the enduring bounty hunter.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.UndauntedHelmet_Unique",
+   "icon": "icons/SW.Item.UndauntedHelmet.png"
+  },
+  {
+   "tag": "SW.Item.UndauntedLeggings",
+   "name": "Bounty Hunter Shinguards",
+   "description": "Made from dark metal and bone, fit for the relentless bounty hunter.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.UndauntedLeggings_Unique",
+   "icon": "icons/SW.Item.UndauntedLeggings.png"
+  },
+  {
+   "tag": "SW.Item.Bow",
+   "name": "Bow",
+   "description": "A hunter’s best friend, repurposed for hunting Illagers and monsters.",
+   "category": "ranged",
+   "uniqueOf": "SW.Item.Bow_Unique1",
+   "icon": "icons/SW.Item.Bow.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.PotionSharing",
+   "name": "Buddy Brew",
+   "description": "Using health potion creates a well that grants you and your allies the Regenerating status, restoring your health. Allows potion to be used even at full health.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.PotionSharing.png"
+  },
+  {
+   "tag": "SW.Item.Cleaver_Unique1",
+   "name": "Cacaphonous Cleaver",
+   "description": "A mystical meat cleaver that serves souls for dessert.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Cleaver"
+   ],
+   "icon": "icons/SW.Item.Cleaver_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Mace_Unique1",
+   "name": "Carapace Mace",
+   "description": "Hard as nails but light as a feather, this mace is perfect for rolling and jumping attacks.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Mace"
+   ],
+   "icon": "icons/SW.Item.Mace_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.ChainReaction",
+   "name": "Chain Reaction",
+   "description": "Successful ranged hits have a chance to fire off additional projectiles at nearby enemies.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.ChainReaction.png"
+  },
+  {
+   "tag": "SW.Item.Cosmetic.Pet.SlimeSupreme",
+   "name": "Cheesy Cube Pet",
+   "description": "Long days adventuring with this savory sidekick will have any hero asking themselves, 'Is it dungeon time... or dinner time?'",
+   "category": "pet",
+   "icon": "icons/SW.Item.Cosmetic.Pet.SlimeSupreme.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.FlameSceptre",
+   "name": "Cinder Scepter",
+   "description": "Hold the scepter to charge it up with souls, then release soul-powered fire on your enemies.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.FlameSceptre.png"
+  },
+  {
+   "tag": "SW.Item.Claymore",
+   "name": "Claymore",
+   "description": "A massive sword that rests easily in a righteous warrior's hands.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Claymore_Unique1",
+   "icon": "icons/SW.Item.Claymore.png"
+  },
+  {
+   "tag": "SW.Item.GiantClub",
+   "name": "Clobberer",
+   "description": "For those who prefer a less subtle approach to problem solving.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.GiantClub_Unique1",
+   "icon": "icons/SW.Item.GiantClub.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.LightningQuiver",
+   "name": "Conductive Quiver",
+   "description": "These arrows will strike your enemies like lightning from the skies.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.LightningQuiver.png"
+  },
+  {
+   "tag": "SW.Item.CurvedGreatsword",
+   "name": "Cookiecutter",
+   "description": "A curved greatsword that works all enemies into equal shape and size.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.CurvedGreatsword_Unique1",
+   "icon": "icons/SW.Item.CurvedGreatsword.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.CorruptedBeacon",
+   "name": "Corrupted Beacon",
+   "description": "Turns souls into raw power as you fire it in short bursts or in one long, soul-draining blast of ultimate power.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.CorruptedBeacon.png"
+  },
+  {
+   "tag": "SW.Item.Cosmetic.Cape.CorruptedCreeper",
+   "name": "Corrupted Creeper Cape",
+   "description": "Fearsome and fashionable.",
+   "category": "cape",
+   "icon": "icons/SW.Item.Cosmetic.Cape.CorruptedCreeper.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.CorruptedSeeds",
+   "name": "Corrupted Seeds",
+   "description": "Instantly sprout into deadly vines, poisoning and binding your enemies while you reap what you’ve sown.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.CorruptedSeeds.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Unstoppable",
+   "name": "Cow Stampede",
+   "description": "After sprinting at full speed for a short time, slamming into enemies deals damage and knocks them out of your way.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Unstoppable.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Blowback",
+   "name": "Crash Landing",
+   "description": "Jump attacks cause an impact that deals additional damage to nearby enemies and knocks them back.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Blowback.png"
+  },
+  {
+   "tag": "SW.Item.Longbow_Unique1",
+   "name": "Creaking's Reach",
+   "description": "Made from the branch of a Creaking. Hits with the strength of an entire forest.",
+   "category": "ranged",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Longbow"
+   ],
+   "icon": "icons/SW.Item.Longbow_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.CreeperCandle",
+   "name": "Creeper Candle",
+   "description": "Just a completely normal candle, apart from that ominous hss coming from the burning wick... Wait, that’s a fuse!",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.CreeperCandle.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.CriticalQuiver",
+   "name": "Critical Quiver",
+   "description": "Critical hits restore arrows to your quiver.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.CriticalQuiver.png"
+  },
+  {
+   "tag": "SW.Item.Crossbow",
+   "name": "Crossbow",
+   "description": "The ranged weapon of choice for the Pillager warriors.",
+   "category": "ranged",
+   "uniqueOf": "SW.Item.Crossbow_Unique1",
+   "icon": "icons/SW.Item.Crossbow.png"
+  },
+  {
+   "tag": "SW.Item.UndauntedLeggings_Unique",
+   "name": "Dauntless Greaves",
+   "description": "For the dauntless warrior who isn’t scared to stand on the frontline.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.UndauntedLeggings"
+   ],
+   "icon": "icons/SW.Item.UndauntedLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.UndauntedHelmet_Unique",
+   "name": "Dauntless Horns",
+   "description": "Ram into your enemies with this horned helmet to knock them down a peg.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.UndauntedHelmet"
+   ],
+   "icon": "icons/SW.Item.UndauntedHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.UndauntedChest_Unique",
+   "name": "Dauntless Pauldrons",
+   "description": "For the dauntless warrior who isn’t afraid to face a hail of arrows.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.UndauntedChest"
+   ],
+   "icon": "icons/SW.Item.UndauntedChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.UndauntedBoots_Unique",
+   "name": "Dauntless Sabatons",
+   "description": "For the dauntless warrior who has a lot of heart but needs a lot of souls.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.UndauntedBoots"
+   ],
+   "icon": "icons/SW.Item.UndauntedBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.DeathcapMushroom",
+   "name": "Death Cap Mushroom",
+   "description": "Eaten by daring warriors before battle to enter a berserker state, increasing both movement and attack speed.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.DeathcapMushroom.png"
+  },
+  {
+   "tag": "SW.Item.Shovel_Unique1",
+   "name": "Diamond Shovel",
+   "description": "A durable diamond shovel enchanted with the power to blast enemies away.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Shovel"
+   ],
+   "icon": "icons/SW.Item.Shovel_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.DiscipleLeggings",
+   "name": "Disciple Leggings",
+   "description": "A true warrior wears leggings. Even warriors need to be comfy. ",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.DiscipleLeggings_Unique",
+   "icon": "icons/SW.Item.DiscipleLeggings.png"
+  },
+  {
+   "tag": "SW.Item.DiscipleHelmet",
+   "name": "Disciple mask",
+   "description": "A true warrior isn't scared to show their face but hides it so as not to scare the world.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.DiscipleHelmet_Unique",
+   "icon": "icons/SW.Item.DiscipleHelmet.png"
+  },
+  {
+   "tag": "SW.Item.DiscipleChest",
+   "name": "Disciple Robe",
+   "description": "A true warrior must cover their heart, or its beating will wake the Wardens.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.DiscipleChest_Unique",
+   "icon": "icons/SW.Item.DiscipleChest.png"
+  },
+  {
+   "tag": "SW.Item.DiscipleBoots",
+   "name": "Disciple Wraps",
+   "description": "A true warrior wears soundproof foot wraps to spare the ground from trembling.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.DiscipleBoots_Unique",
+   "icon": "icons/SW.Item.DiscipleBoots.png"
+  },
+  {
+   "tag": "SW.Item.DualCrossbow_Unique1",
+   "name": "Double Crossers",
+   "description": "These enchanted crossbows power up when you roll, firing with extra force.",
+   "category": "ranged",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.DualCrossbow"
+   ],
+   "icon": "icons/SW.Item.DualCrossbow_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Daggers",
+   "name": "Double Daggers",
+   "description": "When one dagger just isn’t fast enough.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Daggers_Unique1",
+   "icon": "icons/SW.Item.Daggers.png"
+  },
+  {
+   "tag": "SW.Item.Sickles",
+   "name": "Double Sickles",
+   "description": "Harvest tools from Honeycomb Fields, repurposed for reaping illagers and monsters.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Sickles_Unique1",
+   "icon": "icons/SW.Item.Sickles.png"
+  },
+  {
+   "tag": "SW.Item.PhantomChest_Unique",
+   "name": "Dreamruler Cover",
+   "description": "A chestplate as comfy as a bedcover, helping you focus on your targets.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.PhantomChest"
+   ],
+   "icon": "icons/SW.Item.PhantomChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.PhantomHelmet_Unique",
+   "name": "Dreamruler Crown",
+   "description": "A crown as soft as a pillow for tranquil dreams of soul gathering.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.PhantomHelmet"
+   ],
+   "icon": "icons/SW.Item.PhantomHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.PhantomLeggings_Unique",
+   "name": "Dreamruler Pyjamas",
+   "description": "A pair of pyjama pants as light as shadows, helping you sneak through your enemy’s nightmares.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.PhantomLeggings"
+   ],
+   "icon": "icons/SW.Item.PhantomLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.PhantomBoots_Unique",
+   "name": "Dreamruler Slippers",
+   "description": "A pair of slippers so cozy you’ll roll out of bed and jump into battle!",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.PhantomBoots"
+   ],
+   "icon": "icons/SW.Item.PhantomBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.DualCrossbow",
+   "name": "Dual Crossbows",
+   "description": "When one crossbow just isn’t enough.",
+   "category": "ranged",
+   "uniqueOf": "SW.Item.DualCrossbow_Unique1",
+   "icon": "icons/SW.Item.DualCrossbow.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Dynamo",
+   "name": "Dynamo",
+   "description": "Rolling amplifies the damage of your next melee or ranged attack, stacking with each use.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Dynamo.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.CarapaceOcarina",
+   "name": "Echo Ocarina",
+   "description": "The music of this hollowed husk protects against ranged attacks.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.CarapaceOcarina.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.ConductiveBracelet",
+   "name": "Electric Bangle",
+   "description": "Imbues your attacks with the power of crackling electricity and looks striking on your wrist!",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.ConductiveBracelet.png"
+  },
+  {
+   "tag": "SW.Item.Battlestaff_Unique1",
+   "name": "Elemental Staff",
+   "description": "A powerful staff that unleashes the elements of fire, ice, poison and electricity on your enemies.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Battlestaff"
+   ],
+   "icon": "icons/SW.Item.Battlestaff_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Hammer_Unique1",
+   "name": "Emerald Hammer",
+   "description": "This steel hammer with emerald alloy is said to bring extraordinary luck to its wielder.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Hammer"
+   ],
+   "icon": "icons/SW.Item.Hammer_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.EmeraldIncrease",
+   "name": "Emerald of Good Fortune",
+   "description": "Emerald Increase Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.EmeraldIncrease.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.SmokeBomb",
+   "name": "Ender Fog",
+   "description": "The Ender Fog smoke bomb lets you sneak up on enemies, cloaked by shadows.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.SmokeBomb.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Borealis",
+   "name": "Ender Mines",
+   "description": "Weapon attacks deploy End crystals that explode in proximity to enemies or after a short time.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Borealis.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.ExpandedQuiver",
+   "name": "Ender Quiver",
+   "description": "Increases your maximum arrow capacity.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.ExpandedQuiver.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.ArtifactCooldown",
+   "name": "Essence of Efficiency",
+   "description": "Artifact Cooldown Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.ArtifactCooldown.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.FightersFife",
+   "name": "Fighter's Flute",
+   "description": "The music of the flute grants critical striking powers to any fighter of note.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.FightersFife.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.MaimingMushroom",
+   "name": "Fighting Fungus",
+   "description": "Eaten by daring warriors before battle, unleashing their rage and increasing their attack speed.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.MaimingMushroom.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.FireAspect",
+   "name": "Fire Aspect",
+   "description": "Jump attacks and final hits create a wave of fire that damages enemies and sets them on fire for a short time.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.FireAspect.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.FireworkQuiver",
+   "name": "Firework Arrow",
+   "description": "The explosive power of the TNT combined with the high velocity movement of an arrow, what could possibly go wrong?",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.FireworkQuiver.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.Brawling",
+   "name": "Fist of Iron",
+   "description": "Brawling Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.Brawling.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.FlameQuiver",
+   "name": "Flaming Quiver",
+   "description": "Light your arrows with the flame of your righteous rage.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.FlameQuiver.png"
+  },
+  {
+   "tag": "SW.Item.MushroomHelmet_Unique",
+   "name": "Fly Agaric Cap",
+   "description": "An enchanted mushroom cap for poisoned punches and toxic terror.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.MushroomHelmet"
+   ],
+   "icon": "icons/SW.Item.MushroomHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.MushroomChest_Unique",
+   "name": "Fly Agaric Coat",
+   "description": "A cute coat made of mycelium with natural healing properties.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.MushroomChest"
+   ],
+   "icon": "icons/SW.Item.MushroomChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.MushroomBoots_Unique",
+   "name": "Fly Agaric Galoshes",
+   "description": "Give your pet companions a nibble of these galoshes and it will grant them natural resistance.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.MushroomBoots"
+   ],
+   "icon": "icons/SW.Item.MushroomBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.MushroomLeggings_Unique",
+   "name": "Fly Agaric Trousers",
+   "description": "Don’t eat the trousers! They are poisonous to humans but grant extra strength to your pets.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.MushroomLeggings"
+   ],
+   "icon": "icons/SW.Item.MushroomLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.FrostQuiver",
+   "name": "Freezing Quiver",
+   "description": "These arrows will have your enemies quivering from both fear and cold.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.FrostQuiver.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.FrostCrescent",
+   "name": "Frost Crescent",
+   "description": "Jump attacks and final hits create a wave of ice that damages enemies and freezes them for a short time, slowing their attacks and movement.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.FrostCrescent.png"
+  },
+  {
+   "tag": "SW.Item.StraightSword_Unique1",
+   "name": "Frostbiter",
+   "description": "A frost-infused longsword fit only for the coolest of warriors.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.StraightSword"
+   ],
+   "icon": "icons/SW.Item.StraightSword_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Gauntlet",
+   "name": "Gauntlets",
+   "description": "Powerful steel gauntlets for when the defenseless need a pair of helping hands.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Gauntlet_Unique1",
+   "icon": "icons/SW.Item.Gauntlet.png"
+  },
+  {
+   "tag": "SW.Item.Glaive",
+   "name": "Glaive",
+   "description": "A wise blacksmith once stuck a sword on top of a staff and the world has never been the same.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Glaive_Unique1",
+   "icon": "icons/SW.Item.Glaive.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.PotionCooldown",
+   "name": "Glowstone Flask",
+   "description": "Potion Cooldown Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.PotionCooldown.png"
+  },
+  {
+   "tag": "SW.Item.Glaive_Unique1",
+   "name": "Golden Glaive",
+   "description": "A glaive of pure gold for the brave warrior who leads the charge.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Glaive"
+   ],
+   "icon": "icons/SW.Item.Glaive_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.IronGolem",
+   "name": "Golem Kit",
+   "description": "Summons a plated protector to prevent you from being harmed!",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.IronGolem.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.GravityPulse",
+   "name": "Gravity Pulse",
+   "description": "Using an artifact pulls all nearby enemies toward you.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.GravityPulse.png"
+  },
+  {
+   "tag": "SW.Item.GreatAxe",
+   "name": "Greataxe",
+   "description": "A good axe settles for having a blade on one side. This is no goodaxe.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.GreatAxe_Unique1",
+   "icon": "icons/SW.Item.GreatAxe.png"
+  },
+  {
+   "tag": "SW.Item.Greatbow",
+   "name": "Greatbow",
+   "description": "A powerful bow that fires with such force your arrows pierce even the toughest of enemies.",
+   "category": "ranged",
+   "uniqueOf": "SW.Item.Greatbow_Unique1",
+   "icon": "icons/SW.Item.Greatbow.png"
+  },
+  {
+   "tag": "SW.Item.Greatsword",
+   "name": "Greatsword",
+   "description": "If your heart is just, even the greatest sword will feel light as a feather.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Greatsword_Unique1",
+   "icon": "icons/SW.Item.Greatsword.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.Grindstone",
+   "name": "Grindstone",
+   "description": "Sharpen your weapons on the grindstone to make enemies feel the sting of your steel and cause extra damage.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.Grindstone.png"
+  },
+  {
+   "tag": "SW.Item.ScatterCrossbow_Unique1",
+   "name": "Harp Crossbow",
+   "description": "Half musical instrument, fully deadly weapon. The Harp Crossbow always hits the right note.",
+   "category": "ranged",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.ScatterCrossbow"
+   ],
+   "icon": "icons/SW.Item.ScatterCrossbow_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.Healing",
+   "name": "Healing Heart",
+   "description": "Healing Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.Healing.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Radiance",
+   "name": "Healing Smite",
+   "description": "Defeating an enemy has a chance to create a well that grants allies the Regenerating status, restoring their health.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Radiance.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.HealthSynergy",
+   "name": "Health Synergy",
+   "description": "Using an artifact regenerates health.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.HealthSynergy.png"
+  },
+  {
+   "tag": "SW.Item.WarHammer_Unique1",
+   "name": "Heartbreaker",
+   "description": "A netherite war hammer imbued with ghastly fire magic that explodes on impact.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.WarHammer"
+   ],
+   "icon": "icons/SW.Item.WarHammer_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.HeavyCrossbow",
+   "name": "Heavy Crossbow",
+   "description": "A slow but deadly menace and a real threat from a distance.",
+   "category": "ranged",
+   "uniqueOf": "SW.Item.HeavyCrossbow_Unique1",
+   "icon": "icons/SW.Item.HeavyCrossbow.png"
+  },
+  {
+   "tag": "SW.Item.Cosmetic.Cape.Hero",
+   "name": "Hero Cape",
+   "description": "The years have only made this trusty cape shine brighter than ever.",
+   "category": "cape",
+   "icon": "icons/SW.Item.Cosmetic.Cape.Hero.png"
+  },
+  {
+   "tag": "SW.Item.HoneyHelmet_Unique",
+   "name": "Hivemind Hardhat",
+   "description": "A hardhat imbued with magical beeswax to make positive statuses stick like honey.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.HoneyHelmet"
+   ],
+   "icon": "icons/SW.Item.HoneyHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.HoneyBoots_Unique",
+   "name": "Hivemind Stingers",
+   "description": "Boots greased with magical beeswax to make your artifacts run as smooth as honey.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.HoneyBoots"
+   ],
+   "icon": "icons/SW.Item.HoneyBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.HoneyChest_Unique",
+   "name": "Hivemind Thorax",
+   "description": "A chestplate forged with magical honey for healing your whole hive.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.HoneyChest"
+   ],
+   "icon": "icons/SW.Item.HoneyChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.HoneyLeggings_Unique",
+   "name": "Hivemind Trousers",
+   "description": "Trousers coated with magical honey for quicker recovery from diseases and blights.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.HoneyLeggings"
+   ],
+   "icon": "icons/SW.Item.HoneyLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.Honeypot",
+   "name": "Honey Dipper",
+   "description": "A sticky treat to trap your enemies as your buzzing friends join the battle! Victory never tasted so sweet.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.Honeypot.png"
+  },
+  {
+   "tag": "SW.Item.StalwartHelmet_Unique",
+   "name": "Humbler Antenna",
+   "description": "A helmet almost as impenetrable as the humbler husk it was made from.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.StalwartHelmet"
+   ],
+   "icon": "icons/SW.Item.StalwartHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.StalwartChest_Unique",
+   "name": "Humbler Carapace",
+   "description": "A carapace chestplate imbued with the healing properties of humbler husk.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.StalwartChest"
+   ],
+   "icon": "icons/SW.Item.StalwartChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.StalwartLeggings_Unique",
+   "name": "Humbler Greaves",
+   "description": "A pair of flexible humbler husk greaves that give extra reach to your attacks.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.StalwartLeggings"
+   ],
+   "icon": "icons/SW.Item.StalwartLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Greatbow_Unique1",
+   "name": "Humbler Heartstring",
+   "description": "This greatbow beats like the heart of a Humbler and pierces through the toughest husks.",
+   "category": "ranged",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Greatbow"
+   ],
+   "icon": "icons/SW.Item.Greatbow_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.StalwartBoots_Unique",
+   "name": "Humbler Tarsi",
+   "description": "These boots are quick to dodge attacks, yet as hard as the humbler husk they were made from.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.StalwartBoots"
+   ],
+   "icon": "icons/SW.Item.StalwartBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.RallyingHorn",
+   "name": "Humbling Horn",
+   "description": "The music from this mystical horn will knock enemies over and leave their ears ringing. You may need some practice.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.RallyingHorn.png"
+  },
+  {
+   "tag": "SW.Item.Axe_Unique1",
+   "name": "Hunter's Hatchet",
+   "description": "For the experienced hunter who knows how to fletch their own arrows.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Axe"
+   ],
+   "icon": "icons/SW.Item.Axe_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.LightningRod",
+   "name": "Lightning Rod",
+   "description": "Channels soul-powered lightning, zapping your enemies silly for as long as you hold it.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.LightningRod.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Channeling",
+   "name": "Lightning Surge",
+   "description": "Jump attacks and final hits create a wave of lightning that damages enemies and zaps them for a short time, making them weaker but faster.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Channeling.png"
+  },
+  {
+   "tag": "SW.Item.Longbow",
+   "name": "Longbow",
+   "description": "Crafted for hunting but extremely effective at long range.",
+   "category": "ranged",
+   "uniqueOf": "SW.Item.Longbow_Unique1",
+   "icon": "icons/SW.Item.Longbow.png"
+  },
+  {
+   "tag": "SW.Item.StraightSword",
+   "name": "Longsword",
+   "description": "A mighty longsword with a razor-sharp edge.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.StraightSword_Unique1",
+   "icon": "icons/SW.Item.StraightSword.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.DropChance",
+   "name": "Looter's Charm",
+   "description": "Drop Chance Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.DropChance.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.DoubleDrop",
+   "name": "Lucky Clover",
+   "description": "Double Drop Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.DoubleDrop.png"
+  },
+  {
+   "tag": "SW.Item.CurvedGreatsword_Unique1",
+   "name": "Lullaby Blade",
+   "description": "A tainted sword that puts your enemies to sleep with a swooshing lullaby.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.CurvedGreatsword"
+   ],
+   "icon": "icons/SW.Item.CurvedGreatsword_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.MoonSword_Unique1",
+   "name": "Lunar Sickle",
+   "description": "Leave your enemies reeling and ripe for the reaping.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.MoonSword"
+   ],
+   "icon": "icons/SW.Item.MoonSword_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Mace",
+   "name": "Mace",
+   "description": "A brutal tool of war, but what it lacks in finesse it makes up for in power.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Mace_Unique1",
+   "icon": "icons/SW.Item.Mace.png"
+  },
+  {
+   "tag": "SW.Item.WellspringHelmet_Unique",
+   "name": "Mad Sifter Mask",
+   "description": "A tainted mask fashioned like an enraged Sifter, designed to scare your enemies to their core.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.WellspringHelmet"
+   ],
+   "icon": "icons/SW.Item.WellspringHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.WellspringBoots_Unique",
+   "name": "Mad Sifter Paws",
+   "description": "A pair of boots fashioned like Sifter paws, just as quick to deflect ranged attacks.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.WellspringBoots"
+   ],
+   "icon": "icons/SW.Item.WellspringBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.WellspringLeggings_Unique",
+   "name": "Mad Sifter Slacks",
+   "description": "A pair of slacks fashioned like Sifter legs, imbued with boosting powers.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.WellspringLeggings"
+   ],
+   "icon": "icons/SW.Item.WellspringLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.WellspringChest_Unique",
+   "name": "Mad Sifter Vest",
+   "description": "An enchanted vest fashioned like an enraged Sifter that grants enraged power to all artifacts.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.WellspringChest"
+   ],
+   "icon": "icons/SW.Item.WellspringChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Cleaver",
+   "name": "Meat Cleaver",
+   "description": "A reliable kitchen cleaver repurposed for serving up justice.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Cleaver_Unique1",
+   "icon": "icons/SW.Item.Cleaver.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.SpeedIncrement",
+   "name": "Medallion of Momentum",
+   "description": "Increases movement speed by {0} if moving for more than {1} seconds.",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.SpeedIncrement.png"
+  },
+  {
+   "tag": "SW.Item.GiantMallet",
+   "name": "Mob Mallet",
+   "description": "Let's play a good old game of whack-a-mob!",
+   "category": "melee",
+   "uniqueOf": "SW.Item.GiantMallet_Unique1",
+   "icon": "icons/SW.Item.GiantMallet.png"
+  },
+  {
+   "tag": "SW.Item.Cosmetic.Cape.Mojang",
+   "name": "Mojang Cape",
+   "description": "Crafted with passion and perseverence.",
+   "category": "cape",
+   "icon": "icons/SW.Item.Cosmetic.Cape.Mojang.png"
+  },
+  {
+   "tag": "SW.Item.ScavengerHelmet_Unique",
+   "name": "Monarch Crown",
+   "description": "A worthy crown of ichor crust that will have your enemies throw gifts at your feet.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.ScavengerHelmet"
+   ],
+   "icon": "icons/SW.Item.ScavengerHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.ScavengerChest_Unique",
+   "name": "Monarch Mantle",
+   "description": "A majestic mantle worthy of a Monarch, with extra resilience against the elements.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.ScavengerChest"
+   ],
+   "icon": "icons/SW.Item.ScavengerChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.ScavengerLeggings_Unique",
+   "name": "Monarch Sash",
+   "description": "A noble sash made from Monarch plume, with extra space for hoarding souls.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.ScavengerLeggings"
+   ],
+   "icon": "icons/SW.Item.ScavengerLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.ScavengerBoots_Unique",
+   "name": "Monarch Talons",
+   "description": "A pair of regal boots with sharp talons. Be the top of the ecosystem in every dimension.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.ScavengerBoots"
+   ],
+   "icon": "icons/SW.Item.ScavengerBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.GiantMallet_Unique1",
+   "name": "Monster Masher",
+   "description": "A mallet made from humbler husk that guards as hard as it hits.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.GiantMallet"
+   ],
+   "icon": "icons/SW.Item.GiantMallet_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.RedstoneChest_Unique",
+   "name": "Monstrosity Armor",
+   "description": "A monstrous chestplate that links your heart to your artifacts via ingenious redstone circuits.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.RedstoneChest"
+   ],
+   "icon": "icons/SW.Item.RedstoneChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.RedstoneLeggings_Unique",
+   "name": "Monstrosity Greaves",
+   "description": "A pair of monstrous greaves that protect your knees from the elements.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.RedstoneLeggings"
+   ],
+   "icon": "icons/SW.Item.RedstoneLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.RedstoneHelmet_Unique",
+   "name": "Monstrosity Horns",
+   "description": "A monstrous mask for the hardheaded warrior with a fiery temper.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.RedstoneHelmet"
+   ],
+   "icon": "icons/SW.Item.RedstoneHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.RedstoneBoots_Unique",
+   "name": "Monstrosity Stompers",
+   "description": "A pair of monstrous boots for when you need to kick up some redstone dust.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.RedstoneBoots"
+   ],
+   "icon": "icons/SW.Item.RedstoneBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.MushroomBoots",
+   "name": "Mushroom Boots",
+   "description": "Eating the boots is not advised. Side effects may include suspicious behavior and cold feet.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.MushroomBoots_Unique",
+   "icon": "icons/SW.Item.MushroomBoots.png"
+  },
+  {
+   "tag": "SW.Item.MushroomHelmet",
+   "name": "Mushroom Cap",
+   "description": "Eating the cap is not advised. Side effects may include suspicious behavior and cold ears.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.MushroomHelmet_Unique",
+   "icon": "icons/SW.Item.MushroomHelmet.png"
+  },
+  {
+   "tag": "SW.Item.MushroomLeggings",
+   "name": "Mushroom Leggings",
+   "description": "Eating the leggings is not advised. Side effects may include suspicious behavior and cold thighs.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.MushroomLeggings_Unique",
+   "icon": "icons/SW.Item.MushroomLeggings.png"
+  },
+  {
+   "tag": "SW.Item.MushroomChest",
+   "name": "Mushroom Robe",
+   "description": "Eating the robe is not advised. Side effects may include suspicious behavior and cold shoulders.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.MushroomChest_Unique",
+   "icon": "icons/SW.Item.MushroomChest.png"
+  },
+  {
+   "tag": "SW.Item.MysticBoots",
+   "name": "Mystic Boots",
+   "description": "An Evoker's boots repurposed for kicking Illager butt with an iron toe to boot.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.MysticBoots_Unique",
+   "icon": "icons/SW.Item.MysticBoots.png"
+  },
+  {
+   "tag": "SW.Item.MysticHelmet",
+   "name": "Mystic Circlet",
+   "description": "A Magician’s circlet with an obsidian stone scavenged from a broken portal.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.MysticHelmet_Unique",
+   "icon": "icons/SW.Item.MysticHelmet.png"
+  },
+  {
+   "tag": "SW.Item.MysticLeggings",
+   "name": "Mystic Leggings",
+   "description": "An Evoker’s leggings repurposed for a hero. Let’s hope somebody washed them first!",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.MysticLeggings_Unique",
+   "icon": "icons/SW.Item.MysticLeggings.png"
+  },
+  {
+   "tag": "SW.Item.MysticChest",
+   "name": "Mystic Robe",
+   "description": "An Evoker's robe retailored to suit a far more handsome wearer.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.MysticChest_Unique",
+   "icon": "icons/SW.Item.MysticChest.png"
+  },
+  {
+   "tag": "SW.Item.VoyagerBoots",
+   "name": "Nomad Boots",
+   "description": "A pair of reliable boots for traversing the Overworld in search of adventure.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.VoyagerBoots_Unique",
+   "icon": "icons/SW.Item.VoyagerBoots.png"
+  },
+  {
+   "tag": "SW.Item.VoyagerChest",
+   "name": "Nomad Chestplate",
+   "description": "A sturdy chestplate for roaming the Overworld in search of justice.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.VoyagerChest_Unique",
+   "icon": "icons/SW.Item.VoyagerChest.png"
+  },
+  {
+   "tag": "SW.Item.VoyagerHelmet",
+   "name": "Nomad Hood",
+   "description": "A rainproof hood for wandering the Overworld in search of danger.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.VoyagerHelmet_Unique",
+   "icon": "icons/SW.Item.VoyagerHelmet.png"
+  },
+  {
+   "tag": "SW.Item.VoyagerLeggings",
+   "name": "Nomad Leggings",
+   "description": "A pair of durable leggings for trekking the Overworld in search of purpose.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.VoyagerLeggings_Unique",
+   "icon": "icons/SW.Item.VoyagerLeggings.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.Plummeting",
+   "name": "Ocelot's Paw",
+   "description": "Plummeting Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.Plummeting.png"
+  },
+  {
+   "tag": "SW.Item.MysticHelmet_Unique",
+   "name": "Oracle Crown",
+   "description": "A striking crown forged in a thunderstorm for a fighter with bright ideas.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.MysticHelmet"
+   ],
+   "icon": "icons/SW.Item.MysticHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.MysticChest_Unique",
+   "name": "Oracle Mantle",
+   "description": "A tainted mantle that leaves your enemies worse for wear but looks great on you.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.MysticChest"
+   ],
+   "icon": "icons/SW.Item.MysticChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.MysticBoots_Unique",
+   "name": "Oracle Sandals",
+   "description": "A pair of enchanted sandals that guide your feet to the best rewards.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.MysticBoots"
+   ],
+   "icon": "icons/SW.Item.MysticBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.MysticLeggings_Unique",
+   "name": "Oracle Tights",
+   "description": "A pair of flexible tights for fast access to artifacts.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.MysticLeggings"
+   ],
+   "icon": "icons/SW.Item.MysticLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.WolfclutchLeggings_Unique",
+   "name": "Packleader Fur Chaps",
+   "description": "A pair of leggings of magically imprinted fur that guide your pack back to your side.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.WolfclutchLeggings"
+   ],
+   "icon": "icons/SW.Item.WolfclutchLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.WolfclutchChest_Unique",
+   "name": "Packleader Hide",
+   "description": "Lead with your heart and show your pack who they are fighting for.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.WolfclutchChest"
+   ],
+   "icon": "icons/SW.Item.WolfclutchChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.WolfclutchHelmet_Unique",
+   "name": "Packleader Muzzle",
+   "description": "See through the eyes of a wolf and spot enemies at far distances.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.WolfclutchHelmet"
+   ],
+   "icon": "icons/SW.Item.WolfclutchHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.WolfclutchBoots_Unique",
+   "name": "Packleader Paws",
+   "description": "A pair of wolf fur boots with razor-sharp claws, perfect for fletching extra arrows.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.WolfclutchBoots"
+   ],
+   "icon": "icons/SW.Item.WolfclutchBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Powerbow_Unique1",
+   "name": "Paragon",
+   "description": "Hold the bowstring patiently to show the arrow that you are a fighter of virtue.",
+   "category": "ranged",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Powerbow"
+   ],
+   "icon": "icons/SW.Item.Powerbow_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.PhantomBoots",
+   "name": "Phantom Boots",
+   "description": "Leather boots crafted during a sleepless night long ago.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.PhantomBoots_Unique",
+   "icon": "icons/SW.Item.PhantomBoots.png"
+  },
+  {
+   "tag": "SW.Item.PhantomChest",
+   "name": "Phantom Chestplate",
+   "description": "Reinforced chestplate forged during a sleepless night long ago.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.PhantomChest_Unique",
+   "icon": "icons/SW.Item.PhantomChest.png"
+  },
+  {
+   "tag": "SW.Item.PhantomHelmet",
+   "name": "Phantom Helmet",
+   "description": "Sturdy helmet forged during a sleepless night long ago.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.PhantomHelmet_Unique",
+   "icon": "icons/SW.Item.PhantomHelmet.png"
+  },
+  {
+   "tag": "SW.Item.PhantomLeggings",
+   "name": "Phantom Pants",
+   "description": "Durable pants threaded during a sleepless night long ago.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.PhantomLeggings_Unique",
+   "icon": "icons/SW.Item.PhantomLeggings.png"
+  },
+  {
+   "tag": "SW.Item.Trickbow_Unique1",
+   "name": "Phantom Wing",
+   "description": "Fly like a phantom and become your enemy’s worst nightmare.",
+   "category": "ranged",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Trickbow"
+   ],
+   "icon": "icons/SW.Item.Trickbow_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Pickaxe",
+   "name": "Pickaxe",
+   "description": "The iconic tool of adventurers and heroes for as long as anyone can remember.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Pickaxe_Unique1",
+   "icon": "icons/SW.Item.Pickaxe.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.PicnicBlanket",
+   "name": "Picnic Basket",
+   "description": "Great day for a picnic! Share healthy treats with your friends. Hangry friends make for bad allies in battle.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.PicnicBlanket.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Piercing",
+   "name": "Piercing",
+   "description": "Allows fired arrows and projectiles to pierce through multiple targets.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Piercing.png"
+  },
+  {
+   "tag": "SW.Item.Pike",
+   "name": "Pike",
+   "description": "Enemies won’t want to get the wrong end of the stick when they run into you.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Pike_Unique1",
+   "icon": "icons/SW.Item.Pike.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.PoisonFog",
+   "name": "Poison Fog",
+   "description": "Jump attacks and final hits create a wave of poison that damages enemies and poisons them for a time.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.PoisonFog.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.Satchel.Fire",
+   "name": "Pouch of Ember",
+   "description": "Throw it on the ground to spread a fierce fire around yourself. You’ll be too hot to handle!",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.Satchel.Fire.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.Satchel.Freezing",
+   "name": "Pouch of Frost",
+   "description": "Throw it on the ground to spread a blistering blizzard around yourself. One of the coolest artifacts there is!",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.Satchel.Freezing.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.Satchel.Poison",
+   "name": "Pouch of Poison",
+   "description": "Throw it on the ground to spread toxic terror around yourself. Don’t worry, this mob repellent is completely eco-friendly.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.Satchel.Poison.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.Satchel.Conductive",
+   "name": "Pouch of Thunder",
+   "description": "Throw it on the ground to spread conductive chaos around yourself. It’s a real power trip!",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.Satchel.Conductive.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.LingeringPower",
+   "name": "Power Amplifier",
+   "description": "Using an artifact amplifies the damage of your next melee or ranged attack, stacking with each use.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.LingeringPower.png"
+  },
+  {
+   "tag": "SW.Item.Powerbow",
+   "name": "Powerbow",
+   "description": "For the patient ranger who doesn’t like to waste arrows.",
+   "category": "ranged",
+   "uniqueOf": "SW.Item.Powerbow_Unique1",
+   "icon": "icons/SW.Item.Powerbow.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.Powershaker",
+   "name": "Powershaker",
+   "description": "Let’s shake things up! The Powershaker is a smashing good time and will blow your enemies’ minds!",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.Powershaker.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.Prickle",
+   "name": "Prickle's Mark",
+   "description": "Summons a prickly pal to participate in the fight!",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.Prickle.png"
+  },
+  {
+   "tag": "SW.Item.CurvedLongsword_Unique1",
+   "name": "Pride of the Plains",
+   "description": "A sharp copper sword forged as a gift to a noble protector of the plains.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.CurvedLongsword"
+   ],
+   "icon": "icons/SW.Item.CurvedLongsword_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Gauntlet_Unique1",
+   "name": "Prime Enchanter's Gauntlets",
+   "description": "One is crackling with electricity. The other is enchanted with ice. Both are primed for punching.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Gauntlet"
+   ],
+   "icon": "icons/SW.Item.Gauntlet_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.StalwartBoots",
+   "name": "Protector Boots",
+   "description": "Passed down for generations to serve a chosen protector. Big shoes to fill!",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.StalwartBoots_Unique",
+   "icon": "icons/SW.Item.StalwartBoots.png"
+  },
+  {
+   "tag": "SW.Item.StalwartChest",
+   "name": "Protector Chestplate",
+   "description": "Passed down for generations to serve a chosen protector. A heavy burden!",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.StalwartChest_Unique",
+   "icon": "icons/SW.Item.StalwartChest.png"
+  },
+  {
+   "tag": "SW.Item.StalwartHelmet",
+   "name": "Protector Helmet",
+   "description": "Passed down for generations to serve a chosen protector. Don't let it get to your head.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.StalwartHelmet_Unique",
+   "icon": "icons/SW.Item.StalwartHelmet.png"
+  },
+  {
+   "tag": "SW.Item.StalwartLeggings",
+   "name": "Protector Shinguards",
+   "description": "Your legs won’t turn to jelly wearing these.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.StalwartLeggings_Unique",
+   "icon": "icons/SW.Item.StalwartLeggings.png"
+  },
+  {
+   "tag": "SW.Item.RealmreacherBoots",
+   "name": "Ranger Boots",
+   "description": "For tracking down wild prey or unsuspecting enemies.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.RealmreacherBoots_Unique",
+   "icon": "icons/SW.Item.RealmreacherBoots.png"
+  },
+  {
+   "tag": "SW.Item.RealmreacherHelmet",
+   "name": "Ranger Cap",
+   "description": "Aim is the name of the game. That chicken jockey double-shot is the feather in your cap.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.RealmreacherHelmet_Unique",
+   "icon": "icons/SW.Item.RealmreacherHelmet.png"
+  },
+  {
+   "tag": "SW.Item.RealmreacherChest",
+   "name": "Ranger Jacket",
+   "description": "A ranger’s jacket must look cool both at close range and at a distance.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.RealmreacherChest_Unique",
+   "icon": "icons/SW.Item.RealmreacherChest.png"
+  },
+  {
+   "tag": "SW.Item.RealmreacherLeggings",
+   "name": "Ranger Leggings",
+   "description": "You could sit in these comfy leggings for days, just waiting for the perfect shot.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.RealmreacherLeggings_Unique",
+   "icon": "icons/SW.Item.RealmreacherLeggings.png"
+  },
+  {
+   "tag": "SW.Item.Bow_Unique1",
+   "name": "Ranger's Promise",
+   "description": "A ranger never breaks a promise. This bow never misses its mark.",
+   "category": "ranged",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Bow"
+   ],
+   "icon": "icons/SW.Item.Bow_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.RapidCrossbow",
+   "name": "Rapid Crossbow",
+   "description": "For the hair-trigger hunter who likes firing rapid bursts of arrows.",
+   "category": "ranged",
+   "uniqueOf": "SW.Item.RapidCrossbow_Unique1",
+   "icon": "icons/SW.Item.RapidCrossbow.png"
+  },
+  {
+   "tag": "SW.Item.Rapier",
+   "name": "Rapier",
+   "description": "A nimble and narrow blade that strikes with fierce ferocity.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Rapier_Unique1",
+   "icon": "icons/SW.Item.Rapier.png"
+  },
+  {
+   "tag": "SW.Item.Sabre_Unique1",
+   "name": "Rascal's Razor",
+   "description": "For mischieveous warriors who like rolling around in the mud.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Sabre"
+   ],
+   "icon": "icons/SW.Item.Sabre_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.TimewornBoots",
+   "name": "Realmreacher Boots",
+   "description": "A pair of delicious boots crafted from bouncy blocks only found in the new dimension.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.TimewornBoots_Unique",
+   "icon": "icons/SW.Item.TimewornBoots.png"
+  },
+  {
+   "tag": "SW.Item.TimewornHelmet",
+   "name": "Realmreacher Hat",
+   "description": "A fancy hat made from sticky substances only found in the new dimension.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.TimewornHelmet_Unique",
+   "icon": "icons/SW.Item.TimewornHelmet.png"
+  },
+  {
+   "tag": "SW.Item.TimewornLeggings",
+   "name": "Realmreacher Leggings",
+   "description": "A pair of lush leggings woven from moist materials only found in the new dimension.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.TimewornLeggings_Unique",
+   "icon": "icons/SW.Item.TimewornLeggings.png"
+  },
+  {
+   "tag": "SW.Item.TimewornChest",
+   "name": "Realmreacher Robe",
+   "description": "A dazzling robe forged from sturdy stuff only found in the new dimension.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.TimewornChest_Unique",
+   "icon": "icons/SW.Item.TimewornChest.png"
+  },
+  {
+   "tag": "SW.Item.RedstoneBoots",
+   "name": "Redstone Boots",
+   "description": "Cobbled from the rubble of a Redstone Monstrosity.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.RedstoneBoots_Unique",
+   "icon": "icons/SW.Item.RedstoneBoots.png"
+  },
+  {
+   "tag": "SW.Item.RedstoneChest",
+   "name": "Redstone Chestplate",
+   "description": "Your victory is already set in redstone.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.RedstoneChest_Unique",
+   "icon": "icons/SW.Item.RedstoneChest.png"
+  },
+  {
+   "tag": "SW.Item.RedstoneHelmet",
+   "name": "Redstone Helmet",
+   "description": "Crafted from the skull of a Redstone Monstrosity.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.RedstoneHelmet_Unique",
+   "icon": "icons/SW.Item.RedstoneHelmet.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.RedstoneMines",
+   "name": "Redstone Mine Launcher",
+   "description": "This state-of-the-craft mine launcher will fire a volley of explosive Redstone mines.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.RedstoneMines.png"
+  },
+  {
+   "tag": "SW.Item.RedstoneLeggings",
+   "name": "Redstone Shinguards",
+   "description": "For kicking two birds with one redstone.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.RedstoneLeggings_Unique",
+   "icon": "icons/SW.Item.RedstoneLeggings.png"
+  },
+  {
+   "tag": "SW.Item.GiantClub_Unique1",
+   "name": "Redstone Wrecker",
+   "description": "A piece of a Monstrosity repurposed for wrecking with some resourceful fire engineering.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.GiantClub"
+   ],
+   "icon": "icons/SW.Item.GiantClub_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Ricochet",
+   "name": "Ricochet",
+   "description": "Allows fired arrows and projectiles to bounce between multiple targets.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Ricochet.png"
+  },
+  {
+   "tag": "SW.Item.CurvedLongsword",
+   "name": "Riftslasher",
+   "description": "A curved longsword with an edge so sharp it could open rifts of its own... It doesn’t, though.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.CurvedLongsword_Unique1",
+   "icon": "icons/SW.Item.CurvedLongsword.png"
+  },
+  {
+   "tag": "SW.Item.FrostRimeChest_Unique",
+   "name": "Rimefrost Armor",
+   "description": "Frost-forged armor for the loyal ally who never gives friends the cold shoulder.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.FrostRimeChest"
+   ],
+   "icon": "icons/SW.Item.FrostRimeChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.FrostRimeHelmet_Unique",
+   "name": "Rimefrost Icecap",
+   "description": "An ice-cold cap to keep your head cool in dangerous situations.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.FrostRimeHelmet"
+   ],
+   "icon": "icons/SW.Item.FrostRimeHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.FrostRimeLeggings_Unique",
+   "name": "Rimefrost Longjohns",
+   "description": "A pair of breezy longjohns for keeping chill when running into enemy hordes.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.FrostRimeLeggings"
+   ],
+   "icon": "icons/SW.Item.FrostRimeLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.FrostRimeBoots_Unique",
+   "name": "Rimefrost Plodders",
+   "description": "A pair of snow-plodding boots for the warrior who never gets cold feet.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.FrostRimeBoots"
+   ],
+   "icon": "icons/SW.Item.FrostRimeBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.VoyagerLeggings_Unique",
+   "name": "Rover Gaiters",
+   "description": "A pair of limber iron gaiters for extra attack momentum.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.VoyagerLeggings"
+   ],
+   "icon": "icons/SW.Item.VoyagerLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.VoyagerChest_Unique",
+   "name": "Rover Pauldrons",
+   "description": "A protective chestplate with thick pauldrons to deflect ranged attacks.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.VoyagerChest"
+   ],
+   "icon": "icons/SW.Item.VoyagerChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.VoyagerBoots_Unique",
+   "name": "Rover Sabatons",
+   "description": "A pair of durable iron boots that keep you on your toes when in danger.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.VoyagerBoots"
+   ],
+   "icon": "icons/SW.Item.VoyagerBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.VoyagerHelmet_Unique",
+   "name": "Rover Visor",
+   "description": "A reliable helmet with an enhanced visor for critical precision.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.VoyagerHelmet"
+   ],
+   "icon": "icons/SW.Item.VoyagerHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Sabre",
+   "name": "Sabre",
+   "description": "A slightly curved sword for when you want to paint with broad strokes.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Sabre_Unique1",
+   "icon": "icons/SW.Item.Sabre.png"
+  },
+  {
+   "tag": "SW.Item.DiscipleLeggings_Unique",
+   "name": "Sage Belt",
+   "description": "A warrior worthy of this belt will roll a hundred times without getting dizzy.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.DiscipleLeggings"
+   ],
+   "icon": "icons/SW.Item.DiscipleLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.DiscipleHelmet_Unique",
+   "name": "Sage Headband",
+   "description": "A warrior worthy of this headband will walk with their eyes closed into a hail of arrows.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.DiscipleHelmet"
+   ],
+   "icon": "icons/SW.Item.DiscipleHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.DiscipleChest_Unique",
+   "name": "Sage Tunic",
+   "description": "A true sage is brave enough to fight the strongest enemy, yet smart enough to start with the weaker ones.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.DiscipleChest"
+   ],
+   "icon": "icons/SW.Item.DiscipleChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.DiscipleBoots_Unique",
+   "name": "Sage Wraps",
+   "description": "A warrior worthy of these foot wraps will strike as swiftly as an axolotl.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.DiscipleBoots"
+   ],
+   "icon": "icons/SW.Item.DiscipleBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.ScampHelmet",
+   "name": "Scamp Hood",
+   "description": "For blending into dark corners and sneaking through the night.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.ScampHelmet_Unique",
+   "icon": "icons/SW.Item.ScampHelmet.png"
+  },
+  {
+   "tag": "SW.Item.ScampChest",
+   "name": "Scamp Jacket",
+   "description": "Holds extra space for keeping tricks up your sleeves.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.ScampChest_Unique",
+   "icon": "icons/SW.Item.ScampChest.png"
+  },
+  {
+   "tag": "SW.Item.ScampLeggings",
+   "name": "Scamp Leggings",
+   "description": "For when you need to leg it fast.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.ScampLeggings_Unique",
+   "icon": "icons/SW.Item.ScampLeggings.png"
+  },
+  {
+   "tag": "SW.Item.ScampBoots",
+   "name": "Scamp Sneakers",
+   "description": "For sneaking up on enemies and taking their loot.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.ScampBoots_Unique",
+   "icon": "icons/SW.Item.ScampBoots.png"
+  },
+  {
+   "tag": "SW.Item.ScatterCrossbow",
+   "name": "Scatter Crossbow",
+   "description": "The ultimate weapon for when you have enemies coming from every direction.",
+   "category": "ranged",
+   "uniqueOf": "SW.Item.ScatterCrossbow_Unique1",
+   "icon": "icons/SW.Item.ScatterCrossbow.png"
+  },
+  {
+   "tag": "SW.Item.ScampChest_Unique",
+   "name": "Scoundrel Blazer",
+   "description": "A bold blazer with stabilized shoulders for close-range archery.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.ScampChest"
+   ],
+   "icon": "icons/SW.Item.ScampChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.ScampLeggings_Unique",
+   "name": "Scoundrel Chaps",
+   "description": "A pair of lethal leggings with thigh guards designed for one-handed reloads.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.ScampLeggings"
+   ],
+   "icon": "icons/SW.Item.ScampLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.ScampHelmet_Unique",
+   "name": "Scoundrel Cowl",
+   "description": "A killer-looking cowl infused with shadows for sneaking up on enemies.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.ScampHelmet"
+   ],
+   "icon": "icons/SW.Item.ScampHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.ScampBoots_Unique",
+   "name": "Scoundrel Sneakers",
+   "description": "A pair of slick sneakers that let you prowl through the shadows on light feet.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.ScampBoots"
+   ],
+   "icon": "icons/SW.Item.ScampBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.StatusBuff",
+   "name": "Sculk Badge",
+   "description": "Statis Buff Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.StatusBuff.png"
+  },
+  {
+   "tag": "SW.Item.CaveCrawlerBoots",
+   "name": "Sculk Digger Boots",
+   "description": "Sculk-infused boots, cobbled by the dim glow of Warden horns.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.CaveCrawlerBoots_Unique",
+   "icon": "icons/SW.Item.CaveCrawlerBoots.png"
+  },
+  {
+   "tag": "SW.Item.CaveCrawlerHelmet",
+   "name": "Sculk Digger Hood",
+   "description": "Sculk-infused hood, tailored by the dim glow of Warden horns.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.CaveCrawlerHelmet_Unique",
+   "icon": "icons/SW.Item.CaveCrawlerHelmet.png"
+  },
+  {
+   "tag": "SW.Item.CaveCrawlerLeggings",
+   "name": "Sculk Digger Leggings",
+   "description": "Sculk-infused leggings, threaded by the dim glow of Warden horns.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.CaveCrawlerLeggings_Unique",
+   "icon": "icons/SW.Item.CaveCrawlerLeggings.png"
+  },
+  {
+   "tag": "SW.Item.CaveCrawlerChest",
+   "name": "Sculk Digger Robe",
+   "description": "Sculk-infused robe, woven by the dim glow of Warden horns.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.CaveCrawlerChest_Unique",
+   "icon": "icons/SW.Item.CaveCrawlerChest.png"
+  },
+  {
+   "tag": "SW.Item.ScavengerBoots",
+   "name": "Sculker Boots",
+   "description": "These boots have sculked across the Sift for more tides than you can imagine.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.ScavengerBoots_Unique",
+   "icon": "icons/SW.Item.ScavengerBoots.png"
+  },
+  {
+   "tag": "SW.Item.Claws_Unique1",
+   "name": "Sculker Claws",
+   "description": "A pair of sharp claws attached to gloves that let you sculk in the shadows.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Claws"
+   ],
+   "icon": "icons/SW.Item.Claws_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.ScavengerHelmet",
+   "name": "Sculker Mask",
+   "description": "See through the eyes of a Sculker, just ignore the sound of souls howling in your ears.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.ScavengerHelmet_Unique",
+   "icon": "icons/SW.Item.ScavengerHelmet.png"
+  },
+  {
+   "tag": "SW.Item.ScavengerChest",
+   "name": "Sculker Robe",
+   "description": "A ferocious robe as durable as sculker hide.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.ScavengerChest_Unique",
+   "icon": "icons/SW.Item.ScavengerChest.png"
+  },
+  {
+   "tag": "SW.Item.ScavengerLeggings",
+   "name": "Sculker Slacks",
+   "description": "Don't slack around. Get busy sculking!",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.ScavengerLeggings_Unique",
+   "icon": "icons/SW.Item.ScavengerLeggings.png"
+  },
+  {
+   "tag": "SW.Item.Dagger_Unique1",
+   "name": "Sculker's Bane",
+   "description": "A deadly dagger with a soul-infused edge.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Dagger"
+   ],
+   "icon": "icons/SW.Item.Dagger_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Scythe",
+   "name": "Scythe",
+   "description": "Fit only for toiling warriors, the scythe truly separates the wheat from the chaff.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Scythe_Unique1",
+   "icon": "icons/SW.Item.Scythe.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.ShadowStrike",
+   "name": "Shadowcloak",
+   "description": "Defeating an enemy has a chance to grant Shadowcloaking, making you invisible to enemies.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.ShadowStrike.png"
+  },
+  {
+   "tag": "SW.Item.RealmreacherLeggings_Unique",
+   "name": "Sharpshooter Chaps",
+   "description": "A pair of sharp leather chaps for fletching arrows in the wild.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.RealmreacherLeggings"
+   ],
+   "icon": "icons/SW.Item.RealmreacherLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.RealmreacherChest_Unique",
+   "name": "Sharpshooter Duster",
+   "description": "A delicious-looking duster with stabilizing arm guards for powerful ranged attacks.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.RealmreacherChest"
+   ],
+   "icon": "icons/SW.Item.RealmreacherChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.RealmreacherHelmet_Unique",
+   "name": "Sharpshooter Fedora",
+   "description": "A flashy fedora with an attached monocle scope for aiming multiple arrows at once.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.RealmreacherHelmet"
+   ],
+   "icon": "icons/SW.Item.RealmreacherHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.RealmreacherBoots_Unique",
+   "name": "Sharpshooter Spurs",
+   "description": "A pair of spurred shoes with ankle space for extra arrows.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.RealmreacherBoots"
+   ],
+   "icon": "icons/SW.Item.RealmreacherBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.GuardingStrike",
+   "name": "Shielding Smite",
+   "description": "Defeating an enemy has a chance to create a well that grants you and your allies the Fortifying status, protecting you from enemies.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.GuardingStrike.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Shockwave",
+   "name": "Shockwave",
+   "description": "Jump attacks and final hits create a shockwave that damages enemies and knocks them back.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Shockwave.png"
+  },
+  {
+   "tag": "SW.Item.Shortbow_Unique1",
+   "name": "Shooting Star",
+   "description": "When you wish upon this star, you will evade enemy projectiles and shoot back.",
+   "category": "ranged",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Shortbow"
+   ],
+   "icon": "icons/SW.Item.Shortbow_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.ShortSpear",
+   "name": "Short Spear",
+   "description": "With the right wielder, even a short spear can reach across dimensions.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.ShortSpear_Unique1",
+   "icon": "icons/SW.Item.ShortSpear.png"
+  },
+  {
+   "tag": "SW.Item.Shortbow",
+   "name": "Shortbow",
+   "description": "A shorter, weaker bow with a faster fire rate and quicker charge time.",
+   "category": "ranged",
+   "uniqueOf": "SW.Item.Shortbow_Unique1",
+   "icon": "icons/SW.Item.Shortbow.png"
+  },
+  {
+   "tag": "SW.Item.Shovel",
+   "name": "Shovel",
+   "description": "When planning for revenge, you must dig two graves: one for your enemy. And one... for your other enemy.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Shovel_Unique1",
+   "icon": "icons/SW.Item.Shovel.png"
+  },
+  {
+   "tag": "SW.Item.Sickles_Unique1",
+   "name": "Sift Sickles",
+   "description": "A pair of humbler husk sickles with the power to both harm and heal.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Sickles"
+   ],
+   "icon": "icons/SW.Item.Sickles_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.WellspringBoots",
+   "name": "Sifter Boots",
+   "description": "Soft boots for running home to warn your nest of predators.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.WellspringBoots_Unique",
+   "icon": "icons/SW.Item.WellspringBoots.png"
+  },
+  {
+   "tag": "SW.Item.WellspringHelmet",
+   "name": "Sifter Hood",
+   "description": "A cute hood with adorable ears to listen for sculking predators.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.WellspringHelmet_Unique",
+   "icon": "icons/SW.Item.WellspringHelmet.png"
+  },
+  {
+   "tag": "SW.Item.WellspringLeggings",
+   "name": "Sifter Leggings",
+   "description": "These will help you survive the unforgiving tides of the new dimension.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.WellspringLeggings_Unique",
+   "icon": "icons/SW.Item.WellspringLeggings.png"
+  },
+  {
+   "tag": "SW.Item.WellspringChest",
+   "name": "Sifter Robe",
+   "description": "For looking fabulous as you defend your nest against predators.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.WellspringChest_Unique",
+   "icon": "icons/SW.Item.WellspringChest.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.HealthBoost",
+   "name": "Sigil of Beeswax",
+   "description": "HealthBoost Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.HealthBoost.png"
+  },
+  {
+   "tag": "SW.Item.Claymore_Unique1",
+   "name": "Slaymore",
+   "description": "A claymore that lets you slay more... No need to say more.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Claymore"
+   ],
+   "icon": "icons/SW.Item.Claymore_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Cosmetic.Cape.SliceSlayer",
+   "name": "Slice Slayer Cape",
+   "description": "With a pattern that evokes memories of tastier times with friends, it now provides a measure of comfort while battling endless foes.",
+   "category": "cape",
+   "icon": "icons/SW.Item.Cosmetic.Cape.SliceSlayer.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.MultiRoll",
+   "name": "Somersault",
+   "description": "Grants the ability to perform multiple rolls in a row.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.MultiRoll.png"
+  },
+  {
+   "tag": "SW.Item.EvocationBoots",
+   "name": "Sorcerer Boots",
+   "description": "The soles are etched with powerful runes that stop your socks from stinking.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.EvocationBoots_Unique",
+   "icon": "icons/SW.Item.EvocationBoots.png"
+  },
+  {
+   "tag": "SW.Item.EvocationHelmet",
+   "name": "Sorcerer Hat",
+   "description": "Its brim is inscribed with powerful runes that prevent dandruff.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.EvocationHelmet_Unique",
+   "icon": "icons/SW.Item.EvocationHelmet.png"
+  },
+  {
+   "tag": "SW.Item.EvocationLeggings",
+   "name": "Sorcerer Leggings",
+   "description": "The seams are imbued with powerful runes that keep the crotch from ripping when you bend.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.EvocationLeggings_Unique",
+   "icon": "icons/SW.Item.EvocationLeggings.png"
+  },
+  {
+   "tag": "SW.Item.EvocationChest",
+   "name": "Sorcerer Robe",
+   "description": "Its hems are stitched with powerful runes that stop your armpits from staining.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.EvocationChest_Unique",
+   "icon": "icons/SW.Item.EvocationChest.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.SoulAspect",
+   "name": "Soul Blast",
+   "description": "Jump attacks and final hits create a wave of souls that damages enemies and deals additional soul damage over time.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.SoulAspect.png"
+  },
+  {
+   "tag": "SW.Item.Cosmetic.Cape.Soul",
+   "name": "Soul Cape",
+   "description": "A cape fit for heroes who are brave enough to face off against the Illager High Council.",
+   "category": "cape",
+   "product": "SW.Product.DeluxeEdition",
+   "icon": "icons/SW.Item.Cosmetic.Cape.Soul.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.SoulCapacity",
+   "name": "Soul Chip",
+   "description": "Soul Capacity Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.SoulCapacity.png"
+  },
+  {
+   "tag": "SW.Item.TimewornChest_Unique",
+   "name": "Soul Corruptor Duster",
+   "description": "A Soul Corrupted duster with long arms for wider-reaching Regeneration wells and shields.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.TimewornChest"
+   ],
+   "icon": "icons/SW.Item.TimewornChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.TimewornHelmet_Unique",
+   "name": "Soul Corruptor Mask",
+   "description": "A Soul Corrupted mask that charges your arrows the longer you pull.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.TimewornHelmet"
+   ],
+   "icon": "icons/SW.Item.TimewornHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.TimewornBoots_Unique",
+   "name": "Soul Corruptor Sandals",
+   "description": "A pair of Soul Corrupted sandals that help guide your arrows to their targets.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.TimewornBoots"
+   ],
+   "icon": "icons/SW.Item.TimewornBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.TimewornLeggings_Unique",
+   "name": "Soul Corruptor Sash",
+   "description": "A Soul Corrupted sash that grants extra force to your arrows.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.TimewornLeggings"
+   ],
+   "icon": "icons/SW.Item.TimewornLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.SoulHarvester",
+   "name": "Soul Harvester",
+   "description": "Charge it up with the souls you have collected before releasing them into a cluster hex of power.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.SoulHarvester.png"
+  },
+  {
+   "tag": "SW.Item.Scythe_Unique1",
+   "name": "Soul Reaper",
+   "description": "A scythe with a shard of soul block for a blade, that draws all souls towards you.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Scythe"
+   ],
+   "icon": "icons/SW.Item.Scythe_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Cosmetic.Cape.Special",
+   "name": "Special Cape",
+   "description": "A garment given to only the most special of heroes; now it's yours!",
+   "category": "cape",
+   "icon": "icons/SW.Item.Cosmetic.Cape.Special.png"
+  },
+  {
+   "tag": "SW.Item.ShortSpear_Unique1",
+   "name": "Spectral Spear",
+   "description": "A spear forged in ichor and possessed by souls that will burn all enemies you point at.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.ShortSpear"
+   ],
+   "icon": "icons/SW.Item.ShortSpear_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.SpringLoaded",
+   "name": "Springload",
+   "description": "Using an artifact grants the Hurrying status, increasing movement speed.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.SpringLoaded.png"
+  },
+  {
+   "tag": "SW.Item.FrostRimeBoots",
+   "name": "Steel Wool Boots",
+   "description": "A snuggly pair of boots, infused with the warmth of wool and the strength of steel.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.FrostRimeBoots_Unique",
+   "icon": "icons/SW.Item.FrostRimeBoots.png"
+  },
+  {
+   "tag": "SW.Item.FrostRimeHelmet",
+   "name": "Steel Wool Cap",
+   "description": "A comfy cap, infused with the warmth of wool and the strength of steel.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.FrostRimeHelmet_Unique",
+   "icon": "icons/SW.Item.FrostRimeHelmet.png"
+  },
+  {
+   "tag": "SW.Item.FrostRimeLeggings",
+   "name": "Steel Wool Leggings",
+   "description": "A toasty pair of leggings, infused with the warmth of wool and the strength of steel.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.FrostRimeLeggings_Unique",
+   "icon": "icons/SW.Item.FrostRimeLeggings.png"
+  },
+  {
+   "tag": "SW.Item.FrostRimeChest",
+   "name": "Steel Wool Sweater",
+   "description": "A cozy sweater, infused with the warmth of wool and the strength of steel.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.FrostRimeChest_Unique",
+   "icon": "icons/SW.Item.FrostRimeChest.png"
+  },
+  {
+   "tag": "SW.Item.Pike_Unique1",
+   "name": "Stormcaller",
+   "description": "A magic lightning rod attached to a copper pike that can strike your enemies in more ways than one.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Pike"
+   ],
+   "icon": "icons/SW.Item.Pike_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Swirling",
+   "name": "Swirling",
+   "description": "Weapon attacks unleash a swirl of air which deals additional damage to nearby enemies.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Swirling.png"
+  },
+  {
+   "tag": "SW.Item.Sword",
+   "name": "Sword",
+   "description": "A classic sword used by heroes and survivors since the dawn of the Overworld.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Sword_Unique1",
+   "icon": "icons/SW.Item.Sword.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.Wolf",
+   "name": "Tasty Bone",
+   "description": "Summons a furry friend to fight by your side!",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.Wolf.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.TempoTheft",
+   "name": "Tempo Theft",
+   "description": "Defeating an enemy has a chance to grant the Hurrying status, increasing movement speed for a short time.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.TempoTheft.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.HasteMushroom",
+   "name": "Tempo Truffle",
+   "description": "Eaten by daring warriors before battle, sending them charging into battle with increased movement speed.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.HasteMushroom.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.HealthyStrike",
+   "name": "Tendrils of the Sprout",
+   "description": "Grants a {1} damage increase while health is above {0}.",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.HealthyStrike.png"
+  },
+  {
+   "tag": "SW.Item.Sword_Unique1",
+   "name": "The Burning Blade",
+   "description": "A flame frozen into steel that erupts when you swing it.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Sword"
+   ],
+   "icon": "icons/SW.Item.Sword_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.HeavyCrossbow_Unique1",
+   "name": "The Close Ranger",
+   "description": "Judge your enemies up close and personal.",
+   "category": "ranged",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.HeavyCrossbow"
+   ],
+   "icon": "icons/SW.Item.HeavyCrossbow_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.RapidCrossbow_Unique1",
+   "name": "The Cross Pollinator",
+   "description": "Cross-pollinate mobs with sharpened twigs and see what grows from their remains.",
+   "category": "ranged",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.RapidCrossbow"
+   ],
+   "icon": "icons/SW.Item.RapidCrossbow_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Greatsword_Unique1",
+   "name": "The Darkshard",
+   "description": "A legendary sword forged in the Deep Dark with amethyst alloy in the blade.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Greatsword"
+   ],
+   "icon": "icons/SW.Item.Greatsword_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.ExperienceIncrease",
+   "name": "The Eye of Experience",
+   "description": "Experience Increase Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.ExperienceIncrease.png"
+  },
+  {
+   "tag": "SW.Item.Pickaxe_Unique1",
+   "name": "The Prospector's Pick",
+   "description": "The chosen weapon for those who miss the good old days of simple emerald mining.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Pickaxe"
+   ],
+   "icon": "icons/SW.Item.Pickaxe_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Crossbow_Unique1",
+   "name": "The Shackler",
+   "description": "Shoot chains at enemies to pin them to the ground. Nobody escapes the Shackler!",
+   "category": "ranged",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Crossbow"
+   ],
+   "icon": "icons/SW.Item.Crossbow_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Rapier_Unique1",
+   "name": "The Thousand Cuts",
+   "description": "A nimble sword for the fencing virtuoso that strikes faster than other blades.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Rapier"
+   ],
+   "icon": "icons/SW.Item.Rapier_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.FiringEmeralds",
+   "name": "Thrifty Pendant",
+   "description": "Grants up to a {0} damage bonus based on emeralds held, effective to a maximum of {1} emeralds.",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.FiringEmeralds.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.Thundering",
+   "name": "Thundering",
+   "description": "Attacks have a chance to spread lightning damage to nearby enemies.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.Thundering.png"
+  },
+  {
+   "tag": "SW.Item.MoonSword",
+   "name": "Tidal Sickle",
+   "description": "A harvest tool for the new dimension, perfect for reaping souls.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.MoonSword_Unique1",
+   "icon": "icons/SW.Item.MoonSword.png"
+  },
+  {
+   "tag": "SW.Item.Consumable.Throwable.TNT",
+   "name": "TNT",
+   "description": "Trinitrotoluene - Placeholder description",
+   "category": "throwable",
+   "icon": "icons/SW.Item.Consumable.Throwable.TNT.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.TotemOfCasting",
+   "name": "Totem of Casting",
+   "description": "Place the totem on the ground to spread artificing energy to your allies, reducing their artifact cooldown time.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.TotemOfCasting.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.TotemOfRegeneration",
+   "name": "Totem of Regeneration",
+   "description": "This wooden figurine radiates a warmth like that of a crackling campfire and heals all friends who gather around it.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.TotemOfRegeneration.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.TotemOfShielding",
+   "name": "Totem of Shielding",
+   "description": "This solid gold totem radiates a protective barrier, shielding all inside it from projectiles.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.TotemOfShielding.png"
+  },
+  {
+   "tag": "SW.Item.HewnBarkChest",
+   "name": "Treehugger Chestplate",
+   "description": "Your enemies will soon realize they’re barking up the wrong tree.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.HewnBarkChest_Unique",
+   "icon": "icons/SW.Item.HewnBarkChest.png"
+  },
+  {
+   "tag": "SW.Item.HewnBarkBoots",
+   "name": "Treehugger Clogs",
+   "description": "For the traveler who loves walking in the woods.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.HewnBarkBoots_Unique",
+   "icon": "icons/SW.Item.HewnBarkBoots.png"
+  },
+  {
+   "tag": "SW.Item.HewnBarkLeggings",
+   "name": "Treehugger Leggings",
+   "description": "For when you need to make like a tree and leave.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.HewnBarkLeggings_Unique",
+   "icon": "icons/SW.Item.HewnBarkLeggings.png"
+  },
+  {
+   "tag": "SW.Item.HewnBarkHelmet",
+   "name": "Treehugger Mask",
+   "description": "If you can’t see the forest for the trees, you’re probably wearing it the wrong way.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.HewnBarkHelmet_Unique",
+   "icon": "icons/SW.Item.HewnBarkHelmet.png"
+  },
+  {
+   "tag": "SW.Item.Trickbow",
+   "name": "Trickbow",
+   "description": "For the trick shooter who likes to roll, jump, and shoot ricocheting arrows.",
+   "category": "ranged",
+   "uniqueOf": "SW.Item.Trickbow_Unique1",
+   "icon": "icons/SW.Item.Trickbow.png"
+  },
+  {
+   "tag": "SW.Item.EnchantmentBook.BurstBowstring",
+   "name": "Tumbleshot",
+   "description": "Rolling fires a barrage of arrows targeting nearby enemies.",
+   "category": "enchantmentBook",
+   "icon": "icons/SW.Item.EnchantmentBook.BurstBowstring.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.IronHideLute",
+   "name": "Turtle Master's Mandolin",
+   "description": "A beautiful instrument varnished with Potion of the Turtle Master, granting resistance to all friends who catch your groove.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.IronHideLute.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.AmmoCapacity",
+   "name": "Twig of Dark Oak",
+   "description": "Ammo Capacity Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.AmmoCapacity.png"
+  },
+  {
+   "tag": "SW.Item.Dagger",
+   "name": "Twilight Dagger",
+   "description": "A must-have in any rogue's inventory.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Dagger_Unique1",
+   "icon": "icons/SW.Item.Dagger.png"
+  },
+  {
+   "tag": "SW.Item.Cosmetic.Cape.Twisted",
+   "name": "Twisted Cape",
+   "description": "Wrapping yourself in the form of this foe makes for quite the intimidating statement.",
+   "category": "cape",
+   "icon": "icons/SW.Item.Cosmetic.Cape.Twisted.png"
+  },
+  {
+   "tag": "SW.Item.Cosmetic.Pet.TwistedChicken",
+   "name": "Twisted Chicken Pet",
+   "description": "Don't take a chicken into combat - unless that chicken is a clueless, soul-infused anomaly. Luckily, this one is.",
+   "category": "pet",
+   "icon": "icons/SW.Item.Cosmetic.Pet.TwistedChicken.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.SoulGather",
+   "name": "Twisted Tooth",
+   "description": "Soul Gather Talisman Description",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.SoulGather.png"
+  },
+  {
+   "tag": "SW.Item.CaveCrawlerHelmet_Unique",
+   "name": "Twisted Warden Blindfold",
+   "description": "A true master of the Deep Dark doesn’t need their vision to make a critical hit.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.CaveCrawlerHelmet"
+   ],
+   "icon": "icons/SW.Item.CaveCrawlerHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.CaveCrawlerBoots_Unique",
+   "name": "Twisted Warden Sneakers",
+   "description": "A true master of the Deep Dark can sneak in and hit their enemy where it hurts.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.CaveCrawlerBoots"
+   ],
+   "icon": "icons/SW.Item.CaveCrawlerBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.CaveCrawlerLeggings_Unique",
+   "name": "Twisted Warden Tights",
+   "description": "A true master of the Deep Dark doesn’t need to wear anything but shadows... and perhaps a pair of tights.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.CaveCrawlerLeggings"
+   ],
+   "icon": "icons/SW.Item.CaveCrawlerLeggings_Unique.png"
+  },
+  {
+   "tag": "SW.Item.CaveCrawlerChest_Unique",
+   "name": "Twisted Warden Vest",
+   "description": "A true master of the Deep Dark can dodge and duck without thinking.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.CaveCrawlerChest"
+   ],
+   "icon": "icons/SW.Item.CaveCrawlerChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.Daggers_Unique1",
+   "name": "Venomous Fangs",
+   "description": "A pair of poisoned daggers that make your strikes as deadly as a spider’s bite.",
+   "category": "melee",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.Daggers"
+   ],
+   "icon": "icons/SW.Item.Daggers_Unique1.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.PoisonQuiver",
+   "name": "Venomous Quiver",
+   "description": "A quiver soaked in venom for that extra sting when your arrows bite.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.PoisonQuiver.png"
+  },
+  {
+   "tag": "SW.Item.WarHammer",
+   "name": "War Hammer",
+   "description": "Its strikes send tremors through the earth and through your enemies’ hearts.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.WarHammer_Unique1",
+   "icon": "icons/SW.Item.WarHammer.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.WardingChimes",
+   "name": "Warding Chimes",
+   "description": "Chimes crafted from humbler husk. Their music turns your skin as thick as carapace.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.WardingChimes.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.WarriorsDrums",
+   "name": "Warrior Drums",
+   "description": "Let the sound of drums fill your warrior heart with the power to do double damage on all critical hits.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.WarriorsDrums.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.BlizzardStaff",
+   "name": "Winter Staff",
+   "description": "Blasts a soul-powered blizzard at your enemies and creates a cozy winter wonderland.",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.BlizzardStaff.png"
+  },
+  {
+   "tag": "SW.Item.Artifact.WitchesBrew",
+   "name": "Witch Brew",
+   "description": "A witch's secret formula to throw at your enemies and spread a cloud of weakening vapor. What do they put in this stuff?",
+   "category": "artifact",
+   "icon": "icons/SW.Item.Artifact.WitchesBrew.png"
+  },
+  {
+   "tag": "SW.Item.Talisman.Wobble",
+   "name": "Wobblestone",
+   "description": "Summons a wobbly ward to aid you in battle!",
+   "category": "talisman",
+   "icon": "icons/SW.Item.Talisman.Wobble.png"
+  },
+  {
+   "tag": "SW.Item.Claws",
+   "name": "Wolf Claws",
+   "description": "A respectful offering from your wolf friends, for close combat beneath the full moon.",
+   "category": "melee",
+   "uniqueOf": "SW.Item.Claws_Unique1",
+   "icon": "icons/SW.Item.Claws.png"
+  },
+  {
+   "tag": "SW.Item.WolfclutchBoots",
+   "name": "Wolfpack Boots",
+   "description": "A respectful offering from your wolf pack so you can run with them at midnight.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "uniqueOf": "SW.Item.WolfclutchBoots_Unique",
+   "icon": "icons/SW.Item.WolfclutchBoots.png"
+  },
+  {
+   "tag": "SW.Item.WolfclutchHelmet",
+   "name": "Wolfpack Hood",
+   "description": "A respectful offering from your wolf pack so you can join their howling at night.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "uniqueOf": "SW.Item.WolfclutchHelmet_Unique",
+   "icon": "icons/SW.Item.WolfclutchHelmet.png"
+  },
+  {
+   "tag": "SW.Item.WolfclutchChest",
+   "name": "Wolfpack Jacket",
+   "description": "A respectful offering from your wolf pack to keep warm in the cold of night.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "uniqueOf": "SW.Item.WolfclutchChest_Unique",
+   "icon": "icons/SW.Item.WolfclutchChest.png"
+  },
+  {
+   "tag": "SW.Item.WolfclutchLeggings",
+   "name": "Wolfpack Leggings",
+   "description": "A respectful offering from your wolf pack so you can chase your tail under the full moon.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "uniqueOf": "SW.Item.WolfclutchLeggings_Unique",
+   "icon": "icons/SW.Item.WolfclutchLeggings.png"
+  },
+  {
+   "tag": "sw.Item.Talisman.Llama",
+   "name": "Wonderful Wheat",
+   "description": "Summons a woolly wanderer to watch over you in battle!",
+   "category": "talisman",
+   "icon": "icons/sw.Item.Talisman.Llama.png"
+  },
+  {
+   "tag": "SW.Item.HewnBarkChest_Unique",
+   "name": "Woodsprite Barkpiece",
+   "description": "This bark chestplate is imbued with the natural healing properties of the forest.",
+   "category": "armor",
+   "armorPiece": "Chest",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.HewnBarkChest"
+   ],
+   "icon": "icons/SW.Item.HewnBarkChest_Unique.png"
+  },
+  {
+   "tag": "SW.Item.HewnBarkHelmet_Unique",
+   "name": "Woodsprite Crown",
+   "description": "A dark oak mask crowned with enchanted flowers that grant natural resistance to your pets.",
+   "category": "armor",
+   "armorPiece": "Helmet",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.HewnBarkHelmet"
+   ],
+   "icon": "icons/SW.Item.HewnBarkHelmet_Unique.png"
+  },
+  {
+   "tag": "SW.Item.HewnBarkBoots_Unique",
+   "name": "Woodsprite Root Boots",
+   "description": "A pair of root boots to keep you grounded with endlessly springing twigs to fletch into arrows.",
+   "category": "armor",
+   "armorPiece": "Boots",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.HewnBarkBoots"
+   ],
+   "icon": "icons/SW.Item.HewnBarkBoots_Unique.png"
+  },
+  {
+   "tag": "SW.Item.HewnBarkLeggings_Unique",
+   "name": "Woodsprite Trunks",
+   "description": "A pair of thorned treetrunk leggings for prickly kicking back when under attack.",
+   "category": "armor",
+   "armorPiece": "Leggings",
+   "unique": true,
+   "baseOf": [
+    "SW.Item.HewnBarkLeggings"
+   ],
+   "icon": "icons/SW.Item.HewnBarkLeggings_Unique.png"
+  }
+ ],
+ "equipSlots": [
+  "SW.ItemSlot.Equipment.Armor.Boots",
+  "SW.ItemSlot.Equipment.Armor.Chest",
+  "SW.ItemSlot.Equipment.Armor.Helmet",
+  "SW.ItemSlot.Equipment.Armor.Leggings",
+  "SW.ItemSlot.Equipment.Artifact.Slot0",
+  "SW.ItemSlot.Equipment.Artifact.Slot1",
+  "SW.ItemSlot.Equipment.Artifact.Slot2",
+  "SW.ItemSlot.Equipment.Artifact.Slot3",
+  "SW.ItemSlot.Equipment.Cosmetic.Capes",
+  "SW.ItemSlot.Equipment.Cosmetic.Pets",
+  "SW.ItemSlot.Equipment.MeleeWeapon",
+  "SW.ItemSlot.Equipment.RangedWeapon",
+  "SW.ItemSlot.Equipment.Talisman.Slot1",
+  "SW.ItemSlot.Equipment.Talisman.Slot2",
+  "SW.ItemSlot.Equipment.Talisman.Slot3"
+ ],
+ "rarities": [
+  {
+   "tag": "SW.Rarity.Common",
+   "name": "Common",
+   "weight": 1,
+   "powerOffset": -2,
+   "effects": 0
+  },
+  {
+   "tag": "SW.Rarity.Rare",
+   "name": "Rare",
+   "weight": 2,
+   "powerOffset": -2,
+   "effects": 1
+  },
+  {
+   "tag": "SW.Rarity.Special",
+   "name": "Special",
+   "weight": 3,
+   "powerOffset": -1,
+   "effects": 2
+  },
+  {
+   "tag": "SW.Rarity.Unique",
+   "name": "Unique",
+   "weight": 4,
+   "powerOffset": 0,
+   "effects": 1
+  }
+ ],
+ "skins": [
+  {
+   "tag": "SW.Skin.AlexPreorder",
+   "name": "Adventure Alex"
+  },
+  {
+   "tag": "SW.Skin.StevePreorder",
+   "name": "Adventure Steve"
+  },
+  {
+   "tag": "SW.Skin.Darian",
+   "name": "Darian"
+  },
+  {
+   "tag": "SW.Skin.Brown",
+   "name": "Edson"
+  },
+  {
+   "tag": "SW.Skin.Eshe",
+   "name": "Eshe"
+  },
+  {
+   "tag": "SW.Skin.Esperanza",
+   "name": "Esperanza"
+  },
+  {
+   "tag": "SW.Skin.HealerDeluxe",
+   "name": "Fancy Flores",
+   "product": "SW.Product.DeluxeEdition"
+  },
+  {
+   "tag": "SW.Skin.TankDeluxe",
+   "name": "Fancy Kellen",
+   "product": "SW.Product.DeluxeEdition"
+  },
+  {
+   "tag": "SW.Skin.RangerDeluxe",
+   "name": "Fancy Ren",
+   "product": "SW.Product.DeluxeEdition"
+  },
+  {
+   "tag": "SW.Skin.ValorieDeluxe",
+   "name": "Fancy Valorie",
+   "product": "SW.Product.DeluxeEdition"
+  },
+  {
+   "tag": "SW.Skin.Healer",
+   "name": "Flores"
+  },
+  {
+   "tag": "SW.Skin.Purple",
+   "name": "Gaston"
+  },
+  {
+   "tag": "SW.Skin.Greta",
+   "name": "Greta"
+  },
+  {
+   "tag": "SW.Skin.Silver",
+   "name": "Gubbis"
+  },
+  {
+   "tag": "SW.Skin.Javier",
+   "name": "Javier"
+  },
+  {
+   "tag": "SW.Skin.Tank",
+   "name": "Kellen"
+  },
+  {
+   "tag": "SW.Skin.Yellow",
+   "name": "Mats"
+  },
+  {
+   "tag": "SW.Skin.Nuru",
+   "name": "Nuru"
+  },
+  {
+   "tag": "SW.Skin.Green",
+   "name": "Pim"
+  },
+  {
+   "tag": "SW.Skin.PizzaChef",
+   "name": "Pizza Cook"
+  },
+  {
+   "tag": "SW.Skin.Qamar",
+   "name": "Qamar"
+  },
+  {
+   "tag": "SW.Skin.Mint",
+   "name": "Raven"
+  },
+  {
+   "tag": "SW.Skin.Ranger",
+   "name": "Ren"
+  },
+  {
+   "tag": "SW.Skin.Plum",
+   "name": "Riggs"
+  },
+  {
+   "tag": "SW.Skin.Pink",
+   "name": "Stella"
+  },
+  {
+   "tag": "SW.Skin.Gray",
+   "name": "Tula"
+  },
+  {
+   "tag": "SW.Skin.Valorie",
+   "name": "Valorie"
+  },
+  {
+   "tag": "SW.Skin.Violet",
+   "name": "Violet"
+  }
+ ],
+ "areas": {
+  "SW.Area": "DefaultArea",
+  "SW.Area.Town": "Brave Haven",
+  "SW.Area.Desert.A1": "Frozen Highlands",
+  "SW.Area.Forest.A1": "Howling Woods",
+  "SW.Area.Forest.A1.Underwell": "Wishing Well",
+  "SW.Area.Forest.A1.WitchInt": "Witch's Hut",
+  "SW.Area.Forest.A1.SpiderCaves": "Spider Caves",
+  "SW.Area.Forest.A1.SpiderCaves.1": "Spider Caves",
+  "SW.Area.Forest.A1.SpiderCaves.2": "Spider Caves",
+  "SW.Area.Forest.A1.SpiderCaves.3": "Spider Caves",
+  "SW.Area.Plains.A1": "Honeycomb Fields",
+  "SW.Area.Plains.A1.ScoutPoint": "Honeycomb Fields",
+  "SW.Area.DeepDark.A1": "The Deep Dark",
+  "SW.Area.DeepDark.T1": "Dungeon",
+  "SW.Area.Meadow.R1": "Singer's Meadow",
+  "SW.Area.Meadow.A1": "Singer's Meadow",
+  "SW.Area.DeepDark.A2": "The Deep Dark",
+  "SW.Area.DeepDark.A2.PortalEntry": "The Deep Dark",
+  "SW.Area.Desert.A1.IceCaves.1": "Ice Cave",
+  "SW.Area.Desert.A1.IceCaves.2": "Ice Cave",
+  "SW.Area.Desert.A1.TinyTower1": "Enchanter's Library",
+  "SW.Area.Desert.A1.TinyTower2": "Evoker's Library",
+  "SW.Area.Desert.A1.TinyTower3": "Illusioner's Library",
+  "SW.Area.Desert.A1.TwoEndTower": "Library Towers",
+  "SW.Area.Desert.A1.FortressInt": "Frozen Fortress",
+  "SW.Area.Desert.A1.Basement": "Fishing Hut",
+  "SW.Area.Peaks.A1": "Cinder Crags",
+  "SW.Area.Test.GameplayGym": "Gameplay Gym",
+  "SW.Area.Plains.A2": "Rainy Plains",
+  "SW.Area.Plains.A2.StorageTower": "Red Tower",
+  "SW.Area.Plains.A2.CampTower": "Orange Tower",
+  "SW.Area.Plains.A2.RavagerTower": "White Tower",
+  "SW.Area.Plains.A2.BossTower": "The Supreme Evoker's Tower",
+  "SW.Area.Mines.Interior.001": "Interior Mines",
+  "SW.Area.Mines.Interior.002": "Interior Mines",
+  "SW.Area.Peaks.A1.AreaLink": "Plains - Peaks Link",
+  "SW.Area.Camp.A1": "Squid Coast",
+  "SW.Area.Forest.A2": "Deadleaf Forest",
+  "SW.Area.Forest.A2.WoodlandMansionInt": "Mudgloom Manor",
+  "SW.Area.Carapace.A1": "Humbler Huskland",
+  "SW.Area.Carapace.A1.CarapaceInterior": "Humbler Husk",
+  "SW.Area.Ravines.AreaLink.CA_MA2": "RavinesAL_CA_MA2",
+  "SW.Area.Meadow.A2.FortressInt": "Illager Stronghold",
+  "SW.Area.Meadow.A2": "Lullaby Hills",
+  "SW.Area.Meadow.A2.MeadowFortress": "Illager Stronghold",
+  "SW.Area.Meadow.T1.Med": "The Sift",
+  "SW.Area.Test.DungeonsAndRifts.VoidFill.1": "Deep Dark",
+  "SW.Area.Test.DungeonsAndRifts.VoidFill.2": "Deep Dark",
+  "SW.Area.Test.MovementAndCombat.A1": "Gameplay Gym",
+  "SW.Area.Test.Quest.A1": "Gameplay Gym",
+  "SW.Area.Meadow.T1.Rift.1": "The Sift",
+  "SW.Area.Meadow.T1.Rift.2": "The Sift",
+  "SW.Area.Meadow.T1.Rift.3": "The Sift",
+  "SW.Area.Meadow.T1.Rift.4": "The Sift",
+  "SW.Area.Meadow.T1.Rift.5": "The Sift",
+  "SW.Area.Meadow.T1.Rift.6": "The Sift",
+  "SW.Area.Meadow.T1.Rift.7": "The Sift",
+  "SW.Area.Meadow.T1.Rift.8": "The Sift",
+  "SW.Area.Meadow.T1.Rift.9": "The Sift",
+  "SW.Area.Meadow.T1.Rift.10": "The Sift",
+  "SW.Area.Meadow.T1.Rift.11": "The Sift",
+  "SW.Area.Meadow.T1.Rift.12": "The Sift",
+  "SW.Area.Meadow.T1.Rift.13": "The Sift",
+  "SW.Area.Meadow.T1.Rift.14": "The Sift",
+  "SW.Area.Meadow.T1.Rift.15": "The Sift",
+  "SW.Area.Meadow.T1.Rift.16": "The Sift",
+  "SW.Area.Meadow.T1.Rift.17": "The Sift",
+  "SW.Area.Meadow.T1.Rift.18": "The Sift",
+  "SW.Area.Test.SaveElgibilityGym.A1": "TestSaveEligibilityGym",
+  "SW.Area.Test.TrialsGym.A1": "TrialsGym",
+  "SW.Area.DeepDark.Dungeons.1": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.2": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.3": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.4": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.5": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.6": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.7": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.8": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.9": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.10": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.11": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.12": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.13": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.14": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.15": "Dungeon",
+  "SW.Area.DeepDark.Dungeons.16": "Dungeon",
+  "SW.Area.DeepDark.Tutorial": "Dungeon",
+  "SW.Area.Meadow.R0": "Singer's Meadow",
+  "SW.Area.Desert.A1.SecretIntsSM.Iceberg_Int": "Ice Caves",
+  "SW.Area.Desert.A1.SecretIntsSM.IcedCavern1_Int": "Ice Caves",
+  "SW.Area.Desert.A1.SecretIntsSM.IcedCavern2_Int": "Ice Caves",
+  "SW.Area.Desert.A1.SecretIntsSM.FortTrap_Int": "Frozen Fortress",
+  "SW.Area.Desert.A1.SecretIntsSM.IcedCavern3_Int": "Ice Caves",
+  "SW.Area.Plains.A2.BossArena": "The Supreme Evoker's Tower",
+  "SW.Area.Meadow.Boss": "The Sift",
+  "SW.Area.Meadow.Boss.1": "The Sift",
+  "SW.Area.Meadow.Boss.2": "The Sift",
+  "SW.Area.Meadow.Boss.3": "The Sift",
+  "SW.Area.Meadow.Boss.4": "The Sift",
+  "SW.Area.Ravines.Boss": "Ravines",
+  "SW.Area.Ravines.Boss.1": "Ravines",
+  "SW.Area.Ravines.Boss.2": "Ravines",
+  "SW.Area.Ravines.Boss.3": "Ravines",
+  "SW.Area.Ravines.Boss.4": "Ravines",
+  "SW.Area.DeepDark.Boss": "Dungeon",
+  "SW.Area.DeepDark.Boss.1": "Dungeon",
+  "SW.Area.DeepDark.Boss.2": "Dungeon",
+  "SW.Area.DeepDark.Boss.3": "Dungeon",
+  "SW.Area.DeepDark.Boss.4": "Dungeon",
+  "SW.Area.Lush.Boss": "Lush Caves",
+  "SW.Area.Ravines.T1.Dungeon.1": "Ravines",
+  "SW.Area.Ravines.T1.Dungeon.2": "Ravines",
+  "SW.Area.Ravines.T1.Dungeon.3": "Ravines",
+  "SW.Area.Ravines.T1.Dungeon.4": "Ravines",
+  "SW.Area.Ravines.T1.Dungeon.5": "Ravines",
+  "SW.Area.Ravines.T1.Dungeon.6": "Ravines",
+  "SW.Area.Ravines.T1.Dungeon.7": "Ravines",
+  "SW.Area.Ravines.T1.Dungeon.8": "Ravines",
+  "SW.Area.Ravines.T1.Dungeon.9": "Ravines",
+  "SW.Area.Ravines.T1.Dungeon.10": "Ravines",
+  "SW.Area.Ravines.T1.Dungeon.11": "Ravines",
+  "SW.Area.Ravines.T1.Dungeon.12": "Ravines",
+  "SW.Area.Desert.A1.FortHalls": "Frozen Fortress",
+  "SW.Area.Init": "Starting area",
+  "SW.Area.Desert.A1.ShipInt": "Shipwreck",
+  "SW.Area.Plains.A2.NoteblockRoom": "The Supreme Evoker's Tower",
+  "SW.Area.Ravines": "Ravines",
+  "SW.Area.Meadow.T1": "The Sift",
+  "SW.Area.SiftThreeConnection": "Humbler Huskland",
+  "SW.Area.Desert.A1.Tower": "Frozen Fortress"
+ },
+ "achievements": {
+  "SW.Achievements.CompleteArriveInBraveHavenQuest": {
+   "name": "Arrive In Brave Haven",
+   "quest": "CA00"
+  },
+  "SW.Achievements.CompleteEnterTheNewDimensionQuest": {
+   "name": "Enter The New Dimension",
+   "quest": "CA01"
+  },
+  "SW.Achievements.CompleteDefeatTheWanderingWitchQuest": {
+   "name": "Defeat The Wandering Witch",
+   "quest": "CA02_B"
+  },
+  "SW.Achievements.CompleteDefeatTheTwistedWardenQuest": {
+   "name": "Defeat The Twisted Warden",
+   "quest": "CA03"
+  },
+  "SW.Achievements.CompleteDefeatACopperMonstrosityQuest": {
+   "name": "Defeat A Copper Monstrosity",
+   "quest": "CA07"
+  },
+  "SW.Achievements.CompleteDefeatThePrimeEnchanterQuest": {
+   "name": "Defeat The Prime Enchanter",
+   "quest": "CA05"
+  },
+  "SW.Achievements.CompleteActivateTheNoteblockMachineQuest": {
+   "name": "Activate The Noteblock Machine",
+   "quest": "CA06"
+  },
+  "SW.Achievements.CompleteFriendOfTheWellspringQuest": {
+   "name": "Friend Of The Sift",
+   "quest": "CA08"
+  },
+  "SW.Achievements.CompleteCarapaceExplorerQuest": {
+   "name": "Carapace Explorer",
+   "quest": "CA09"
+  },
+  "SW.Achievements.CompleteDefeatTheSupremeEvokerAndSoulConstructQuest": {
+   "name": "Defeat The Supreme Evoker And Soul Construct",
+   "quest": "CA10"
+  },
+  "SW.Achievements.CompleteTheCoreQuest": {
+   "name": "The Core",
+   "quest": "CA10"
+  },
+  "SW.Achievements.CompleteTheSoulCandleConspiracyQuest": {
+   "name": "The Soul Candle Conspiracy",
+   "quest": "PLa1_S08_A"
+  },
+  "SW.Achievements.CompleteTheClericsApprenticeQuest": {
+   "name": "The Clerics Apprentice",
+   "quest": "FOa1_S10_A"
+  },
+  "SW.Achievements.CompleteTrueIllagerIntelligenceQuest": {
+   "name": "True Illager Intelligence",
+   "quest": "DEa1_S12_A"
+  },
+  "SW.Achievements.CompleteRecyclingYourMonstrosityQuest": {
+   "name": "Recycling Your Monstrosity",
+   "quest": "PLa2_S15_A"
+  },
+  "SW.Achievements.CompleteWobbleRunQuest": {
+   "name": "Wobble Run",
+   "quest": "MEa1_S06_A"
+  },
+  "SW.Achievements.CompleteLonesomeInLullabyHillsQuest": {
+   "name": "Lonesome In Lullaby Hills",
+   "quest": "MEa2_S03_A"
+  },
+  "SW.Achievements.CompleteCarapaceSideQuest": {
+   "name": "Carapace Side",
+   "quest": "CAa1_S03_A"
+  },
+  "SW.Achievements.EquipAUniqueItem": {
+   "name": "Equip A Unique Item"
+  },
+  "SW.Achievements.UpgradeAnEnchantmentToLevel3": {
+   "name": "Upgrade An Enchantment To Level 3",
+   "target": 3
+  },
+  "SW.Achievements.EnchantEveryInventorySlotWithLevel3Enchantments": {
+   "name": "Enchant Every Inventory Slot With Level 3 Enchantments",
+   "collection": [
+    "SW.ItemSlot.Equipment.MeleeWeapon",
+    "SW.ItemSlot.Equipment.RangedWeapon",
+    "SW.ItemSlot.Equipment.Armor.Boots",
+    "SW.ItemSlot.Equipment.Armor.Chest",
+    "SW.ItemSlot.Equipment.Armor.Helmet",
+    "SW.ItemSlot.Equipment.Armor.Leggings"
+   ],
+   "maxEnchantLevel": 3
+  },
+  "SW.Achievements.CollectAllEnchantmentBooks": {
+   "name": "Collect All Enchantment Books",
+   "collection": [
+    "SW.Item.EnchantmentBook.PoisonFog",
+    "SW.Item.EnchantmentBook.Shockwave",
+    "SW.Item.EnchantmentBook.Arcane",
+    "SW.Item.EnchantmentBook.Blowback",
+    "SW.Item.EnchantmentBook.Borealis",
+    "SW.Item.EnchantmentBook.Channeling",
+    "SW.Item.EnchantmentBook.CriticalQuiver",
+    "SW.Item.EnchantmentBook.Dynamo",
+    "SW.Item.EnchantmentBook.ExpandedQuiver",
+    "SW.Item.EnchantmentBook.FireAspect",
+    "SW.Item.EnchantmentBook.FrostCrescent",
+    "SW.Item.EnchantmentBook.GravityPulse",
+    "SW.Item.EnchantmentBook.GuardingStrike",
+    "SW.Item.EnchantmentBook.HealthSynergy",
+    "SW.Item.EnchantmentBook.LingeringPower",
+    "SW.Item.EnchantmentBook.MultiRoll",
+    "SW.Item.EnchantmentBook.Piercing",
+    "SW.Item.EnchantmentBook.MultiPotion",
+    "SW.Item.EnchantmentBook.PotionBarrier",
+    "SW.Item.EnchantmentBook.PotionSharing",
+    "SW.Item.EnchantmentBook.Radiance",
+    "SW.Item.EnchantmentBook.Ricochet",
+    "SW.Item.EnchantmentBook.ShadowStrike",
+    "SW.Item.EnchantmentBook.SoulAspect",
+    "SW.Item.EnchantmentBook.SoulInfusedPotion",
+    "SW.Item.EnchantmentBook.SpringLoaded",
+    "SW.Item.EnchantmentBook.Swirling",
+    "SW.Item.EnchantmentBook.TempoTheft",
+    "SW.Item.EnchantmentBook.Thundering",
+    "SW.Item.EnchantmentBook.Unstoppable",
+    "SW.Item.EnchantmentBook.BurstBowstring",
+    "SW.Item.EnchantmentBook.ChainReaction"
+   ]
+  },
+  "SW.Achievements.UpgradeATalismanToLevel3": {
+   "name": "Upgrade A Talisman To Level 3",
+   "target": 3
+  },
+  "SW.Achievements.ReforgeASpecialPieceOfGear": {
+   "name": "Reforge A Special Piece Of Gear"
+  },
+  "SW.Achievements.PurchaseASpecialGearPieceFromTheVillageMerchant": {
+   "name": "Purchase A Special Gear Piece From The Village Merchant"
+  },
+  "SW.Achievements.Open100Chests": {
+   "name": "Open 100 Chests",
+   "target": 100
+  },
+  "SW.Achievements.DefeatAMonarch": {
+   "name": "Defeat A Monarch"
+  },
+  "SW.Achievements.Defeat1000MobsWithJumpAttacks": {
+   "name": "Defeat 1000 Mobs With Jump Attacks",
+   "target": 1000
+  },
+  "SW.Achievements.Kill10MobsWithATNT": {
+   "name": "Kill 10 Mobs With A Tnt",
+   "target": 10
+  },
+  "SW.Achievements.DiscoverAllMinecartStations": {
+   "name": "Discover All Minecart Stations",
+   "collection": [
+    "SW.MinecartStation.Town",
+    "SW.MinecartStation.PlainsA1.Border",
+    "SW.MinecartStation.ForestA1.Outpost",
+    "SW.MinecartStation.ForestA1.SpiderCaveExit",
+    "SW.MinecartStation.DesertA1.Fortress",
+    "SW.MinecartStation.DesertA1.Cliffs",
+    "SW.MinecartStation.DesertA1.MountainX",
+    "SW.MinecartStation.PlainsA2.VillagerOasis",
+    "SW.MinecartStation.MeadowA1.SingersHaven",
+    "SW.MinecartStation.CarapaceA1.Centre",
+    "SW.MinecartStation.MeadowA2.Fortress",
+    "SW.MinecartStation.MeadowA2.Hilltop",
+    "SW.MinecartStation.CarapaceA1.Border",
+    "SW.MinecartStation.CarapaceA1.North",
+    "SW.MinecartStation.DesertA1.Fortress2",
+    "SW.MinecartStation.DesertA1.IceLagoon",
+    "SW.MinecartStation.Forest.A1.DangerZone",
+    "SW.MinecartStation.ForestA1.NWPass",
+    "SW.MinecartStation.MeadowA1.BehindPortal",
+    "SW.MinecartStation.MeadowA1.SouthEast",
+    "SW.MinecartStation.MeadowA1.SouthWest",
+    "SW.MinecartStation.PlainsA1.Barn",
+    "SW.MinecartStation.PlainsA2.Central",
+    "SW.MinecartStation.PlainsA2.IllagerCamp",
+    "SW.MinecartStation.DesertA1.TaigaBeach",
+    "SW.MinecartStation.PlainsA2.SouthEastBridge",
+    "SW.MinecartStation.PlainsA2.NorthWestBridge"
+   ]
+  },
+  "SW.Achievements.ReachLevel50": {
+   "name": "Reach Level 50",
+   "target": 50
+  },
+  "SW.Achievements.ReachLevel100": {
+   "name": "Reach Level 100",
+   "target": 100
+  }
+ },
+ "questNames": {
+  "CA00": "Arrive In Brave Haven",
+  "CA01": "Enter The New Dimension",
+  "CA02_B": "Defeat The Wandering Witch",
+  "CA03": "Defeat The Twisted Warden",
+  "CA07": "Defeat A Copper Monstrosity",
+  "CA05": "Defeat The Prime Enchanter",
+  "CA06": "Activate The Noteblock Machine",
+  "CA08": "Friend Of The Sift",
+  "CA09": "Carapace Explorer",
+  "CA10": "Defeat The Supreme Evoker And Soul Construct",
+  "PLa1_S08_A": "The Soul Candle Conspiracy",
+  "FOa1_S10_A": "The Clerics Apprentice",
+  "DEa1_S12_A": "True Illager Intelligence",
+  "PLa2_S15_A": "Recycling Your Monstrosity",
+  "MEa1_S06_A": "Wobble Run",
+  "MEa2_S03_A": "Lonesome In Lullaby Hills",
+  "CAa1_S03_A": "Carapace Side"
+ },
+ "minecartStations": [
+  "SW.MinecartStation.Town",
+  "SW.MinecartStation.PlainsA1.Border",
+  "SW.MinecartStation.ForestA1.Outpost",
+  "SW.MinecartStation.ForestA1.SpiderCaveExit",
+  "SW.MinecartStation.DesertA1.Fortress",
+  "SW.MinecartStation.DesertA1.Cliffs",
+  "SW.MinecartStation.DesertA1.MountainX",
+  "SW.MinecartStation.PlainsA2.VillagerOasis",
+  "SW.MinecartStation.MeadowA1.SingersHaven",
+  "SW.MinecartStation.CarapaceA1.Centre",
+  "SW.MinecartStation.MeadowA2.Fortress",
+  "SW.MinecartStation.MeadowA2.Hilltop",
+  "SW.MinecartStation.CarapaceA1.Border",
+  "SW.MinecartStation.CarapaceA1.North",
+  "SW.MinecartStation.DesertA1.Fortress2",
+  "SW.MinecartStation.DesertA1.IceLagoon",
+  "SW.MinecartStation.Forest.A1.DangerZone",
+  "SW.MinecartStation.ForestA1.NWPass",
+  "SW.MinecartStation.MeadowA1.BehindPortal",
+  "SW.MinecartStation.MeadowA1.SouthEast",
+  "SW.MinecartStation.MeadowA1.SouthWest",
+  "SW.MinecartStation.PlainsA1.Barn",
+  "SW.MinecartStation.PlainsA2.Central",
+  "SW.MinecartStation.PlainsA2.IllagerCamp",
+  "SW.MinecartStation.DesertA1.TaigaBeach",
+  "SW.MinecartStation.PlainsA2.SouthEastBridge",
+  "SW.MinecartStation.PlainsA2.NorthWestBridge"
+ ]
+}

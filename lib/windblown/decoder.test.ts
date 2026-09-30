@@ -14,11 +14,17 @@
 //
 // Run from the EditMySave repo root:  deno task test:windblown
 
-import { assert, assertEquals } from "@std/assert"
+import { assert, assertEquals, assertRejects } from "@std/assert"
 import { createHash } from "node:crypto"
 import { gunzipSync, inflateRawSync } from "node:zlib"
 
-import { decodeSaveFromFile, encodeSaveToBlob, type WindblownSave } from "./decoder.ts"
+import {
+  CURRENCY_FRIENDLY_NAMES,
+  CURRENCY_NAMES,
+  decodeSaveFromFile,
+  encodeSaveToBlob,
+  type WindblownSave,
+} from "./decoder.ts"
 
 const SAMPLE = new URL("./671ab6c4a259a71f2b5a46c9.sav", import.meta.url).pathname
 
@@ -92,8 +98,8 @@ Deno.test("decode surfaces player, currencies, and flags", async () => {
   assertEquals(save.currencies[0].friendlyName, "Cogs")
   assertEquals(save.currencies[0].amount, 81375)
   assertEquals(save.currencies.length, 20)
-  // enum 2 (AutumnBoss) resolves to its localized display name.
-  assertEquals(save.currencies.find((c) => c.enumId === 2)!.friendlyName, "Tribomber Eye")
+  // enum 3 (AutumnBoss) resolves to its localized display name.
+  assertEquals(save.currencies.find((c) => c.enumId === 3)!.friendlyName, "Tribomber Eye")
 
   // Flag mask must be located for this save.
   assert(save._flagMaskBitPos >= 0, "flag mask should be located")
@@ -163,37 +169,19 @@ Deno.test("currency edit roundtrips (in-place patch)", async () => {
   assertEquals(hex(gapHashOf(round)), hex(round.slice(...L.gapHash)), "gapHash valid after edit")
 })
 
-Deno.test("adding a not-yet-stored currency roundtrips (structural insert)", async () => {
+Deno.test("adding a not-yet-stored currency is refused (structural insert disabled)", async () => {
   const { save } = await loadSample()
-  const before = save.currencies.length
-  // enum 1 (Autumn) is absent from this save. Append it, encode, re-decode.
+  // enum 1 (WildGolemWhipSecretUnderground) is absent from this save. Inserting a
+  // record corrupts the save in-game, so the encoder must refuse rather than write it.
   assert(!save.currencies.some((c) => c.enumId === 1), "enum 1 should not be stored yet")
   const edited: WindblownSave = {
     ...save,
-    currencies: [...save.currencies, { enumId: 1, name: "Autumn", friendlyName: "Dried Grass", amount: 4242 }],
+    currencies: [
+      ...save.currencies,
+      { enumId: 1, name: CURRENCY_NAMES[1], friendlyName: CURRENCY_FRIENDLY_NAMES[1] ?? CURRENCY_NAMES[1], amount: 4242 },
+    ],
   }
-  const round = await encode(edited)
-  const back = await decodeSaveFromFile(toFile("round.sav", round))
-
-  // The new record is present and correct...
-  assertEquals(back.currencies.length, before + 1, "count grew by one")
-  const added = back.currencies.find((c) => c.enumId === 1)
-  assert(added, "inserted currency present after roundtrip")
-  assertEquals(added!.amount, 4242)
-  assertEquals(added!.name, "Autumn")
-
-  // ...every previously-stored currency is untouched...
-  for (const c of save.currencies) {
-    assertEquals(back.currencies.find((x) => x.enumId === c.enumId)!.amount, c.amount, `enum ${c.enumId} preserved`)
-  }
-
-  // ...flags survive the downstream bit shift...
-  assertEquals(back.metaFlags, save.metaFlags)
-
-  // ...and the container hashes are valid for the new, longer block2.
-  const L = layout(round)
-  assertEquals(hex(gapHashOf(round)), hex(round.slice(...L.gapHash)), "gapHash valid after insert")
-  assertEquals(hex(sha1(round.slice(...L.block1))), hex(round.slice(...L.headerHash)), "headerHash valid after insert")
+  await assertRejects(() => encode(edited), Error, "Cannot add currencies not already in this save")
 })
 
 Deno.test("flag edit roundtrips", async () => {

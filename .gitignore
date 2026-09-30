@@ -25,3 +25,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Images are hosted on Vercel Blob (see scripts/upload-images-to-blob.mjs)
+/public/images/
+
+# Local reverse-engineering material (raw game folders contain auth tokens)
+/saves/
+/experiments/

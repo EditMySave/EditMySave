@@ -37,114 +37,121 @@ const REC_AMOUNT_BITS = 32
 const COUNT_BITS = 16
 
 /**
- * Enum value → `Quantum.MetaCurrencyType` member identifier, extracted verbatim from the
- * game's global-metadata.dat (IL2CPP metadata v39). These are the names as the enum defines
- * them — mostly the enemy/biome source each material drops from — not localized display names.
- * The enum is dense (values 0–46 == declaration order); unknown ids fall back to `currency_<id>`.
+ * Enum value → `Quantum.MetaCurrencyType` member identifier.
+ *
+ * IMPORTANT: the enum is NOT dense — the runtime values are a permutation of 0–46, not
+ * declaration order. Members are declared (Cog, Autumn, AutumnBoss, …) contiguously in
+ * global-metadata.dat, but each carries an explicit value stored 1 byte per member in the
+ * FieldDefaultValue data blob (found at metadata file offset 0x81da80): declaration-order
+ * values = [0,2,3,21,33,40,4,5,22,34,41,6,7,23,35,42,8,9,24,1,25,26,27,36,43,10,11,16,28,
+ * 29,37,44,12,13,30,31,38,45,14,15,17,18,32,39,46,19,20]. These maps are re-keyed by that
+ * value array and verified against in-game amounts from three real saves (e.g. enum 2 =
+ * Dried Grass, 8 = Intact Bone, 4 = Glowing Spores — all confirmed). Unknown ids fall back
+ * to `currency_<id>`.
  */
 export const CURRENCY_NAMES: Record<number, string> = {
   0: "Cog",
-  1: "Autumn",
-  2: "AutumnBoss",
-  3: "AutumnAlpha",
-  4: "AmassmoussNG",
-  5: "BomberNG",
-  6: "Mushroom",
-  7: "MushroomBoss",
-  8: "MushroomAlpha",
-  9: "MushroomWarriorNG",
-  10: "AntRangedNG",
-  11: "Factory",
-  12: "FactoryBoss",
-  13: "FactoryAlpha",
-  14: "WorkerNailgunNG",
-  15: "GyroNG",
-  16: "Summer",
-  17: "SummerBoss",
-  18: "SummerAlpha",
-  19: "WildGolemWhipSecretUnderground",
-  20: "WildCavernSecretUnderground",
-  21: "WildJawSecretUnderground",
-  22: "WildToothBeastSecretUnderground",
-  23: "WildCavernNG",
-  24: "WildJawNG",
-  25: "RatVillage",
-  26: "RatVillageBoss",
-  27: "RatVillageHeadBoss",
+  1: "WildGolemWhipSecretUnderground",
+  2: "Autumn",
+  3: "AutumnBoss",
+  4: "Mushroom",
+  5: "MushroomBoss",
+  6: "Factory",
+  7: "FactoryBoss",
+  8: "Summer",
+  9: "SummerBoss",
+  10: "RatVillage",
+  11: "RatVillageBoss",
+  12: "Sanctuary",
+  13: "SanctuaryBoss",
+  14: "Incubator",
+  15: "IncubatorNavelessPyroBoss",
+  16: "RatVillageHeadBoss",
+  17: "IncubatorNavelessRogueBoss",
+  18: "IncubatorNavelessWarriorBoss",
+  19: "Secret",
+  20: "GolemChicken",
+  21: "AutumnAlpha",
+  22: "MushroomAlpha",
+  23: "FactoryAlpha",
+  24: "SummerAlpha",
+  25: "WildCavernSecretUnderground",
+  26: "WildJawSecretUnderground",
+  27: "WildToothBeastSecretUnderground",
   28: "PirateSword",
   29: "PirateGoblin",
-  30: "PirateShieldNG",
-  31: "PirateBombNG",
-  32: "Sanctuary",
-  33: "SanctuaryBoss",
-  34: "SentinelDrone",
-  35: "SentinelPaladin",
-  36: "SentinelDroneNG",
-  37: "SentinelCasterNG",
-  38: "Incubator",
-  39: "IncubatorNavelessPyroBoss",
-  40: "IncubatorNavelessRogueBoss",
-  41: "IncubatorNavelessWarriorBoss",
-  42: "Octo",
-  43: "SentinelTallNG",
-  44: "NavelessWerewolfNG",
-  45: "Secret",
-  46: "GolemChicken",
+  30: "SentinelDrone",
+  31: "SentinelPaladin",
+  32: "Octo",
+  33: "AmassmoussNG",
+  34: "MushroomWarriorNG",
+  35: "WorkerNailgunNG",
+  36: "WildCavernNG",
+  37: "PirateShieldNG",
+  38: "SentinelDroneNG",
+  39: "SentinelTallNG",
+  40: "BomberNG",
+  41: "AntRangedNG",
+  42: "GyroNG",
+  43: "WildJawNG",
+  44: "PirateBombNG",
+  45: "SentinelCasterNG",
+  46: "NavelessWerewolfNG",
 }
 
 /**
- * Enum value → localized in-game display name, extracted from the game's Unity Localization
- * String Tables (BoscoDictionary, English). Joined by the `META_CURRENCY_<ENUMNAME>` key
- * convention — all 47 enum members matched exactly. Rich-text color tags stripped.
+ * Enum value → localized in-game display name (Unity Localization / BoscoDictionary, English).
+ * Re-keyed by the real enum value array (see CURRENCY_NAMES) and cross-verified against the
+ * player's stated in-game amounts across three saves.
  */
 export const CURRENCY_FRIENDLY_NAMES: Record<number, string> = {
   0: "Cogs",
-  1: "Dried Grass",
-  2: "Tribomber Eye",
-  3: "Golemic Variant Eye",
-  4: "Obsidian Amassmoss Cannon",
-  5: "Obsidian Bomber Body",
-  6: "Glowing Spores",
-  7: "Infected Tribomber Leg",
-  8: "Fungal Variant Leg",
-  9: "Obsidian Amanita Swordsman Hat",
-  10: "Obsidian Myrmetal Worker Claw",
-  11: "Steam Capsule",
-  12: "Headbanger Ventricore",
-  13: "Mechanical Variant Cable",
-  14: "Obsidian OMI-nail Nail Gun",
-  15: "Obsidian Gy-RHÔ Propeller",
-  16: "Intact Bone",
-  17: "Broken Banger Lantern",
-  18: "Prehistoric Variant Vertebra",
-  19: "Albino Dominator Variant Whip",
-  20: "Albino Burrower Variant Claw",
-  21: "Albino Crocobrute Variant Jaw",
-  22: "Albino Brachioral Variant Spine",
-  23: "Obsidian Burrower Chitin",
-  24: "Obsidian Crocobrute Tooth",
-  25: "Cheese Rind",
-  26: "Pirate Captain's Treasure",
-  27: "Fugitive Core",
+  1: "Albino Dominator Variant Whip",
+  2: "Dried Grass",
+  3: "Tribomber Eye",
+  4: "Glowing Spores",
+  5: "Infected Tribomber Leg",
+  6: "Steam Capsule",
+  7: "Headbanger Ventricore",
+  8: "Intact Bone",
+  9: "Broken Banger Lantern",
+  10: "Cheese Rind",
+  11: "Pirate Captain’s Treasure",
+  12: "Dark Shard",
+  13: "Memoreaper Altar",
+  14: "Stem Cell Tube",
+  15: "Fraternal Flame",
+  16: "Fugitive Core",
+  17: "Fraternal Lightning",
+  18: "Fraternal Stone",
+  19: "Ancient Tablet Fragment",
+  20: "Golliform Jar",
+  21: "Golemic Variant Eye",
+  22: "Fungal Variant Leg",
+  23: "Mechanical Variant Cable",
+  24: "Prehistoric Variant Vertebra",
+  25: "Albino Burrower Variant Claw",
+  26: "Albino Crocobrute Variant Jaw",
+  27: "Albino Brachioral Variant Spine",
   28: "Marmonoa Belt",
   29: "Pick-Squeak Pick",
-  30: "Obsidian Beaverage Shield",
-  31: "Obsidian Ratter Bag",
-  32: "Dark Shard",
-  33: "Memoreaper Altar",
-  34: "R0GU3 Wing",
-  35: "P4L4DIN Torn Cape",
-  36: "Obsidian R0GU3 Wing",
-  37: "Obsidian M4GE Staff",
-  38: "Stem Cell Tube",
-  39: "Fraternal Flame",
-  40: "Fraternal Lightning",
-  41: "Fraternal Stone",
-  42: "Tentacle",
-  43: "Obsidian Obliterator Halo",
-  44: "Obsidian Lycan Arm",
-  45: "Ancient Tablet Fragment",
-  46: "Golliform Jar",
+  30: "R0GU3 Wing",
+  31: "P4L4DIN Torn Cape",
+  32: "Tentacle",
+  33: "Obsidian Amassmoss Cannon",
+  34: "Obsidian Amanita Swordsman Hat",
+  35: "Obsidian OMI-nail Nail Gun",
+  36: "Obsidian Burrower Chitin",
+  37: "Obsidian Beaverage Shield",
+  38: "Obsidian R0GU3 Wing",
+  39: "Obsidian Obliterator Halo",
+  40: "Obsidian Bomber Body",
+  41: "Obsidian Myrmetal Worker Claw",
+  42: "Obsidian Gy-RHÔ Propeller",
+  43: "Obsidian Crocobrute Tooth",
+  44: "Obsidian Ratter Bag",
+  45: "Obsidian M4GE Staff",
+  46: "Obsidian Lycan Arm",
 }
 
 // ── Meta-flag unlocks (Quantum.MetaFlagMask) ────────────────────────────
@@ -371,10 +378,21 @@ function copyBits(src: Uint8Array, srcPos: number, dst: Uint8Array, dstPos: numb
 }
 
 /**
+ * block2 is a sequence of length-prefixed sections: `[u32 metaLen][meta section]
+ * [u32 runLen][gzip run data]…`. Section 0 (the player-meta section) holds the
+ * currencies/flags; a rejoinable run adds a second gzip section. The game parses
+ * section 0 by its `block2[0:4]` length prefix, so ANY size change to section 0
+ * MUST update that prefix or the game reads the section short and rejects the save
+ * as corrupt. (In-place amount patches don't change size, so they never needed this.)
+ */
+const META_SECTION_LEN_OFFSET = 0 // u32 LE at block2[0:4]
+
+/**
  * Structurally append new currency records to the MetaCurrency array: bumps the u16
- * count and splices `records` (48 bits each) in after the last existing record, shifting
- * every downstream bit forward. Returns a new, longer block2. Records are appended at the
- * array's tail so existing records keep their bit positions (in-place patches stay valid).
+ * count, the meta-section length prefix, and splices `records` (48 bits each) in after
+ * the last existing record, shifting every downstream bit forward. Returns a new, longer
+ * block2. Records are appended at the array's tail so existing records keep their bit
+ * positions (in-place patches stay valid).
  */
 function insertCurrencyRecords(
   block2: Uint8Array,
@@ -399,6 +417,11 @@ function insertCurrencyRecords(
   }
   copyBits(block2, insertBitPos, dst, insertBitPos + addBits, totalBits - insertBitPos)
   writeBits(dst, arrayBitPos, COUNT_BITS, oldCount + records.length)
+
+  // The currency array lives in section 0, which just grew by `addBits/8` bytes —
+  // update its length prefix so the game doesn't read the section short.
+  const dv = new DataView(dst.buffer, dst.byteOffset, dst.byteLength)
+  dv.setUint32(META_SECTION_LEN_OFFSET, dv.getUint32(META_SECTION_LEN_OFFSET, true) + addBits / 8, true)
   return dst
 }
 
@@ -627,11 +650,17 @@ export async function encodeSaveToBlob(save: WindblownSave): Promise<Blob> {
   if (save._flagMaskBitPos >= 0) {
     writeFlags(modifiedBlock2, save._flagMaskBitPos, save.metaFlags)
   }
-  // Structural insert: append new records at the array tail (existing records — and the
-  // upstream flag mask — keep their bit positions, so the patches above stay valid).
+  // Structural insert is DISABLED: adding a currency the save has never held corrupts the
+  // save in-game. The MetaCurrency collection is a growable list, but a bit-exact append with
+  // the count and meta-length prefix updated still fails validation — the game's serializer
+  // has framing we can't reproduce without full reverse-engineering. Editing amounts of
+  // currencies ALREADY present works perfectly (in-place patch). Callers should only offer
+  // currencies that exist in the decoded save; to add a new one, obtain it in-game first.
   if (toInsert.length > 0) {
-    modifiedBlock2 = insertCurrencyRecords(
-      modifiedBlock2, save._currencyArrayBitPos, save._currencyCount, toInsert,
+    const names = toInsert.map((r) => CURRENCY_FRIENDLY_NAMES[r.enumId] ?? `enum ${r.enumId}`).join(", ")
+    throw new Error(
+      `Cannot add currencies not already in this save (${names}). Obtain them in-game once, ` +
+        `then edit their amount. (Structural insert corrupts the save and is disabled.)`,
     )
   }
 

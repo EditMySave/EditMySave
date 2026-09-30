@@ -1,6 +1,27 @@
 {
   "games": [
     {
+      "id": "dungeons-2",
+      "name": "Minecraft Dungeons 2",
+      "description": "Edit your Minecraft Dungeons 2 character saves including emeralds, level, inventory, quests, and achievements",
+      "image": "/images/minecraft-dungeons-2/cover.jpg",
+      "route": "/dungeons-2",
+      "status": "available",
+      "supportedVersion": "Save format V1",
+      "platforms": [
+        {
+          "name": "Steam / Microsoft Store",
+          "supported": true,
+          "saveLocation": {
+            "windows": "C:\\Users\\[USERNAME]\\AppData\\Local\\Dungeons\\Saved\\SaveGames\\Character*.sav"
+          },
+          "fileName": "Character*.sav",
+          "instructions": "Put the following into your file explorer to go straight to the Save Game folder:\n%LOCALAPPDATA%\\Dungeons\\Saved\\SaveGames\\\n\nDrag a file named Character<id>.sav into this editor (one per character). GlobalSaveDataDefault.sav holds settings and is not a character save.",
+          "notes": "Always create a backup of your save file before editing. Turn off Cloud Save in the game settings first, otherwise the game may replace your edited save with its cloud copy. Character saves are plain JSON; this editor edits them entirely in your browser."
+        }
+      ]
+    },
+    {
       "id": "sworn",
       "name": "Sworn",
       "description": "Edit currencies and resources for your Sworn save files",

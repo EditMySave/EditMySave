@@ -12,6 +12,9 @@
  *   vercel env pull .env.local          # fetches BLOB_READ_WRITE_TOKEN
  *   node --env-file=.env.local scripts/upload-images-to-blob.mjs
  *
+ * Pass a folder under public/images to upload only that game's images:
+ *   node --env-file=.env.local scripts/upload-images-to-blob.mjs minecraft-dungeons-2
+ *
  * Idempotent: allowOverwrite:true means re-running just refreshes changed files.
  * After it finishes it prints NEXT_PUBLIC_ASSET_BASE_URL to copy into your env.
  */
@@ -37,21 +40,25 @@ function toPathname(relPath) {
 }
 
 async function main() {
+  // Optional subfolder (e.g. "minecraft-dungeons-2"); pathnames stay relative to public/images.
+  const subdir = process.argv[2]
+  const rootDir = subdir ? join(IMAGES_DIR, subdir) : IMAGES_DIR
+
   let entries
   try {
-    entries = await readdir(IMAGES_DIR, { recursive: true, withFileTypes: true })
+    entries = await readdir(rootDir, { recursive: true, withFileTypes: true })
   } catch (err) {
-    console.error(`Could not read ${IMAGES_DIR}:`, err.message)
+    console.error(`Could not read ${rootDir}:`, err.message)
     process.exit(1)
   }
 
   const files = entries.filter((e) => e.isFile())
   if (files.length === 0) {
-    console.error(`No files found under ${IMAGES_DIR}. Nothing to upload.`)
+    console.error(`No files found under ${rootDir}. Nothing to upload.`)
     process.exit(1)
   }
 
-  console.log(`Uploading ${files.length} file(s) from public/images to Vercel Blob...`)
+  console.log(`Uploading ${files.length} file(s) from ${relative(join(IMAGES_DIR, ".."), rootDir)} to Vercel Blob...`)
 
   let storeBaseUrl = null
   let done = 0
