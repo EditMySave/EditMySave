@@ -30,6 +30,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Badge } from "@/components/ui/badge"
 
 import { SaveFileUpload } from "@/components/save-file-upload"
+import { archiveEdited } from "@/lib/save-archive"
 import { SaveLocationHelp } from "@/components/save-location-help"
 import { EditorSidebar } from "@/components/editor-sidebar"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
@@ -256,6 +257,7 @@ export default function FarFarWestSaveEditor() {
       const a = document.createElement("a")
       a.href = url
       a.download = originalFile.name
+      archiveEdited(blob, a.download)
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)

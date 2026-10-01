@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | EditMySave",
   },
   description:
-    "Edit your game save files directly in your browser. Free online save editor for Sworn, Megabonk, Cloverpit, and more. No downloads required, works entirely client-side.",
+    "Edit your game save files directly in your browser. Free online save editor for Sworn, Megabonk, Cloverpit, and more. No downloads required.",
   keywords: [
     "save editor",
     "game save editor",

@@ -38,7 +38,7 @@
     "@radix-ui/react-toggle-group": "1.1.1",
     "@radix-ui/react-tooltip": "1.1.6",
     "@vercel/analytics": "latest",
-    "@vercel/blob": "latest",
+    "@vercel/blob": "^2.8.0",
     "aes-js": "^3.1.2",
     "autoprefixer": "^10.4.20",
     "bson": "^7.2.0",

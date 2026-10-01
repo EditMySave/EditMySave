@@ -138,12 +138,6 @@ export default async function HomePage() {
             </div>
           </div>
         )}
-
-        <div className="text-center pt-8">
-          <p className="text-sm text-muted-foreground">
-            All editors work entirely in your browser. Your save files never leave your device.
-          </p>
-        </div>
       </div>
     </main>
   )

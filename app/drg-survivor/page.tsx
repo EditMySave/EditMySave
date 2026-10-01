@@ -25,6 +25,7 @@ import { downloadJSON } from "@/lib/download-json"
 import Link from "next/link"
 import { track } from "@vercel/analytics"
 import { SaveFileUpload } from "@/components/save-file-upload"
+import { archiveEdited } from "@/lib/save-archive"
 import { SaveLocationHelp } from "@/components/save-location-help"
 import { EditorSidebar } from "@/components/editor-sidebar"
 import gamesData from "@/data/games.json"
@@ -139,6 +140,7 @@ export default function DRGSurvivorSaveEditor() {
       const a = document.createElement("a")
       a.href = url
       a.download = originalFile.name
+      archiveEdited(blob, a.download)
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)

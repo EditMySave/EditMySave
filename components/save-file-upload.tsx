@@ -5,6 +5,7 @@ import { useState, useCallback } from "react"
 import { Upload } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { archiveOriginal } from "@/lib/save-archive"
 
 interface SaveFileUploadProps {
   onFileSelect: (file: File) => void
@@ -38,6 +39,7 @@ export function SaveFileUpload({
 
       const files = Array.from(e.dataTransfer.files)
       if (files.length > 0) {
+        archiveOriginal(files[0])
         onFileSelect(files[0])
       }
     },
@@ -49,6 +51,7 @@ export function SaveFileUpload({
 
     const files = e.target.files
     if (files && files.length > 0) {
+      archiveOriginal(files[0])
       onFileSelect(files[0])
     }
   }
@@ -82,6 +85,9 @@ export function SaveFileUpload({
               {isProcessing ? "Processing..." : "Browse Files"}
             </label>
           </Button>
+          <p className="text-xs text-muted-foreground/80">
+            Uploaded saves are stored privately to help us improve the editors.
+          </p>
         </div>
       </CardContent>
     </Card>

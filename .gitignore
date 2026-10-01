@@ -35,3 +35,6 @@ next-env.d.ts
 
 
 .DS_Store
+
+# Saves downloaded from the private archive (scripts/download-saves.mjs)
+/saves-archive/

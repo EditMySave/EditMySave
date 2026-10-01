@@ -33,6 +33,7 @@ import Link from "next/link"
 import { track } from "@vercel/analytics"
 import { SaveLocationHelp } from "@/components/save-location-help"
 import { SaveFolderUpload } from "@/components/save-folder-upload"
+import { archiveEdited } from "@/lib/save-archive"
 import { EditorSidebar } from "@/components/editor-sidebar"
 import gamesData from "@/data/games.json"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -414,6 +415,7 @@ export default function WindroseSaveEditor() {
       const a = document.createElement("a")
       a.href = url
       a.download = `${saveData.meta.folderName}-edited.zip`
+      archiveEdited(blob, a.download)
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)

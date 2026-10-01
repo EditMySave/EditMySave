@@ -17,7 +17,7 @@
           },
           "fileName": "Character*.sav",
           "instructions": "Put the following into your file explorer to go straight to the Save Game folder:\n%LOCALAPPDATA%\\Dungeons\\Saved\\SaveGames\\\n\nDrag a file named Character<id>.sav into this editor (one per character). GlobalSaveDataDefault.sav holds settings and is not a character save.",
-          "notes": "Always create a backup of your save file before editing. Turn off Cloud Save in the game settings first, otherwise the game may replace your edited save with its cloud copy. Character saves are plain JSON; this editor edits them entirely in your browser."
+          "notes": "Always create a backup of your save file before editing. Turn off Cloud Save in the game settings first, otherwise the game may replace your edited save with its cloud copy. Character saves are plain JSON."
         }
       ]
     },
@@ -364,7 +364,7 @@
           },
           "fileName": "*.dat",
           "instructions": "Windows: %USERPROFILE%\\Saved Games\\Mojang Studios\\Dungeons\\\n\nOpen the folder for your user, then Characters\\, and drag a character .dat file into this editor.",
-          "notes": "Always create a backup of your save file before editing. Saves are AES-256-ECB encrypted JSON; this editor encrypts/decrypts entirely in your browser."
+          "notes": "Always create a backup of your save file before editing. Saves are AES-256-ECB encrypted JSON; this editor decrypts and re-encrypts them for you."
         }
       ]
     },

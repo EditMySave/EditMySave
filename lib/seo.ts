@@ -25,7 +25,7 @@ function getGame(gameId: string): GameEntry {
 export function generateGameMetadata(gameId: string): Metadata {
   const game = getGame(gameId)
   const title = `${game.name} Save Editor`
-  const description = `Free online ${game.name} save editor. ${game.description} Works entirely in your browser with no downloads required.${
+  const description = `Free online ${game.name} save editor. ${game.description} Edit your save in your browser with no downloads required.${
     game.supportedVersion ? ` Supports version ${game.supportedVersion}.` : ""
   }`
   const url = `${SITE_URL}${game.route}`
@@ -70,7 +70,7 @@ export function generateGameMetadata(gameId: string): Metadata {
 export function generateHomeMetadata(): Metadata {
   const title = "EditMySave - Free Online Game Save Editor"
   const description =
-    "Edit your game save files directly in your browser. Free online save editor for Sworn, Megabonk, Cloverpit, and more. No downloads required, works entirely client-side."
+    "Edit your game save files directly in your browser. Free online save editor for Sworn, Megabonk, Cloverpit, and more. No downloads required."
   const url = SITE_URL
 
   return {

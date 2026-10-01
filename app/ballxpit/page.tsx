@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { SaveFileUpload } from "@/components/save-file-upload"
+import { archiveEdited } from "@/lib/save-archive"
 import { SaveLocationHelp } from "@/components/save-location-help"
 import { EditorSidebar } from "@/components/editor-sidebar"
 import { JsonTreeEditor } from "@/components/json-tree-editor"
@@ -50,6 +51,7 @@ export default function BallxpitSaveEditor() {
       const a = document.createElement("a")
       a.href = url
       a.download = originalFile?.name || "save.yankai"
+      archiveEdited(blob, a.download)
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)

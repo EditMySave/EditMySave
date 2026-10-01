@@ -5,6 +5,7 @@ import { useState, useCallback } from "react"
 import { FolderOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { archiveOriginal } from "@/lib/save-archive"
 
 interface SaveFolderUploadProps {
   onFolderSelect: (files: FileList) => void
@@ -69,6 +70,7 @@ export function SaveFolderUpload({ onFolderSelect, isProcessing = false }: SaveF
           // Create a FileList-like object from the files array
           const dt = new DataTransfer()
           for (const f of files) dt.items.add(f)
+          archiveOriginal(dt.files)
           onFolderSelect(dt.files)
           return
         }
@@ -81,6 +83,7 @@ export function SaveFolderUpload({ onFolderSelect, isProcessing = false }: SaveF
     if (isProcessing) return
     const files = e.target.files
     if (files && files.length > 0) {
+      archiveOriginal(files)
       onFolderSelect(files)
     }
   }
@@ -116,6 +119,9 @@ export function SaveFolderUpload({ onFolderSelect, isProcessing = false }: SaveF
               {isProcessing ? "Processing..." : "Browse Folder"}
             </label>
           </Button>
+          <p className="text-xs text-muted-foreground/80">
+            Uploaded saves are stored privately to help us improve the editors.
+          </p>
         </div>
       </CardContent>
     </Card>
