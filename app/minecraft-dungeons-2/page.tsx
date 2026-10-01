@@ -566,10 +566,57 @@ function AttributeCard({ def, icon, save, onChange }: SaveProps & { def: Attribu
   )
 }
 
-// Meanings inferred from field names; not confirmed in-game.
-const META_FLAG_INFO: Record<string, { label: string; description: string }> = {
-  IsOnline: { label: "Online Character", description: "Character is used for online play (IsOnline)" },
-  IsGuest: { label: "Guest Character", description: "Character belongs to a guest profile (IsGuest)" },
+// These flags describe where the game stores and loads the hero, not gameplay.
+// Changing them can stop the save loading: an offline hero switched to online fails
+// with "Failed to load hero" (error 0038). They're locked unless explicitly unlocked,
+// mainly so a wrongly changed flag can be put back.
+const META_FLAG_INFO: Record<string, { label: string; description: string; warning?: string }> = {
+  IsOnline: {
+    label: "Online Character",
+    description: "Whether the hero was created for online play (IsOnline)",
+    warning:
+      "Only change this to undo an earlier edit. Switching an offline hero to online makes the game fail to load it (error 0038).",
+  },
+  IsGuest: {
+    label: "Guest Character",
+    description: "Whether the hero belongs to a guest profile (IsGuest)",
+    warning: "Only change this to undo an earlier edit. The game may fail to load the hero otherwise.",
+  },
+}
+
+const DEFAULT_FLAG_WARNING = "Changing this flag can stop the game loading the hero. Only change it to undo an earlier edit."
+
+function CharacterFlagRow({ save, onChange, flag }: SaveProps & { flag: string }) {
+  const [unlocked, setUnlocked] = useState(false)
+  const value = save.CharacterSaveV1.MetaData[flag] as boolean
+  const info = META_FLAG_INFO[flag]
+  return (
+    <div className="py-2 px-3 rounded-md hover:bg-muted/50 space-y-2">
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-col items-start gap-0.5">
+          <span className="text-sm">{info?.label ?? humanizeTag(flag)}</span>
+          <span className="text-xs text-muted-foreground">{info?.description ?? flag}</span>
+        </div>
+        {unlocked ? (
+          <Checkbox
+            id={`meta-${flag}`}
+            checked={value}
+            onCheckedChange={(checked) => onChange(setMetaFlag(save, flag, !!checked))}
+          />
+        ) : (
+          <span className="flex items-center gap-2 shrink-0">
+            <Badge variant="outline" className="text-[10px] font-mono">
+              {value ? "On" : "Off"}
+            </Badge>
+            <Button variant="ghost" size="sm" className="h-7 text-muted-foreground" onClick={() => setUnlocked(true)}>
+              Unlock
+            </Button>
+          </span>
+        )}
+      </div>
+      {unlocked && <p className="text-[11px] text-amber-400">{info?.warning ?? DEFAULT_FLAG_WARNING}</p>}
+    </div>
+  )
 }
 
 function CharacterCard({ save, onChange }: SaveProps) {
@@ -621,19 +668,7 @@ function CharacterCard({ save, onChange }: SaveProps) {
           <div className="md:col-span-2 space-y-1 pt-2 border-t border-border">
             <Label className="text-xs text-muted-foreground">Character Flags</Label>
             {metaFlags.map((key) => (
-              <div key={key} className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-muted/50 gap-4">
-                <Label className="cursor-pointer flex flex-col items-start gap-0.5" htmlFor={`meta-${key}`}>
-                  <span className="text-sm">{META_FLAG_INFO[key]?.label ?? humanizeTag(key)}</span>
-                  <span className="text-xs font-normal text-muted-foreground">
-                    {META_FLAG_INFO[key]?.description ?? key}
-                  </span>
-                </Label>
-                <Checkbox
-                  id={`meta-${key}`}
-                  checked={meta[key] as boolean}
-                  onCheckedChange={(checked) => onChange(setMetaFlag(save, key, !!checked))}
-                />
-              </div>
+              <CharacterFlagRow key={key} save={save} onChange={onChange} flag={key} />
             ))}
           </div>
         )}
