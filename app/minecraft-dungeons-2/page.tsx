@@ -45,6 +45,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Sheet, SheetContent, SheetDescription, SheetTitle } from "@/components/ui/sheet"
 import { downloadJSON } from "@/lib/download-json"
 import Link from "next/link"
 import { track } from "@vercel/analytics"
@@ -712,7 +713,14 @@ function InventoryPanel({ save, onChange, selected, onSelect, filter, onFilterCh
   const selectedEntry = selected !== null ? entries[selected] : undefined
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-4 items-start">
+    // While the drawer is open, make room for it so no tile hides underneath. The
+    // padding is the drawer width minus the gap already right of the content column
+    // (max-w-7xl container + p-6); columns follow the grid's own width.
+    <div
+      className={`@container transition-[padding] duration-200 ${
+        selectedEntry ? "lg:pr-[max(0px,calc(536px-(100vw-80rem)/2-1.5rem))]" : ""
+      }`}
+    >
       <div className="space-y-4">
         <div className="flex items-center justify-between gap-2 flex-wrap">
           <div className="flex gap-1 flex-wrap">
@@ -755,7 +763,7 @@ function InventoryPanel({ save, onChange, selected, onSelect, filter, onFilterCh
                 <Icon className="w-4 h-4" />
                 {CATEGORY_LABELS[category]}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 @sm:grid-cols-2 @2xl:grid-cols-3 @4xl:grid-cols-4 gap-2">
                 {items.map(({ entry, index }) => (
                   <ItemTile
                     key={index}
@@ -770,25 +778,24 @@ function InventoryPanel({ save, onChange, selected, onSelect, filter, onFilterCh
         })}
       </div>
 
-      <div className="lg:sticky lg:top-24">
-        {selectedEntry && selected !== null ? (
-          <ItemDetail
-            save={save}
-            onChange={onChange}
-            entry={selectedEntry}
-            index={selected}
-            onSelect={onSelect}
-            entryCount={entries.length}
-          />
-        ) : (
-          <Card className="bg-card border-border">
-            <CardContent className="py-12 text-center text-muted-foreground text-sm">
-              <Package className="w-8 h-8 mx-auto mb-3 opacity-50" />
-              Select an item to edit it
-            </CardContent>
-          </Card>
-        )}
-      </div>
+      <Sheet open={!!selectedEntry} onOpenChange={(open) => !open && onSelect(null)} modal={false}>
+        <SheetContent
+          // Non-modal: clicking another tile switches item instead of closing the drawer.
+          onInteractOutside={(e) => e.preventDefault()}
+          onOpenAutoFocus={(e) => e.preventDefault()}
+        >
+          {selectedEntry && selected !== null && (
+            <ItemDetail
+              save={save}
+              onChange={onChange}
+              entry={selectedEntry}
+              index={selected}
+              onSelect={onSelect}
+              entryCount={entries.length}
+            />
+          )}
+        </SheetContent>
+      </Sheet>
     </div>
   )
 }
@@ -869,6 +876,19 @@ function ItemDetail({ save, onChange, entry, index, entryCount, onSelect }: Item
   const rarities = raritiesFor(TypeTag)
   const slots = equipSlotsFor(TypeTag)
   const uniqueVariant = info?.uniqueOf ? itemInfo(info.uniqueOf) : undefined
+  const itemPower = numberValue(power.ItemPower)
+
+  // Only offer tabs that have something to show for this item.
+  const hasEffects =
+    category === "talisman" ||
+    enchantmentsFor(TypeTag).length > 0 ||
+    rolledEffectsFor(TypeTag).length > 0 ||
+    itemEffects(entry).length > 0
+  const hasStats =
+    category === "armor" || !!meleeStats(TypeTag, info?.baseOf) || !!rangedStats(TypeTag, info?.baseOf)
+  const [tab, setTab] = useState("item")
+  const activeTab = (tab === "effects" && !hasEffects) || (tab === "stats" && !hasStats) ? "item" : tab
+  const effectCount = itemEffects(entry).length
 
   // Switching type keeps the item valid: rarity follows the new item's allowed set.
   const changeType = (tag: string) => {
@@ -881,142 +901,46 @@ function ItemDetail({ save, onChange, entry, index, entryCount, onSelect }: Item
   }
 
   return (
-    <Card className="bg-card border-border">
-      <CardHeader className="pb-3">
-        <div className="flex justify-center py-2">
-          <ItemIcon tag={TypeTag} size="w-28 h-28" />
-        </div>
-        <CardTitle className="text-foreground">
-          <span className="flex items-center gap-2 flex-wrap">
-            {itemName(TypeTag)}
-            {info?.unique && (
-              <Badge variant="outline" className={`text-[10px] ${rarityColor(UNIQUE_RARITY)}`}>
-                <Crown className="w-3 h-3 mr-1" />
-                Unique
+    <div className="flex h-full min-h-0 flex-col">
+      {/* ── Header: always visible ── */}
+      <div className="border-b border-border p-4 pr-12 space-y-3">
+        <div className="flex items-start gap-3">
+          <ItemIcon tag={TypeTag} size="w-16 h-16" />
+          <div className="min-w-0 flex-1">
+            <SheetTitle className="text-lg leading-tight">{itemName(TypeTag)}</SheetTitle>
+            <div className="flex items-center gap-1.5 flex-wrap mt-1.5">
+              <Badge variant="outline" className={`text-[10px] ${rarityColor(RarityTag)}`}>
+                {info?.unique && <Crown className="w-3 h-3 mr-1" />}
+                {rarityName(RarityTag)}
               </Badge>
-            )}
-            <ProductBadge product={info?.product} />
-          </span>
-          <span className="block text-xs font-mono font-normal text-muted-foreground break-all mt-1">{TypeTag}</span>
-        </CardTitle>
-        {info?.description && <p className="text-sm text-muted-foreground italic">{info.description}</p>}
-        {!info && (
-          <p className="text-xs text-amber-400">This item isn&apos;t in the game catalog; editing options are limited.</p>
-        )}
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <EnumSelect
-          label={`Item Type (${CATEGORY_LABELS[category]}${info?.armorPiece ? ` · ${info.armorPiece}` : ""})`}
-          value={TypeTag}
-          options={choices.map((i) => i.tag)}
-          labels={Object.fromEntries([...choices.map((i) => [i.tag, i.name]), [TypeTag, itemName(TypeTag)]])}
-          descriptions={Object.fromEntries(choices.filter((i) => i.description).map((i) => [i.tag, i.description!]))}
-          onChange={changeType}
-        />
-
-        {uniqueVariant && (
-          <Button
-            variant="outline"
-            size="sm"
-            className={`w-full bg-transparent ${rarityColor(UNIQUE_RARITY)}`}
-            onClick={() => onChange(setItemRarity(setItemType(save, index, uniqueVariant.tag), index, UNIQUE_RARITY))}
-          >
-            <Crown className="w-4 h-4 mr-2" />
-            Upgrade to {uniqueVariant.name}
-          </Button>
-        )}
-
-        <EnumSelect
-          label="Rarity"
-          value={RarityTag}
-          options={rarities}
-          labels={Object.fromEntries([...rarities, RarityTag].map((r) => [r, rarityName(r)]))}
-          descriptions={Object.fromEntries(
-            catalog.rarities.map((r) => [
-              r.tag,
-              `${r.effects} rerollable effect${r.effects === 1 ? "" : "s"}, power offset ${r.powerOffset}`,
-            ]),
-          )}
-          onChange={(v) => onChange(setItemRarity(save, index, v))}
-        />
-
-        {hasItemPower(category) && numberValue(power.ItemPower) >= 0 && (
-          <div className="space-y-1.5">
-            <Label className="text-xs text-muted-foreground">
-              Item Power{" "}
-              <span className="opacity-70">
-                (rolled {numberValue(power.ItemPowerMin)}–{numberValue(power.ItemPowerMax)})
-              </span>
-            </Label>
-            <div className="flex gap-2">
-              <Input
-                type="number"
-                value={numberValue(power.ItemPower)}
-                onChange={(e) => onChange(setItemPower(save, index, parseNumber(e.target.value, MAX_ITEM_POWER)))}
-                className="font-mono bg-muted border-border text-foreground"
-              />
-              <Button
-                variant="outline"
-                size="sm"
-                className="h-9 shrink-0 bg-transparent"
-                title={`Highest power a drop can roll at your level (level + ${GEAR_RULES.dropPowerAboveLevel})`}
-                onClick={() => onChange(setItemPower(save, index, maxDropPower(getAttribute(save, "Level"))))}
-              >
-                Max drop ({maxDropPower(getAttribute(save, "Level"))})
-              </Button>
+              {hasItemPower(category) && itemPower >= 0 && (
+                <Badge variant="outline" className="text-[10px] font-mono">
+                  PWR {itemPower}
+                </Badge>
+              )}
+              {entry.EquippedSlot !== NO_SLOT && (
+                <Badge className="text-[10px] bg-primary/20 text-primary border-primary/40" variant="outline">
+                  {equipSlotName(entry.EquippedSlot)}
+                </Badge>
+              )}
+              {merchant && (
+                <Badge variant="outline" className="text-[10px]">
+                  <Store className="w-3 h-3 mr-1" />
+                  Shop
+                </Badge>
+              )}
+              <ProductBadge product={info?.product} />
             </div>
-            <PowerStandingNote power={numberValue(power.ItemPower)} level={getAttribute(save, "Level")} />
           </div>
-        )}
-
-        <PredictedStats save={save} entry={entry} index={index} />
-        <EffectsEditor save={save} onChange={onChange} entry={entry} index={index} />
-
-        <div className="space-y-1.5">
-          <Label className="text-xs text-muted-foreground">Stack Count</Label>
-          <Input
-            type="number"
-            value={numberValue(entry.StackCount)}
-            min={1}
-            onChange={(e) => onChange(setStackCount(save, index, Math.max(1, parseNumber(e.target.value, 9999))))}
-            className="font-mono bg-muted border-border text-foreground"
-          />
         </div>
-
-        {!merchant && slots.length > 0 && (
-          <EnumSelect
-            label="Equipped Slot"
-            value={entry.EquippedSlot}
-            options={slots}
-            labels={Object.fromEntries([...slots, entry.EquippedSlot].map((s) => [s, equipSlotName(s)]))}
-            allowNone
-            onChange={(v) => onChange(setEquippedSlot(save, index, v || NO_SLOT))}
-          />
-        )}
-
-        {merchant && (
-          <div className="space-y-3 p-3 rounded-md bg-muted/50 border border-border">
-            <p className="text-xs text-muted-foreground">
-              This item is on sale at the Village Merchant ({humanizeTag(entry.ItemData.TargetSlotOverride)}).
-            </p>
-            <div className="flex items-center justify-between">
-              <Label htmlFor="merchant-sold" className="text-sm cursor-pointer">
-                Marked as sold
-              </Label>
-              <Checkbox
-                id="merchant-sold"
-                checked={entry.MerchantItemSold}
-                onCheckedChange={(checked) => onChange(setMerchantSold(save, index, !!checked))}
-              />
-            </div>
-            <Button size="sm" className="w-full" onClick={() => onChange(claimMerchantItem(save, index))}>
-              <Store className="w-4 h-4 mr-2" />
-              Claim for Free
-            </Button>
-          </div>
-        )}
-
-        <div className="flex gap-2 pt-2">
+        <SheetDescription className="text-xs italic line-clamp-2" title={info?.description}>
+          {info?.description ?? (
+            <span className="not-italic text-amber-400">
+              This item isn&apos;t in the game catalog; editing options are limited.
+            </span>
+          )}
+        </SheetDescription>
+        <div className="flex gap-2">
           <Button
             variant="outline"
             size="sm"
@@ -1042,8 +966,137 @@ function ItemDetail({ save, onChange, entry, index, entryCount, onSelect }: Item
             Delete
           </Button>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+
+      {/* ── Tabs: the body scrolls on its own ── */}
+      <Tabs value={activeTab} onValueChange={setTab} className="flex min-h-0 flex-1 flex-col gap-0">
+        <TabsList className="mx-4 mt-3 grid grid-cols-3 bg-muted/60">
+          <TabsTrigger value="item">Item</TabsTrigger>
+          <TabsTrigger value="effects" disabled={!hasEffects}>
+            Effects
+            {effectCount > 0 && (
+              <Badge variant="secondary" className="ml-1.5 h-4 px-1 font-mono text-[10px]">
+                {effectCount}
+              </Badge>
+            )}
+          </TabsTrigger>
+          <TabsTrigger value="stats" disabled={!hasStats}>
+            Stats
+          </TabsTrigger>
+        </TabsList>
+        <div className="min-h-0 flex-1 overflow-y-auto p-4">
+          <TabsContent value="item" className="mt-0 space-y-4">
+            <EnumSelect
+              label={`Item Type (${CATEGORY_LABELS[category]}${info?.armorPiece ? ` · ${info.armorPiece}` : ""})`}
+              value={TypeTag}
+              options={choices.map((i) => i.tag)}
+              labels={Object.fromEntries([...choices.map((i) => [i.tag, i.name]), [TypeTag, itemName(TypeTag)]])}
+              descriptions={Object.fromEntries(choices.filter((i) => i.description).map((i) => [i.tag, i.description!]))}
+              onChange={changeType}
+            />
+            {uniqueVariant && (
+              <Button
+                variant="outline"
+                size="sm"
+                className={`w-full bg-transparent ${rarityColor(UNIQUE_RARITY)}`}
+                onClick={() => onChange(setItemRarity(setItemType(save, index, uniqueVariant.tag), index, UNIQUE_RARITY))}
+              >
+                <Crown className="w-4 h-4 mr-2" />
+                Upgrade to {uniqueVariant.name}
+              </Button>
+            )}
+            <EnumSelect
+              label="Rarity"
+              value={RarityTag}
+              options={rarities}
+              labels={Object.fromEntries([...rarities, RarityTag].map((r) => [r, rarityName(r)]))}
+              descriptions={Object.fromEntries(
+                catalog.rarities.map((r) => [
+                  r.tag,
+                  `${r.effects} rerollable effect${r.effects === 1 ? "" : "s"}, power offset ${r.powerOffset}`,
+                ]),
+              )}
+              onChange={(v) => onChange(setItemRarity(save, index, v))}
+            />
+            {hasItemPower(category) && numberValue(power.ItemPower) >= 0 && (
+              <div className="space-y-1.5">
+                <Label className="text-xs text-muted-foreground">
+                  Item Power{" "}
+                  <span className="opacity-70">
+                    (rolled {numberValue(power.ItemPowerMin)}–{numberValue(power.ItemPowerMax)})
+                  </span>
+                </Label>
+                <div className="flex gap-2">
+                  <Input
+                    type="number"
+                    value={numberValue(power.ItemPower)}
+                    onChange={(e) => onChange(setItemPower(save, index, parseNumber(e.target.value, MAX_ITEM_POWER)))}
+                    className="font-mono bg-muted border-border text-foreground"
+                  />
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="h-9 shrink-0 bg-transparent"
+                    title={`Highest power a drop can roll at your level (level + ${GEAR_RULES.dropPowerAboveLevel})`}
+                    onClick={() => onChange(setItemPower(save, index, maxDropPower(getAttribute(save, "Level"))))}
+                  >
+                    Max drop ({maxDropPower(getAttribute(save, "Level"))})
+                  </Button>
+                </div>
+                <PowerStandingNote power={numberValue(power.ItemPower)} level={getAttribute(save, "Level")} />
+              </div>
+            )}
+            {!merchant && slots.length > 0 && (
+              <EnumSelect
+                label="Equipped Slot"
+                value={entry.EquippedSlot}
+                options={slots}
+                labels={Object.fromEntries([...slots, entry.EquippedSlot].map((s) => [s, equipSlotName(s)]))}
+                allowNone
+                onChange={(v) => onChange(setEquippedSlot(save, index, v || NO_SLOT))}
+              />
+            )}
+            <div className="space-y-1.5">
+              <Label className="text-xs text-muted-foreground">Stack Count</Label>
+              <Input
+                type="number"
+                value={numberValue(entry.StackCount)}
+                min={1}
+                onChange={(e) => onChange(setStackCount(save, index, Math.max(1, parseNumber(e.target.value, 9999))))}
+                className="font-mono bg-muted border-border text-foreground"
+              />
+            </div>
+            {merchant && (
+              <div className="space-y-3 p-3 rounded-md bg-muted/50 border border-border">
+                <p className="text-xs text-muted-foreground">
+                  This item is on sale at the Village Merchant ({humanizeTag(entry.ItemData.TargetSlotOverride)}).
+                </p>
+                <div className="flex items-center justify-between">
+                  <Label htmlFor="merchant-sold" className="text-sm cursor-pointer">
+                    Marked as sold
+                  </Label>
+                  <Checkbox
+                    id="merchant-sold"
+                    checked={entry.MerchantItemSold}
+                    onCheckedChange={(checked) => onChange(setMerchantSold(save, index, !!checked))}
+                  />
+                </div>
+                <Button size="sm" className="w-full" onClick={() => onChange(claimMerchantItem(save, index))}>
+                  <Store className="w-4 h-4 mr-2" />
+                  Claim for Free
+                </Button>
+              </div>
+            )}
+          </TabsContent>
+          <TabsContent value="effects" className="mt-0">
+            <EffectsEditor save={save} onChange={onChange} entry={entry} index={index} />
+          </TabsContent>
+          <TabsContent value="stats" className="mt-0">
+            <PredictedStats save={save} entry={entry} index={index} />
+          </TabsContent>
+        </div>
+      </Tabs>
+    </div>
   )
 }
 
@@ -1648,7 +1701,7 @@ function PredictedStats({ save, entry, index }: { save: CharacterSave; entry: In
                 value={p.splashTotal}
                 hint="Damage dealt to enemies next to your target over a full combo"
               />
-              <StatRow label="Weight" value={humanizeTag(melee.weight)} />
+              <StatRow label="Weight" value={melee.weight.charAt(0).toUpperCase() + melee.weight.slice(1)} />
               {otherTotal !== undefined && <p className="text-[11px] text-right">{delta(p.total, otherTotal)}</p>}
             </div>
           )
